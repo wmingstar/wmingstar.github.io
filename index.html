@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,65 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java7-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/07/java7-ftp/" class="article-date">
+  	<time datetime="2016-06-07T13:12:14.000Z" itemprop="datePublished">2016-06-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/07/java7-ftp/">JAVA进阶-FTP服务器端与客户端实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此程序涉及socket编程，socket读写，文件读写。</p>
+<h3 id="server端"><a href="#server端" class="headerlink" title="server端"></a>server端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line">public class ServerFTP &#123;</span><br><span class="line">	int port=8082;       //监听端口</span><br><span class="line">	String filepath=<span class="string">"E:\\123.txt"</span>;  //待传输的文件的路径，注意路径的写法</span><br><span class="line">	void <span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">		Socket s=null;   </span><br><span class="line">		try &#123;</span><br><span class="line">			ServerSocket ss=new ServerSocket(port);   //创建服务端socket用以监听客户端的socket连接</span><br><span class="line">			<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">				File file=new File(filepath);        </span><br><span class="line">				<span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">					file.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"文件长度："</span>+(int)file.length());</span><br><span class="line">				s=ss.accept();       //与客户端socket建立连接</span><br><span class="line">				System.out.println(<span class="string">"建立socket连接"</span>);</span><br><span class="line">				//创建输入流，从文件读取数据</span><br><span class="line">				DataInputStream dis=new DataInputStream(new BufferedInputStream(new FileInputStream(filepath)));</span><br><span class="line">				//创建输出流，将数据输出到socket连接</span><br><span class="line">				DataOutputStream dos=new DataOutputStream(s.getOutputStream());</span><br><span class="line">				dos.writeUTF(file.getName());</span><br><span class="line">				dos.writeLong((long)file.length());</span><br><span class="line">				int bufferSize=8000;</span><br><span class="line">				byte[] buf=new byte[bufferSize];   //存储读取的数据</span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					int <span class="built_in">read</span>=0;</span><br><span class="line">					<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">						<span class="built_in">read</span>=dis.read(buf);      //从输入流读取数据并存入 buf[]中，             </span><br><span class="line">					&#125;                            //dis.read(buf)返回的是读取数据流的大小</span><br><span class="line">					<span class="keyword">if</span>(<span class="built_in">read</span>==-1)&#123;</span><br><span class="line">						<span class="built_in">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					dos.write(buf,0,<span class="built_in">read</span>);       //将buff[]中的数据通过输出流写入到socket中</span><br><span class="line">				&#125;</span><br><span class="line">				dis.close();</span><br><span class="line">				s.close();</span><br><span class="line">				System.out.println(<span class="string">"文件传输完毕！！"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new ServerFTP().start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="client端"><a href="#client端" class="headerlink" title="client端"></a>client端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line"></span><br><span class="line">import javax.security.auth.login.CredentialException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class Client &#123;</span><br><span class="line">	private Socket s=null;</span><br><span class="line">	private int port=8082;            //服务器端的监听端口</span><br><span class="line">	private String ip=<span class="string">"localhost"</span>;   //要连接的服务器端地址</span><br><span class="line">	//构造函数，建立socket连接</span><br><span class="line">	public <span class="function"><span class="title">Client</span></span>()&#123;</span><br><span class="line">		createconnection();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建socket连接</span><br><span class="line">	private void <span class="function"><span class="title">createconnection</span></span>()&#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			s=new Socket(ip, port);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"连接出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private void <span class="function"><span class="title">getFile</span></span>() &#123;</span><br><span class="line">		String savePath=<span class="string">"F:\\"</span>;   //指定文件存储路径</span><br><span class="line">		int bufferSize=8000;      </span><br><span class="line">		byte[] buf=new byte[bufferSize];</span><br><span class="line">		int total_len=0;</span><br><span class="line">		long length=0;</span><br><span class="line">		try &#123;</span><br><span class="line">			//创建输入流从socket读取数据</span><br><span class="line">			DataInputStream dis=new DataInputStream(new BufferedInputStream(s.getInputStream()));</span><br><span class="line">			savePath+=dis.readUTF();    //dis.readUTF() 获取文件名</span><br><span class="line">			//创建输出流，将数据输出到文件</span><br><span class="line">			DataOutputStream dos=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(savePath)));</span><br><span class="line">			length=dis.readLong();</span><br><span class="line">			System.out.println(<span class="string">"文件长度："</span>+length+<span class="string">"\n"</span>);</span><br><span class="line">			<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">				int <span class="built_in">read</span>=0;</span><br><span class="line">				<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">					<span class="built_in">read</span>=dis.read(buf);  //从socket读取数据并存入buf[]</span><br><span class="line">				&#125;</span><br><span class="line">				total_len+=<span class="built_in">read</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">read</span>==-1) &#123;</span><br><span class="line">					<span class="built_in">break</span>;					</span><br><span class="line">				&#125;</span><br><span class="line">				dos.write(buf,0,<span class="built_in">read</span>);   //将buf[]中的数据写入文件</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"接收文件另存为："</span>+savePath+<span class="string">"\n"</span>);</span><br><span class="line">			dos.close();</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		new Client().getFile();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java6" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -429,74 +488,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/15/java5/" class="article-date">
-  	<time datetime="2016-05-15T07:17:13.000Z" itemprop="datePublished">2016-05-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/15/java5/">JAVA进阶——接口</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是接口？这是一个问题"><a href="#什么是接口？这是一个问题" class="headerlink" title="什么是接口？这是一个问题"></a>什么是接口？这是一个问题</h2><p>因为之前没学过计算机相关的基础知识，在听大神谈到接口时总一脸懵逼，完全不理解接口是什么。今天<br>看java的相关知识，才有点明白。</p>
-<p>接口：是若干常量和抽象方法的集合。使用 interface关键字来声明，可以看做是一种特殊的抽象类，可以<br>指定一个类必须做什么，而不是规定它如何去做。</p>
-<h2 id="接口的几点特性"><a href="#接口的几点特性" class="headerlink" title="接口的几点特性"></a>接口的几点特性</h2><p>1.接口中只能定义抽象方法，这些方法默认为 public abstract 的，因而在声明方法时可以省略这些修饰符。<br>2.接口中没有构造方法，不能被实例化。<br>3.一个接口不实现另一个接口，但可以继承多个其他接口（类单继承）。</p>
-<h2 id="那为什么要用接口呢？"><a href="#那为什么要用接口呢？" class="headerlink" title="那为什么要用接口呢？"></a>那为什么要用接口呢？</h2><p>大型项目开发中，可能需要从继承链的中间插入一个类，让它的子类具备某些功能而不影响它们的父类。例<br>如 A -&gt; B -&gt; C -&gt; D -&gt; E，A 是祖先类，如果需要为C、D、E类添加某些通用的功能，最简单的方法是让C类再<br>继承另外一个类。但问题是，Java 是一种单继承的语言，不能再让C继承另外一个父类了，只到移动到继承链<br>的最顶端，让A再继承一个父类。这样一来，对C、D、E类的修改，影响到了整个继承链，不具备可插入性的设计。</p>
-<p>接口是可插入性的保证。在一个继承链中的任何一个类都可以实现一个接口，这个接口会影响到此类的所<br>有子类，但不会影响到此类的任何父类。此类将不得不实现这个接口所规定的方法，而子类可以从此类自动<br>继承这些方法，这时候，这些子类具有了可插入性。</p>
-<p>接口提供了关联以及方法调用上的可插入性，软件系统的规模越大，生命周期越长，接口使得软件系统的<br>灵活性和可扩展性，可插入性方面得到保证。</p>
-<p>接口在面向对象的 Java 程序设计中占有举足轻重的地位。事实上在设计阶段最重要的任务之一就是设计出<br>各部分的接口，然后通过接口的组合，形成程序的基本框架结构。</p>
-<h2 id="接口与抽象类的对比"><a href="#接口与抽象类的对比" class="headerlink" title="接口与抽象类的对比"></a>接口与抽象类的对比</h2><pre><code>相同点
-</code></pre><p>（1）都代表类树形结构的抽象层。在使用引用变量时，尽量使用类结构的抽象层，使方法的定义和实现分离，这<br>样做对于代码有松散耦合的好处。<br>（2）都不能被实例化。<br>（3）都能包含抽象方法，抽象方法用来描述系统提供哪些功能，而不必关心具体的实现。</p>
-<pre><code>区别
-</code></pre><p>（1）抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象<br>类的优势；而接口中只能包含抽象方法，不能包含任何实现。<br>（2）) 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。</p>
-<h2 id="对于接口和抽象类的选择"><a href="#对于接口和抽象类的选择" class="headerlink" title="对于接口和抽象类的选择"></a>对于接口和抽象类的选择</h2><p>（1）行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。<br>（2）选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       

@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/23/java1/" class="article-date">
+  	<time datetime="2016-04-23T08:27:46.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/java1/">JAVA进阶——冒泡排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在程序员相关职位的面试、笔试过程中，算法是绕不过去的一道坎。当遇到算法题，作为程序员的我们都会眉头紧锁，但是，真正的程序员只是皱下眉头，然后利落的敲击键盘，将每个算法题搞定。显然，我还不算真正的程序员，但是作为小白的我要下决心做一个小程序员，敲敲代码，装装逼格。<br>好了，就从冒泡算法开始吧。<br>如果，你正在看这篇博客，说明你知道什么叫冒泡排序。你不知道？好吧，我再唠叨下，从名字应该知道这个算法是用来给数字排序的，而冒泡是它的名字，这名字很贴切，因为这个算法就是对一组数进行比较，每进行一轮比较，就将较小的数字排到上面来，就像气泡一样，从下面升上来。</p>
+<p>配合图解效果更好哦！</p>
+<p><img src="/img/Bubblesort.jpg" alt=""></p>
+<h4 id="来，小明上代码。"><a href="#来，小明上代码。" class="headerlink" title="来，小明上代码。"></a>来，小明上代码。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class BubbleSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[j+1])</span><br><span class="line">				&#123;</span><br><span class="line">					int temp=0;</span><br><span class="line">					temp=a[j];</span><br><span class="line">					a[j]=a[j+1];</span><br><span class="line">					a[j+1]=temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>不论哪种排序，代码都是其次的，关键是理解算法的思想。冒泡排序，每一次比较，都是将数组中相邻两元素进行比较，然后将两元素中较大的数排到后面，这样就可以将大数排到后面，小数排到前面。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-258-Add-Digits" class="article article-type-post" itemscope itemprop="blogPost">
   

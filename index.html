@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 15px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
+						<a href="/tags/Github/" style="font-size: 13.33px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 13.33px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
 					</div>
 				</section>
 				
@@ -198,6 +198,265 @@
 
       <div class="body-wrap">
   
+    <article id="post-yum源" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/yum源/" class="article-date">
+  	<time datetime="2016-06-26T09:39:06.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/yum源/">制作yum源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>制作本地yum源有三种方法，一是直接使用CentOS安装镜像文件作为本地yum源，优点是简单便捷，缺点是镜像文件中的软件包不完整，(centos 7 Everything 才7G左右)；二是同步CentOS官方源到本地（相当于创建了一个公共镜像），优点是软件包很全，缺点是占空间费流量；三是创建完全自定义的本地源，优点是灵活性最大，缺点是只是作为其他源的补充。</p>
+<p>上面的三种方法，我自己试过前两种，第一种用centos 7 Everything的iso文件做本地yum源，安装scrapy时需要的依赖包有些本地源中有，但有些并没有，因此第一种相对来说不太可靠。</p>
+<h2 id="第一种：-使用CentOS7-iso镜像文件作为本地yum源"><a href="#第一种：-使用CentOS7-iso镜像文件作为本地yum源" class="headerlink" title="第一种： 使用CentOS7 iso镜像文件作为本地yum源"></a>第一种： 使用CentOS7 iso镜像文件作为本地yum源</h2><h3 id="挂载ISO镜像文件"><a href="#挂载ISO镜像文件" class="headerlink" title="挂载ISO镜像文件"></a>挂载ISO镜像文件</h3><p>(1) 实体机上直接放入光盘<br>(2) VMware Workstation 虚拟机：虚拟机–&gt;可移动设备–&gt;连接<br>(此处我用的是移动硬盘，由于移动硬盘是ntfs文件系统，需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz，编译安装，需要先安装gcc 再挂载 ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mkdir /mnt/ntfs #创建目录  </span></span><br><span class="line"><span class="comment">#mount -t ntfs-3g /dev/sdb1  /mnt/ntfs #挂载  </span></span><br><span class="line"><span class="comment">#umount /mnt/ntfs #卸载</span></span><br></pre></td></tr></table></figure></p>
+<p>若不想每次都要放光盘，那就复制iso文件到本地硬盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -avf /mnt/ntfs/CentOS-7-x86_64-Everything-1511.iso  /home/star<span class="comment">#  -a：该选项保留链接、文件属性，并递归地复制目录</span></span><br><span class="line">将iso文件挂载</span><br><span class="line"><span class="comment">#mkdir /media/cdrom/</span></span><br><span class="line"><span class="comment">#mount -t iso9660 /home/star/CentOS-7-x86_64-Everything-1511.iso /media/cdrom/</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="创建repo文件"><a href="#创建repo文件" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vim /etc/yum.repos.d/CentOS-Local.repo </span></span><br><span class="line"> </span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///media/cdrom/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<h2 id="2-同步官方镜像到本地，CentOS创建公共镜像"><a href="#2-同步官方镜像到本地，CentOS创建公共镜像" class="headerlink" title="2.同步官方镜像到本地，CentOS创建公共镜像"></a>2.同步官方镜像到本地，CentOS创建公共镜像</h2><p>详细说明见官方中文文档：<a href="http://wiki.centos.org/zh/HowTos/CreatePublicMirrors" target="_blank" rel="external">http://wiki.centos.org/zh/HowTos/CreatePublicMirrors</a><br>提供一个SHELL脚本，然后cron自动运行~~</p>
+<p>脚本稍作修改，换成中科大的镜像源。可用镜像列表见：<a href="http://www.centos.org/download/mirrors/" target="_blank" rel="external">http://www.centos.org/download/mirrors/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">localpath=<span class="string">"/mirrors/CentOS"</span>  </span><br><span class="line">mirror=<span class="string">"mirrors.hustunique.com::centos"</span>  </span><br><span class="line">rsync=<span class="string">"rsync -avzH --delete"</span>  </span><br><span class="line"> </span><br><span class="line">verlist=<span class="string">"7"</span>  </span><br><span class="line">baselist=<span class="string">"centosplus extras fasttrack os updates"</span>  </span><br><span class="line">archlist=<span class="string">"x86_64"</span>  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> ver <span class="keyword">in</span> <span class="variable">$verlist</span>  </span><br><span class="line"><span class="keyword">do</span>  </span><br><span class="line">	<span class="keyword">for</span> base <span class="keyword">in</span> <span class="variable">$baselist</span>  </span><br><span class="line">	<span class="keyword">do</span>  </span><br><span class="line">		<span class="keyword">for</span> arch <span class="keyword">in</span> <span class="variable">$archlist</span>  </span><br><span class="line">		<span class="keyword">do</span>  </span><br><span class="line">			remote=<span class="variable">$mirror</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			mkdir -pv <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			<span class="variable">$rsync</span> <span class="variable">$remote</span> <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">		<span class="keyword">done</span>  </span><br><span class="line">	<span class="keyword">done</span>  </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="三、创建完全自定义的本地源"><a href="#三、创建完全自定义的本地源" class="headerlink" title="三、创建完全自定义的本地源"></a>三、创建完全自定义的本地源</h2><p>把平时收藏的一些RPM软件包放在一个目录里，就变成一个自定义源了，可以用YUM来管理，灵活性相当大。</p>
+<h3 id="创建本地yum仓库"><a href="#创建本地yum仓库" class="headerlink" title="创建本地yum仓库"></a>创建本地yum仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /yum/<span class="built_in">local</span> <span class="comment">#可以有N级目录  </span></span><br><span class="line">cp ... <span class="comment">#复制RPM包到上述目录</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建repo文件-1"><a href="#创建repo文件-1" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vim/etc/yum.repos.d/CentOS-Local.repo</span></span><br><span class="line"></span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///yum/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### 安装createrepo</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#yum install createrepo #使用yum安装createrepo  </span></span><br><span class="line"><span class="comment">#rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/createrepo-0.9.9-23.el7.noarch.rpm</span></span><br><span class="line"><span class="comment">### 创建索引</span></span><br><span class="line">``` bash</span><br><span class="line">createrepo /yum   </span><br><span class="line">yum makecache <span class="comment">#更新缓存</span></span><br></pre></td></tr></table></figure>
+<h3 id="附赠"><a href="#附赠" class="headerlink" title="附赠"></a>附赠</h3><p>添加yum源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[1] Add RPMforge Repository <span class="keyword">for</span> yum because that has many useful packages.  </span><br><span class="line">[root@dlp ~]<span class="comment">#  wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm  </span></span><br><span class="line">[root@dlp ~]<span class="comment">#  rpm -Uvh rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm  </span></span><br><span class="line">Preparing… <span class="comment">###################################### [100%] 1:rpmforge-release ###################################### [100%]  </span></span><br><span class="line">[root@dlp ~]<span class="comment"># sed -i -e "s/enabled = 1/enabled = 0/g" /etc/yum.repos.d/rpmforge.repo  </span></span><br><span class="line">  </span><br><span class="line">[2] Add repository EPEL that is provided from Fedora project.  </span><br><span class="line">  </span><br><span class="line">[root@dlp ~]<span class="comment">#  wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm  </span></span><br><span class="line">[root@dlp ~]<span class="comment">#  rpm -Uvh epel-release-6-8.noarch.rpm  </span></span><br><span class="line">Preparing… <span class="comment">###################################### [100%] 1:epel-release ###################################### [100%]  </span></span><br><span class="line">[root@dlp ~]<span class="comment">#  sed -i -e "s/enabled=1/enabled=0/g" /etc/yum.repos.d/epel.repo</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/pip源/" class="article-date">
+  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/pip源/">制作pip源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>配置环境太坑了，离线配置环境更坑，有些人 just sp。好了，说正事。</p>
+<h2 id="用脚本安装pip"><a href="#用脚本安装pip" class="headerlink" title="用脚本安装pip"></a>用脚本安装pip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#unzip pip.master.zip</span></span><br><span class="line"><span class="comment">#cd pip.master</span></span><br><span class="line"><span class="comment">#python setup.py  install</span></span><br></pre></td></tr></table></figure>
+<h2 id="制作pip本地源（centos7自带-pyhton2-7）"><a href="#制作pip本地源（centos7自带-pyhton2-7）" class="headerlink" title="制作pip本地源（centos7自带 pyhton2.7）"></a>制作pip本地源（centos7自带 pyhton2.7）</h2><h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># unzip distribute-0.7.3.zip</span></span><br><span class="line"><span class="comment"># cd distribute-0.7.3</span></span><br><span class="line"><span class="comment"># python setup.py install</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># unzip virtualenv.zip</span></span><br><span class="line"><span class="comment"># cd virtualenv</span></span><br><span class="line"><span class="comment"># python setup.py install</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># virtualenv-2.7 bandersnatch</span></span><br><span class="line"><span class="comment"># cd bandersnatch</span></span><br><span class="line"><span class="comment"># bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Run </span><br><span class="line"># bandersnatch mirror </span><br><span class="line">（- it will create an empty configuration file for you in /etc/bandersnatch.conf.）</span><br><span class="line">根据自己的需求更改配置文件  /etc/bandersnatch.conf </span><br><span class="line">Run </span><br><span class="line">#bandersnatch mirror </span><br><span class="line">again.</span><br><span class="line">（It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect this to grow substantially over time.</span><br><span class="line">Run bandersnatch mirror regularly to update your mirror with any intermediate changes.</span><br></pre></td></tr></table></figure>
+<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/python-1/" class="article-date">
+  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
+<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
+<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/linux目录详解/" class="article-date">
+  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>六月是一个令我惆怅的月份，学长们相继跑路实习了，自己很荣幸的接过了学长留下的锅。最近做的项目是一个分布式的文件管理、计算、变异系统，分布式就意味着需要部署系统，配置环境，所以最近在看鸟哥的书，就顺手整理了下。今天说点linux系统目录的知识。</p>
+<h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><p>根目录，所有东西均在该目录下</p>
+<h2 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h2><p>这是系统管理员(root user)的目录.</p>
+<h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h2><p>这里存放了标准的(或者说是缺省的)linux的工具，比如像“ls”、“vi”还有“more”等等。通常来说，这个目录已经包含在你的“path”系 统变量里面了。系统所需要的那些命令位于此目录，比如 ls、cp、mkdir等命令；这个目录中的文件都是可执行的、普通用户都可以使用的命令。作为基础系统所需要的最基础的命令就是放在这里。</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h2><p>这里主要存放了系统配置方面的文件。举个例子：你安装了fastdfs，当你想要修改fastdfs配置文件的时候，你会发现它们(配置文件)就在/etc/fdfs目录下。</p>
+<h2 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h2><p>这里主要存放与设备(包括外设)有关的文件(unix和linux系统均把设备当成文件)。比如打印机,系统就是从这个目录开始工作的。另外还有一些包括磁盘驱动、USB驱动等都放在这个目录。</p>
+<h2 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h2><p>这里主要存放你的个人数据。具体每个用户的设置文件，用户的桌面文件夹，还有用户的数据都放在这里。每个用户都有自己的用户目录，位置为：/home/用户名。</p>
+<h2 id="tmp"><a href="#tmp" class="headerlink" title="/tmp"></a>/tmp</h2><p>这是临时目录。对于某些程序来说，有些文件被用了一次两次之后，就不会再被用到，像这样的文件就放在这里。有些linux系统会定期自动对这个目录进行清理，因此，千万不要把重要的数据放在这里。</p>
+<h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h2><p>在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如游戏或等，/usr目录包含了许多子目录： /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是“新立得”吧)会自动帮你管理好/usr目录的。<br>/usr/local主要存放那些用户手动编译安装的软件，一般是通过源码包安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下。</p>
+<h2 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h2><p>Linux的内核及引导系统程序所需要的文件目录，比如 vmlinuz initrd.img 文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录。</p>
+<h2 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h2><p>这个目录一般是用于存放挂载储存设备的挂载目录的，比如usb等目录,光驱可以挂载到/mnt/cdrom 。</p>
+<h2 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h2><p>表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure –prefix=/opt/目录 。</p>
+<h2 id="proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。"><a href="#proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。" class="headerlink" title="/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。"></a>/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。</h2><h2 id="sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"><a href="#sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。" class="headerlink" title="/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"></a>/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。</h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h2><p>这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-java8-basis" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -275,255 +534,9 @@
 
 
   
-    <article id="post-java7-ftp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/java7-ftp/" class="article-date">
-  	<time datetime="2016-06-07T13:12:14.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/java7-ftp/">JAVA进阶-FTP服务器端与客户端实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>此程序涉及socket编程，socket读写，文件读写。</p>
-<h3 id="server端"><a href="#server端" class="headerlink" title="server端"></a>server端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line">public class ServerFTP &#123;</span><br><span class="line">	int port=8082;       //监听端口</span><br><span class="line">	String filepath=<span class="string">"E:\\123.txt"</span>;  //待传输的文件的路径，注意路径的写法</span><br><span class="line">	void <span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">		Socket s=null;   </span><br><span class="line">		try &#123;</span><br><span class="line">			ServerSocket ss=new ServerSocket(port);   //创建服务端socket用以监听客户端的socket连接</span><br><span class="line">			<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">				File file=new File(filepath);        </span><br><span class="line">				<span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">					file.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"文件长度："</span>+(int)file.length());</span><br><span class="line">				s=ss.accept();       //与客户端socket建立连接</span><br><span class="line">				System.out.println(<span class="string">"建立socket连接"</span>);</span><br><span class="line">				//创建输入流，从文件读取数据</span><br><span class="line">				DataInputStream dis=new DataInputStream(new BufferedInputStream(new FileInputStream(filepath)));</span><br><span class="line">				//创建输出流，将数据输出到socket连接</span><br><span class="line">				DataOutputStream dos=new DataOutputStream(s.getOutputStream());</span><br><span class="line">				dos.writeUTF(file.getName());</span><br><span class="line">				dos.writeLong((long)file.length());</span><br><span class="line">				int bufferSize=8000;</span><br><span class="line">				byte[] buf=new byte[bufferSize];   //存储读取的数据</span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					int <span class="built_in">read</span>=0;</span><br><span class="line">					<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">						<span class="built_in">read</span>=dis.read(buf);      //从输入流读取数据并存入 buf[]中，             </span><br><span class="line">					&#125;                            //dis.read(buf)返回的是读取数据流的大小</span><br><span class="line">					<span class="keyword">if</span>(<span class="built_in">read</span>==-1)&#123;</span><br><span class="line">						<span class="built_in">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					dos.write(buf,0,<span class="built_in">read</span>);       //将buff[]中的数据通过输出流写入到socket中</span><br><span class="line">				&#125;</span><br><span class="line">				dis.close();</span><br><span class="line">				s.close();</span><br><span class="line">				System.out.println(<span class="string">"文件传输完毕！！"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new ServerFTP().start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="client端"><a href="#client端" class="headerlink" title="client端"></a>client端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line"></span><br><span class="line">import javax.security.auth.login.CredentialException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class Client &#123;</span><br><span class="line">	private Socket s=null;</span><br><span class="line">	private int port=8082;            //服务器端的监听端口</span><br><span class="line">	private String ip=<span class="string">"localhost"</span>;   //要连接的服务器端地址</span><br><span class="line">	//构造函数，建立socket连接</span><br><span class="line">	public <span class="function"><span class="title">Client</span></span>()&#123;</span><br><span class="line">		createconnection();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建socket连接</span><br><span class="line">	private void <span class="function"><span class="title">createconnection</span></span>()&#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			s=new Socket(ip, port);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"连接出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private void <span class="function"><span class="title">getFile</span></span>() &#123;</span><br><span class="line">		String savePath=<span class="string">"F:\\"</span>;   //指定文件存储路径</span><br><span class="line">		int bufferSize=8000;      </span><br><span class="line">		byte[] buf=new byte[bufferSize];</span><br><span class="line">		int total_len=0;</span><br><span class="line">		long length=0;</span><br><span class="line">		try &#123;</span><br><span class="line">			//创建输入流从socket读取数据</span><br><span class="line">			DataInputStream dis=new DataInputStream(new BufferedInputStream(s.getInputStream()));</span><br><span class="line">			savePath+=dis.readUTF();    //dis.readUTF() 获取文件名</span><br><span class="line">			//创建输出流，将数据输出到文件</span><br><span class="line">			DataOutputStream dos=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(savePath)));</span><br><span class="line">			length=dis.readLong();</span><br><span class="line">			System.out.println(<span class="string">"文件长度："</span>+length+<span class="string">"\n"</span>);</span><br><span class="line">			<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">				int <span class="built_in">read</span>=0;</span><br><span class="line">				<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">					<span class="built_in">read</span>=dis.read(buf);  //从socket读取数据并存入buf[]</span><br><span class="line">				&#125;</span><br><span class="line">				total_len+=<span class="built_in">read</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">read</span>==-1) &#123;</span><br><span class="line">					<span class="built_in">break</span>;					</span><br><span class="line">				&#125;</span><br><span class="line">				dos.write(buf,0,<span class="built_in">read</span>);   //将buf[]中的数据写入文件</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"接收文件另存为："</span>+savePath+<span class="string">"\n"</span>);</span><br><span class="line">			dos.close();</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		new Client().getFile();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/java6/" class="article-date">
-  	<time datetime="2016-06-07T09:34:24.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/java6/">JAVA进阶-万年历</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>此程序可以计算某一日期是这一年的第多少天以及第几周和这一天是星期几，并可以输出当年的日历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package project1;</span><br><span class="line">import java.util.Scanner;;</span><br><span class="line">public class MyCalendar &#123;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	//计算这一天是今年的第多少天</span><br><span class="line">	private static int count_day(int year,int month,int day) &#123;</span><br><span class="line">		int month_day[]=&#123;31,28,31,30,31,30,31,31,30,31,30,31&#125;;</span><br><span class="line">		int day_count=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;month-1;i++)&#123;</span><br><span class="line">			day_count+=month_day[i];</span><br><span class="line">		&#125;</span><br><span class="line">		day_count+=day;</span><br><span class="line">		<span class="keyword">if</span>(month&gt;2)&#123;</span><br><span class="line">			<span class="built_in">return</span> isLeap(year)?day_count+1:day_count;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> day_count;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//判断是否是闰年</span><br><span class="line">	private static Boolean isLeap(int year) &#123;</span><br><span class="line">		<span class="keyword">if</span>((year%400==0) ||(( year%4==0) &amp;&amp; (year%100!=0))) <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static int weekcount(int year,int month,int day) &#123;</span><br><span class="line">		int count_week=0;</span><br><span class="line">		int dayCnt = count_day(year,month,day);</span><br><span class="line">		int weekminus = getWeek(year,month,day)-getWeek(year,1,1);</span><br><span class="line">		<span class="keyword">if</span>(dayCnt%7==0) count_week = dayCnt/7+((weekminus&gt;0)?1:0);</span><br><span class="line">		<span class="keyword">else</span> count_week = dayCnt/7+((weekminus&gt;0)?2:1);</span><br><span class="line">		<span class="built_in">return</span> count_week;	</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//计算输入日期是星期几</span><br><span class="line">	//采用了基姆拉尔森计算公式 </span><br><span class="line">	//W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400) mod 7 </span><br><span class="line">	//在公式中d表示日期中的日数，m表示月份数，y表示年数。</span><br><span class="line">	//注意：在公式中有个与其他公式不同的地方： </span><br><span class="line">	//把一月和二月看成是上一年的十三月和十四月，例：如果是2004-1-10则换算成：2003-13-10来代入公式计算。</span><br><span class="line">	//计算结果是  (星期几-1) </span><br><span class="line">	public static int getWeek(int year,int month,int day)&#123;</span><br><span class="line">		<span class="keyword">if</span>(month&lt;3)&#123;</span><br><span class="line">			month+=12; year--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> (day+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void <span class="built_in">print</span>Cal(int year)&#123;</span><br><span class="line">		byte dayadd[]=&#123;0,1,-2,1,0,1,0,1,1,0,1,0,1&#125;; //同样的，每月天数和30的差值，注意，dayadd[0]的0并没用到</span><br><span class="line">		int wkpoint = getWeek(year,1,1);			//wkpoint用来指出当前日期的星期数		</span><br><span class="line">		int t = 0;									//t用来作为一个标记器，解决闰年2月有29天的问题</span><br><span class="line">		int bk = 0;									//bk用来记录需输空白的数目</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;13;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			t = 0;</span><br><span class="line">			bk = 0;</span><br><span class="line">			<span class="keyword">if</span>((i==2)&amp;&amp;(isLeap(year))) </span><br><span class="line">				t = 1;								//当且仅当闰年的2月份才将其置为1</span><br><span class="line">			System.out.println(<span class="string">"\n\t\t"</span>+year+<span class="string">" 年 "</span>+i+<span class="string">" 月\n"</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;7;j++)</span><br><span class="line">				System.out.print(week[j]+<span class="string">"\t"</span>);</span><br><span class="line">			System.out.println();</span><br><span class="line">			<span class="keyword">while</span>(bk++&lt;wkpoint)</span><br><span class="line">				System.out.print(<span class="string">'\t'</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=(30+dayadd[i]+t);j++)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.print(j+<span class="string">"\t"</span>);			//循环输出每月日期</span><br><span class="line">				<span class="keyword">if</span>(wkpoint==6) </span><br><span class="line">					&#123; wkpoint = 0; System.out.print(<span class="string">'\n'</span>);&#125;  //当wkpoint计数器为6时将其置为0，并换行</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					wkpoint++;												</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">"请输入日期（格式：****,**,**）："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String get_date=input.nextLine();</span><br><span class="line">		String date[]=get_date.split(<span class="string">","</span>);</span><br><span class="line">		int year=Integer.parseInt(date[0]);</span><br><span class="line">		int month=Integer.parseInt(date[1]);</span><br><span class="line">		int day=Integer.parseInt(date[2]);</span><br><span class="line">		System.out.println(month+<span class="string">"月"</span>+day+<span class="string">"日"</span>+<span class="string">"是"</span>+year+<span class="string">"的第"</span>+count_day(year,month,day)+<span class="string">"天"</span>);</span><br><span class="line">		System.out.println(<span class="string">"这一天是这一年的第"</span>+weekcount(year,month,day)+<span class="string">"周"</span>+<span class="string">"  "</span>+week[getWeek(year, month, day)]);</span><br><span class="line">		System.out.println(<span class="string">"日期:"</span>+year+<span class="string">" "</span>+month+<span class="string">" "</span>+day);</span><br><span class="line">		//<span class="built_in">print</span>Cal(year);</span><br><span class="line">		input.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/05/github2/" class="article-date">
-  	<time datetime="2016-06-05T11:24:53.403Z" itemprop="datePublished">2016-06-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/github2/">Hexo 简单教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a><br><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo API</a><br><a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Hexo Troubleshooting</a> </p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="写新文章，先创建-Post"><a href="#写新文章，先创建-Post" class="headerlink" title="写新文章，先创建 Post"></a>写新文章，先创建 Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>这时，在本地目录 hexo/source/  下会出现一个 My New Post.md 文件，这便是刚刚创建的post，用Notepad++打开，就可以写文章啦！<br>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="开启本地Hexo服务，查看效果"><a href="#开启本地Hexo服务，查看效果" class="headerlink" title="开启本地Hexo服务，查看效果"></a>开启本地Hexo服务，查看效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>此时，本地Hexo服务启动，打开浏览器 输入：localhost:4000 查看<br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="上传到远端主机（Github）"><a href="#上传到远端主机（Github）" class="headerlink" title="上传到远端主机（Github）"></a>上传到远端主机（Github）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java-type-conversion" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/01/java-type-conversion/" class="article-date">
-  	<time datetime="2016-06-01T00:59:36.000Z" itemprop="datePublished">2016-06-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/01/java-type-conversion/">JAVA进阶——类型转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。</p>
-<h2 id="String类与字符型相互转换"><a href="#String类与字符型相互转换" class="headerlink" title="String类与字符型相互转换"></a>String类与字符型相互转换</h2><h3 id="String转char"><a href="#String转char" class="headerlink" title="String转char:"></a>String转char:</h3><p>用String的toCharArray()方法可以将字符串转换为字符数组。<br>String str=”just for test”;<br>char char_arr[]=str.toCharArray();</p>
-<p>或者<br>用String的charAt(index)方法可以获得index处的字符。<br>char a=str.charAt(index);</p>
-<h3 id="char转String"><a href="#char转String" class="headerlink" title="char转String:"></a>char转String:</h3><p>注意：任何类型都可以用toString()方法转换为String。（基本类型不可以，基本类型对应的包装类可以,基本类型与其对应的包装类之间可以自动实现拆箱与装箱）。<br>Character a=new Character(‘a’);<br>String str=a.toString();</p>
-<p>或者：<br>char a=’a’;<br>String str=a+””;</p>
-<h2 id="String类与整型之间相互转换"><a href="#String类与整型之间相互转换" class="headerlink" title="String类与整型之间相互转换"></a>String类与整型之间相互转换</h2><h3 id="String转int："><a href="#String转int：" class="headerlink" title="String转int："></a>String转int：</h3><p>String str=”123”;<br>int a=Integer.parseInt(str);<br>或者<br>int a=Integer.valueOf(my_str).intValue();</p>
-<h3 id="String-转Integer"><a href="#String-转Integer" class="headerlink" title="String 转Integer:"></a>String 转Integer:</h3><p>Integer a=Integer.valueOf(str);</p>
-<h3 id="int转String："><a href="#int转String：" class="headerlink" title="int转String："></a>int转String：</h3><p>int a=12;<br>Integer num=a;<br>String str=num.toString();<br>或者：<br>int a=12;<br>String str=a+””;<br>或者：<br>int a=12;<br>String str=String.valueOf(a);</p>
-<h2 id="整型与字符之间相互转换"><a href="#整型与字符之间相互转换" class="headerlink" title="整型与字符之间相互转换"></a>整型与字符之间相互转换</h2><h3 id="int转char"><a href="#int转char" class="headerlink" title="int转char:"></a>int转char:</h3><h3 id="char转int"><a href="#char转int" class="headerlink" title="char转int"></a>char转int</h3><p>char a=’a’;<br>int num=a-‘0’;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

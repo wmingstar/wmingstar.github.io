@@ -4,17 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | Coder1919</title>
+  <title>leetcode-226-invert-binary-tree | Coder1919</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java elasticsearch github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Coder1919">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!
+题目Invert a binary tree.
+4
+   /   \  2     7 / \   / \1   3 6   9
+to
+4
+   /   \  7     2 / \   / \9   6 3   1
+解12345678910111213141516171819202122">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-226-invert-binary-tree">
+<meta property="og:url" content="http://yoursite.com/2016/07/08/leetcode-226-invert-binary-tree/index.html">
 <meta property="og:site_name" content="Coder1919">
-<meta property="og:description" content="java elasticsearch github">
+<meta property="og:description" content="好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!
+题目Invert a binary tree.
+4
+   /   \  2     7 / \   / \1   3 6   9
+to
+4
+   /   \  7     2 / \   / \9   6 3   1
+解12345678910111213141516171819202122">
+<meta property="og:updated_time" content="2016-07-08T13:53:02.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coder1919">
-<meta name="twitter:description" content="java elasticsearch github">
+<meta name="twitter:title" content="leetcode-226-invert-binary-tree">
+<meta name="twitter:description" content="好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!
+题目Invert a binary tree.
+4
+   /   \  2     7 / \   / \1   3 6   9
+to
+4
+   /   \  7     2 / \   / \9   6 3   1
+解12345678910111213141516171819202122">
   
     <link rel="alternative" href="/atom.xml" title="Coder1919" type="application/atom+xml">
   
@@ -196,181 +218,117 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-leetcode-226-invert-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/08/leetcode-226-invert-binary-tree/" class="archive-article-date">
-  	<time datetime="2016-07-08T13:38:37.000Z" itemprop="datePublished">7月 8</time>
+    <div class="article-meta">
+      <a href="/2016/07/08/leetcode-226-invert-binary-tree/" class="article-date">
+  	<time datetime="2016-07-08T13:38:37.000Z" itemprop="datePublished">2016-07-08</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/08/leetcode-226-invert-binary-tree/">leetcode-226-invert-binary-tree</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leetcode-226-invert-binary-tree
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/26/yum源/" class="archive-article-date">
-  	<time datetime="2016-06-26T09:39:06.000Z" itemprop="datePublished">6月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/26/yum源/">制作yum源</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Invert a binary tree.</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9</p>
+<p>to</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1</p>
+<h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode invertTree(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==null) <span class="built_in">return</span> root;</span><br><span class="line">        TreeNode temp=invertTree(root.left);</span><br><span class="line">        root.left=invertTree(root.right);</span><br><span class="line">        root.right=temp;</span><br><span class="line">        <span class="built_in">return</span> root;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>编程是门艺术，所以一定要追求完美，对于各种小的细节一定要考虑全，此处需判断root是否为空；其次将左右支树分别转换就可以了，思维很重要。</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/26/yum源/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">制作yum源</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/26/pip源/" class="archive-article-date">
-  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">6月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/26/pip源/">制作pip源</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/26/python-1/" class="archive-article-date">
-  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">6月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="leetcode-226-invert-binary-tree" data-title="leetcode-226-invert-binary-tree" data-url="http://yoursite.com/2016/07/08/leetcode-226-invert-binary-tree/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/26/linux目录详解/" class="archive-article-date">
-  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">6月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="page-number" href="/archives/2016/page/3/">3</a><a class="page-number" href="/archives/2016/page/4/">4</a><a class="extend next" rel="next" href="/archives/2016/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -396,8 +354,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

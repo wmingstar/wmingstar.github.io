@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Coder1919</title>
+  <title>明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java elasticsearch github">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Coder1919">
+<meta property="og:title" content="明动天下">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="Coder1919">
+<meta property="og:site_name" content="明动天下">
 <meta property="og:description" content="java elasticsearch github">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coder1919">
+<meta name="twitter:title" content="明动天下">
 <meta name="twitter:description" content="java elasticsearch github">
   
-    <link rel="alternative" href="/atom.xml" title="Coder1919" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -37,7 +37,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Coder1919</a></h1>
+		  <h1 class="header-author"><a href="/">明动天下</a></h1>
 		</hgroup>
 
 		
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 13.33px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
+						<a href="/tags/Github/" style="font-size: 12.5px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 17.5px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
 					</div>
 				</section>
 				
@@ -156,7 +156,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Coder1919</h1>
+  		<h1 class="header-author js-mobile-header hide">明动天下</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -166,7 +166,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Coder1919</h1>
+			  <h1 class="header-author">明动天下</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">提笔写诗   落笔代码</p>
@@ -198,11 +198,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-spark1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/25/spark1/" class="article-date">
-  	<time datetime="2016-05-25T07:15:32.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/2016/06/26/pip源/" class="article-date">
+  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
 </a>
     </div>
   
@@ -215,7 +215,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/spark1/">spark进阶之路——入门</a>
+      <a class="article-title" href="/2016/06/26/pip源/">制作pip源</a>
     </h1>
   
 
@@ -224,15 +224,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="spark是什么？"><a href="#spark是什么？" class="headerlink" title="spark是什么？"></a>spark是什么？</h2><p>Spark是基于内存的分布式计算框架，计算的中间结果无需利用 HDFS 进行保存，因此速度比较快。</p>
-<h2 id="spark有哪些优势？"><a href="#spark有哪些优势？" class="headerlink" title="spark有哪些优势？"></a>spark有哪些优势？</h2><p>1.计算速度快：基于内存，中间结果在内存存放，读写速度快。<br>2.方便使用：支持Scala, Java, Python ，还有交互式的 Python 和 Scala 的 shell。<br>3.功能强大：支持批处理、交互查询、流处理、机器学习、图计算。<br>4.兼容性好：可以使用各种现有的技术作为底层，也可以自己独立运行。</p>
-<h2 id="spark的架构"><a href="#spark的架构" class="headerlink" title="spark的架构"></a>spark的架构</h2><p><img src="/img/spark.jpg" alt=""></p>
-<p>Driver : 用户编写的程序，需要创建 SparkContext。<br>SparkContext : 用户和 Spark 集群交互的接口，它和 Cluster Manager 交互。<br>Cluster Manager : 负责资源管理调度。<br>Worker Node : 具体执行计算的节点。<br>Executer : 在 Worker Node 为某个应用启动的一个进程（Executer间相互独立）。<br>Task : 被送到 Executor 上的计算任务。</p>
-<h2 id="spark的工作流程"><a href="#spark的工作流程" class="headerlink" title="spark的工作流程"></a>spark的工作流程</h2><p>1.用户创建Driver ，在Driver中创建SparkContext ,连接到 Cluster Manager，Cluster Manager 分配计算资源并启动对应的 Executer。<br>2.Driver 将用户程序划分为不同的执行阶段，每个执行阶段由一组完全相同的 Task 组成，这些 Task 分别作用于待处理数据的不同分区。在阶段划分完成和 Task 创建后，Driver 会向 Executor 发送 Task。<br>3.Executor 接收到 Task 后，下载 Task 的运行依赖，在准备好 Task 的执行环境后，会开始执行Task，并  将Task 的运行状态汇报给 Driver。<br>4.Driver 根据收到的 Task 的运行状态来处理不同的状态更新。Task 分为两种：一种是 Shuffle Map Task，它实现数据的重新洗牌，洗牌的结果保存到 Executor 所在节点的文件系统中；另外一种是 Result Task，它负责生成结果数据。<br>5.Driver 会不断地调用 Task，将 Task发送到 Executor 执行，在所有的 Task 都正确执行或者超过执行   次数的限制仍然没有执行成功时停止。</p>
-<h2 id="spark系统的相关组件"><a href="#spark系统的相关组件" class="headerlink" title="spark系统的相关组件"></a>spark系统的相关组件</h2><p>Spark SQL: 类似 Hive，支持在不同 RDD 上进行类似 SQL 的操作。<br>Spark Streaming: 对于流数据进行处理。<br>MLlib: 机器学习库。<br>GraphX: 图并行框架。</p>
-<h2 id="数据抽象——RDD"><a href="#数据抽象——RDD" class="headerlink" title="数据抽象——RDD"></a>数据抽象——RDD</h2><p> RDD是Spark 框架中最重要的一类新的数据抽象，叫做 Resilient Distributed Dataset - RDD。RDD 是分布 式存储在集群中的内存对象，按照值的范围或者哈希结果进行划分。与此同时 RDD会记录关于数据进行<br>的各种操作（每次操作都会生成新的RDD），这样即使节点挂掉，也能够根据之前的操作日志重新得到损失的 RDD。</p>
-<h3 id="RDD-支持2种操作："><a href="#RDD-支持2种操作：" class="headerlink" title="RDD 支持2种操作："></a>RDD 支持2种操作：</h3><p>转换（transformation）：从现有的数据集创建一个新的数据集。<br>动作（actions）：在数据集上运行计算后，返回一个值给Driver。</p>
-<p>参考资料：<a href="http://wdxtub.com/" target="_blank" rel="external">http://wdxtub.com/</a></p>
+        <p>配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。<br>这里介绍两种方法：</p>
+<h2 id="一、同步官方pip源到本地"><a href="#一、同步官方pip源到本地" class="headerlink" title="一、同步官方pip源到本地"></a>一、同步官方pip源到本地</h2><p>用脚本安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip pip.master.zip</span><br><span class="line"><span class="built_in">cd</span> pip.master</span><br><span class="line">python setup.py  install</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip distribute-0.7.3.zip</span><br><span class="line"><span class="built_in">cd</span> distribute-0.7.3</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip virtualenv.zip</span><br><span class="line"><span class="built_in">cd</span> virtualenv</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtualenv-2.7 bandersnatch</span><br><span class="line"><span class="built_in">cd</span> bandersnatch</span><br><span class="line">bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span><br></pre></td></tr></table></figure>
+<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Run （- it will create an empty configuration file for you in /etc/bandersnatch.conf.）根据自己的需求更改配置文件 </span><br><span class="line">#/etc/bandersnatch.conf</span><br><span class="line"></span><br><span class="line">bandersnatch mirror </span><br><span class="line"></span><br><span class="line">#Run again.</span><br><span class="line">#It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect </span><br><span class="line">#this to grow substantially over time.Run bandersnatch mirror regularly to update your mirror with any #intermediate changes.</span><br><span class="line">bandersnatch mirror</span><br></pre></td></tr></table></figure>
+<p>用这个方法可以将官方pip源同步到本地，但是速度比较慢，我同步的时候用了一种，共220G左右，随着时间的推移，这个源是在不<br>断变化的。单自己同步完之后并不会用啊，太伤了，所以又换了中方法。</p>
+<h2 id="二、制作自定义pip源"><a href="#二、制作自定义pip源" class="headerlink" title="二、制作自定义pip源"></a>二、制作自定义pip源</h2><p>需要什么就在可以上网的电脑上提前下载好，然后复制到部署环境的电脑上就可以。</p>
+<h3 id="1-将需要的pip包下载到本地"><a href="#1-将需要的pip包下载到本地" class="headerlink" title="1.将需要的pip包下载到本地"></a>1.将需要的pip包下载到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="_">-d</span> /path/to/save/   packagesname</span><br></pre></td></tr></table></figure>
+<h3 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=file:///path_to/packages/   packagesname</span><br></pre></td></tr></table></figure>
+<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
 
       
     </div>
@@ -241,7 +244,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
       
@@ -263,11 +266,11 @@
 
 
   
-    <article id="post-java5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/15/java5/" class="article-date">
-  	<time datetime="2016-05-15T07:17:13.000Z" itemprop="datePublished">2016-05-15</time>
+      <a href="/2016/06/26/python-1/" class="article-date">
+  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
 </a>
     </div>
   
@@ -280,7 +283,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/15/java5/">JAVA进阶——接口</a>
+      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
     </h1>
   
 
@@ -289,18 +292,155 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是接口？这是一个问题"><a href="#什么是接口？这是一个问题" class="headerlink" title="什么是接口？这是一个问题"></a>什么是接口？这是一个问题</h2><p>因为之前没学过计算机相关的基础知识，在听大神谈到接口时总一脸懵逼，完全不理解接口是什么。今天<br>看java的相关知识，才有点明白。</p>
-<p>接口：是若干常量和抽象方法的集合。使用 interface关键字来声明，可以看做是一种特殊的抽象类，可以<br>指定一个类必须做什么，而不是规定它如何去做。</p>
-<h2 id="接口的几点特性"><a href="#接口的几点特性" class="headerlink" title="接口的几点特性"></a>接口的几点特性</h2><p>1.接口中只能定义抽象方法，这些方法默认为 public abstract 的，因而在声明方法时可以省略这些修饰符。<br>2.接口中没有构造方法，不能被实例化。<br>3.一个接口不实现另一个接口，但可以继承多个其他接口（类单继承）。</p>
-<h2 id="那为什么要用接口呢？"><a href="#那为什么要用接口呢？" class="headerlink" title="那为什么要用接口呢？"></a>那为什么要用接口呢？</h2><p>大型项目开发中，可能需要从继承链的中间插入一个类，让它的子类具备某些功能而不影响它们的父类。例<br>如 A -&gt; B -&gt; C -&gt; D -&gt; E，A 是祖先类，如果需要为C、D、E类添加某些通用的功能，最简单的方法是让C类再<br>继承另外一个类。但问题是，Java 是一种单继承的语言，不能再让C继承另外一个父类了，只到移动到继承链<br>的最顶端，让A再继承一个父类。这样一来，对C、D、E类的修改，影响到了整个继承链，不具备可插入性的设计。</p>
-<p>接口是可插入性的保证。在一个继承链中的任何一个类都可以实现一个接口，这个接口会影响到此类的所<br>有子类，但不会影响到此类的任何父类。此类将不得不实现这个接口所规定的方法，而子类可以从此类自动<br>继承这些方法，这时候，这些子类具有了可插入性。</p>
-<p>接口提供了关联以及方法调用上的可插入性，软件系统的规模越大，生命周期越长，接口使得软件系统的<br>灵活性和可扩展性，可插入性方面得到保证。</p>
-<p>接口在面向对象的 Java 程序设计中占有举足轻重的地位。事实上在设计阶段最重要的任务之一就是设计出<br>各部分的接口，然后通过接口的组合，形成程序的基本框架结构。</p>
-<h2 id="接口与抽象类的对比"><a href="#接口与抽象类的对比" class="headerlink" title="接口与抽象类的对比"></a>接口与抽象类的对比</h2><pre><code>相同点
-</code></pre><p>（1）都代表类树形结构的抽象层。在使用引用变量时，尽量使用类结构的抽象层，使方法的定义和实现分离，这<br>样做对于代码有松散耦合的好处。<br>（2）都不能被实例化。<br>（3）都能包含抽象方法，抽象方法用来描述系统提供哪些功能，而不必关心具体的实现。</p>
-<pre><code>区别
-</code></pre><p>（1）抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象<br>类的优势；而接口中只能包含抽象方法，不能包含任何实现。<br>（2）) 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。</p>
-<h2 id="对于接口和抽象类的选择"><a href="#对于接口和抽象类的选择" class="headerlink" title="对于接口和抽象类的选择"></a>对于接口和抽象类的选择</h2><p>（1）行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。<br>（2）选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。</p>
+        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
+<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
+<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/linux目录详解/" class="article-date">
+  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>六月是一个令我惆怅的月份，学长们相继跑路实习了，自己很荣幸的接过了学长留下的锅。最近做的项目是一个分布式的文件管理、计算、变异系统，分布式就意味着需要部署系统，配置环境，所以最近在看鸟哥的书，就顺手整理了下。今天说点linux系统目录的知识。</p>
+<h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><p>根目录，所有东西均在该目录下</p>
+<h2 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h2><p>这是系统管理员(root user)的目录.</p>
+<h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h2><p>这里存放了标准的(或者说是缺省的)linux的工具，比如像“ls”、“vi”还有“more”等等。通常来说，这个目录已经包含在你的“path”系 统变量里面了。系统所需要的那些命令位于此目录，比如 ls、cp、mkdir等命令；这个目录中的文件都是可执行的、普通用户都可以使用的命令。作为基础系统所需要的最基础的命令就是放在这里。</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h2><p>这里主要存放了系统配置方面的文件。举个例子：你安装了fastdfs，当你想要修改fastdfs配置文件的时候，你会发现它们(配置文件)就在/etc/fdfs目录下。</p>
+<h2 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h2><p>这里主要存放与设备(包括外设)有关的文件(unix和linux系统均把设备当成文件)。比如打印机,系统就是从这个目录开始工作的。另外还有一些包括磁盘驱动、USB驱动等都放在这个目录。</p>
+<h2 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h2><p>这里主要存放你的个人数据。具体每个用户的设置文件，用户的桌面文件夹，还有用户的数据都放在这里。每个用户都有自己的用户目录，位置为：/home/用户名。</p>
+<h2 id="tmp"><a href="#tmp" class="headerlink" title="/tmp"></a>/tmp</h2><p>这是临时目录。对于某些程序来说，有些文件被用了一次两次之后，就不会再被用到，像这样的文件就放在这里。有些linux系统会定期自动对这个目录进行清理，因此，千万不要把重要的数据放在这里。</p>
+<h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h2><p>在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如游戏或等，/usr目录包含了许多子目录： /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是“新立得”吧)会自动帮你管理好/usr目录的。<br>/usr/local主要存放那些用户手动编译安装的软件，一般是通过源码包安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下。</p>
+<h2 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h2><p>Linux的内核及引导系统程序所需要的文件目录，比如 vmlinuz initrd.img 文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录。</p>
+<h2 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h2><p>这个目录一般是用于存放挂载储存设备的挂载目录的，比如usb等目录,光驱可以挂载到/mnt/cdrom 。</p>
+<h2 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h2><p>表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure –prefix=/opt/目录 。</p>
+<h2 id="proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。"><a href="#proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。" class="headerlink" title="/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。"></a>/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。</h2><h2 id="sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"><a href="#sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。" class="headerlink" title="/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"></a>/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。</h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h2><p>这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java8-basis" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/07/java8-basis/" class="article-date">
+  	<time datetime="2016-06-07T13:43:33.000Z" itemprop="datePublished">2016-06-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/07/java8-basis/">JAVA进阶——基础算法50道</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第-1-题"><a href="#第-1-题" class="headerlink" title="第 1 题"></a>第 1 题</h2><p>古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子对数为多少？  </p>
+<h3 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h3><p>根据题目，分析可知，每个月兔子的数量规律为数列 1,1,2,3,5,8,13,21….<br>第1、2个月数量均为1，第3个月开始兔子的数量为前两个月的和，因此知此题用递归比较合适。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public class Test1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int n;</span><br><span class="line">		n=10;</span><br><span class="line">		System.out.println(<span class="string">"第"</span>+n+<span class="string">"个月，兔子的数目为："</span>+func(n));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int func(int n)</span><br><span class="line">	&#123;</span><br><span class="line">	    //前两月数量为1</span><br><span class="line">	    <span class="keyword">if</span>(n==1 || n==2)&#123;</span><br><span class="line">	    	<span class="built_in">return</span>(1);</span><br><span class="line">	    &#125;</span><br><span class="line">		//第3个月开始，数量为前2个月之和</span><br><span class="line">	    <span class="keyword">else</span> <span class="built_in">return</span>(func(n-1)+func(n-2));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第-2-题"><a href="#第-2-题" class="headerlink" title="第 2 题"></a>第 2 题</h2><p>判断101-200之间有多少个素数，并输出所有素数。</p>
+<h3 id="程序分析-1"><a href="#程序分析-1" class="headerlink" title="程序分析"></a>程序分析</h3><p>素数：只能被1和自身整除的数，因此，用2-X之间的数去除X，若X不能被整除则为素数。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package practice;</span><br><span class="line">import java.util.*;//本程序用到了ArrayList类，因此须导入相应的包</span><br><span class="line"> </span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int start=101;</span><br><span class="line">		int end=200;</span><br><span class="line">		//创建一个ArrayList来存储素数，相对于数组来说，ArrayList比较灵活，数组长度不可变。</span><br><span class="line">		ArrayList&lt;Object&gt; a=new ArrayList&lt;&gt;();</span><br><span class="line">		//判断start与end之间的数是否是素数，将素数存入ArrayList</span><br><span class="line">		<span class="keyword">for</span>(int j=start;j&lt;end;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(isPrime(j)) </span><br><span class="line">			&#123;</span><br><span class="line">			    a.add(j);  </span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(start+<span class="string">"至"</span>+end+<span class="string">"之间共有："</span>+a.size()+<span class="string">"个素数"</span>);</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;a.size();j++)&#123;</span><br><span class="line">        	System.out.println(a.get(j));</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//用此函数判断某个数是否是素数</span><br><span class="line">	public static boolean isPrime(int n)</span><br><span class="line">	&#123;</span><br><span class="line">		boolean flag=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(n==1) flag=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">for</span>(int i=2;i&lt;Math.sqrt(n);i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(n%i==0)&#123;</span><br><span class="line">					flag=<span class="literal">false</span>;</span><br><span class="line">					<span class="built_in">break</span>;  //只要2-sqrt(n)之间有一个可以整除n,n就不是素数</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第3题"><a href="#第3题" class="headerlink" title="第3题"></a>第3题</h2><p>打印出所有的”水仙花数”，所谓”水仙花数”是指一个三位数，其各位数字立方和等于该数本身。</p>
+<h3 id="程序分析-2"><a href="#程序分析-2" class="headerlink" title="程序分析"></a>程序分析</h3><p>首先由题我们知道，”水仙花数“为三位数，由此可以确定for循环的范围为100-999，关键就是得到待判定的数的百位、十位、个位。</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int j=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=100;i&lt;1000;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(isLotus(i))&#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">				j++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"共有"</span>+j+<span class="string">"个水仙花数"</span>);</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	//判断某个数是否是水仙花数</span><br><span class="line">	public static boolean  isLotus(int num)&#123;</span><br><span class="line">		Boolean flag=<span class="literal">false</span>;</span><br><span class="line">		int a1=num%10;    //获取个位</span><br><span class="line">		int a2=(num/10)%10;  //获取十位</span><br><span class="line">		int a3=num/100;    //获取百位</span><br><span class="line">		<span class="keyword">if</span>((a1*a1*a1+a2*a2*a2+a3*a3*a3)==num) flag=<span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第4题"><a href="#第4题" class="headerlink" title="第4题"></a>第4题</h2><p>将一个正整数分解质因数。例如：输入90,打印出90=2<em>3</em>3*5。</p>
+<h3 id="程序分析-3"><a href="#程序分析-3" class="headerlink" title="程序分析"></a>程序分析</h3><p>对n进行分解质因数，先找到一个最小的质数k，然后按以下步骤执行：<br>（1）如果n==k,说明分解质因数的过程已经结束，打印出即可。<br>（2）如果n&gt;k，且n能被k整除，则应打印出k的值，并用n除以k的商作为新的正整数n重复执行第一步。<br>（3）如果n不能被k整除，则将k+1作为k的值执行第一步。</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Test4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int num;</span><br><span class="line">		num=28;</span><br><span class="line">		decompose(num);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static void decompose(int n) &#123;</span><br><span class="line">		System.out.print(n+<span class="string">"="</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">while</span>(n%i==0 &amp;&amp; n!=i)&#123;</span><br><span class="line">				n=n/i;</span><br><span class="line">				System.out.print(i+<span class="string">"*"</span>);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(n==i)&#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">				<span class="built_in">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第5题"><a href="#第5题" class="headerlink" title="第5题"></a>第5题</h2><p>输入两个正整数m、n，求其最大公约数和最小公倍数。</p>
+<h3 id="程序分析-4"><a href="#程序分析-4" class="headerlink" title="程序分析"></a>程序分析</h3><p>最大公约数为与最小公倍数之间有一定的关系，两数的最小公倍数等于两数的积除以两数的最大公约数，<br>所以此题的关键是求两数的最小公倍数，用辗转相除法。</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class Test5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int m,n;</span><br><span class="line">		try&#123;</span><br><span class="line">			m=Integer.parseInt(args[0]);</span><br><span class="line">			n=Integer.parseInt(args[1]);</span><br><span class="line">		&#125;catch(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"输入有误"</span>);</span><br><span class="line">			<span class="built_in">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		max_min(m,n);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	private static void  max_min(int m,int n) &#123;</span><br><span class="line">		int temp=1;</span><br><span class="line">		int yshu=1;</span><br><span class="line">		int bshu=m*n;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;m)&#123;</span><br><span class="line">			temp=n;</span><br><span class="line">			n=m;</span><br><span class="line">			m=temp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(m!=0)&#123;</span><br><span class="line">			temp=n%m;</span><br><span class="line">			n=m;</span><br><span class="line">			m=temp;</span><br><span class="line">		&#125;</span><br><span class="line">		yshu=n;</span><br><span class="line">		bshu /=n;</span><br><span class="line">		System.out.println(<span class="string">"最大公约数为："</span>+yshu);</span><br><span class="line">		System.out.println(<span class="string">"最小公倍数为："</span>+bshu);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第6题"><a href="#第6题" class="headerlink" title="第6题"></a>第6题</h2><p>输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。</p>
+<h3 id="程序分析-5"><a href="#程序分析-5" class="headerlink" title="程序分析"></a>程序分析</h3><p>1.本程序需要注意的是 Scanner类的使用，利用该类可以得到输入的字符串。得到输入的字符串后就需要对<br>字符串中的每个字符进行判定。对英文字母进行判定时，需要知道英文字母的Ascll码，小写英文字母a的<br>Ascll码为97，小写字母z的Ascll码为122，而大写字母A的Ascll码为65，大写字母Z的Ascll码为90，由此知道英文字母<br>的范围。<br>2.java中字符类型与数字类型之间的转换。<br>3.注意输入的字符串以’\n’结尾。</p>
+<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		System.out.println(<span class="string">"请输入："</span>);</span><br><span class="line">		String str=input.nextLine();</span><br><span class="line">		count(str);</span><br><span class="line">		input.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void count(String str) &#123;</span><br><span class="line">		int char_num=0;</span><br><span class="line">		int blank_num=0;</span><br><span class="line">		int number=0;</span><br><span class="line">		int other=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;str.length();i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(str.charAt(i)==<span class="string">'\n'</span>) <span class="built_in">break</span>;</span><br><span class="line">			<span class="keyword">if</span>(str.charAt(i)&lt;=122 &amp;&amp; str.charAt(i)&gt;=97 || str.charAt(i)&lt;=90 &amp;&amp; str.charAt(i)&gt;=65 ) char_num++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(str.charAt(i)==<span class="string">' '</span>) blank_num++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>((str.charAt(i)-<span class="string">'0'</span>)&gt;=0 &amp;&amp; (str.charAt(i)-<span class="string">'0'</span>)&lt;=9) number++;</span><br><span class="line">			<span class="keyword">else</span> other++;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"英文字母："</span>+char_num);</span><br><span class="line">		System.out.println(<span class="string">"空格："</span>+blank_num);</span><br><span class="line">		System.out.println(<span class="string">"数字："</span>+number);</span><br><span class="line">		System.out.println(<span class="string">"其他："</span>+other);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第7题"><a href="#第7题" class="headerlink" title="第7题"></a>第7题</h2><p>求s=a+aa+aaa+aaaa+aa…a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数），几个数相加<br>由键盘决定。</p>
+<h3 id="程序分析-6"><a href="#程序分析-6" class="headerlink" title="程序分析"></a>程序分析</h3><p>此程序需要注意两点：1.从键盘获取数据（上题已经用过），2.数字拼接。数字拼接直接实现比较复杂，我们可以将数字转为字符串，用字符串拼接，然后再将字符串转为数字。</p>
+<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int sour=2;</span><br><span class="line">		System.out.println(<span class="string">"请输入相加得次数："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String  str=input.nextLine();</span><br><span class="line">		int fre=Integer.parseInt(str);</span><br><span class="line">        func(2,fre);</span><br><span class="line">	&#125;</span><br><span class="line">	private static void func(int sour1,int fre1) &#123;</span><br><span class="line">		Integer a=new Integer(sour1);</span><br><span class="line">		int sum=0;</span><br><span class="line">		String a_str=a.toString();</span><br><span class="line">		int arr[]=new int[fre1];</span><br><span class="line">		arr[0]=a;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;fre1;i++)&#123;</span><br><span class="line">			a_str=a_str+a.toString();</span><br><span class="line">			arr[i]=Integer.parseInt(a_str);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.print(<span class="string">"s"</span>+<span class="string">"="</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">			<span class="keyword">if</span>(i==arr.length-1) System.out.print(arr[i]);</span><br><span class="line">			<span class="keyword">else</span> System.out.print(arr[i]+<span class="string">"+"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"="</span>+sum);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,11 +471,11 @@
 
 
   
-    <article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java7-ftp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/java4/" class="article-date">
-  	<time datetime="2016-04-24T01:29:32.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/06/07/java7-ftp/" class="article-date">
+  	<time datetime="2016-06-07T13:12:14.000Z" itemprop="datePublished">2016-06-07</time>
 </a>
     </div>
   
@@ -348,7 +488,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/java4/">JAVA进阶——快速排序</a>
+      <a class="article-title" href="/2016/06/07/java7-ftp/">JAVA进阶-FTP服务器端与客户端实现</a>
     </h1>
   
 
@@ -357,123 +497,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/quicksort.gif" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
+        <p>此程序涉及socket编程，socket读写，文件读写。</p>
+<h3 id="server端"><a href="#server端" class="headerlink" title="server端"></a>server端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line">public class ServerFTP &#123;</span><br><span class="line">	int port=8082;       //监听端口</span><br><span class="line">	String filepath=<span class="string">"E:\\123.txt"</span>;  //待传输的文件的路径，注意路径的写法</span><br><span class="line">	void <span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">		Socket s=null;   </span><br><span class="line">		try &#123;</span><br><span class="line">			ServerSocket ss=new ServerSocket(port);   //创建服务端socket用以监听客户端的socket连接</span><br><span class="line">			<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">				File file=new File(filepath);        </span><br><span class="line">				<span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">					file.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"文件长度："</span>+(int)file.length());</span><br><span class="line">				s=ss.accept();       //与客户端socket建立连接</span><br><span class="line">				System.out.println(<span class="string">"建立socket连接"</span>);</span><br><span class="line">				//创建输入流，从文件读取数据</span><br><span class="line">				DataInputStream dis=new DataInputStream(new BufferedInputStream(new FileInputStream(filepath)));</span><br><span class="line">				//创建输出流，将数据输出到socket连接</span><br><span class="line">				DataOutputStream dos=new DataOutputStream(s.getOutputStream());</span><br><span class="line">				dos.writeUTF(file.getName());</span><br><span class="line">				dos.writeLong((long)file.length());</span><br><span class="line">				int bufferSize=8000;</span><br><span class="line">				byte[] buf=new byte[bufferSize];   //存储读取的数据</span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					int <span class="built_in">read</span>=0;</span><br><span class="line">					<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">						<span class="built_in">read</span>=dis.read(buf);      //从输入流读取数据并存入 buf[]中，             </span><br><span class="line">					&#125;                            //dis.read(buf)返回的是读取数据流的大小</span><br><span class="line">					<span class="keyword">if</span>(<span class="built_in">read</span>==-1)&#123;</span><br><span class="line">						<span class="built_in">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					dos.write(buf,0,<span class="built_in">read</span>);       //将buff[]中的数据通过输出流写入到socket中</span><br><span class="line">				&#125;</span><br><span class="line">				dis.close();</span><br><span class="line">				s.close();</span><br><span class="line">				System.out.println(<span class="string">"文件传输完毕！！"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new ServerFTP().start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="client端"><a href="#client端" class="headerlink" title="client端"></a>client端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line"></span><br><span class="line">import javax.security.auth.login.CredentialException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class Client &#123;</span><br><span class="line">	private Socket s=null;</span><br><span class="line">	private int port=8082;            //服务器端的监听端口</span><br><span class="line">	private String ip=<span class="string">"localhost"</span>;   //要连接的服务器端地址</span><br><span class="line">	//构造函数，建立socket连接</span><br><span class="line">	public <span class="function"><span class="title">Client</span></span>()&#123;</span><br><span class="line">		createconnection();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建socket连接</span><br><span class="line">	private void <span class="function"><span class="title">createconnection</span></span>()&#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			s=new Socket(ip, port);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"连接出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private void <span class="function"><span class="title">getFile</span></span>() &#123;</span><br><span class="line">		String savePath=<span class="string">"F:\\"</span>;   //指定文件存储路径</span><br><span class="line">		int bufferSize=8000;      </span><br><span class="line">		byte[] buf=new byte[bufferSize];</span><br><span class="line">		int total_len=0;</span><br><span class="line">		long length=0;</span><br><span class="line">		try &#123;</span><br><span class="line">			//创建输入流从socket读取数据</span><br><span class="line">			DataInputStream dis=new DataInputStream(new BufferedInputStream(s.getInputStream()));</span><br><span class="line">			savePath+=dis.readUTF();    //dis.readUTF() 获取文件名</span><br><span class="line">			//创建输出流，将数据输出到文件</span><br><span class="line">			DataOutputStream dos=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(savePath)));</span><br><span class="line">			length=dis.readLong();</span><br><span class="line">			System.out.println(<span class="string">"文件长度："</span>+length+<span class="string">"\n"</span>);</span><br><span class="line">			<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">				int <span class="built_in">read</span>=0;</span><br><span class="line">				<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">					<span class="built_in">read</span>=dis.read(buf);  //从socket读取数据并存入buf[]</span><br><span class="line">				&#125;</span><br><span class="line">				total_len+=<span class="built_in">read</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">read</span>==-1) &#123;</span><br><span class="line">					<span class="built_in">break</span>;					</span><br><span class="line">				&#125;</span><br><span class="line">				dos.write(buf,0,<span class="built_in">read</span>);   //将buf[]中的数据写入文件</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"接收文件另存为："</span>+savePath+<span class="string">"\n"</span>);</span><br><span class="line">			dos.close();</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		new Client().getFile();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/23/java3/" class="article-date">
-  	<time datetime="2016-04-23T09:43:50.000Z" itemprop="datePublished">2016-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/java3/">JAVA进阶——插入排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/insertsort.jpg" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class InsertSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;5,2,4,6,1,3&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int key=a[];</span><br><span class="line">			int j=i-1;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;=0&amp;&amp;a[j]&gt;key)</span><br><span class="line">			&#123;</span><br><span class="line">				a[j+1]=a[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			a[j+1]=key;			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>刚开始接触插入排序时，有点不太理解，不理解的是谁和谁进行比较，插入到哪？松哥给我讲了两遍，可惜还是似懂非懂。自己又思考了下终于弄懂。（自己太笨了，呵呵）<br>插入排序，简单来说就是将数字插入其应该在的位置。插入时，先选取待插入的数字（从数组下标i=1开始），将待插入的数字与其前面（下标小于i的数字）进行比较，当前面的数字大于待选数字时则将前面的数字后移。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/23/java2/" class="article-date">
-  	<time datetime="2016-04-23T09:11:16.000Z" itemprop="datePublished">2016-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/java2/">JAVA进阶——直接选择排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class SelectSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int index=0;</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[index])</span><br><span class="line">				&#123;</span><br><span class="line">					index=j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			int temp=0;</span><br><span class="line">			temp=a[index];</span><br><span class="line">			a[index]=a[a.length-i];</span><br><span class="line">			a[a.length-i]=temp;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -505,7 +532,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -513,7 +540,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Coder1919
+    		&copy; 2016 明动天下
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

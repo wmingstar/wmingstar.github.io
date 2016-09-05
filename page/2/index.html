@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 12.5px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 17.5px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
+						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18px;">LeetCode</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 16px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,153 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mysql-index" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/02/mysql-index/" class="article-date">
+  	<time datetime="2016-08-02T12:39:24.000Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/mysql-index/">MySQL进阶——索引</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="索引的作用"><a href="#索引的作用" class="headerlink" title="索引的作用"></a>索引的作用</h2><p>数据库索引的主要作用是能够大大提高查询效率，特别是当数据量非常大，查询涉及多个表时，使用索引往往能使查询速度加快成千上万倍。</p>
+<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h2><p>有3个未索引的表t1、t2、t3，分别只包含列c1、c2、c3，每个表分别含有1000行数据组成，值为1～1000的数值，查找对应值相等行的查询语句如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT c1,c2,c3 FROM t1,t2,t3 WHERE c1=c2 AND c1=c3</span><br></pre></td></tr></table></figure></p>
+<p>此查询结果应该为1000行，每行包含3个相等的值。在无索引的情况下处理此查询，必须寻找3个表所有的组合，以便得出与WHERE子句相配的那些行。而可能的组合数目为1000×1000×1000（十亿），显然查询将会非常慢。</p>
+<p>如果对每个表进行索引，就能极大地提高查询效率，利用索引的查询处理如下。</p>
+<p>（1）从表t1中选择第一行，查看此行所包含的数据。</p>
+<p>（2）使用表t2上的索引，直接定位t2中与t1的值匹配的行。类似，利用表t3上的索引，直接定位t3中与来自t1的值匹配的行。</p>
+<p>（3）扫描表t1的下一行并重复前面的过程，直到遍历t1中所有的行。<br>在此情形下，仍然对表t1执行了一个完全扫描，但能够在表t2和t3上进行索引查找直接取出这些表中的行，比未用索引时要快一百万倍。利用索引，MySQL加速了WHERE子句满足条件行的搜索，而在多表连接查询时，在执行连接时加快了与其他表中的行匹配的速度。</p>
+<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>INDEX 普通索引<br>PRIMARY KEY  主键（PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。）<br>UNIQUE 不包含重复值的索引</p>
+<p>在创建索引时，可以规定索引能否包含重复值。如果不包含，则索引应该创建为PRIMARY KEY或UNIQUE索引。对于单列惟一性索引，<br>这保证单列不包含重复的值。对于多列惟一性索引，保证多个值的组合不重复。</p>
+<p>PRIMARY KEY索引和UNIQUE索引非常类似，事实上，PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。<br>这表示一个表只能包含一个PRIMARY KEY，因为一个表中不可能具有两个同名的索引。</p>
+<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p>ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD UNIQUE (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD PRIMARY KEY (column_list)</span><br></pre></td></tr></table></figure></p>
+<p>其中table_name是要增加索引的表名，column_list指出对哪些列进行索引，多列时各列之间用逗号分隔。索引名index_name可选，缺省时，MySQL将根据第一个索引列赋一个名称。另外，ALTER TABLE允许在单个语句中更改多个表，因此可以在同时创建多个索引。</p>
+<h3 id="CREATE-INDEX"><a href="#CREATE-INDEX" class="headerlink" title="CREATE INDEX"></a>CREATE INDEX</h3><p>CREATE INDEX可对表增加普通索引或UNIQUE索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX index_name ON table_name (column_list)</span><br><span class="line"></span><br><span class="line">CREATE UNIQUE INDEX index_name ON table_name (column_list)</span><br></pre></td></tr></table></figure></p>
+<p>table_name、index_name和column_list具有与ALTER TABLE语句中相同的含义，索引名不可选。另外，不能用CREATE INDEX语句创建PRIMARY KEY索引。</p>
+<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>可利用ALTER TABLE或DROP INDEX语句来删除索引。类似于CREATE INDEX语句，DROP INDEX可以在ALTERTABLE内部作为一条语<br>句处理，语法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX index_name ON talbe_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP INDEX index_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP PRIMARY KEY</span><br></pre></td></tr></table></figure></p>
+<p>其中，前两条语句是等价的，删除掉table_name中的索引index_name。</p>
+<p>第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引，因此不需要指定索引名。<br>如果没有创建PRIMARY KEY索引，但表具有一个或多个UNIQUE索引，则MySQL将删除第一个UNIQUE索引。<br>如果从表中删除了某列，则索引会受到影响。对于多列组合的索引，如果删除其中的某列，则该列也会从索引中删除。如果删除组成索引的所有列，则整个索引将被删除。</p>
+<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show index from tblname;</span><br><span class="line"></span><br><span class="line">mysql&gt; show keys from tblname;</span><br></pre></td></tr></table></figure>
+<p>Table           表的名称。<br>Non_unique      如果索引不能包括重复词，则为0。如果可以，则为1。<br>Key_name        索引的名称。<br>Seq_in_index    索引中的列序列号，从1开始。<br>Column_name     列名称。<br>Collation       列以什么方式存储在索引中。在MySQL中，有值‘A’（升序）或NULL（无分类）。<br>Cardinality     索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。</p>
+<p>Sub_part        如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL。<br>Packed          指示关键字如何被压缩。如果没有被压缩，则为NULL。<br>Null            如果列含有NULL，则含有YES。如果没有，则该列含有NO。<br>Index_type      用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。<br>Comment</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-subprocess" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/28/python-subprocess/" class="article-date">
+  	<time datetime="2016-07-28T06:30:05.000Z" itemprop="datePublished">2016-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/28/python-subprocess/">python subprocess 小结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>subprocess常用来调用shell命令,当然也可以调用程序,并可以通过stdout,stdin和stderr进行交互。</p>
+<h2 id="subprocess主类"><a href="#subprocess主类" class="headerlink" title="subprocess主类"></a>subprocess主类</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">subprocess.Popen(</span><br><span class="line">      args, </span><br><span class="line">      bufsize=0, </span><br><span class="line">      executable=None ,</span><br><span class="line">      stdin=None,</span><br><span class="line">      stdout=None, </span><br><span class="line">      stderr=None, </span><br><span class="line">      preexec_fn=None, </span><br><span class="line">      close_fds=False, </span><br><span class="line">      shell=False, </span><br><span class="line">      cwd=None, </span><br><span class="line">      env=None, </span><br><span class="line">      universal_newlines=False, </span><br><span class="line">      startupinfo=None, </span><br><span class="line">      creationflags=0)</span><br></pre></td></tr></table></figure>
+<h2 id="参数释义"><a href="#参数释义" class="headerlink" title="参数释义"></a>参数释义</h2><p>（1）args可以是字符串或者序列类型（如：list，元组），用于指定进程的可执行文件及其参数。如果是序列类型，第一个元素通<br>常是可执行文件的路径。我们也可以显式的使用executeable参数来指定可执行文件的路径。<br>（2）bufsize：指定缓冲。0 无缓冲,1 行缓冲,其他 缓冲区大小,负值 系统缓冲(全缓冲)<br>（3）stdin,stdout,stderr分别表示程序的标准输入、输出、错误句柄。他们可以是PIPE，文件描述符或文件对象，也可以设置为<br>None，表示从父进程继承。<br>（4）preexec_fn只在Unix平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用。<br>（5）Close_sfs：在windows平台下，如果close_fds被设置为True，则新创建的子进程将不会继承父进程的输入、输出、错误管道。<br>我们不能将close_fds设置为True同时重定向子进程的标准输入、输出与错误(stdin, stdout, stderr)。<br>（6）shell设为true，程序将通过shell来执行。<br>（7）cwd用于设置子进程的当前目录<br>（8）env是字典类型，用于指定子进程的环境变量。如果env = None，子进程的环境变量将从父进程中继承。<br>（9）Universal_newlines:不同操作系统下，文本的换行符是不一样的。如：windows下用’/r/n’表示换，而Linux下用’/n’。如果将此参数设置为True，Python统一把这些换行符当作’/n’来处理。startupinfo与createionflags只在windows下用效，它们将被传递给底层的CreateProcess()函数，用于设置子进程的一些属性，如：主窗口的外观，进程的优先级等等。<br>（10）startupinfo与createionflags只在windows下有效，它们将被传递给底层的CreateProcess()函数，用于设置子进程的一些属性，如：主窗口的外观，进程的优先级等等。</p>
+<h2 id="Popen对象所具有的方法"><a href="#Popen对象所具有的方法" class="headerlink" title="Popen对象所具有的方法"></a>Popen对象所具有的方法</h2><p>（1）Popen.poll()：用于检查子进程是否已经结束。设置并返回returncode属性。<br>（2）Popen.wait()：等待子进程结束。设置并返回returncode属性。<br>（3）Popen.communicate(input=None)：与子进程进行交互。向stdin发送数据，或从stdout和stderr中读取数据。可选参数input指<br>定发送到子进程的参数。Communicate()返回一个元组：(stdoutdata,stderrdata)。注意：如果希望通过进程的stdin向其发送数据<br>，在创建Popen对象的时候，参数stdin必须被设置为PIPE。同样，如果希望从stdout和stderr获取数据，必须将stdout和stderr设置<br>为PIPE。<br>（4）Popen.send_signal(signal)：向子进程发送信号。<br>（5）Popen.terminate()：停止(stop)子进程。在windows平台下，该方法将调用Windows TerminateProcess（）来结束子进程。<br>（6）Popen.kill()：杀死子进程。<br>（7）Popen.stdin：如果在创建Popen对象时，参数stdin被设置为PIPE，Popen.stdin将返回一个文件对象用于向子进程发送指令。<br>否则返回None。<br>（8）Popen.stdout：如果在创建Popen对象是，参数stdout被设置为PIPE，Popen.stdout将返回一个文件对象，记录输出，否则返回<br>None。<br>（9）Popen.stderr：如果在创建Popen对象是，参数stdout被设置为PIPE，Popen.stderr将返回一个文件对象，否则返回None。<br>（10）Popen.pid：获取子进程的进程ID。<br>（11）Popen.returncode：获取进程的返回值。如果进程还没有结束，返回None。</p>
+<p>subprocess.call(<em>popenargs,**kwargs)：运行命令。该函数将一直等待到子进程运行结束，并返回进程的returncode。如果子进程不需要进行交互,就可以使用该函数来创建。<br>subprocess.check_call(</em>popenargs,<strong>kwargs)：与subprocess.call(*popenargs,</strong>kwargs)功能一样，只是如果子进程返回的retu<br>rncode不为0的话，将触发CalledProcessError异常。在异常对象中，包括进程的returncode信息。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>（1）在程序中运行其他程序或shell<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#无阻塞,会和主程序并行运行</span></span><br><span class="line">subprocess.Popen(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line"><span class="comment">#阻塞，必须等待命令执行完毕</span></span><br><span class="line">subprocess.call(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">s = subprocess.Popen(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line">s.wait()</span><br></pre></td></tr></table></figure></p>
+<p>（2）程序返回运行结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#返回stdoutdata</span></span><br><span class="line">s = subprocess.Popen(<span class="string">'python test.py'</span>, shell=True, stdout=subprocess.PIPE) </span><br><span class="line">s.stdout</span><br></pre></td></tr></table></figure></p>
+<p>（3）给子进程输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">child = subprocess.Popen([<span class="string">"cd"</span>], stdin=subprocess.PIPE)</span><br><span class="line">child.communicate(<span class="string">"/home"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>（4）subprocess.PIPE<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line">import subprocess</span><br><span class="line">child1 = subprocess.Popen([<span class="string">"cmd"</span>,<span class="string">"args"</span>], stdout=subprocess.PIPE)</span><br><span class="line">child2 = subprocess.Popen([<span class="string">"cmd"</span>], stdin=child1.stdout,stdout=subprocess.PIPE)</span><br><span class="line">out = child2.communicate()</span><br><span class="line"><span class="built_in">print</span> out</span><br></pre></td></tr></table></figure></p>
+<p>实际上是这样的过程</p>
+<p>child1.stdout–&gt;subprocess.PIPE</p>
+<p>child2.stdin&lt;–subprocess.PIPE</p>
+<p>child2.stdout–&gt;subprocess.PIPE</p>
+<p>注意：<br>subprocess.PIPE实际上为文本流提供一个缓存区，直到communicate()方法从PIPE中读取出PIPE中的文本.要注意的是，communicate<br>()是Popen对象的一个方法，该方法会阻塞父进程，直到子进程完成。</p>
+<p>参考：<a href="http://hackerxu.com/" target="_blank" rel="external">http://hackerxu.com/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-237-Delete-Node" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -364,140 +511,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-226-invert-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/leetcode-226-invert-binary-tree/" class="article-date">
-  	<time datetime="2016-07-08T13:38:37.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/leetcode-226-invert-binary-tree/">leetcode-226-invert-binary-tree</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Invert a binary tree.</p>
-<pre><code>4
-</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9</p>
-<p>to</p>
-<pre><code>4
-</code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1</p>
-<h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode invertTree(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==null) <span class="built_in">return</span> root;</span><br><span class="line">        TreeNode temp=invertTree(root.left);</span><br><span class="line">        root.left=invertTree(root.right);</span><br><span class="line">        root.right=temp;</span><br><span class="line">        <span class="built_in">return</span> root;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>编程是门艺术，所以一定要追求完美，对于各种小的细节一定要考虑全，此处需判断root是否为空；其次将左右支树分别转换就可以了，思维很重要。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-yum源" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/yum源/" class="article-date">
-  	<time datetime="2016-06-26T09:39:06.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/yum源/">制作yum源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>先说下为什么要制作本地yum源，在实际工程中，很多国企或者公司的某些研发环境为了网络安全，避免网络攻击，不会连接外网，在这种情况下就需要离线部署环境，此时就需要本地yum源和pip源，本篇仅介绍本地yum源制作方法，下篇介绍pip源制作方法。</p>
-<h3 id="制作本地yum源有三种方法："><a href="#制作本地yum源有三种方法：" class="headerlink" title="制作本地yum源有三种方法："></a>制作本地yum源有三种方法：</h3><p>一、<br>直接使用CentOS安装镜像文件作为本地yum源，优点是简单便捷，缺点是镜像文件中的软件包不完整，(centos 7 Everything才7G<br>左右)；<br>二、<br>同步CentOS官方源到本地（相当于创建了一个公共镜像），优点是软件包很全，缺点是占空间费流量；<br>三、<br>创建完全自定义的本地源，优点是灵活性最大，缺点是只是作为其他源的补充。</p>
-<p>上面的三种方法，我自己试过第一种和第三种，第一种用centos 7 Everything的iso文件做本地yum源，安装scrapy时需要的依赖包<br>有些本地源中有，但有些并没有，因此第一种相对来说不太可靠。第三种很方便，需要什么软件就在能上网的电脑上提前下载好单不<br>安装，单独放在一个文件夹，把这个文件夹当作本地yum源。</p>
-<h3 id="第一种：-使用CentOS7-iso镜像文件作为本地yum源"><a href="#第一种：-使用CentOS7-iso镜像文件作为本地yum源" class="headerlink" title="第一种： 使用CentOS7 iso镜像文件作为本地yum源"></a>第一种： 使用CentOS7 iso镜像文件作为本地yum源</h3><h4 id="挂载ISO镜像文件"><a href="#挂载ISO镜像文件" class="headerlink" title="挂载ISO镜像文件"></a>挂载ISO镜像文件</h4><p>(1) 实体机上直接放入光盘<br>(2) VMware Workstation 虚拟机：虚拟机–&gt;可移动设备–&gt;连接<br>(此处我用的是移动硬盘，由于移动硬盘是ntfs文件系统，需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz，编译安装，需要先安装gcc 再挂载 ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建目录</span></span><br><span class="line">mkdir /mnt/ntfs   </span><br><span class="line"><span class="comment">#挂载  此处挂载移动硬盘，若是优盘则（mount  /dev/sdb1  /mnt/ntfs）</span></span><br><span class="line">mount -t ntfs-3g /dev/sdb1  /mnt/ntfs </span><br><span class="line"><span class="comment">#卸载</span></span><br><span class="line">umount /mnt/ntfs</span><br></pre></td></tr></table></figure></p>
-<p>若不想每次都要放光盘，那就复制iso文件到本地硬盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  -a：该选项保留链接、文件属性，并递归地复制目录将iso文件挂载</span></span><br><span class="line">cp -avf /mnt/ntfs/CentOS-7-x86_64-Everything-1511.iso  /home/star</span><br><span class="line">mkdir /media/cdrom/</span><br><span class="line">mount -t iso9660 /home/star/CentOS-7-x86_64-Everything-1511.iso /media/cdrom/</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建repo文件"><a href="#创建repo文件" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/yum.repos.d/CentOS-Local.repo </span><br><span class="line"> </span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///media/cdrom/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
-<p>并把/etc/yum.repos.d/目录下的其他repo文件暂时移走。</p>
-<h2 id="2-同步官方镜像到本地，CentOS创建公共镜像"><a href="#2-同步官方镜像到本地，CentOS创建公共镜像" class="headerlink" title="2.同步官方镜像到本地，CentOS创建公共镜像"></a>2.同步官方镜像到本地，CentOS创建公共镜像</h2><p>详细说明见官方中文文档：<a href="http://wiki.centos.org/zh/HowTos/CreatePublicMirrors" target="_blank" rel="external">http://wiki.centos.org/zh/HowTos/CreatePublicMirrors</a><br>提供一个SHELL脚本，然后cron自动运行~~</p>
-<p>脚本稍作修改，换成中科大的镜像源。可用镜像列表见：<a href="http://www.centos.org/download/mirrors/" target="_blank" rel="external">http://www.centos.org/download/mirrors/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">localpath=<span class="string">"/mirrors/CentOS"</span>  </span><br><span class="line">mirror=<span class="string">"mirrors.hustunique.com::centos"</span>  </span><br><span class="line">rsync=<span class="string">"rsync -avzH --delete"</span>  </span><br><span class="line"> </span><br><span class="line">verlist=<span class="string">"7"</span>  </span><br><span class="line">baselist=<span class="string">"centosplus extras fasttrack os updates"</span>  </span><br><span class="line">archlist=<span class="string">"x86_64"</span>  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> ver <span class="keyword">in</span> <span class="variable">$verlist</span>  </span><br><span class="line"><span class="keyword">do</span>  </span><br><span class="line">	<span class="keyword">for</span> base <span class="keyword">in</span> <span class="variable">$baselist</span>  </span><br><span class="line">	<span class="keyword">do</span>  </span><br><span class="line">		<span class="keyword">for</span> arch <span class="keyword">in</span> <span class="variable">$archlist</span>  </span><br><span class="line">		<span class="keyword">do</span>  </span><br><span class="line">			remote=<span class="variable">$mirror</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			mkdir -pv <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			<span class="variable">$rsync</span> <span class="variable">$remote</span> <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">		<span class="keyword">done</span>  </span><br><span class="line">	<span class="keyword">done</span>  </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="三、创建完全自定义的本地源"><a href="#三、创建完全自定义的本地源" class="headerlink" title="三、创建完全自定义的本地源"></a>三、创建完全自定义的本地源</h2><p>在联网的电脑上把需要的软件包提前下载到一个目录中，或把平时收藏的一些RPM软件包放在一个目录里，就变成一个自定义源了，可以用YUM来管理，灵活性相当大。</p>
-<h3 id="创建本地yum仓库"><a href="#创建本地yum仓库" class="headerlink" title="创建本地yum仓库"></a>创建本地yum仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可以有N级目录 ，单感觉一级就好</span></span><br><span class="line">mkdir  /yum  </span><br><span class="line"><span class="comment">#复制RPM包到上述目录</span></span><br><span class="line">cp ...  </span><br><span class="line"><span class="comment">#或者将需要的包下载下来但不安装</span></span><br><span class="line">yum install --downloadonly --downloaddir=/yum   &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="创建repo文件-1"><a href="#创建repo文件-1" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim/etc/yum.repos.d/CentOS-Local.repo</span><br><span class="line"></span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///yum/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### 安装createrepo，用以创建索引，centos7自带，其他版本自己测试下就好</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#使用yum安装createrepo </span></span><br><span class="line">yum install createrepo  </span><br><span class="line">rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/createrepo-0.9.9-23.el7.noarch.rpm</span><br><span class="line"><span class="comment">### 创建索引</span></span><br><span class="line">``` bash</span><br><span class="line">createrepo /yum   </span><br><span class="line">yum makecache <span class="comment">#更新缓存</span></span><br></pre></td></tr></table></figure>
-<p>好了，制作完毕，现在就可以用了，本人推荐这种方法，感觉这种方法比较便捷，并且可以满足大多数情况，可以结合第一种方法一<br>起使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install  package-name</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
       

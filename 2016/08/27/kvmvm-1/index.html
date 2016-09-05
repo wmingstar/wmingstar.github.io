@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JAVA进阶——类型转换 | 明动天下</title>
+  <title>kvm基本概念 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。
-String类与字符型相互转换String转char:用String的toCharArray()方法可以将字符串转换为字符数组。String str=”just for test”;char char_ar">
+  <meta name="description" content="java elasticsearch github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA进阶——类型转换">
-<meta property="og:url" content="http://yoursite.com/2016/06/01/java-type-conversion/index.html">
+<meta property="og:title" content="kvm基本概念">
+<meta property="og:url" content="http://yoursite.com/2016/08/27/kvmvm-1/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。
-String类与字符型相互转换String转char:用String的toCharArray()方法可以将字符串转换为字符数组。String str=”just for test”;char char_ar">
-<meta property="og:updated_time" content="2016-06-05T11:35:12.112Z">
+<meta property="og:description" content="java elasticsearch github">
+<meta property="og:updated_time" content="2016-08-29T00:53:34.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA进阶——类型转换">
-<meta name="twitter:description" content="在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。
-String类与字符型相互转换String转char:用String的toCharArray()方法可以将字符串转换为字符数组。String str=”just for test”;char char_ar">
+<meta name="twitter:title" content="kvm基本概念">
+<meta name="twitter:description" content="java elasticsearch github">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -200,11 +197,11 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java-type-conversion" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-kvmvm-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/01/java-type-conversion/" class="article-date">
-  	<time datetime="2016-06-01T00:59:36.000Z" itemprop="datePublished">2016-06-01</time>
+      <a href="/2016/08/27/kvmvm-1/" class="article-date">
+  	<time datetime="2016-08-27T07:51:46.000Z" itemprop="datePublished">2016-08-27</time>
 </a>
     </div>
   
@@ -217,7 +214,7 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA进阶——类型转换
+      kvm基本概念
     </h1>
   
 
@@ -226,7 +223,7 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
         
@@ -237,16 +234,7 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。</p>
-<h2 id="String类与字符型相互转换"><a href="#String类与字符型相互转换" class="headerlink" title="String类与字符型相互转换"></a>String类与字符型相互转换</h2><h3 id="String转char"><a href="#String转char" class="headerlink" title="String转char:"></a>String转char:</h3><p>用String的toCharArray()方法可以将字符串转换为字符数组。<br>String str=”just for test”;<br>char char_arr[]=str.toCharArray();</p>
-<p>或者<br>用String的charAt(index)方法可以获得index处的字符。<br>char a=str.charAt(index);</p>
-<h3 id="char转String"><a href="#char转String" class="headerlink" title="char转String:"></a>char转String:</h3><p>注意：任何类型都可以用toString()方法转换为String。（基本类型不可以，基本类型对应的包装类可以,基本类型与其对应的包装类之间可以自动实现拆箱与装箱）。<br>Character a=new Character(‘a’);<br>String str=a.toString();</p>
-<p>或者：<br>char a=’a’;<br>String str=a+””;</p>
-<h2 id="String类与整型之间相互转换"><a href="#String类与整型之间相互转换" class="headerlink" title="String类与整型之间相互转换"></a>String类与整型之间相互转换</h2><h3 id="String转int："><a href="#String转int：" class="headerlink" title="String转int："></a>String转int：</h3><p>String str=”123”;<br>int a=Integer.parseInt(str);<br>或者<br>int a=Integer.valueOf(my_str).intValue();</p>
-<h3 id="String-转Integer"><a href="#String-转Integer" class="headerlink" title="String 转Integer:"></a>String 转Integer:</h3><p>Integer a=Integer.valueOf(str);</p>
-<h3 id="int转String："><a href="#int转String：" class="headerlink" title="int转String："></a>int转String：</h3><p>int a=12;<br>Integer num=a;<br>String str=num.toString();<br>或者：<br>int a=12;<br>String str=a+””;<br>或者：<br>int a=12;<br>String str=String.valueOf(a);</p>
-<h2 id="整型与字符之间相互转换"><a href="#整型与字符之间相互转换" class="headerlink" title="整型与字符之间相互转换"></a>整型与字符之间相互转换</h2><h3 id="int转char"><a href="#int转char" class="headerlink" title="int转char:"></a>int转char:</h3><h3 id="char转int"><a href="#char转int" class="headerlink" title="char转int"></a>char转int</h3><p>char a=’a’;<br>int num=a-‘0’;</p>
-
+        
       
     </div>
     
@@ -255,18 +243,18 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
     
 <nav id="article-nav">
   
-    <a href="/2016/06/05/github2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/05/linux-command1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Hexo 简单教程
+          linux学习——每日一点
         
       </div>
     </a>
   
   
-    <a href="/2016/05/25/spark1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spark进阶之路——入门</div>
+    <a href="/2016/08/07/python-subprocess-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python子进程模块subprocess详解与应用实例</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -301,7 +289,7 @@ String类与字符型相互转换String转char:用String的toCharArray()方法�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java-type-conversion" data-title="JAVA进阶——类型转换" data-url="http://yoursite.com/2016/06/01/java-type-conversion/"></div>
+	<div class="ds-thread" data-thread-key="kvmvm-1" data-title="kvm基本概念" data-url="http://yoursite.com/2016/08/27/kvmvm-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

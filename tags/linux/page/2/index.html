@@ -4,20 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JAVA进阶——快速排序 | 明动天下</title>
+  <title>Tag: linux | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA进阶——快速排序">
-<meta property="og:url" content="http://yoursite.com/2016/04/24/java4/index.html">
+  <meta name="description" content="java elasticsearch github">
+<meta property="og:type" content="website">
+<meta property="og:title" content="明动天下">
+<meta property="og:url" content="http://yoursite.com/tags/linux/page/2/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
-<meta property="og:image" content="http://yoursite.com/img/quicksort.gif">
-<meta property="og:updated_time" content="2016-06-05T11:34:03.319Z">
+<meta property="og:description" content="java elasticsearch github">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA进阶——快速排序">
-<meta name="twitter:description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
-<meta name="twitter:image" content="http://yoursite.com/img/quicksort.gif">
+<meta name="twitter:title" content="明动天下">
+<meta name="twitter:description" content="java elasticsearch github">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -199,118 +196,57 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/04/24/java4/" class="article-date">
-  	<time datetime="2016-04-24T01:29:32.000Z" itemprop="datePublished">2016-04-24</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/06/26/linux目录详解/" class="archive-article-date">
+  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">6月 26</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA进阶——快速排序
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/quicksort.gif" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/05/15/java5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JAVA进阶——接口
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/04/23/java3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA进阶——插入排序</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java4" data-title="JAVA进阶——快速排序" data-url="http://yoursite.com/2016/04/24/java4/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/linux/">&laquo; Prev</a><a class="page-number" href="/tags/linux/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
@@ -336,9 +272,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}

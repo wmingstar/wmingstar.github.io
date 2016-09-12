@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JAVA进阶——直接选择排序 | 明动天下</title>
+  <title>引用与指针 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码123456789101112131415161718192021222324252627282930（code=java）package test;public class SelectSort &amp;#123;	public static void main(String[] args) &amp;#123;		 		int a[]=&amp;#123;25,36,21,45,98,13&amp;#125;;		fo">
+  <meta name="description" content="对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有些疑惑，今天详细的查了下资料，总结一下。
+借用书中的两行代码12int m; int &amp;amp;n = m;
+在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。
+引用的规">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA进阶——直接选择排序">
-<meta property="og:url" content="http://yoursite.com/2016/04/23/java2/index.html">
+<meta property="og:title" content="引用与指针">
+<meta property="og:url" content="http://yoursite.com/2016/09/11/引用与指针/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="代码123456789101112131415161718192021222324252627282930（code=java）package test;public class SelectSort &amp;#123;	public static void main(String[] args) &amp;#123;		 		int a[]=&amp;#123;25,36,21,45,98,13&amp;#125;;		fo">
-<meta property="og:updated_time" content="2016-06-05T11:33:05.023Z">
+<meta property="og:description" content="对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有些疑惑，今天详细的查了下资料，总结一下。
+借用书中的两行代码12int m; int &amp;amp;n = m;
+在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。
+引用的规">
+<meta property="og:updated_time" content="2016-09-12T01:32:02.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA进阶——直接选择排序">
-<meta name="twitter:description" content="代码123456789101112131415161718192021222324252627282930（code=java）package test;public class SelectSort &amp;#123;	public static void main(String[] args) &amp;#123;		 		int a[]=&amp;#123;25,36,21,45,98,13&amp;#125;;		fo">
+<meta name="twitter:title" content="引用与指针">
+<meta name="twitter:description" content="对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有些疑惑，今天详细的查了下资料，总结一下。
+借用书中的两行代码12int m; int &amp;amp;n = m;
+在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。
+引用的规">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -197,11 +206,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-引用与指针" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/23/java2/" class="article-date">
-  	<time datetime="2016-04-23T09:11:16.000Z" itemprop="datePublished">2016-04-23</time>
+      <a href="/2016/09/11/引用与指针/" class="article-date">
+  	<time datetime="2016-09-11T14:53:10.000Z" itemprop="datePublished">2016-09-11</time>
 </a>
     </div>
   
@@ -214,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA进阶——直接选择排序
+      引用与指针
     </h1>
   
 
@@ -223,7 +232,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
 	</div>
 
         
@@ -234,7 +243,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class SelectSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int index=0;</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[index])</span><br><span class="line">				&#123;</span><br><span class="line">					index=j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			int temp=0;</span><br><span class="line">			temp=a[index];</span><br><span class="line">			a[index]=a[a.length-i];</span><br><span class="line">			a[a.length-i]=temp;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有<br>些疑惑，今天详细的查了下资料，总结一下。</p>
+<h4 id="借用书中的两行代码"><a href="#借用书中的两行代码" class="headerlink" title="借用书中的两行代码"></a>借用书中的两行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int m; </span><br><span class="line">int &amp;n = m;</span><br></pre></td></tr></table></figure>
+<p>在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。</p>
+<h3 id="引用的规则"><a href="#引用的规则" class="headerlink" title="引用的规则"></a>引用的规则</h3><p>（1）引用被创建的同时必须被初始化（即赋值，指针则可以在任何时候被初始化）。<br>（2）不能有NULL引用，引用必须与合法的存储单元关联（就像外号一样，必须存在这样一个人，才可以给这个人起外号；指针则可以<br>是NULL）。<br>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 </p>
+<h3 id="引用的主要功能是传递函数的参数和返回值。"><a href="#引用的主要功能是传递函数的参数和返回值。" class="headerlink" title="引用的主要功能是传递函数的参数和返回值。"></a>引用的主要功能是传递函数的参数和返回值。</h3><p>在C++语言中，参数和返回值的传递主要有三种方式：值传递、指针传递、引用传递。下面用三个简单的程序来说明下三者的不同。</p>
+<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func1(int x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Func1(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 0</span><br></pre></td></tr></table></figure>
+<p>在上面的程序中，x是n的一个拷贝，在Func()函数中改变x的值并不会对n造成影响，最后输出n的值仍是0.</p>
+<h3 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func2(int *x) </span><br><span class="line">&#123; </span><br><span class="line">(* x) = (* x) + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func2(&amp;n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
+<p>在上面代码中，Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
+<h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0;</span><br><span class="line">void Func3(int &amp;x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func3(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，Func3函数体内的x是外部变量n的引用，x和n是同一个对象，改变x等于改变n，所以n的值成为10。</p>
+<p>通过对比上述三个示例程序，发现”引用传递”的性质与”指针传递”很像，但函数内部实现的书写方式与”值传递”一样。<br>讲道理，实际上”引用”可以做的任何事情”指针”也都能够做，那为什么还要”引用”？<br>答案是”用适当的工具做恰如其分的工作”。 </p>
+<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。<br>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外</p>
+
       
     </div>
     
@@ -243,18 +265,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/23/java3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JAVA进阶——插入排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/23/java1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA进阶——冒泡排序</div>
+    <a href="/2016/09/06/经典算法—-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">互联网笔试常考经典算法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -289,7 +302,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java2" data-title="JAVA进阶——直接选择排序" data-url="http://yoursite.com/2016/04/23/java2/"></div>
+	<div class="ds-thread" data-thread-key="引用与指针" data-title="引用与指针" data-url="http://yoursite.com/2016/09/11/引用与指针/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

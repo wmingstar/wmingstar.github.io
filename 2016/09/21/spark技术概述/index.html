@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>python中 @classmethod 与 @staticmethod 的区别 | 明动天下</title>
+  <title>spark技术概述 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。这可以在一定程度上增加编写代码的效率，并可以使">
+  <meta name="description" content="java elasticsearch github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中 @classmethod 与 @staticmethod 的区别">
-<meta property="og:url" content="http://yoursite.com/2016/06/26/python-1/index.html">
+<meta property="og:title" content="spark技术概述">
+<meta property="og:url" content="http://yoursite.com/2016/09/21/spark技术概述/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。这可以在一定程度上增加编写代码的效率，并可以使">
-<meta property="og:updated_time" content="2016-06-26T09:31:24.549Z">
+<meta property="og:description" content="java elasticsearch github">
+<meta property="og:updated_time" content="2016-09-21T12:51:50.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中 @classmethod 与 @staticmethod 的区别">
-<meta name="twitter:description" content="python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。这可以在一定程度上增加编写代码的效率，并可以使">
+<meta name="twitter:title" content="spark技术概述">
+<meta name="twitter:description" content="java elasticsearch github">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -197,11 +197,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/26/python-1/" class="article-date">
-  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
+      <a href="/2016/09/21/spark技术概述/" class="article-date">
+  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
 </a>
     </div>
   
@@ -214,7 +214,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python中 @classmethod 与 @staticmethod 的区别
+      spark技术概述
     </h1>
   
 
@@ -222,10 +222,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -234,10 +230,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
-<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
-<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
-
+        
       
     </div>
     
@@ -246,18 +239,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/26/pip源/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/22/python-random/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          制作pip源
+          python random 模块常用方法
         
       </div>
     </a>
   
   
-    <a href="/2016/06/26/linux目录详解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux目录详解</div>
+    <a href="/2016/09/12/linux-command2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux常用命令——2</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -292,7 +285,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="python-1" data-title="python中 @classmethod 与 @staticmethod 的区别" data-url="http://yoursite.com/2016/06/26/python-1/"></div>
+	<div class="ds-thread" data-thread-key="spark技术概述" data-title="spark技术概述" data-url="http://yoursite.com/2016/09/21/spark技术概述/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

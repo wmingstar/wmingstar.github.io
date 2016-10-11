@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>制作pip源 | 明动天下</title>
+  <title>centos软件安装与卸载 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。这里介绍两种方法：
-一、同步官方pip源到本地用脚本安装pip123unzip pip.master.zipcd pip.masterpython setup.py  install
-1.安装distribute123unzip distribute-0.7.3.zipcd distribute-0.7.3pyt">
+  <meta name="description" content="1.rpm安装，更新与卸载RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。
+rpm安装(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；(2)打开一个终端，su 成root用户；(3)cd soft.versio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="制作pip源">
-<meta property="og:url" content="http://yoursite.com/2016/06/26/pip源/index.html">
+<meta property="og:title" content="centos软件安装与卸载">
+<meta property="og:url" content="http://yoursite.com/2016/10/10/centos软件安装与卸载/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。这里介绍两种方法：
-一、同步官方pip源到本地用脚本安装pip123unzip pip.master.zipcd pip.masterpython setup.py  install
-1.安装distribute123unzip distribute-0.7.3.zipcd distribute-0.7.3pyt">
-<meta property="og:updated_time" content="2016-07-10T11:22:55.413Z">
+<meta property="og:description" content="1.rpm安装，更新与卸载RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。
+rpm安装(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；(2)打开一个终端，su 成root用户；(3)cd soft.versio">
+<meta property="og:updated_time" content="2016-10-10T13:42:09.618Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="制作pip源">
-<meta name="twitter:description" content="配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。这里介绍两种方法：
-一、同步官方pip源到本地用脚本安装pip123unzip pip.master.zipcd pip.masterpython setup.py  install
-1.安装distribute123unzip distribute-0.7.3.zipcd distribute-0.7.3pyt">
+<meta name="twitter:title" content="centos软件安装与卸载">
+<meta name="twitter:description" content="1.rpm安装，更新与卸载RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。
+rpm安装(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；(2)打开一个终端，su 成root用户；(3)cd soft.versio">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -203,11 +200,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/26/pip源/" class="article-date">
-  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
+      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
+  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
 </a>
     </div>
   
@@ -220,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      制作pip源
+      centos软件安装与卸载
     </h1>
   
 
@@ -240,18 +237,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。<br>这里介绍两种方法：</p>
-<h2 id="一、同步官方pip源到本地"><a href="#一、同步官方pip源到本地" class="headerlink" title="一、同步官方pip源到本地"></a>一、同步官方pip源到本地</h2><p>用脚本安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip pip.master.zip</span><br><span class="line"><span class="built_in">cd</span> pip.master</span><br><span class="line">python setup.py  install</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip distribute-0.7.3.zip</span><br><span class="line"><span class="built_in">cd</span> distribute-0.7.3</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip virtualenv.zip</span><br><span class="line"><span class="built_in">cd</span> virtualenv</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtualenv-2.7 bandersnatch</span><br><span class="line"><span class="built_in">cd</span> bandersnatch</span><br><span class="line">bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span><br></pre></td></tr></table></figure>
-<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Run （- it will create an empty configuration file for you in /etc/bandersnatch.conf.）根据自己的需求更改配置文件 </span><br><span class="line">#/etc/bandersnatch.conf</span><br><span class="line"></span><br><span class="line">bandersnatch mirror </span><br><span class="line"></span><br><span class="line">#Run again.</span><br><span class="line">#It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect </span><br><span class="line">#this to grow substantially over time.Run bandersnatch mirror regularly to update your mirror with any #intermediate changes.</span><br><span class="line">bandersnatch mirror</span><br></pre></td></tr></table></figure>
-<p>用这个方法可以将官方pip源同步到本地，但是速度比较慢，我同步的时候用了一种，共220G左右，随着时间的推移，这个源是在不<br>断变化的。单自己同步完之后并不会用啊，太伤了，所以又换了中方法。</p>
-<h2 id="二、制作自定义pip源"><a href="#二、制作自定义pip源" class="headerlink" title="二、制作自定义pip源"></a>二、制作自定义pip源</h2><p>需要什么就在可以上网的电脑上提前下载好，然后复制到部署环境的电脑上就可以。</p>
-<h3 id="1-将需要的pip包下载到本地"><a href="#1-将需要的pip包下载到本地" class="headerlink" title="1.将需要的pip包下载到本地"></a>1.将需要的pip包下载到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="_">-d</span> /path/to/save/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=file:///path_to/packages/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
+        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
+<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
+<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
+<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
+<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
+<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
+<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
+<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
+<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
+<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
+<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
+<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -261,18 +261,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/26/yum源/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/11/linux-command3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          制作yum源
+          linux创建、删除软连接、硬链接
         
       </div>
     </a>
   
   
-    <a href="/2016/06/26/python-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python中 @classmethod 与 @staticmethod 的区别</div>
+    <a href="/2016/10/09/python连接mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python连接mysql</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -307,7 +307,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="pip源" data-title="制作pip源" data-url="http://yoursite.com/2016/06/26/pip源/"></div>
+	<div class="ds-thread" data-thread-key="centos软件安装与卸载" data-title="centos软件安装与卸载" data-url="http://yoursite.com/2016/10/10/centos软件安装与卸载/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

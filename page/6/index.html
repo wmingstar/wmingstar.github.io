@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a>
+						<a href="/tags/Github/" style="font-size: 12.5px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 17.5px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/linux目录详解/" class="article-date">
+  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>六月是一个令我惆怅的月份，学长们相继跑路实习了，自己很荣幸的接过了学长留下的锅。最近做的项目是一个分布式的文件管理、计算、变异系统，分布式就意味着需要部署系统，配置环境，所以最近在看鸟哥的书，就顺手整理了下。今天说点linux系统目录的知识。</p>
+<h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><p>根目录，所有东西均在该目录下</p>
+<h2 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h2><p>这是系统管理员(root user)的目录.</p>
+<h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h2><p>这里存放了标准的(或者说是缺省的)linux的工具，比如像“ls”、“vi”还有“more”等等。通常来说，这个目录已经包含在你的“path”系 统变量里面了。系统所需要的那些命令位于此目录，比如 ls、cp、mkdir等命令；这个目录中的文件都是可执行的、普通用户都可以使用的命令。作为基础系统所需要的最基础的命令就是放在这里。</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h2><p>这里主要存放了系统配置方面的文件。举个例子：你安装了fastdfs，当你想要修改fastdfs配置文件的时候，你会发现它们(配置文件)就在/etc/fdfs目录下。</p>
+<h2 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h2><p>这里主要存放与设备(包括外设)有关的文件(unix和linux系统均把设备当成文件)。比如打印机,系统就是从这个目录开始工作的。另外还有一些包括磁盘驱动、USB驱动等都放在这个目录。</p>
+<h2 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h2><p>这里主要存放你的个人数据。具体每个用户的设置文件，用户的桌面文件夹，还有用户的数据都放在这里。每个用户都有自己的用户目录，位置为：/home/用户名。</p>
+<h2 id="tmp"><a href="#tmp" class="headerlink" title="/tmp"></a>/tmp</h2><p>这是临时目录。对于某些程序来说，有些文件被用了一次两次之后，就不会再被用到，像这样的文件就放在这里。有些linux系统会定期自动对这个目录进行清理，因此，千万不要把重要的数据放在这里。</p>
+<h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h2><p>在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如游戏或等，/usr目录包含了许多子目录： /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是“新立得”吧)会自动帮你管理好/usr目录的。<br>/usr/local主要存放那些用户手动编译安装的软件，一般是通过源码包安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下。</p>
+<h2 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h2><p>Linux的内核及引导系统程序所需要的文件目录，比如 vmlinuz initrd.img 文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录。</p>
+<h2 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h2><p>这个目录一般是用于存放挂载储存设备的挂载目录的，比如usb等目录,光驱可以挂载到/mnt/cdrom 。</p>
+<h2 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h2><p>表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure –prefix=/opt/目录 。</p>
+<h2 id="proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。"><a href="#proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。" class="headerlink" title="/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。"></a>/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。</h2><h2 id="sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"><a href="#sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。" class="headerlink" title="/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"></a>/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。</h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h2><p>这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java8-basis" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -456,74 +525,9 @@
 
 
   
-    <article id="post-java-type-conversion" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/01/java-type-conversion/" class="article-date">
-  	<time datetime="2016-06-01T00:59:36.000Z" itemprop="datePublished">2016-06-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/01/java-type-conversion/">JAVA进阶——类型转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。</p>
-<h2 id="String类与字符型相互转换"><a href="#String类与字符型相互转换" class="headerlink" title="String类与字符型相互转换"></a>String类与字符型相互转换</h2><h3 id="String转char"><a href="#String转char" class="headerlink" title="String转char:"></a>String转char:</h3><p>用String的toCharArray()方法可以将字符串转换为字符数组。<br>String str=”just for test”;<br>char char_arr[]=str.toCharArray();</p>
-<p>或者<br>用String的charAt(index)方法可以获得index处的字符。<br>char a=str.charAt(index);</p>
-<h3 id="char转String"><a href="#char转String" class="headerlink" title="char转String:"></a>char转String:</h3><p>注意：任何类型都可以用toString()方法转换为String。（基本类型不可以，基本类型对应的包装类可以,基本类型与其对应的包装类之间可以自动实现拆箱与装箱）。<br>Character a=new Character(‘a’);<br>String str=a.toString();</p>
-<p>或者：<br>char a=’a’;<br>String str=a+””;</p>
-<h2 id="String类与整型之间相互转换"><a href="#String类与整型之间相互转换" class="headerlink" title="String类与整型之间相互转换"></a>String类与整型之间相互转换</h2><h3 id="String转int："><a href="#String转int：" class="headerlink" title="String转int："></a>String转int：</h3><p>String str=”123”;<br>int a=Integer.parseInt(str);<br>或者<br>int a=Integer.valueOf(my_str).intValue();</p>
-<h3 id="String-转Integer"><a href="#String-转Integer" class="headerlink" title="String 转Integer:"></a>String 转Integer:</h3><p>Integer a=Integer.valueOf(str);</p>
-<h3 id="int转String："><a href="#int转String：" class="headerlink" title="int转String："></a>int转String：</h3><p>int a=12;<br>Integer num=a;<br>String str=num.toString();<br>或者：<br>int a=12;<br>String str=a+””;<br>或者：<br>int a=12;<br>String str=String.valueOf(a);</p>
-<h2 id="整型与字符之间相互转换"><a href="#整型与字符之间相互转换" class="headerlink" title="整型与字符之间相互转换"></a>整型与字符之间相互转换</h2><h3 id="int转char"><a href="#int转char" class="headerlink" title="int转char:"></a>int转char:</h3><h3 id="char转int"><a href="#char转int" class="headerlink" title="char转int"></a>char转int</h3><p>char a=’a’;<br>int num=a-‘0’;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 </div>

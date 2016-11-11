@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JAVA进阶——快速排序 | 明动天下</title>
+  <title>leetcode-387-first-unique character | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
+  <meta name="description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
+分析得到字符串中unique">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA进阶——快速排序">
-<meta property="og:url" content="http://yoursite.com/2016/04/24/java4/index.html">
+<meta property="og:title" content="leetcode-387-first-unique character">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/leetcode-387-first-unique-character/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
-<meta property="og:image" content="http://yoursite.com/img/quicksort.gif">
-<meta property="og:updated_time" content="2016-06-05T11:34:03.319Z">
+<meta property="og:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
+分析得到字符串中unique">
+<meta property="og:updated_time" content="2016-11-11T08:14:42.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA进阶——快速排序">
-<meta name="twitter:description" content="代码123456789101112131415161718192021222324（code=java）public static void quickSort(int[] arr)&amp;#123;    qsort(arr, 0, arr.length-1);&amp;#125;private static void qsort(int[] arr, int low, int high)&amp;#123;">
-<meta name="twitter:image" content="http://yoursite.com/img/quicksort.gif">
+<meta name="twitter:title" content="leetcode-387-first-unique character">
+<meta name="twitter:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
+分析得到字符串中unique">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -199,11 +200,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/java4/" class="article-date">
-  	<time datetime="2016-04-24T01:29:32.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/11/11/leetcode-387-first-unique-character/" class="article-date">
+  	<time datetime="2016-11-11T06:33:48.000Z" itemprop="datePublished">2016-11-11</time>
 </a>
     </div>
   
@@ -216,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA进阶——快速排序
+      leetcode-387-first-unique character
     </h1>
   
 
@@ -225,7 +226,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</div>
 
         
@@ -236,8 +237,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/quicksort.gif" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"leetcode"</span></span><br><span class="line"><span class="built_in">return</span> 0.</span><br><span class="line"></span><br><span class="line">s = <span class="string">"loveleetcode"</span>,</span><br><span class="line"><span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>得到字符串中unique字符的序号</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def firstUniqChar(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        letters=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">        char_index=[s.index(char) <span class="keyword">for</span> char <span class="keyword">in</span> letters <span class="keyword">if</span> s.count(char)==1]</span><br><span class="line">        <span class="built_in">return</span> min(char_index) <span class="keyword">if</span> char_index <span class="keyword">else</span> -1</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>开始时考虑用for循环遍历字符串判断字符串是否unique并返回其序号；这种方法忽略了两个问题：效率（运行时间）；当字符串特别大时会有内存溢出问题，所以不能用for遍历。</p>
+<h3 id="新学到的方法"><a href="#新学到的方法" class="headerlink" title="新学到的方法"></a>新学到的方法</h3><p>str.index(char)  获取字符串中某个字符的索引<br>str.count(char)  获取字符串中某个字符出现的次数</p>
+
       
     </div>
     
@@ -246,18 +251,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/15/java5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JAVA进阶——接口
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/23/java3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA进阶——插入排序</div>
+    <a href="/2016/11/11/leetcode-171-column-number/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-171-column-number</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -292,7 +288,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java4" data-title="JAVA进阶——快速排序" data-url="http://yoursite.com/2016/04/24/java4/"></div>
+	<div class="ds-thread" data-thread-key="leetcode-387-first-unique-character" data-title="leetcode-387-first-unique character" data-url="http://yoursite.com/2016/11/11/leetcode-387-first-unique-character/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

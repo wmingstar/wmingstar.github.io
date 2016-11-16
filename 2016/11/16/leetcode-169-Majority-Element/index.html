@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>linux常用命令——2 | 明动天下</title>
+  <title>leetcode-169-Majority-Element | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据同步写入磁盘1#sync
-关机、重启123456789#shutdown -h now  立刻关机#shutdown -r now  立刻重启#reboot   重启``` bash### 改变文件属性与权限``` bash #chgrp   改变文件所属用户组      组名必须要在/etc/group 文件内存在才可以#chown   改变文件所属用户        用户必须是在/etc/">
+  <meta name="description" content="题目Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element alw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux常用命令——2">
-<meta property="og:url" content="http://yoursite.com/2016/09/12/linux-command2/index.html">
+<meta property="og:title" content="leetcode-169-Majority-Element">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/leetcode-169-Majority-Element/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="数据同步写入磁盘1#sync
-关机、重启123456789#shutdown -h now  立刻关机#shutdown -r now  立刻重启#reboot   重启``` bash### 改变文件属性与权限``` bash #chgrp   改变文件所属用户组      组名必须要在/etc/group 文件内存在才可以#chown   改变文件所属用户        用户必须是在/etc/">
-<meta property="og:updated_time" content="2016-09-12T14:20:33.033Z">
+<meta property="og:description" content="题目Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element alw">
+<meta property="og:updated_time" content="2016-11-16T14:32:11.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux常用命令——2">
-<meta name="twitter:description" content="数据同步写入磁盘1#sync
-关机、重启123456789#shutdown -h now  立刻关机#shutdown -r now  立刻重启#reboot   重启``` bash### 改变文件属性与权限``` bash #chgrp   改变文件所属用户组      组名必须要在/etc/group 文件内存在才可以#chown   改变文件所属用户        用户必须是在/etc/">
+<meta name="twitter:title" content="leetcode-169-Majority-Element">
+<meta name="twitter:description" content="题目Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element alw">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -200,11 +200,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-linux-command2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-leetcode-169-Majority-Element" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/12/linux-command2/" class="article-date">
-  	<time datetime="2016-09-12T12:49:11.000Z" itemprop="datePublished">2016-09-12</time>
+      <a href="/2016/11/16/leetcode-169-Majority-Element/" class="article-date">
+  	<time datetime="2016-11-16T13:49:20.000Z" itemprop="datePublished">2016-11-16</time>
 </a>
     </div>
   
@@ -217,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux常用命令——2
+      leetcode-169-Majority-Element
     </h1>
   
 
@@ -226,7 +226,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</div>
 
         
@@ -237,8 +237,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="数据同步写入磁盘"><a href="#数据同步写入磁盘" class="headerlink" title="数据同步写入磁盘"></a>数据同步写入磁盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sync</span></span><br></pre></td></tr></table></figure>
-<h3 id="关机、重启"><a href="#关机、重启" class="headerlink" title="关机、重启"></a>关机、重启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#shutdown -h now  立刻关机</span></span><br><span class="line"><span class="comment">#shutdown -r now  立刻重启</span></span><br><span class="line"><span class="comment">#reboot   重启</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">### 改变文件属性与权限</span></span><br><span class="line">``` bash </span><br><span class="line"><span class="comment">#chgrp   改变文件所属用户组      组名必须要在/etc/group 文件内存在才可以</span></span><br><span class="line"><span class="comment">#chown   改变文件所属用户        用户必须是在/etc/passwd中存在的用户</span></span><br><span class="line"><span class="comment">#chmod   改变文件权限</span></span><br></pre></td></tr></table></figure>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
+<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def majorityElement(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num_dic=collections.Counter(nums)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> num_dic:</span><br><span class="line">            <span class="keyword">if</span> num_dic[item]&gt;(len(nums)/2):</span><br><span class="line">                <span class="built_in">return</span> item</span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="built_in">return</span> nums[nums.length/2];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.分别统计数组中的元素个数，将个数大于length/2的元素返回<br>2.将数组排序，将排序后的下标为length/2的元素返回</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>1.用collections.Counter()统计各元素的个数，返回字典。<br>2.sort()是容器的函数，可将容器中的元素排序；sorted()为内置函数，可对可迭代类型排序。<br>3.nums.count(x)也可得到nums中某元素的个数。</p>
+<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>1.array.length属性得到数组长度。<br>2.Arrays类的sort()方法可以对数组进行排序。</p>
+
       
     </div>
     
@@ -247,18 +252,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/21/spark技术概述/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          spark技术概述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/11/引用与指针/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">引用与指针</div>
+    <a href="/2016/11/16/leetcode-242-Valid-Anagram/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-242-Valid-Anagram</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -293,7 +289,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="linux-command2" data-title="linux常用命令——2" data-url="http://yoursite.com/2016/09/12/linux-command2/"></div>
+	<div class="ds-thread" data-thread-key="leetcode-169-Majority-Element" data-title="leetcode-169-Majority-Element" data-url="http://yoursite.com/2016/11/16/leetcode-169-Majority-Element/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

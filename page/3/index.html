@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a>
+						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,136 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-python-random" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/22/python-random/" class="article-date">
+  	<time datetime="2016-09-22T09:25:22.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/python-random/">python random 模块常用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="random-random"><a href="#random-random" class="headerlink" title="random.random()"></a>random.random()</h3><p>返回[0.0,1)之间的浮点数</p>
+<h3 id="random-uniform-a-b"><a href="#random-uniform-a-b" class="headerlink" title="random.uniform(a, b)"></a>random.uniform(a, b)</h3><p>返回[a,b]之间的浮点数</p>
+<h3 id="random-randint-a-b"><a href="#random-randint-a-b" class="headerlink" title="random.randint(a, b)"></a>random.randint(a, b)</h3><p>返回[a,b]之间的整数<br>范围 a &lt;= n &lt;= b  （注意：下限必须小于上限） </p>
+<h3 id="random-randrange-start-stop-step-，"><a href="#random-randrange-start-stop-step-，" class="headerlink" title="random.randrange(start, stop, step)，"></a>random.randrange(start, stop, step)，</h3><p>从指定范围内，按指定步长 step递增的集合中获取一个随机数。<br>如：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
+<p>random.randrange(10, 100, 2)在结果上与 random.choice(range(10, 100, 2) 等效。</p>
+<h3 id="random-choice-sequence"><a href="#random-choice-sequence" class="headerlink" title="random.choice(sequence)"></a>random.choice(sequence)</h3><p>参数sequence表示一个序列类型。这里要说明一下：sequence在python不是一种特定的类型，而是泛指一系列的类型。list, tuple, 字符串都属于sequence。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> random.choice(<span class="string">"学习Python"</span>)    </span><br><span class="line"><span class="built_in">print</span> random.choice([<span class="string">"JGood"</span>, <span class="string">"is"</span>, <span class="string">"a"</span>, <span class="string">"handsome"</span>, <span class="string">"boy"</span>])   </span><br><span class="line"><span class="built_in">print</span> random.choice((<span class="string">"Tuple"</span>, <span class="string">"List"</span>, <span class="string">"Dict"</span>))</span><br></pre></td></tr></table></figure></p>
+<h3 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random.shuffle()"></a>random.shuffle()</h3><p>用于将一个列表中的元素打乱<br>例如： </p>
+<pre><code class="bash">p = [<span class="string">"Python"</span>, <span class="string">"is"</span>, <span class="string">"powerful"</span>, <span class="string">"simple"</span>, <span class="string">"and so on..."</span>]   
+random.shuffle(p)   
+<span class="built_in">print</span> p   
+<span class="comment">#---- 结果（不同机器上的结果可能不一样。）   </span>
+<span class="comment">#['powerful', 'simple', 'is', 'Python', 'and so on...']</span>
+</code></pre>
+<h3 id="random-sample-sequence-k"><a href="#random-sample-sequence-k" class="headerlink" title="random.sample(sequence, k)"></a>random.sample(sequence, k)</h3><p>从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。<br>例如：</p>
+<pre><code class="bash">list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]   
+slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个元素，作为一个片断返回  </span>
+<span class="built_in">print</span> slice  
+<span class="built_in">print</span> list <span class="comment">#原有序列并没有改变。 </span>
+<span class="comment">#[3,2,6,7,1]</span>
+<span class="comment">#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre>
+<p><a href="http://wangwei007.blog.51cto.com/68019/1102838" target="_blank" rel="external">参考</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/21/spark技术概述/" class="article-date">
+  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/spark技术概述/">spark技术概述</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-command2" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -370,136 +500,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/linux-command1/" class="article-date">
-  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/linux-command1/">linux常用命令——1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
-</code></pre>
-<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
-</code></pre>
-<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
-<span class="comment"># date +%Y/%m/%d</span>
-<span class="comment"># date +%H:%M</span>
-</code></pre>
-<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
-<span class="comment"># cal 2016</span>
-<span class="comment"># cal 8 2016</span>
-</code></pre>
-<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
-<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
-
-<span class="comment">#[Ctrl]+c 终止命令</span>
-<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
-</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-kvmvm-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/27/kvmvm-1/" class="article-date">
-  	<time datetime="2016-08-27T07:51:46.000Z" itemprop="datePublished">2016-08-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/27/kvmvm-1/">kvm基本概念</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
       

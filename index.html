@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,129 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-206-Reverse-Linked-List" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/23/leetcode-206-Reverse-Linked-List/" class="article-date">
+  	<time datetime="2016-11-23T08:25:49.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/leetcode-206-Reverse-Linked-List/">leetcode-206-Reverse-Linked-List</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Reverse a singly linked list.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def reverseList(self, head):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type head: ListNode</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="keyword">if</span> not head or not head.next:</span><br><span class="line">            <span class="built_in">return</span> head</span><br><span class="line">        h0=None</span><br><span class="line">        h1,h2=head,head.next</span><br><span class="line">        <span class="keyword">while</span> h2:</span><br><span class="line">            h1.next=h0</span><br><span class="line">            h0=h2.next</span><br><span class="line">            h2.next=h1</span><br><span class="line">            h0,h1,h2=h1,h2,h0</span><br><span class="line">        <span class="built_in">return</span> h1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head==null || head.next==null)&#123;</span><br><span class="line">            <span class="built_in">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode node0=null;</span><br><span class="line">        ListNode node;</span><br><span class="line">        ListNode node1 = head;</span><br><span class="line">        ListNode node2 = head.next;</span><br><span class="line">        <span class="keyword">while</span>(node2!=null)&#123;</span><br><span class="line">            node1.next = node0;</span><br><span class="line">            node0 = node2.next;</span><br><span class="line">            node2.next = node1;</span><br><span class="line">            node = node1;</span><br><span class="line">            node1 = node2;</span><br><span class="line">            node2 = node0;</span><br><span class="line">            node0 = node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> node1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题题意很清晰，就是将链表反转，然后返回反转之后的链表。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>python 中用 None  java中用 null,java中注意对象的初始化。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-350-Intersection-of-Two-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/" class="article-date">
+  	<time datetime="2016-11-22T09:14:49.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/">leetcode-350-Intersection-of-Two-Arrays</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        result=[]</span><br><span class="line">        <span class="keyword">if</span> nums1==[] or nums2==[]:</span><br><span class="line">            <span class="built_in">return</span> result</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums1:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> nums2:</span><br><span class="line">                result.append(i)</span><br><span class="line">                nums2.remove(i)</span><br><span class="line">        <span class="built_in">return</span> result</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> num, count <span class="keyword">in</span> (collections.Counter(nums1) &amp; collections.Counter(nums2)).items():</span><br><span class="line">            res += [num] * count</span><br><span class="line">        <span class="built_in">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line">        </span><br><span class="line">        int i = 0;</span><br><span class="line">        int iL = nums1.length;</span><br><span class="line">        </span><br><span class="line">        int j = 0;</span><br><span class="line">        int jL = nums2.length;</span><br><span class="line">        </span><br><span class="line">        int counter = 0;</span><br><span class="line">        int[] results = new int [iL &lt; jL ? iL : jL];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt; iL &amp;&amp; j &lt; jL) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] == nums2[j]) &#123;</span><br><span class="line">                results[counter++] = nums1[i];</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  Arrays.copyOf(results, counter);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题，本质是求两个数组的交集。最直接的思路是遍历其中一个数组，判断其中的元素是否也存在于另一个数组，将同时存在于两个<br>数组的元素存储起来。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>remove(i)将list中最前面的元素i删除，而不是将所有的i删除。<br>collections模块的运用，</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -421,136 +544,9 @@
 
 
   
-    <article id="post-leetcode-409-Longest-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/17/leetcode-409-Longest-Palindrome/" class="article-date">
-  	<time datetime="2016-11-17T14:00:56.000Z" itemprop="datePublished">2016-11-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/leetcode-409-Longest-Palindrome/">leetcode-409-Longest-Palindrome</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
-<p>This is case sensitive, for example “Aa” is not considered a palindrome here</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def longestPalindrome(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        char_dic=collections.Counter(s)</span><br><span class="line">        lenth=0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> char_dic:</span><br><span class="line">            lenth += char_dic[char]-char_dic[char]%2</span><br><span class="line">        <span class="built_in">return</span> lenth <span class="keyword">if</span> len(s)==lenth <span class="keyword">else</span> (lenth+1)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int longestPalindrome(String s) &#123;</span><br><span class="line">        int nums[] = new int[52];</span><br><span class="line">        int temp_ord=0;</span><br><span class="line">        int lenth=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">'a'</span> &amp;&amp; s.charAt(i)&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'A'</span>+26;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[temp_ord]+=1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">            lenth += nums[j]-nums[j]%2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lenth==s.length())&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth+1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>回文字符串：正读和倒着读都一样的字符串。<br>最初读此题有疑惑：比如，输入为”aaabbbcc”，’a’和’b’的个数均为奇数，以为此时最长为5，其实此时最长为7，可以余下一个’a’或者’b’不用。</p>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><h4 id="一维数组的声明方式："><a href="#一维数组的声明方式：" class="headerlink" title="一维数组的声明方式："></a>一维数组的声明方式：</h4><p>type var[]; 或type[] var;<br>声明数组时不能指定其长度（数组中元素的个数），<br>Java中使用关键字new创建数组对象，格式为：<br>数组名 = new 数组元素的类型 [数组元素的个数]</p>
-<h4 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h4><p>1.动态初始化：数组定义与为数组分配空间和赋值的操作分开进行；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestD  </span><br><span class="line">&#123;  </span><br><span class="line">     public static void main(String args[]) &#123;  </span><br><span class="line">         int a[] ;  </span><br><span class="line">         a = new int[3] ;  </span><br><span class="line">         a[0] = 0 ;  </span><br><span class="line">         a[1] = 1 ;  </span><br><span class="line">         a[2] = 2 ;  </span><br><span class="line">         Date days[] ;  </span><br><span class="line">         days = new Date[3] ;  </span><br><span class="line">         days[0] = new Date(2008,4,5) ;  </span><br><span class="line">         days[1] = new Date(2008,2,31) ;  </span><br><span class="line">         days[2] = new Date(2008,4,4) ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"> </span><br><span class="line">class Date  </span><br><span class="line">&#123;  </span><br><span class="line">     int year,month,day ;  </span><br><span class="line">     Date(int year ,int month ,int day) &#123;  </span><br><span class="line">         this.year = year ;  </span><br><span class="line">         this.month = month ;  </span><br><span class="line">         this.day = day ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.静态初始化：在定义数字的同时就为数组元素分配空间并赋值；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class TestS     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a[] = &#123;0,1,2&#125; ;     </span><br><span class="line">         Time <span class="built_in">times</span> [] = &#123;new Time(19,42,42),new Time(1,23,54),new Time(5,3,2)&#125; ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;     </span><br><span class="line"> </span><br><span class="line">class Time     </span><br><span class="line">&#123;     </span><br><span class="line">     int hour,min,sec ;     </span><br><span class="line">     Time(int hour ,int min ,int sec) &#123;     </span><br><span class="line">         this.hour = hour ;     </span><br><span class="line">         this.min = min ;     </span><br><span class="line">         this.sec = sec ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.默认初始化：数组是引用类型，它的元素相当于类的成员变量，因此数组分配空间后，每个元素也被按照成员变量的规则<br>被隐士初始化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestDefault     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a [] = new int [5] ;     </span><br><span class="line">         System.out.println(<span class="string">""</span> + a[3]) ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-169-Majority-Element" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/16/leetcode-169-Majority-Element/" class="article-date">
-  	<time datetime="2016-11-16T13:49:20.000Z" itemprop="datePublished">2016-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/16/leetcode-169-Majority-Element/">leetcode-169-Majority-Element</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def majorityElement(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num_dic=collections.Counter(nums)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> num_dic:</span><br><span class="line">            <span class="keyword">if</span> num_dic[item]&gt;(len(nums)/2):</span><br><span class="line">                <span class="built_in">return</span> item</span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="built_in">return</span> nums[nums.length/2];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.分别统计数组中的元素个数，将个数大于length/2的元素返回<br>2.将数组排序，将排序后的下标为length/2的元素返回</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>1.用collections.Counter()统计各元素的个数，返回字典。<br>2.sort()是容器的函数，可将容器中的元素排序；sorted()为内置函数，可对可迭代类型排序。<br>3.nums.count(x)也可得到nums中某元素的个数。</p>
-<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>1.array.length属性得到数组长度。<br>2.Arrays类的sort()方法可以对数组进行排序。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

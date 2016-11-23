@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,133 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-409-Longest-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/17/leetcode-409-Longest-Palindrome/" class="article-date">
+  	<time datetime="2016-11-17T14:00:56.000Z" itemprop="datePublished">2016-11-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/17/leetcode-409-Longest-Palindrome/">leetcode-409-Longest-Palindrome</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
+<p>This is case sensitive, for example “Aa” is not considered a palindrome here</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def longestPalindrome(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        char_dic=collections.Counter(s)</span><br><span class="line">        lenth=0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> char_dic:</span><br><span class="line">            lenth += char_dic[char]-char_dic[char]%2</span><br><span class="line">        <span class="built_in">return</span> lenth <span class="keyword">if</span> len(s)==lenth <span class="keyword">else</span> (lenth+1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int longestPalindrome(String s) &#123;</span><br><span class="line">        int nums[] = new int[52];</span><br><span class="line">        int temp_ord=0;</span><br><span class="line">        int lenth=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">'a'</span> &amp;&amp; s.charAt(i)&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'A'</span>+26;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[temp_ord]+=1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">            lenth += nums[j]-nums[j]%2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lenth==s.length())&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth+1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>回文字符串：正读和倒着读都一样的字符串。<br>最初读此题有疑惑：比如，输入为”aaabbbcc”，’a’和’b’的个数均为奇数，以为此时最长为5，其实此时最长为7，可以余下一个’a’或者’b’不用。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><h4 id="一维数组的声明方式："><a href="#一维数组的声明方式：" class="headerlink" title="一维数组的声明方式："></a>一维数组的声明方式：</h4><p>type var[]; 或type[] var;<br>声明数组时不能指定其长度（数组中元素的个数），<br>Java中使用关键字new创建数组对象，格式为：<br>数组名 = new 数组元素的类型 [数组元素的个数]</p>
+<h4 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h4><p>1.动态初始化：数组定义与为数组分配空间和赋值的操作分开进行；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestD  </span><br><span class="line">&#123;  </span><br><span class="line">     public static void main(String args[]) &#123;  </span><br><span class="line">         int a[] ;  </span><br><span class="line">         a = new int[3] ;  </span><br><span class="line">         a[0] = 0 ;  </span><br><span class="line">         a[1] = 1 ;  </span><br><span class="line">         a[2] = 2 ;  </span><br><span class="line">         Date days[] ;  </span><br><span class="line">         days = new Date[3] ;  </span><br><span class="line">         days[0] = new Date(2008,4,5) ;  </span><br><span class="line">         days[1] = new Date(2008,2,31) ;  </span><br><span class="line">         days[2] = new Date(2008,4,4) ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"> </span><br><span class="line">class Date  </span><br><span class="line">&#123;  </span><br><span class="line">     int year,month,day ;  </span><br><span class="line">     Date(int year ,int month ,int day) &#123;  </span><br><span class="line">         this.year = year ;  </span><br><span class="line">         this.month = month ;  </span><br><span class="line">         this.day = day ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.静态初始化：在定义数字的同时就为数组元素分配空间并赋值；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class TestS     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a[] = &#123;0,1,2&#125; ;     </span><br><span class="line">         Time <span class="built_in">times</span> [] = &#123;new Time(19,42,42),new Time(1,23,54),new Time(5,3,2)&#125; ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;     </span><br><span class="line"> </span><br><span class="line">class Time     </span><br><span class="line">&#123;     </span><br><span class="line">     int hour,min,sec ;     </span><br><span class="line">     Time(int hour ,int min ,int sec) &#123;     </span><br><span class="line">         this.hour = hour ;     </span><br><span class="line">         this.min = min ;     </span><br><span class="line">         this.sec = sec ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.默认初始化：数组是引用类型，它的元素相当于类的成员变量，因此数组分配空间后，每个元素也被按照成员变量的规则<br>被隐士初始化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestDefault     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a [] = new int [5] ;     </span><br><span class="line">         System.out.println(<span class="string">""</span> + a[3]) ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-169-Majority-Element" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/16/leetcode-169-Majority-Element/" class="article-date">
+  	<time datetime="2016-11-16T13:49:20.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/16/leetcode-169-Majority-Element/">leetcode-169-Majority-Element</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
+<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def majorityElement(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num_dic=collections.Counter(nums)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> num_dic:</span><br><span class="line">            <span class="keyword">if</span> num_dic[item]&gt;(len(nums)/2):</span><br><span class="line">                <span class="built_in">return</span> item</span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="built_in">return</span> nums[nums.length/2];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.分别统计数组中的元素个数，将个数大于length/2的元素返回<br>2.将数组排序，将排序后的下标为length/2的元素返回</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>1.用collections.Counter()统计各元素的个数，返回字典。<br>2.sort()是容器的函数，可将容器中的元素排序；sorted()为内置函数，可对可迭代类型排序。<br>3.nums.count(x)也可得到nums中某元素的个数。</p>
+<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>1.array.length属性得到数组长度。<br>2.Arrays类的sort()方法可以对数组进行排序。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-242-Valid-Anagram" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -386,143 +513,9 @@
 
 
   
-    <article id="post-python-optparse" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/12/python-optparse/" class="article-date">
-  	<time datetime="2016-10-12T11:18:06.000Z" itemprop="datePublished">2016-10-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/12/python-optparse/">python-optparse</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>optparse是Python 内建的用于处理命令行参数的模块，功能强大，易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行<br>说明。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(parse_test.py)</span><br><span class="line">from optparse import OptionParser  </span><br><span class="line">[...]  </span><br><span class="line">parser = OptionParser()  </span><br><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, dest=<span class="string">"filename"</span>, <span class="built_in">type</span>=<span class="string">"string"</span>, </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"write report to FILE"</span>, metavar=<span class="string">"FILE"</span>)  </span><br><span class="line">parser.add_option(<span class="string">"-q"</span>, <span class="string">"--quiet"</span>,  </span><br><span class="line">                  action=<span class="string">"store_false"</span>, dest=<span class="string">"verbose"</span>, default=True,  </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"don't print status messages to stdout"</span>)  </span><br><span class="line">  </span><br><span class="line">(options, args) = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span> options.filename</span><br></pre></td></tr></table></figure>
-<p>运行程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(任一命令均可)</span><br><span class="line">python parse_test.py --file=outfile -q  </span><br><span class="line">python parse_test.py <span class="_">-f</span> outfile --quiet  </span><br><span class="line">python parse_test.py --quiet --file outfile  </span><br><span class="line">python parse_test.py -q -foutfile  </span><br><span class="line">python parse_test.py -qfoutfile</span><br></pre></td></tr></table></figure></p>
-<h3 id="自动输出帮助信息"><a href="#自动输出帮助信息" class="headerlink" title="自动输出帮助信息"></a>自动输出帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python parse_test.py -h </span><br><span class="line">python parse_test.py --help</span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usage: parse_test.py [options]  </span><br><span class="line">  </span><br><span class="line">options:  </span><br><span class="line">  -h, --help            show this <span class="built_in">help</span> message and <span class="built_in">exit</span>  </span><br><span class="line">  <span class="_">-f</span> FILE, --file=FILE  write report to FILE  </span><br><span class="line">  -q, --quiet           don<span class="string">'t print status messages to stdout</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>(1)导入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from optparse import OptionParser</span><br></pre></td></tr></table></figure></p>
-<p>(2)用add_option() 方法 来定义命令行参数<br>(3)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, ...) </span><br><span class="line">其中 <span class="_">-f</span> 或者 –file 分别是长短参数名</span><br></pre></td></tr></table></figure></p>
-<p>(4)调用 parse_args() 来解析程序的命令行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(options, args) = parser.parse_args()</span><br></pre></td></tr></table></figure></p>
-<p>parse_args() 有两个返回值：<br>options：它是一个对象（optpars.Values），保存有命令行参数值。只要知道命令行参数名，如 file，就可以访问其对应的值： options.file 。<br>args：它是一个由 positional arguments 组成的列表。<br>(5) add_option() 方法的参数<br>action : 指示 optparse 当解析到一个命令行参数时该如何处理。actions 有一组固定的值可供选择，默认是’store‘表示将命令行<br>参数值保存在 options 对象里。<br>type:指定参数对应值的类型，默认为string，也可为int 、float等。<br>dest：用于指定存储参数值的键值名，例如，dest=’filename’  (options, args) = parser.parse_args()，option.filename<br>default: 用于设置默认值。<br>help：自定义帮助信息文本。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-command3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/11/linux-command3/" class="article-date">
-  	<time datetime="2016-10-11T12:55:01.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/linux-command3/">linux创建、删除软连接、硬链接</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Linux系统中，内核为每一个新创建的文件分配一个Inode(索引结点)，每个文件都有一个惟一的inode号。文件属性保存在索引结点里<br>，在访问文件时，索引结点被复制到内存在，从而实现文件的快速访问。<br>Linux中包括两种链接：硬链接(Hard Link)和软链接(Soft Link)，软链接又称为符号链接（Symbolic link），符号连接相当于Windows<br>下的快捷方式。</p>
-<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><p>硬链接说白了是一个指针，指向文件索引节点，系统并不为它重新分配inode。可以用:ln命令来建立硬链接。<br>语法:<br>ln [options] existingfile newfile（sexistingfile 待建立链接文件的文件，newfile是新创建的链接文件）<br>ln [options] existingfile-list directory</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 1 root root 0 07-14 14:17 file2</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln file2 file2hand</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>注意在创建链接前，file2显示的链接数目为1，创建链接后file2和file2hand的链接数目都变为2;file2和file2hand的inode号是一样<br>的，file2和file2hand显示的文件大小也是一样。可见进行了ln命令的操作结果：file2和file2hand是同一个文件的两个名字，它们<br>具有同样的索引节点号和文件属性，建立文件file2的硬链接，就是为file2的文件索引节点在当前目录上建立一个新指针。你可以删除其中任何一个，如rm file2 ，每次只会删除一个指针，链接数同时减一，当链接数减为0时，内核才会把文件内容从磁盘上删除。<br>-f 建立时，将同档案名删除<br>-i 删除前进行询问<br>-n 如果”newfile”已存在，就不创建链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln abc cde 建立abc的硬连接，</span><br></pre></td></tr></table></figure></p>
-<p> 尽管硬链接节省空间，也是Linux系统整合文件系统的传统方式，但是存在不足之处：<br>（1）不可以在不同文件系统的文件间建立链接。<br>（2）只有超级用户才可以为目录创建硬链接。</p>
-<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p>软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。 建立软链接，只要在ln后面加上<br>选项 –s。</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line"></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln -s file1 file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
-<p>从上面链接后的结果可以看出来软链接与硬链接，区别不仅仅是在概念上，在实现上也是不同的。区别：硬链接原文件与链接文件共<br>用一个inode号，说明他们是同一个文件，而软链接原文件与链接文件拥有不同的inode号，表明他们是两个不同的文件；在文件属性<br>上软链接明确写出了是链接文件，而硬链接没有写出来，因为在本质上硬链接文件和原文件是完全平等关系；链接数目是不一样的，<br>软链接的链接数目不会增加；文件大小是不一样的，硬链接文件显示的大小是跟原文件是一样的，这用强调，因为是等同的嘛，而这<br>里软链接显示的大小与原文件就不同了，file1大小是48B，而file1soft是5B，这里面的5实际上就是“file1”的大小。<br>建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。</p>
-<p>当然软链接也有硬链接没有的缺点，因为链接文件包含有原文件的路径信息，所以当原文件从一个目录下移到其他目录中，再访问链<br>接文件，系统就找不到了，而硬链接就没有这个缺陷；还有它要系统分配额外的空间用于建立新的索引节点和保存原文件的路径。</p>
-<h2 id="删除链接"><a href="#删除链接" class="headerlink" title="删除链接"></a>删除链接</h2><p>有创建就有删除<br>rm -rf symbolic_name 注意不是rm -rf symbolic_name/</p>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># rm -rf file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
-<h2 id="软连接与硬链接的区别"><a href="#软连接与硬链接的区别" class="headerlink" title="软连接与硬链接的区别"></a>软连接与硬链接的区别</h2><p>(1)软连接可以跨文件系统 ，硬连接不可以 。<br>(2)关于Inode节点的问题，硬连接不管有多少个，都指向的是同一个Inode节点，会把Inode结点连接数增加 ，只要结点的连接数不<br>是 0，文件就一直存在 ，不管你删除的是源文件还是连接文件。只要有一个存在，文件就存在。（其实源文件与连接文件并无本<br>质区别 ，因为他们指向都是同一个Inode节点）。 当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的<br>修改 。软链接不直接使用Inode节点号作为文件指针，而是使用文件路径名作为指针。所以 删除连接文件 对源文件无影响，但<br>是删除源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode，并在磁盘上有一小片空间存放路径名。<br>(3)软连接可以对一个不存在的文件名进行连接 。<br>(4)软连接可以对目录进行连接。</p>
-<p>备注：Inode节点 :它是UNIX内部用于描述文件特性的数据结构，通常称Inode节点为文件索引结点(信息结点)，Inode节点含有关于<br>文件的大部分的重要信息，包括文件数据块在磁盘上的地址。每一个I节点有它自己的标志号，我们称为文件顺序号<br>。Inode节点包含的信息:文件类型、文件属主关系、文件的访问权限、文件的时间截。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,71 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-github2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/05/github2/" class="article-date">
+  	<time datetime="2016-06-05T11:24:53.403Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/05/github2/">Hexo 简单教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a><br><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo API</a><br><a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Hexo Troubleshooting</a> </p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="写新文章，先创建-Post"><a href="#写新文章，先创建-Post" class="headerlink" title="写新文章，先创建 Post"></a>写新文章，先创建 Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>这时，在本地目录 hexo/source/  下会出现一个 My New Post.md 文件，这便是刚刚创建的post，用Notepad++打开，就可以写文章啦！<br>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="开启本地Hexo服务，查看效果"><a href="#开启本地Hexo服务，查看效果" class="headerlink" title="开启本地Hexo服务，查看效果"></a>开启本地Hexo服务，查看效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>此时，本地Hexo服务启动，打开浏览器 输入：localhost:4000 查看<br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="上传到远端主机（Github）"><a href="#上传到远端主机（Github）" class="headerlink" title="上传到远端主机（Github）"></a>上传到远端主机（Github）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java-type-conversion" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -424,65 +489,6 @@
       
         <p><img src="/img/quicksort.gif" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/23/java3/" class="article-date">
-  	<time datetime="2016-04-23T09:43:50.000Z" itemprop="datePublished">2016-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/java3/">JAVA进阶——插入排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/insertsort.jpg" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class InsertSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;5,2,4,6,1,3&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int key=a[];</span><br><span class="line">			int j=i-1;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;=0&amp;&amp;a[j]&gt;key)</span><br><span class="line">			&#123;</span><br><span class="line">				a[j+1]=a[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			a[j+1]=key;			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>刚开始接触插入排序时，有点不太理解，不理解的是谁和谁进行比较，插入到哪？松哥给我讲了两遍，可惜还是似懂非懂。自己又思考了下终于弄懂。（自己太笨了，呵呵）<br>插入排序，简单来说就是将数字插入其应该在的位置。插入时，先选取待插入的数字（从数组下标i=1开始），将待插入的数字与其前面（下标小于i的数字）进行比较，当前面的数字大于待选数字时则将前面的数字后移。</p>
-
       
     </div>
     

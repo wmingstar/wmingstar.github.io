@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,83 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-spark安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/09/spark安装教程/" class="article-date">
+  	<time datetime="2016-10-09T01:43:30.000Z" itemprop="datePublished">2016-10-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/09/spark安装教程/">spark安装教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(注：本教程基于Cenos7)</p>
+<h3 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h3><p>Centos7若不是最小化安装，则会自动安装jdk-8。<br>之所以需要安装JDK是因为scala依赖java运行环境。</p>
+<p>(1)从oracle网站下载JDK 安装包，解压安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf jdk-8u65-linux-x64.tar.gz</span><br><span class="line">mv jdk1.8.0_65 java</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置Java 环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">JAVA_HOME=/opt/jdk1.8.0</span><br><span class="line"><span class="built_in">export</span> JRE_HOME = <span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><p>(1)从官网下载安装包，解压安装<br><a href="http://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="external">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf scala-2.11.8.tgz</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SCALA_HOME=/opt/scala-2.11.8</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(3)验证scala<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br><span class="line">Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-安装spark"><a href="#3-安装spark" class="headerlink" title="3.安装spark"></a>3.安装spark</h3><p>(1)官网下载spark 包  spark-2.0.1-bin-hadoop2.7.tgz<br>(2)解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安到/usr/local 下</span></span><br><span class="line">tar  zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br><span class="line">mv  spark-2.0.1-bin-hadoop2.7   spark</span><br></pre></td></tr></table></figure></p>
+<p>(3)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME SPARK_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(4)验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure></p>
+<p>若成功<br><img src="/img/spark.png" alt=""></p>
+<h3 id="4-自动安装sbt"><a href="#4-自动安装sbt" class="headerlink" title="4.自动安装sbt"></a>4.自动安装sbt</h3><p><a href="http://www.scala-sbt.org/release/tutorial/zh-cn/index.html" target="_blank" rel="external">参考</a><br>(1)添加sbt镜像源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl   https://bintray.com/sbt/rpm/rpm  &gt;   bintray-sbt-rpm.repo</span><br><span class="line">mv bintray-sbt-rpm.repo  /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></p>
+<p>(2)安装sbt<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sbt</span><br></pre></td></tr></table></figure></p>
+<p>(3)hello world<br>一个合法的 sbt 项目可以是一个包含单个源码文件的目录。 尝试创建一个 hello 目录，包含内容如下的源码文件 hw.scala：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Hi &#123;</span><br><span class="line">  def main(args: Array[String]) = println(<span class="string">"Hi!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-手动安装sbt"><a href="#5-手动安装sbt" class="headerlink" title="5.手动安装sbt"></a>5.手动安装sbt</h3><p>(1)下载sbt通用平台压缩包：sbt-0.13.12.tgz<br><a href="http://www.scala-sbt.org/download.html" target="_blank" rel="external">网址</a><br>(2)建立目录，解压文件到所建立目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar zxvf sbt-0.13.5.tgz -C /opt/scala/</span><br></pre></td></tr></table></figure></p>
+<p>(3)建立启动sbt的脚本文件<br>选定一个位置，建立启动sbt的脚本文本文件，如/opt/scala/sbt/ 目录下面新建文件名为sbt的文本文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/scala/sbt/</span><br><span class="line">$ vim sbt</span><br></pre></td></tr></table></figure></p>
+<p>在sbt文本文件中添加一下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SBT_OPTS=<span class="string">"-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"</span></span><br><span class="line">java <span class="variable">$SBT_OPTS</span> -jar /opt/scala/sbt/bin/sbt-launch.jar <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的路径是定位到解压的sbt文件包中的sbt-launch.jar文件的绝对路径*/</p>
+<p>/×修改sbt文件权限×/<br>$ chmod u+x sbt<br>(4)配置PATH环境变量，保证在控制台中可以使用sbt命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br><span class="line"><span class="comment">#在文件尾部添加如下代码后，保存退出</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/scala/sbt/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>使配置文件立刻生效</em>/<br>$ source /etc/profile</p>
+<p>(5)测试sbt是否安装成功<br>第一次执行时，会下载一些文件包，然后才能正常使用，要确保联网了，安装成功后显示如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbt sbt-version</span><br><span class="line"></span><br><span class="line">[info] Set current project to sbt (<span class="keyword">in</span> build file:/opt/scala/sbt/)</span><br><span class="line">[info] 0.13.5</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux硬盘分区与挂载" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -441,75 +518,6 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-引用与指针" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/11/引用与指针/" class="article-date">
-  	<time datetime="2016-09-11T14:53:10.000Z" itemprop="datePublished">2016-09-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/11/引用与指针/">引用与指针</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有<br>些疑惑，今天详细的查了下资料，总结一下。</p>
-<h4 id="借用书中的两行代码"><a href="#借用书中的两行代码" class="headerlink" title="借用书中的两行代码"></a>借用书中的两行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int m; </span><br><span class="line">int &amp;n = m;</span><br></pre></td></tr></table></figure>
-<p>在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。</p>
-<h3 id="引用的规则"><a href="#引用的规则" class="headerlink" title="引用的规则"></a>引用的规则</h3><p>（1）引用被创建的同时必须被初始化（即赋值，指针则可以在任何时候被初始化）。<br>（2）不能有NULL引用，引用必须与合法的存储单元关联（就像外号一样，必须存在这样一个人，才可以给这个人起外号；指针则可以<br>是NULL）。<br>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 </p>
-<h3 id="引用的主要功能是传递函数的参数和返回值。"><a href="#引用的主要功能是传递函数的参数和返回值。" class="headerlink" title="引用的主要功能是传递函数的参数和返回值。"></a>引用的主要功能是传递函数的参数和返回值。</h3><p>在C++语言中，参数和返回值的传递主要有三种方式：值传递、指针传递、引用传递。下面用三个简单的程序来说明下三者的不同。</p>
-<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func1(int x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Func1(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 0</span><br></pre></td></tr></table></figure>
-<p>在上面的程序中，x是n的一个拷贝，在Func()函数中改变x的值并不会对n造成影响，最后输出n的值仍是0.</p>
-<h3 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func2(int *x) </span><br><span class="line">&#123; </span><br><span class="line">(* x) = (* x) + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func2(&amp;n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面代码中，Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
-<h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0;</span><br><span class="line">void Func3(int &amp;x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func3(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中，Func3函数体内的x是外部变量n的引用，x和n是同一个对象，改变x等于改变n，所以n的值成为10。</p>
-<p>通过对比上述三个示例程序，发现”引用传递”的性质与”指针传递”很像，但函数内部实现的书写方式与”值传递”一样。<br>讲道理，实际上”引用”可以做的任何事情”指针”也都能够做，那为什么还要”引用”？<br>答案是”用适当的工具做恰如其分的工作”。 </p>
-<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。<br>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
 	</div>
 
       

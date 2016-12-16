@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,63 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/07/java6/" class="article-date">
+  	<time datetime="2016-06-07T09:34:24.000Z" itemprop="datePublished">2016-06-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/07/java6/">JAVA进阶-万年历</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此程序可以计算某一日期是这一年的第多少天以及第几周和这一天是星期几，并可以输出当年的日历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package project1;</span><br><span class="line">import java.util.Scanner;;</span><br><span class="line">public class MyCalendar &#123;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	//计算这一天是今年的第多少天</span><br><span class="line">	private static int count_day(int year,int month,int day) &#123;</span><br><span class="line">		int month_day[]=&#123;31,28,31,30,31,30,31,31,30,31,30,31&#125;;</span><br><span class="line">		int day_count=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;month-1;i++)&#123;</span><br><span class="line">			day_count+=month_day[i];</span><br><span class="line">		&#125;</span><br><span class="line">		day_count+=day;</span><br><span class="line">		<span class="keyword">if</span>(month&gt;2)&#123;</span><br><span class="line">			<span class="built_in">return</span> isLeap(year)?day_count+1:day_count;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> day_count;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//判断是否是闰年</span><br><span class="line">	private static Boolean isLeap(int year) &#123;</span><br><span class="line">		<span class="keyword">if</span>((year%400==0) ||(( year%4==0) &amp;&amp; (year%100!=0))) <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static int weekcount(int year,int month,int day) &#123;</span><br><span class="line">		int count_week=0;</span><br><span class="line">		int dayCnt = count_day(year,month,day);</span><br><span class="line">		int weekminus = getWeek(year,month,day)-getWeek(year,1,1);</span><br><span class="line">		<span class="keyword">if</span>(dayCnt%7==0) count_week = dayCnt/7+((weekminus&gt;0)?1:0);</span><br><span class="line">		<span class="keyword">else</span> count_week = dayCnt/7+((weekminus&gt;0)?2:1);</span><br><span class="line">		<span class="built_in">return</span> count_week;	</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//计算输入日期是星期几</span><br><span class="line">	//采用了基姆拉尔森计算公式 </span><br><span class="line">	//W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400) mod 7 </span><br><span class="line">	//在公式中d表示日期中的日数，m表示月份数，y表示年数。</span><br><span class="line">	//注意：在公式中有个与其他公式不同的地方： </span><br><span class="line">	//把一月和二月看成是上一年的十三月和十四月，例：如果是2004-1-10则换算成：2003-13-10来代入公式计算。</span><br><span class="line">	//计算结果是  (星期几-1) </span><br><span class="line">	public static int getWeek(int year,int month,int day)&#123;</span><br><span class="line">		<span class="keyword">if</span>(month&lt;3)&#123;</span><br><span class="line">			month+=12; year--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> (day+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void <span class="built_in">print</span>Cal(int year)&#123;</span><br><span class="line">		byte dayadd[]=&#123;0,1,-2,1,0,1,0,1,1,0,1,0,1&#125;; //同样的，每月天数和30的差值，注意，dayadd[0]的0并没用到</span><br><span class="line">		int wkpoint = getWeek(year,1,1);			//wkpoint用来指出当前日期的星期数		</span><br><span class="line">		int t = 0;									//t用来作为一个标记器，解决闰年2月有29天的问题</span><br><span class="line">		int bk = 0;									//bk用来记录需输空白的数目</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;13;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			t = 0;</span><br><span class="line">			bk = 0;</span><br><span class="line">			<span class="keyword">if</span>((i==2)&amp;&amp;(isLeap(year))) </span><br><span class="line">				t = 1;								//当且仅当闰年的2月份才将其置为1</span><br><span class="line">			System.out.println(<span class="string">"\n\t\t"</span>+year+<span class="string">" 年 "</span>+i+<span class="string">" 月\n"</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;7;j++)</span><br><span class="line">				System.out.print(week[j]+<span class="string">"\t"</span>);</span><br><span class="line">			System.out.println();</span><br><span class="line">			<span class="keyword">while</span>(bk++&lt;wkpoint)</span><br><span class="line">				System.out.print(<span class="string">'\t'</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=(30+dayadd[i]+t);j++)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.print(j+<span class="string">"\t"</span>);			//循环输出每月日期</span><br><span class="line">				<span class="keyword">if</span>(wkpoint==6) </span><br><span class="line">					&#123; wkpoint = 0; System.out.print(<span class="string">'\n'</span>);&#125;  //当wkpoint计数器为6时将其置为0，并换行</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					wkpoint++;												</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">"请输入日期（格式：****,**,**）："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String get_date=input.nextLine();</span><br><span class="line">		String date[]=get_date.split(<span class="string">","</span>);</span><br><span class="line">		int year=Integer.parseInt(date[0]);</span><br><span class="line">		int month=Integer.parseInt(date[1]);</span><br><span class="line">		int day=Integer.parseInt(date[2]);</span><br><span class="line">		System.out.println(month+<span class="string">"月"</span>+day+<span class="string">"日"</span>+<span class="string">"是"</span>+year+<span class="string">"的第"</span>+count_day(year,month,day)+<span class="string">"天"</span>);</span><br><span class="line">		System.out.println(<span class="string">"这一天是这一年的第"</span>+weekcount(year,month,day)+<span class="string">"周"</span>+<span class="string">"  "</span>+week[getWeek(year, month, day)]);</span><br><span class="line">		System.out.println(<span class="string">"日期:"</span>+year+<span class="string">" "</span>+month+<span class="string">" "</span>+day);</span><br><span class="line">		//<span class="built_in">print</span>Cal(year);</span><br><span class="line">		input.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-github2" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -432,63 +489,6 @@
 </code></pre><p>（1）抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象<br>类的优势；而接口中只能包含抽象方法，不能包含任何实现。<br>（2）) 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。</p>
 <h2 id="对于接口和抽象类的选择"><a href="#对于接口和抽象类的选择" class="headerlink" title="对于接口和抽象类的选择"></a>对于接口和抽象类的选择</h2><p>（1）行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。<br>（2）选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。</p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/24/java4/" class="article-date">
-  	<time datetime="2016-04-24T01:29:32.000Z" itemprop="datePublished">2016-04-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/java4/">JAVA进阶——快速排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/quicksort.gif" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     

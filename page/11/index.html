@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,76 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-database1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/21/database1/" class="article-date">
+  	<time datetime="2016-04-21T00:35:11.000Z" itemprop="datePublished">2016-04-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/21/database1/">分布式数据库与并行数据库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分布式数据库概述"><a href="#分布式数据库概述" class="headerlink" title="分布式数据库概述"></a>分布式数据库概述</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>分布式数据库系统是物理上分散（数据分布在集群中的不同节点）、逻辑上集中的数据库系统，通信网络将集群中的不同节点连接起来，每个节点既有独立处理的能力，也可以和其他场地协同工作。</p>
+<p>分布式数据库是分布式数据库系统中各节点上数据库的逻辑集合。<br>分布式数据库系统中有两个重要的组成部分:分布式数据库(DDB)和分布式数据库管理系统(DDBMS)。</p>
+<h3 id="分布式数据库的目标"><a href="#分布式数据库的目标" class="headerlink" title="分布式数据库的目标"></a>分布式数据库的目标</h3><p>1987年，C,J.Date提出了分布式数据库要达到的12各目标：<br>（1）本地自治；（2）非集中式管理；（3）高可用性；（4）位置独立性；（5）数据分片独立性；（6）数据复制独立性；（7）分布式查询处理；（8）分布式事务管理；（9）硬件独立性；（10）操作系统独立性；（11）网络独立性；（12）数据库管理系统独立性；</p>
+<p>本地自治、非集中式管理、高可用性是分布式数据库最基本的特征；<br>位置独立性、数据分片独立性、数据复制独立性形成了分布式数据库系统中的分布透明性，使用户感觉不到数据是分布的，与使用集中式数据库完全一样；<br>分布式查询处理与分布式事务管理给分布式数据库系统带来了一定的复杂性。</p>
+<h3 id="数据分布策略"><a href="#数据分布策略" class="headerlink" title="数据分布策略"></a>数据分布策略</h3><p>数据分片按照一定规则将一个全局关系划分为片断；数据分配则在此基础上将这些片断分配存储在各个节点上。分片是对关系的操作，而分配则是对分片结果的操作。</p>
+<h4 id="数据分片"><a href="#数据分片" class="headerlink" title="数据分片"></a>数据分片</h4><p>对某一个关系进行分片是将关系划分成多个片断，这些片断中包含足够的信息可以使关系重构；数据分片有四种基本方法：A.水平分片；B.垂直分片； C.导出分片； D.混合分片；</p>
+<h4 id="数据分配"><a href="#数据分配" class="headerlink" title="数据分配"></a>数据分配</h4><p>数据分配有以下几种方法：A.集中式；B.分割式； C.全复制式； D.混合式；</p>
+<h3 id="分布式数据库的特点"><a href="#分布式数据库的特点" class="headerlink" title="分布式数据库的特点"></a>分布式数据库的特点</h3><p>（1）数据具有物理分布性。即数据库中的数据不是集中存储在一个地区的一台计算机上，而是分布在不同场地的计算机上。<br>（2）数据逻辑整体性。虽然数据库物理上是分布的，但在逻辑上却是一个相互联系的整体。<br>（3） 数据具有分布独立性。<br>（4）场地自治与协调。系统中的每个节点都具有独立性，能执行局部应用，同时每个节点又是整个系统的一部分，可通过网络执行全局应用。<br>（5） 数据具有一定的冗余，冗余是透明性。<br>四个基本特点:<br>(1) 物理分布性(2) 逻辑整体性(3) 节点自治性(4) 节点之间协作性<br>四个导出特点:<br>(5)数据独立性(6) 集中与自治相结合的控制机制(7) 适当增加数据冗余度 (8) 事务管理的分布性 </p>
+<h3 id="分布式数据库的优缺点"><a href="#分布式数据库的优缺点" class="headerlink" title="分布式数据库的优缺点"></a>分布式数据库的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h4><p>(1)具有灵活的体系结构。(2)适应分布式的管理和控制机构。(3)经济性能优越。(4)系统的可靠性高、可用性好。(5)局部应用的响应速度快。(6)系统可扩展性好。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>(1)系统开销较大，主要花在通信部分。<br>(2)存取结构复杂(如辅助索引、文件链接技术)。<br>(3)数据的安全性和保密性较难处理。</p>
+<h2 id="并行数据库"><a href="#并行数据库" class="headerlink" title="并行数据库"></a>并行数据库</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>并行处理技术是利用多个处理器来共同完成一项任务，是计算机技术的一个重要发展方向。<br>并行数据库是数据库技术与并行处理技术相结合的产物。<br>并行数据库系统以高性能(线性加速比)、高可用性与高扩充性(线性伸缩比)为目标，充分利用多处理器平台的能力，通过多种并行性，在联机事务处理与决策支持应用两种典型环境中提供优化的响应时间与事务吞吐量。<br>体系结构：紧耦合全对称多处理器(SMP)系统；松耦合群集机系统；大规模并行处理(MPP)系统；混合结构。</p>
+<h2 id="分布式数据库与并行数据库的不同"><a href="#分布式数据库与并行数据库的不同" class="headerlink" title="分布式数据库与并行数据库的不同"></a>分布式数据库与并行数据库的不同</h2><h3 id="应用目标不同"><a href="#应用目标不同" class="headerlink" title="应用目标不同"></a>应用目标不同</h3><p>并行数据库系统的目标是充分发挥并行计算机的优势，利用系统中的各个节点并行完成数据库任务，提高数据库系统的整体性能。分布式数据库系统主要目的在于实现节点自治和数据的全局透明共享，而不要求利用网络中的各个结点来提高系统处理性能。</p>
+<h3 id="实现方式不同"><a href="#实现方式不同" class="headerlink" title="实现方式不同"></a>实现方式不同</h3><p>并行数据库系统为了充分利用各个节点的处理能力，各节点间可以采用高速网络连接。节点间的数据传输代价相对较低，当某些节点处于空闲状态时，可以将工作负载过大的结点上的部分任务通过高速网传送给空闲结点处理，从而实现系统的负载平衡。<br>但是在分布式数据库系统中，为了适应应用的需要，满足部门分布特点的需要，各结点间一般采用局域网或广域网相连，网络带宽较低，点到点的通信开销较大。因此，在查询处理时一般应尽量减少结点间的数据传输量。</p>
+<h3 id="各节点的地位不同"><a href="#各节点的地位不同" class="headerlink" title="各节点的地位不同"></a>各节点的地位不同</h3><p>在并行数据库系统中，各节点是完全非独立的，不存在全局应用和局部应用的概念，在数据处理中只能发挥协同作用，而不能有局部应用。在分布式数据库系统中，各结点除了能通过网络协同完成全局事务外，各节点具有场地自治性，每个节点是独立的数据库系统。每个节点有自己的数据库、客户、CPU等资源，运行自己的数据库管理系统，执行局部应用，具有高度的自治性。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-292-Nim-Game" class="article article-type-post" itemscope itemprop="blogPost">
   

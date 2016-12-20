@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,211 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-python-optparse" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/12/python-optparse/" class="article-date">
+  	<time datetime="2016-10-12T11:18:06.000Z" itemprop="datePublished">2016-10-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/12/python-optparse/">python-optparse</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>optparse是Python 内建的用于处理命令行参数的模块，功能强大，易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行<br>说明。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(parse_test.py)</span><br><span class="line">from optparse import OptionParser  </span><br><span class="line">[...]  </span><br><span class="line">parser = OptionParser()  </span><br><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, dest=<span class="string">"filename"</span>, <span class="built_in">type</span>=<span class="string">"string"</span>, </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"write report to FILE"</span>, metavar=<span class="string">"FILE"</span>)  </span><br><span class="line">parser.add_option(<span class="string">"-q"</span>, <span class="string">"--quiet"</span>,  </span><br><span class="line">                  action=<span class="string">"store_false"</span>, dest=<span class="string">"verbose"</span>, default=True,  </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"don't print status messages to stdout"</span>)  </span><br><span class="line">  </span><br><span class="line">(options, args) = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span> options.filename</span><br></pre></td></tr></table></figure>
+<p>运行程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(任一命令均可)</span><br><span class="line">python parse_test.py --file=outfile -q  </span><br><span class="line">python parse_test.py <span class="_">-f</span> outfile --quiet  </span><br><span class="line">python parse_test.py --quiet --file outfile  </span><br><span class="line">python parse_test.py -q -foutfile  </span><br><span class="line">python parse_test.py -qfoutfile</span><br></pre></td></tr></table></figure></p>
+<h3 id="自动输出帮助信息"><a href="#自动输出帮助信息" class="headerlink" title="自动输出帮助信息"></a>自动输出帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python parse_test.py -h </span><br><span class="line">python parse_test.py --help</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usage: parse_test.py [options]  </span><br><span class="line">  </span><br><span class="line">options:  </span><br><span class="line">  -h, --help            show this <span class="built_in">help</span> message and <span class="built_in">exit</span>  </span><br><span class="line">  <span class="_">-f</span> FILE, --file=FILE  write report to FILE  </span><br><span class="line">  -q, --quiet           don<span class="string">'t print status messages to stdout</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>(1)导入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from optparse import OptionParser</span><br></pre></td></tr></table></figure></p>
+<p>(2)用add_option() 方法 来定义命令行参数<br>(3)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, ...) </span><br><span class="line">其中 <span class="_">-f</span> 或者 –file 分别是长短参数名</span><br></pre></td></tr></table></figure></p>
+<p>(4)调用 parse_args() 来解析程序的命令行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(options, args) = parser.parse_args()</span><br></pre></td></tr></table></figure></p>
+<p>parse_args() 有两个返回值：<br>options：它是一个对象（optpars.Values），保存有命令行参数值。只要知道命令行参数名，如 file，就可以访问其对应的值： options.file 。<br>args：它是一个由 positional arguments 组成的列表。<br>(5) add_option() 方法的参数<br>action : 指示 optparse 当解析到一个命令行参数时该如何处理。actions 有一组固定的值可供选择，默认是’store‘表示将命令行<br>参数值保存在 options 对象里。<br>type:指定参数对应值的类型，默认为string，也可为int 、float等。<br>dest：用于指定存储参数值的键值名，例如，dest=’filename’  (options, args) = parser.parse_args()，option.filename<br>default: 用于设置默认值。<br>help：自定义帮助信息文本。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-command3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/11/linux-command3/" class="article-date">
+  	<time datetime="2016-10-11T12:55:01.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/11/linux-command3/">linux创建、删除软连接、硬链接</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Linux系统中，内核为每一个新创建的文件分配一个Inode(索引结点)，每个文件都有一个惟一的inode号。文件属性保存在索引结点里<br>，在访问文件时，索引结点被复制到内存在，从而实现文件的快速访问。<br>Linux中包括两种链接：硬链接(Hard Link)和软链接(Soft Link)，软链接又称为符号链接（Symbolic link），符号连接相当于Windows<br>下的快捷方式。</p>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><p>硬链接说白了是一个指针，指向文件索引节点，系统并不为它重新分配inode。可以用:ln命令来建立硬链接。<br>语法:<br>ln [options] existingfile newfile（sexistingfile 待建立链接文件的文件，newfile是新创建的链接文件）<br>ln [options] existingfile-list directory</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 1 root root 0 07-14 14:17 file2</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln file2 file2hand</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>注意在创建链接前，file2显示的链接数目为1，创建链接后file2和file2hand的链接数目都变为2;file2和file2hand的inode号是一样<br>的，file2和file2hand显示的文件大小也是一样。可见进行了ln命令的操作结果：file2和file2hand是同一个文件的两个名字，它们<br>具有同样的索引节点号和文件属性，建立文件file2的硬链接，就是为file2的文件索引节点在当前目录上建立一个新指针。你可以删除其中任何一个，如rm file2 ，每次只会删除一个指针，链接数同时减一，当链接数减为0时，内核才会把文件内容从磁盘上删除。<br>-f 建立时，将同档案名删除<br>-i 删除前进行询问<br>-n 如果”newfile”已存在，就不创建链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln abc cde 建立abc的硬连接，</span><br></pre></td></tr></table></figure></p>
+<p> 尽管硬链接节省空间，也是Linux系统整合文件系统的传统方式，但是存在不足之处：<br>（1）不可以在不同文件系统的文件间建立链接。<br>（2）只有超级用户才可以为目录创建硬链接。</p>
+<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p>软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。 建立软链接，只要在ln后面加上<br>选项 –s。</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line"></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln -s file1 file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
+<p>从上面链接后的结果可以看出来软链接与硬链接，区别不仅仅是在概念上，在实现上也是不同的。区别：硬链接原文件与链接文件共<br>用一个inode号，说明他们是同一个文件，而软链接原文件与链接文件拥有不同的inode号，表明他们是两个不同的文件；在文件属性<br>上软链接明确写出了是链接文件，而硬链接没有写出来，因为在本质上硬链接文件和原文件是完全平等关系；链接数目是不一样的，<br>软链接的链接数目不会增加；文件大小是不一样的，硬链接文件显示的大小是跟原文件是一样的，这用强调，因为是等同的嘛，而这<br>里软链接显示的大小与原文件就不同了，file1大小是48B，而file1soft是5B，这里面的5实际上就是“file1”的大小。<br>建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。</p>
+<p>当然软链接也有硬链接没有的缺点，因为链接文件包含有原文件的路径信息，所以当原文件从一个目录下移到其他目录中，再访问链<br>接文件，系统就找不到了，而硬链接就没有这个缺陷；还有它要系统分配额外的空间用于建立新的索引节点和保存原文件的路径。</p>
+<h2 id="删除链接"><a href="#删除链接" class="headerlink" title="删除链接"></a>删除链接</h2><p>有创建就有删除<br>rm -rf symbolic_name 注意不是rm -rf symbolic_name/</p>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># rm -rf file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
+<h2 id="软连接与硬链接的区别"><a href="#软连接与硬链接的区别" class="headerlink" title="软连接与硬链接的区别"></a>软连接与硬链接的区别</h2><p>(1)软连接可以跨文件系统 ，硬连接不可以 。<br>(2)关于Inode节点的问题，硬连接不管有多少个，都指向的是同一个Inode节点，会把Inode结点连接数增加 ，只要结点的连接数不<br>是 0，文件就一直存在 ，不管你删除的是源文件还是连接文件。只要有一个存在，文件就存在。（其实源文件与连接文件并无本<br>质区别 ，因为他们指向都是同一个Inode节点）。 当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的<br>修改 。软链接不直接使用Inode节点号作为文件指针，而是使用文件路径名作为指针。所以 删除连接文件 对源文件无影响，但<br>是删除源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode，并在磁盘上有一小片空间存放路径名。<br>(3)软连接可以对一个不存在的文件名进行连接 。<br>(4)软连接可以对目录进行连接。</p>
+<p>备注：Inode节点 :它是UNIX内部用于描述文件特性的数据结构，通常称Inode节点为文件索引结点(信息结点)，Inode节点含有关于<br>文件的大部分的重要信息，包括文件数据块在磁盘上的地址。每一个I节点有它自己的标志号，我们称为文件顺序号<br>。Inode节点包含的信息:文件类型、文件属主关系、文件的访问权限、文件的时间截。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
+  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
+<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
+<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
+<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
+<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
+<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
+<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
+<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
+<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
+<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
+<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
+<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python连接mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -335,216 +540,9 @@
 
 
   
-    <article id="post-linux硬盘分区与挂载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/08/linux硬盘分区与挂载/" class="article-date">
-  	<time datetime="2016-10-08T01:51:26.000Z" itemprop="datePublished">2016-10-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/08/linux硬盘分区与挂载/">linux硬盘分区与挂载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MBR的基本概念"><a href="#MBR的基本概念" class="headerlink" title="MBR的基本概念"></a>MBR的基本概念</h3><p>硬盘的第一个扇区也就是第0扇区是用来存放主引导记录(MBR)的，因此也称MBR扇区。一个扇区是512字节，因此MBR的大小也是512字<br>节，其具体数据结构是：446个字节的引导代码、64个字节的分区表及2个字节的签名值”55AA”。由于MBR的分区表只有64个字节<br>，这决定了它只能存储4个分区记录。这就是为什么一块硬盘最多只能有4个“主分区”的原因。记住，“主分区”就是指记录在主引导记<br>录MBR分区表中的分区，除此之外主分区并无特别之处，但是过去的一些老操作系统往往不能安装在主分区之外的分区上，所以，主<br>分区也贴上“专门用来安装操作系统”的标签。</p>
-<p>我们已经知道了MBR中的分表区只能存放4个分区（即4个主分区），那系统是如何划分出4个以上的分区的呢？一种直白而简单的思路<br>就是把其中一个主分区再进行细分，衍生出一个二级分区表。对的，这个被用来二次分区的主分区就是“扩展分区”，它下面的二级分<br>区就是“逻辑分区”。</p>
-<p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机开机后访问硬盘时所必须要读取的首个扇区，<br>它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
-<p>MBR是由分区程序（如Fdisk，Parted）所产生的，它不依赖任何操作系统，而且硬盘引导程序也是可以改变的，从而能够实现多系统引导。</p>
-<p>从主引导记录的结构可以知道，它仅仅包含一个64个字节的硬盘分区表。由于每个分区信息需要16个字节，所以对于采用MBR型分区<br>结构的硬盘(其磁盘卷标类型为MS-DOS)，最多只能识别4个主要分区。所以对于一个采用此种分区结构的硬盘来说，想要得到4个以上<br>的主要分区是不可能的。这里就需要引出扩展分区了。扩展分区也是主分区(Primary partition）的一种，但它与主分区的不同在于<br>理论上可以划分为无数个逻辑分区，每一个逻辑分区都有一个和MBR结构类似的扩展引导记录(EBR)。<br>在MBR分区表中最多4个主分区或者3个主分区＋1个扩展分区，也就是说扩展分区只能有一个，然后可以再细分为多个逻辑分区。<br>在Linux系统中，硬盘分区命名为sda1－sda4或者hda1－hda4（其中a表示硬盘编号可能是a、b、c等等）。在MBR硬盘中，分区号1－4是主分区（或者扩展分区），逻辑分区号只能从5开始。<br>在MBR分区表中，一个分区最大的容量为2T，且每个分区的起始柱面必须在这个disk的前2T内。你有一个3T的硬盘，根据要求你至少要把它划分为2个分区，且最后一个分区的起始扇区要位于硬盘的前2T空间内。如果硬盘太大则必须改用GPT。</p>
-<h3 id="GPT是什么"><a href="#GPT是什么" class="headerlink" title="GPT是什么"></a>GPT是什么</h3><p>全局唯一标识分区表（GUID Partition Table，缩写：GPT）是一个实体硬盘的分区结构。它是EFI(可扩展固件接口标准)的一部分，<br>用来替代BIOS中的主引导记录分区表。但因为MBR分区表不支持容量大于2.2TB（2.2 × 1012字节）的分区，所以也有一些BIOS系统<br>为了支持大容量硬盘而用GPT分区表取代MBR分区表。</p>
-<p>在MBR硬盘中，分区信息直接存储于主引导记录(MBR)中（主引导记录中还存储着系统的引导程序）。但在GPT硬盘中，分区表的位置信息储存在GPT头中。但出于兼容性考虑，硬盘的第一个扇区仍然用作MBR，之后才是GPT头。</p>
-<p>与支持最大卷为2 TB（Terabytes）并且每个磁盘最多有4个主分区（或3个主分区，1个扩展分区和无限制的逻辑驱动器）<br>的MBR磁盘分区的样式相比，GPT磁盘分区样式支持最大卷为18 EB（Exabytes）并且每磁盘的分区数没有上限，只受到操作系统限制<br>（由于分区表本身需要占用一定空间，最初规划硬盘分区时，留给分区表的空间决定了最多可以有多少个分区，IA-64版Windows<br>限制最多有128个分区，这也是EFI标准规定的分区表的最小尺寸）。与MBR分区的磁盘不同，至关重要的平台操作数据位于分区，<br>而不是位于非分区或隐藏扇区。另外，GPT分区磁盘有备份分区表来提高分区数据结构的完整性。</p>
-<h3 id="EFI"><a href="#EFI" class="headerlink" title="EFI"></a>EFI</h3><p>可扩展固件接口（英文名Extensible Firmware Interface 或EFI）是一种个人电脑系统规格，用来定义操作系统与系统韧体之<br>间的软件界面，为替代BIOS的升级方案。可扩展固件接口负责加电自检（POST）、连系操作系统以及提供连接操作系统与硬件的接<br>口。EFI最初由英特尔开发，现时由UEFI论坛来推广与发展。</p>
-<h3 id="使用fdisk创建分区-小于2TB"><a href="#使用fdisk创建分区-小于2TB" class="headerlink" title="使用fdisk创建分区(小于2TB)"></a>使用fdisk创建分区(小于2TB)</h3><h4 id="1-使用fdisk-l命令查看机器上的硬盘信息"><a href="#1-使用fdisk-l命令查看机器上的硬盘信息" class="headerlink" title="1. 使用fdisk -l命令查看机器上的硬盘信息"></a>1. 使用fdisk -l命令查看机器上的硬盘信息</h4><p><img src="/img/fdisk1.jpg" alt=""><br>上面的信息告诉我们这台机器拥有3块硬盘，其中只有第一块硬盘进行了分区，剩余的两块尚未分区。</p>
-<h4 id="2-使用fdisk对某个硬盘进行分区"><a href="#2-使用fdisk对某个硬盘进行分区" class="headerlink" title="2.使用fdisk对某个硬盘进行分区"></a>2.使用fdisk对某个硬盘进行分区</h4><p>这里我们展示的是对硬盘/dev/xvdc的分区操作，首先键入“fdisk /dev/xvdc”进入分区的向导模式：</p>
-<ol>
-<li>输入n，表示要建立一个新的分区</li>
-<li>输入p, 表示我们想要创建一个主分区</li>
-<li>直接回车，使用默认的起始柱面，也就是柱面1</li>
-<li>直接回车，使用默认的截止柱面，也就是柱面4894， 也就是说对于这块硬盘，我们就建立一个分区，大小是整个磁盘。</li>
-<li>输入w, 保存分区表并退出<br><img src="/img/fdisk2.jpg" alt=""><h4 id="3-格式化新创建的分区"><a href="#3-格式化新创建的分区" class="headerlink" title="3. 格式化新创建的分区"></a>3. 格式化新创建的分区</h4>对新建的分区进行格式化，这里我们选择ext4文件系统。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/xvdc</span><br><span class="line"><span class="comment">#格式化时指定的是“分区”而不是硬盘！这里的xvdc1显然是硬盘xvdc的第一个分区，如果错写成xvdc就意味着要格式化整个硬盘</span></span><br><span class="line"><span class="comment">#mkfs + Tab Tab 查看支持的文件系统</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="使用parted-创建分区"><a href="#使用parted-创建分区" class="headerlink" title="使用parted 创建分区"></a>使用parted 创建分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line"></span><br><span class="line"><span class="comment">#GNU Parted 1.8.1</span></span><br><span class="line"><span class="comment">#Using /dev/sdb</span></span><br><span class="line"><span class="comment">#Welcome to GNU Parted! Type ‘help’ to view a list of commands.</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#将MBR磁盘格式化为GPT</span></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#划分所有空间到一个分区</span></span><br><span class="line">(parted) mkpart primary 0 -1</span><br><span class="line"> </span><br><span class="line"><span class="comment">#这一步也可以这样设置：</span></span><br><span class="line"><span class="comment">#unit TB           (设置单位为TB)</span></span><br><span class="line"><span class="comment">#mkpart primary 0 3 (设置为一个主分区,大小为3TB，开始是0，结束是3）</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#显示设置的分区大小</span></span><br><span class="line">(parted) <span class="built_in">print</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#退出parted程序</span></span><br><span class="line">(parted) quit</span><br><span class="line"> </span><br><span class="line"><span class="comment">#用parted将分区做好后，进行格式化操作,完成后即可挂载使用</span></span><br><span class="line">mkfs.ext3 -F /dev/sdb1</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/bluishglc/article/details/9189437" target="_blank" rel="external">参考http://blog.csdn.net/bluishglc</a><br><a href="http://www.centoscn.com/CentOS/Intermediate/2015/0712/5841.html" target="_blank" rel="external">参考http://www.centoscn.com/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-random" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/22/python-random/" class="article-date">
-  	<time datetime="2016-09-22T09:25:22.000Z" itemprop="datePublished">2016-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/22/python-random/">python random 模块常用方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="random-random"><a href="#random-random" class="headerlink" title="random.random()"></a>random.random()</h3><p>返回[0.0,1)之间的浮点数</p>
-<h3 id="random-uniform-a-b"><a href="#random-uniform-a-b" class="headerlink" title="random.uniform(a, b)"></a>random.uniform(a, b)</h3><p>返回[a,b]之间的浮点数</p>
-<h3 id="random-randint-a-b"><a href="#random-randint-a-b" class="headerlink" title="random.randint(a, b)"></a>random.randint(a, b)</h3><p>返回[a,b]之间的整数<br>范围 a &lt;= n &lt;= b  （注意：下限必须小于上限） </p>
-<h3 id="random-randrange-start-stop-step-，"><a href="#random-randrange-start-stop-step-，" class="headerlink" title="random.randrange(start, stop, step)，"></a>random.randrange(start, stop, step)，</h3><p>从指定范围内，按指定步长 step递增的集合中获取一个随机数。<br>如：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
-<p>random.randrange(10, 100, 2)在结果上与 random.choice(range(10, 100, 2) 等效。</p>
-<h3 id="random-choice-sequence"><a href="#random-choice-sequence" class="headerlink" title="random.choice(sequence)"></a>random.choice(sequence)</h3><p>参数sequence表示一个序列类型。这里要说明一下：sequence在python不是一种特定的类型，而是泛指一系列的类型。list, tuple, 字符串都属于sequence。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> random.choice(<span class="string">"学习Python"</span>)    </span><br><span class="line"><span class="built_in">print</span> random.choice([<span class="string">"JGood"</span>, <span class="string">"is"</span>, <span class="string">"a"</span>, <span class="string">"handsome"</span>, <span class="string">"boy"</span>])   </span><br><span class="line"><span class="built_in">print</span> random.choice((<span class="string">"Tuple"</span>, <span class="string">"List"</span>, <span class="string">"Dict"</span>))</span><br></pre></td></tr></table></figure></p>
-<h3 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random.shuffle()"></a>random.shuffle()</h3><p>用于将一个列表中的元素打乱<br>例如： </p>
-<pre><code class="bash">p = [<span class="string">"Python"</span>, <span class="string">"is"</span>, <span class="string">"powerful"</span>, <span class="string">"simple"</span>, <span class="string">"and so on..."</span>]   
-random.shuffle(p)   
-<span class="built_in">print</span> p   
-<span class="comment">#---- 结果（不同机器上的结果可能不一样。）   </span>
-<span class="comment">#['powerful', 'simple', 'is', 'Python', 'and so on...']</span>
-</code></pre>
-<h3 id="random-sample-sequence-k"><a href="#random-sample-sequence-k" class="headerlink" title="random.sample(sequence, k)"></a>random.sample(sequence, k)</h3><p>从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。<br>例如：</p>
-<pre><code class="bash">list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]   
-slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个元素，作为一个片断返回  </span>
-<span class="built_in">print</span> slice  
-<span class="built_in">print</span> list <span class="comment">#原有序列并没有改变。 </span>
-<span class="comment">#[3,2,6,7,1]</span>
-<span class="comment">#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
-</code></pre>
-<p><a href="http://wangwei007.blog.51cto.com/68019/1102838" target="_blank" rel="external">参考</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/21/spark技术概述/" class="article-date">
-  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/spark技术概述/">spark技术概述</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </div>

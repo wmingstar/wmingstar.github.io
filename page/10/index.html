@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,204 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java-type-conversion" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/01/java-type-conversion/" class="article-date">
+  	<time datetime="2016-06-01T00:59:36.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/01/java-type-conversion/">JAVA进阶——类型转换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在学习java过程中，有些知识很简单，但是却很重要。这些简单的知识是学好javaa的基石，需要认真对待。在做刷题过程中经常遇到一些需要进行类型转换的问题，所以对类型转换相关的知识进行整理如下。</p>
+<h2 id="String类与字符型相互转换"><a href="#String类与字符型相互转换" class="headerlink" title="String类与字符型相互转换"></a>String类与字符型相互转换</h2><h3 id="String转char"><a href="#String转char" class="headerlink" title="String转char:"></a>String转char:</h3><p>用String的toCharArray()方法可以将字符串转换为字符数组。<br>String str=”just for test”;<br>char char_arr[]=str.toCharArray();</p>
+<p>或者<br>用String的charAt(index)方法可以获得index处的字符。<br>char a=str.charAt(index);</p>
+<h3 id="char转String"><a href="#char转String" class="headerlink" title="char转String:"></a>char转String:</h3><p>注意：任何类型都可以用toString()方法转换为String。（基本类型不可以，基本类型对应的包装类可以,基本类型与其对应的包装类之间可以自动实现拆箱与装箱）。<br>Character a=new Character(‘a’);<br>String str=a.toString();</p>
+<p>或者：<br>char a=’a’;<br>String str=a+””;</p>
+<h2 id="String类与整型之间相互转换"><a href="#String类与整型之间相互转换" class="headerlink" title="String类与整型之间相互转换"></a>String类与整型之间相互转换</h2><h3 id="String转int："><a href="#String转int：" class="headerlink" title="String转int："></a>String转int：</h3><p>String str=”123”;<br>int a=Integer.parseInt(str);<br>或者<br>int a=Integer.valueOf(my_str).intValue();</p>
+<h3 id="String-转Integer"><a href="#String-转Integer" class="headerlink" title="String 转Integer:"></a>String 转Integer:</h3><p>Integer a=Integer.valueOf(str);</p>
+<h3 id="int转String："><a href="#int转String：" class="headerlink" title="int转String："></a>int转String：</h3><p>int a=12;<br>Integer num=a;<br>String str=num.toString();<br>或者：<br>int a=12;<br>String str=a+””;<br>或者：<br>int a=12;<br>String str=String.valueOf(a);</p>
+<h2 id="整型与字符之间相互转换"><a href="#整型与字符之间相互转换" class="headerlink" title="整型与字符之间相互转换"></a>整型与字符之间相互转换</h2><h3 id="int转char"><a href="#int转char" class="headerlink" title="int转char:"></a>int转char:</h3><h3 id="char转int"><a href="#char转int" class="headerlink" title="char转int"></a>char转int</h3><p>char a=’a’;<br>int num=a-‘0’;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spark1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/25/spark1/" class="article-date">
+  	<time datetime="2016-05-25T07:15:32.000Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/25/spark1/">spark进阶之路——入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="spark是什么？"><a href="#spark是什么？" class="headerlink" title="spark是什么？"></a>spark是什么？</h2><p>Spark是基于内存的分布式计算框架，计算的中间结果无需利用 HDFS 进行保存，因此速度比较快。</p>
+<h2 id="spark有哪些优势？"><a href="#spark有哪些优势？" class="headerlink" title="spark有哪些优势？"></a>spark有哪些优势？</h2><p>1.计算速度快：基于内存，中间结果在内存存放，读写速度快。<br>2.方便使用：支持Scala, Java, Python ，还有交互式的 Python 和 Scala 的 shell。<br>3.功能强大：支持批处理、交互查询、流处理、机器学习、图计算。<br>4.兼容性好：可以使用各种现有的技术作为底层，也可以自己独立运行。</p>
+<h2 id="spark的架构"><a href="#spark的架构" class="headerlink" title="spark的架构"></a>spark的架构</h2><p><img src="/img/spark.jpg" alt=""></p>
+<p>Driver : 用户编写的程序，需要创建 SparkContext。<br>SparkContext : 用户和 Spark 集群交互的接口，它和 Cluster Manager 交互。<br>Cluster Manager : 负责资源管理调度。<br>Worker Node : 具体执行计算的节点。<br>Executer : 在 Worker Node 为某个应用启动的一个进程（Executer间相互独立）。<br>Task : 被送到 Executor 上的计算任务。</p>
+<h2 id="spark的工作流程"><a href="#spark的工作流程" class="headerlink" title="spark的工作流程"></a>spark的工作流程</h2><p>1.用户创建Driver ，在Driver中创建SparkContext ,连接到 Cluster Manager，Cluster Manager 分配计算资源并启动对应的 Executer。<br>2.Driver 将用户程序划分为不同的执行阶段，每个执行阶段由一组完全相同的 Task 组成，这些 Task 分别作用于待处理数据的不同分区。在阶段划分完成和 Task 创建后，Driver 会向 Executor 发送 Task。<br>3.Executor 接收到 Task 后，下载 Task 的运行依赖，在准备好 Task 的执行环境后，会开始执行Task，并  将Task 的运行状态汇报给 Driver。<br>4.Driver 根据收到的 Task 的运行状态来处理不同的状态更新。Task 分为两种：一种是 Shuffle Map Task，它实现数据的重新洗牌，洗牌的结果保存到 Executor 所在节点的文件系统中；另外一种是 Result Task，它负责生成结果数据。<br>5.Driver 会不断地调用 Task，将 Task发送到 Executor 执行，在所有的 Task 都正确执行或者超过执行   次数的限制仍然没有执行成功时停止。</p>
+<h2 id="spark系统的相关组件"><a href="#spark系统的相关组件" class="headerlink" title="spark系统的相关组件"></a>spark系统的相关组件</h2><p>Spark SQL: 类似 Hive，支持在不同 RDD 上进行类似 SQL 的操作。<br>Spark Streaming: 对于流数据进行处理。<br>MLlib: 机器学习库。<br>GraphX: 图并行框架。</p>
+<h2 id="数据抽象——RDD"><a href="#数据抽象——RDD" class="headerlink" title="数据抽象——RDD"></a>数据抽象——RDD</h2><p> RDD是Spark 框架中最重要的一类新的数据抽象，叫做 Resilient Distributed Dataset - RDD。RDD 是分布 式存储在集群中的内存对象，按照值的范围或者哈希结果进行划分。与此同时 RDD会记录关于数据进行<br>的各种操作（每次操作都会生成新的RDD），这样即使节点挂掉，也能够根据之前的操作日志重新得到损失的 RDD。</p>
+<h3 id="RDD-支持2种操作："><a href="#RDD-支持2种操作：" class="headerlink" title="RDD 支持2种操作："></a>RDD 支持2种操作：</h3><p>转换（transformation）：从现有的数据集创建一个新的数据集。<br>动作（actions）：在数据集上运行计算后，返回一个值给Driver。</p>
+<p>参考资料：<a href="http://wdxtub.com/" target="_blank" rel="external">http://wdxtub.com/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/15/java5/" class="article-date">
+  	<time datetime="2016-05-15T07:17:13.000Z" itemprop="datePublished">2016-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/15/java5/">JAVA进阶——接口</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是接口？这是一个问题"><a href="#什么是接口？这是一个问题" class="headerlink" title="什么是接口？这是一个问题"></a>什么是接口？这是一个问题</h2><p>因为之前没学过计算机相关的基础知识，在听大神谈到接口时总一脸懵逼，完全不理解接口是什么。今天<br>看java的相关知识，才有点明白。</p>
+<p>接口：是若干常量和抽象方法的集合。使用 interface关键字来声明，可以看做是一种特殊的抽象类，可以<br>指定一个类必须做什么，而不是规定它如何去做。</p>
+<h2 id="接口的几点特性"><a href="#接口的几点特性" class="headerlink" title="接口的几点特性"></a>接口的几点特性</h2><p>1.接口中只能定义抽象方法，这些方法默认为 public abstract 的，因而在声明方法时可以省略这些修饰符。<br>2.接口中没有构造方法，不能被实例化。<br>3.一个接口不实现另一个接口，但可以继承多个其他接口（类单继承）。</p>
+<h2 id="那为什么要用接口呢？"><a href="#那为什么要用接口呢？" class="headerlink" title="那为什么要用接口呢？"></a>那为什么要用接口呢？</h2><p>大型项目开发中，可能需要从继承链的中间插入一个类，让它的子类具备某些功能而不影响它们的父类。例<br>如 A -&gt; B -&gt; C -&gt; D -&gt; E，A 是祖先类，如果需要为C、D、E类添加某些通用的功能，最简单的方法是让C类再<br>继承另外一个类。但问题是，Java 是一种单继承的语言，不能再让C继承另外一个父类了，只到移动到继承链<br>的最顶端，让A再继承一个父类。这样一来，对C、D、E类的修改，影响到了整个继承链，不具备可插入性的设计。</p>
+<p>接口是可插入性的保证。在一个继承链中的任何一个类都可以实现一个接口，这个接口会影响到此类的所<br>有子类，但不会影响到此类的任何父类。此类将不得不实现这个接口所规定的方法，而子类可以从此类自动<br>继承这些方法，这时候，这些子类具有了可插入性。</p>
+<p>接口提供了关联以及方法调用上的可插入性，软件系统的规模越大，生命周期越长，接口使得软件系统的<br>灵活性和可扩展性，可插入性方面得到保证。</p>
+<p>接口在面向对象的 Java 程序设计中占有举足轻重的地位。事实上在设计阶段最重要的任务之一就是设计出<br>各部分的接口，然后通过接口的组合，形成程序的基本框架结构。</p>
+<h2 id="接口与抽象类的对比"><a href="#接口与抽象类的对比" class="headerlink" title="接口与抽象类的对比"></a>接口与抽象类的对比</h2><pre><code>相同点
+</code></pre><p>（1）都代表类树形结构的抽象层。在使用引用变量时，尽量使用类结构的抽象层，使方法的定义和实现分离，这<br>样做对于代码有松散耦合的好处。<br>（2）都不能被实例化。<br>（3）都能包含抽象方法，抽象方法用来描述系统提供哪些功能，而不必关心具体的实现。</p>
+<pre><code>区别
+</code></pre><p>（1）抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象<br>类的优势；而接口中只能包含抽象方法，不能包含任何实现。<br>（2）) 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。</p>
+<h2 id="对于接口和抽象类的选择"><a href="#对于接口和抽象类的选择" class="headerlink" title="对于接口和抽象类的选择"></a>对于接口和抽象类的选择</h2><p>（1）行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。<br>（2）选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -314,190 +512,9 @@
 
 
   
-    <article id="post-java2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/23/java2/" class="article-date">
-  	<time datetime="2016-04-23T09:11:16.000Z" itemprop="datePublished">2016-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/java2/">JAVA进阶——直接选择排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class SelectSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int index=0;</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[index])</span><br><span class="line">				&#123;</span><br><span class="line">					index=j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			int temp=0;</span><br><span class="line">			temp=a[index];</span><br><span class="line">			a[index]=a[a.length-i];</span><br><span class="line">			a[a.length-i]=temp;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/23/java1/" class="article-date">
-  	<time datetime="2016-04-23T08:27:46.000Z" itemprop="datePublished">2016-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/java1/">JAVA进阶——冒泡排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在程序员相关职位的面试、笔试过程中，算法是绕不过去的一道坎。当遇到算法题，作为程序员的我们都会眉头紧锁，但是，真正的程序员只是皱下眉头，然后利落的敲击键盘，将每个算法题搞定。显然，我还不算真正的程序员，但是作为小白的我要下决心做一个小程序员，敲敲代码，装装逼格。<br>好了，就从冒泡算法开始吧。<br>如果，你正在看这篇博客，说明你知道什么叫冒泡排序。你不知道？好吧，我再唠叨下，从名字应该知道这个算法是用来给数字排序的，而冒泡是它的名字，这名字很贴切，因为这个算法就是对一组数进行比较，每进行一轮比较，就将较小的数字排到上面来，就像气泡一样，从下面升上来。</p>
-<p>配合图解效果更好哦！</p>
-<p><img src="/img/Bubblesort.jpg" alt=""></p>
-<h4 id="来，小明上代码。"><a href="#来，小明上代码。" class="headerlink" title="来，小明上代码。"></a>来，小明上代码。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class BubbleSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[j+1])</span><br><span class="line">				&#123;</span><br><span class="line">					int temp=0;</span><br><span class="line">					temp=a[j];</span><br><span class="line">					a[j]=a[j+1];</span><br><span class="line">					a[j+1]=temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>不论哪种排序，代码都是其次的，关键是理解算法的思想。冒泡排序，每一次比较，都是将数组中相邻两元素进行比较，然后将两元素中较大的数排到后面，这样就可以将大数排到后面，小数排到前面。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-258-Add-Digits" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/21/leetcode-258-Add-Digits/" class="article-date">
-  	<time datetime="2016-04-21T01:45:04.000Z" itemprop="datePublished">2016-04-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/21/leetcode-258-Add-Digits/">leetcode-258-Add-Digits 解题及思考</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是我刷的第二道leetcodeOJ,在此题中用到了ArrayList。上干货：</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</p>
-<p>For example:</p>
-<p>Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.</p>
-<h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int addDigits(int num) &#123;</span><br><span class="line">	 <span class="comment">#当输入的num是多位时，便调用GetArr(num)，将其各位相加得新num再判定</span></span><br><span class="line">        <span class="keyword">while</span>(num /10 != 0)</span><br><span class="line">		&#123;</span><br><span class="line">			num = GetArr(num);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> num;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    public static int GetArr(int num) &#123;</span><br><span class="line">	    <span class="comment">#声明实例化ArrayList对象</span></span><br><span class="line">		ArrayList b=new ArrayList();</span><br><span class="line">		int num1=0;</span><br><span class="line">	    <span class="comment">#注意此处的运算符号</span></span><br><span class="line">		<span class="keyword">while</span> (num / 10 != 0) &#123;</span><br><span class="line">			b.add(num %10);</span><br><span class="line">			num = num /10;</span><br><span class="line">		&#125;</span><br><span class="line">		b.add(num);</span><br><span class="line">		<span class="keyword">for</span> (int j = 0; j &lt; b.size(); j++) &#123;</span><br><span class="line">			num1+=(int) b.get(j);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> num1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在刷leetcode时发现，leetcode会直接给出定义的class和方法名，这其实给出了一定的提示，起码告诉你返回值是什么类型。但值得注意的，其未给出主方法，但程序仍可运行，这说明，其已经封装好了。并且可以定义新的方法并调用，在此题中便定义了新方法GetArr(intnum)，并调用，但为了避免出错，将其定义为static，再刷新题时，试下不加static看能否直接调用。</p>
-<p>解此题，关键是将输入的数字按位分割，并将各位上的数字存储，然后将各位上的数字相加，开始想到过将数字转换为字符串，再将字符串分割成字符，再将字符转换为数字相加，很麻烦，并且字符串分割成字符时用到split()方法，需要指定分隔符，而字符串是连续的数字时没有分隔符，这如何分割？思考下这个问题，思考到这便遇到了瓶颈，于是想其他方法。</p>
-<p>想到了数组，对数字进行除以10再取余数便可分割数字的每一位，再用数组存储；但是用数组有个问题，声明数组时，必须指定数组的类型和长度，因为需要为其分配内存空间，而我们并不知道输入的数字是多少位的，于是无法确定数组的大小。所以用数组也不行，这时我想，有没有一种数据存储结构可以像数组一样按下标存储并且是变长的？我都不知道java里也有list，我是个java渣渣，楠哥告诉我可以用list。果然问题解决了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
     </nav>
   
 </div>

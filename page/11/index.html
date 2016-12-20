@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,187 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/23/java2/" class="article-date">
+  	<time datetime="2016-04-23T09:11:16.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/java2/">JAVA进阶——直接选择排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class SelectSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int index=0;</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[index])</span><br><span class="line">				&#123;</span><br><span class="line">					index=j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			int temp=0;</span><br><span class="line">			temp=a[index];</span><br><span class="line">			a[index]=a[a.length-i];</span><br><span class="line">			a[a.length-i]=temp;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/23/java1/" class="article-date">
+  	<time datetime="2016-04-23T08:27:46.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/java1/">JAVA进阶——冒泡排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在程序员相关职位的面试、笔试过程中，算法是绕不过去的一道坎。当遇到算法题，作为程序员的我们都会眉头紧锁，但是，真正的程序员只是皱下眉头，然后利落的敲击键盘，将每个算法题搞定。显然，我还不算真正的程序员，但是作为小白的我要下决心做一个小程序员，敲敲代码，装装逼格。<br>好了，就从冒泡算法开始吧。<br>如果，你正在看这篇博客，说明你知道什么叫冒泡排序。你不知道？好吧，我再唠叨下，从名字应该知道这个算法是用来给数字排序的，而冒泡是它的名字，这名字很贴切，因为这个算法就是对一组数进行比较，每进行一轮比较，就将较小的数字排到上面来，就像气泡一样，从下面升上来。</p>
+<p>配合图解效果更好哦！</p>
+<p><img src="/img/Bubblesort.jpg" alt=""></p>
+<h4 id="来，小明上代码。"><a href="#来，小明上代码。" class="headerlink" title="来，小明上代码。"></a>来，小明上代码。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class BubbleSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[j+1])</span><br><span class="line">				&#123;</span><br><span class="line">					int temp=0;</span><br><span class="line">					temp=a[j];</span><br><span class="line">					a[j]=a[j+1];</span><br><span class="line">					a[j+1]=temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>不论哪种排序，代码都是其次的，关键是理解算法的思想。冒泡排序，每一次比较，都是将数组中相邻两元素进行比较，然后将两元素中较大的数排到后面，这样就可以将大数排到后面，小数排到前面。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-258-Add-Digits" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/21/leetcode-258-Add-Digits/" class="article-date">
+  	<time datetime="2016-04-21T01:45:04.000Z" itemprop="datePublished">2016-04-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/21/leetcode-258-Add-Digits/">leetcode-258-Add-Digits 解题及思考</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我刷的第二道leetcodeOJ,在此题中用到了ArrayList。上干货：</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</p>
+<p>For example:</p>
+<p>Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.</p>
+<h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int addDigits(int num) &#123;</span><br><span class="line">	 <span class="comment">#当输入的num是多位时，便调用GetArr(num)，将其各位相加得新num再判定</span></span><br><span class="line">        <span class="keyword">while</span>(num /10 != 0)</span><br><span class="line">		&#123;</span><br><span class="line">			num = GetArr(num);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> num;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    public static int GetArr(int num) &#123;</span><br><span class="line">	    <span class="comment">#声明实例化ArrayList对象</span></span><br><span class="line">		ArrayList b=new ArrayList();</span><br><span class="line">		int num1=0;</span><br><span class="line">	    <span class="comment">#注意此处的运算符号</span></span><br><span class="line">		<span class="keyword">while</span> (num / 10 != 0) &#123;</span><br><span class="line">			b.add(num %10);</span><br><span class="line">			num = num /10;</span><br><span class="line">		&#125;</span><br><span class="line">		b.add(num);</span><br><span class="line">		<span class="keyword">for</span> (int j = 0; j &lt; b.size(); j++) &#123;</span><br><span class="line">			num1+=(int) b.get(j);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> num1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在刷leetcode时发现，leetcode会直接给出定义的class和方法名，这其实给出了一定的提示，起码告诉你返回值是什么类型。但值得注意的，其未给出主方法，但程序仍可运行，这说明，其已经封装好了。并且可以定义新的方法并调用，在此题中便定义了新方法GetArr(intnum)，并调用，但为了避免出错，将其定义为static，再刷新题时，试下不加static看能否直接调用。</p>
+<p>解此题，关键是将输入的数字按位分割，并将各位上的数字存储，然后将各位上的数字相加，开始想到过将数字转换为字符串，再将字符串分割成字符，再将字符转换为数字相加，很麻烦，并且字符串分割成字符时用到split()方法，需要指定分隔符，而字符串是连续的数字时没有分隔符，这如何分割？思考下这个问题，思考到这便遇到了瓶颈，于是想其他方法。</p>
+<p>想到了数组，对数字进行除以10再取余数便可分割数字的每一位，再用数组存储；但是用数组有个问题，声明数组时，必须指定数组的类型和长度，因为需要为其分配内存空间，而我们并不知道输入的数字是多少位的，于是无法确定数组的大小。所以用数组也不行，这时我想，有没有一种数据存储结构可以像数组一样按下标存储并且是变长的？我都不知道java里也有list，我是个java渣渣，楠哥告诉我可以用list。果然问题解决了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-database1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -334,79 +515,9 @@
 
 
   
-    <article id="post-github1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/16/github1/" class="article-date">
-  	<time datetime="2016-04-16T03:13:55.000Z" itemprop="datePublished">2016-04-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/16/github1/">Github搭建个人博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Github准备工作"><a href="#Github准备工作" class="headerlink" title="Github准备工作"></a>Github准备工作</h2><p>这周一直在折腾Github，今天终于基本完成，心里有点激动呢！好了，不废话，上干货。<br><a href="http://www.coldsatr.com/post/1da5e464_a95c488" target="_blank" rel="external">配置Github</a><br><a href="http://www.coldsatr.com/post/1da5e464_a9871a9" target="_blank" rel="external">Github基本操作</a></p>
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><p>Hexo其实就是一个博客框架，它特别简洁、高效，用它写博客特别方便。Hexo用Markdown(渲染引擎)解析文章。<br>它可以很快的用漂亮的主题生成静态网页，然后将其托管在Github上就可以，其实挺简单的东西，但自己折<br>腾的时候，还是走了一些弯路。</p>
-<h2 id="Hexo环境要求"><a href="#Hexo环境要求" class="headerlink" title="Hexo环境要求"></a>Hexo环境要求</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装<a href="https://git-scm.com/downloads" target="_blank" rel="external">Git</a></h3><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></h3><p>此时环境配置完成。</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>创建一个文件夹，来初始化Hexo,初始化之后才可以使用。比如哦，我是在E:盘下面创建了一个Github文件夹，<br>在Github下创建 hexo文件夹。进入该文件夹，打开Git Bash。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>此时Hexo安装全部完成，hexo文件夹下的目录（）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├──node_modules</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装Hexo插件"><a href="#安装Hexo插件" class="headerlink" title="安装Hexo插件"></a>安装Hexo插件</h2><p>有些已经有了就不需要再按，在 node_modules 子目录下可以看到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-renderer-marked@0.2 --save</span><br><span class="line">npm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">npm install hexo-generator-feed@1 --save</span><br><span class="line">npm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure></p>
-<p>此时，Hexo安装配置全部完成。</p>
-<h2 id="启动Hexo-server查看效果"><a href="#启动Hexo-server查看效果" class="headerlink" title="启动Hexo server查看效果"></a>启动Hexo server查看效果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>打开浏览器 ：localhost4000</p>
-<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="comment">#n:new 生成文章，或者source\_posts手动编辑</span></span><br><span class="line">hexo s <span class="comment">#s:server 本地发布预览效果</span></span><br><span class="line">hexo g <span class="comment">#g:generate生成public静态文件</span></span><br><span class="line">hexo d <span class="comment">#d:deploy同步更新至GitHub</span></span><br></pre></td></tr></table></figure>
-<h2 id="该更配置文件"><a href="#该更配置文件" class="headerlink" title="该更配置文件"></a>该更配置文件</h2><p>hexo文件夹下的 _config.yml 文件便是配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: Coder1919 <span class="comment">#你的博客名</span></span><br><span class="line">subtitle: Be a programmer! <span class="comment">#博客名下的副标题，就是个性签名</span></span><br><span class="line">description: java elasticsearch github!  <span class="comment">#描述你的博客，搜索引擎会爬取</span></span><br><span class="line">author: coder1919</span><br><span class="line">language: zh-CN <span class="comment">#配置博客的语言</span></span><br><span class="line">timezone:</span><br><span class="line"><span class="comment"># URL 无需改动</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"><span class="comment"># Writing 无需改动</span></span><br><span class="line">new_post_name: :title.md <span class="comment"># File name of new posts</span></span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line">external_link: <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line">filename_<span class="keyword">case</span>: 0</span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">future: <span class="literal">true</span></span><br><span class="line">highlight:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  line_number: <span class="literal">true</span></span><br><span class="line">  auto_detect: <span class="literal">false</span></span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag 无需改动</span></span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format 无需改动</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination 无需改动</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions </span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment">##theme: landscape</span></span><br><span class="line">theme: yilia <span class="comment">#更改主题</span></span><br><span class="line"><span class="comment"># Deployment 重要，如下配置之后才可以用   $ hexo d 命令同步至Github</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/coder1919/coder1919.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="另附："><a href="#另附：" class="headerlink" title="另附："></a>另附：</h2><p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git 简明指南</a><br><a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator/" target="_blank" rel="external">Git help</a><br><a href="http://www.jianshu.com/p/ed32ac187dbc/comments/2005400" target="_blank" rel="external">参考</a><br><a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo 主题</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 </div>

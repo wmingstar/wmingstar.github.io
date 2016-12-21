@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,65 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/python-1/" class="article-date">
+  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
+<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
+<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -439,71 +498,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/05/github2/" class="article-date">
-  	<time datetime="2016-06-05T11:24:53.403Z" itemprop="datePublished">2016-06-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/github2/">Hexo 简单教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a><br><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo API</a><br><a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Hexo Troubleshooting</a> </p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="写新文章，先创建-Post"><a href="#写新文章，先创建-Post" class="headerlink" title="写新文章，先创建 Post"></a>写新文章，先创建 Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>这时，在本地目录 hexo/source/  下会出现一个 My New Post.md 文件，这便是刚刚创建的post，用Notepad++打开，就可以写文章啦！<br>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="开启本地Hexo服务，查看效果"><a href="#开启本地Hexo服务，查看效果" class="headerlink" title="开启本地Hexo服务，查看效果"></a>开启本地Hexo服务，查看效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>此时，本地Hexo服务启动，打开浏览器 输入：localhost:4000 查看<br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="上传到远端主机（Github）"><a href="#上传到远端主机（Github）" class="headerlink" title="上传到远端主机（Github）"></a>上传到远端主机（Github）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
 	</div>
 
       

@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,91 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mysql-engine" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/05/mysql-engine/" class="article-date">
+  	<time datetime="2016-08-05T01:26:15.000Z" itemprop="datePublished">2016-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/05/mysql-engine/">MySQL进阶——存储引擎</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MySQL-支持的搜索引擎"><a href="#MySQL-支持的搜索引擎" class="headerlink" title="MySQL 支持的搜索引擎"></a>MySQL 支持的搜索引擎</h2><p>可以通过以下命令查看mysql支持的存储引擎：<br>mysql&gt;show engines</p>
+<p>MySQL有多种存储引擎，每种存储引擎有各自的优缺点，可以择优选择使用：MyISAM、InnoDB、MERGE、MEMORY(HEAP)、BDB(BerkeleyDB)、EXAMPLE、FEDERATED、ARCHIVE、CSV、BLACKHOLE。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>MySQL支持数个存储引擎作为对不同表的类型的处理器，MySQL存储引擎包括处理事务安全表（TST）的引擎和处理非事务安全表(NTST)的引擎。</p>
+<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>管理非事务表。它提供高速存储和检索，以及全文搜索能力。MyISAM在所有MySQL配置里被支持，它是默认的存储引擎，除非你配置MySQL默认使用另外一个引擎。</p>
+<h3 id="InnoDB和BDB"><a href="#InnoDB和BDB" class="headerlink" title="InnoDB和BDB"></a>InnoDB和BDB</h3><p>支持事务安全表，BDB被包含在为支持它的操作系统发布的MySQL-Max二进制分发版里。InnoDB也默认被包括在所有MySQL5.1二进制分发版里，你可以按照喜好通过配置MySQL来允许或禁止任一引擎。</p>
+<h3 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h3><p>存储引擎提供“内存中”表。MERGE存储引擎允许集合将被处理同样的MyISAM表作为一个单独的表。就像MyISAM一样，MEMORY和MERGE存储引擎处理非事务表，这两个引擎也都被默认包含在MySQL中。</p>
+<h3 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h3><p>是一个“存根”引擎，它不做什么。你可以用这个引擎创建表，但没有数据被存储于其中或从其中检索。这个引擎的目的是服务，在 MySQL源代码中的一个例子，它演示说明如何开始编写新存储引擎。同样，它的主要兴趣是对开发者。</p>
+<h3 id="NDB-Cluster"><a href="#NDB-Cluster" class="headerlink" title="NDB Cluster"></a>NDB Cluster</h3><p>用来实现分割到多台计算机上的表的存储引擎。它在MySQL-Max 5.1二进制分发版里提供。这个存储引擎当前只被Linux, Solaris, 和Mac OS X 支持。在未来的MySQL分发版中，我们想要添加其它平台对这个引擎的支持，包括Windows。</p>
+<h3 id="ARCHIVE"><a href="#ARCHIVE" class="headerlink" title="ARCHIVE"></a>ARCHIVE</h3><p>用来无索引地，非常小地覆盖存储的大量数据。</p>
+<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>把数据以逗号分隔的格式存储在文本文件中。</p>
+<h3 id="BLACKHOLE"><a href="#BLACKHOLE" class="headerlink" title="BLACKHOLE"></a>BLACKHOLE</h3><p>接受但不存储数据，并且检索总是返回一个空集。</p>
+<h3 id="FEDERATED"><a href="#FEDERATED" class="headerlink" title="FEDERATED"></a>FEDERATED</h3><p>把数据存在远程数据库中。在MySQL 5.1中，它只和MySQL一起工作，使用MySQL C Client API。在未来的分发版中，<br>我们想要让它使用其它驱动器或客户端连接方法连接到另外的数据源。</p>
+<h2 id="MyISAM与InnoBD的区别"><a href="#MyISAM与InnoBD的区别" class="headerlink" title="MyISAM与InnoBD的区别"></a>MyISAM与InnoBD的区别</h2><p>在mysql存储中，比较常用的是MyISAM和InnoBD。</p>
+<h3 id="构成上的区别"><a href="#构成上的区别" class="headerlink" title="构成上的区别"></a>构成上的区别</h3><p>MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。frm文件存储表定义。数据文件的扩展<br>名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</p>
+<p>InnoBD：基于磁盘的资源是InnoDB表空间数据文件和它的日志文件，InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB.</p>
+<h3 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h3><p>MyISAM：MyISAM类型的表强调的是性能，其执行速度比InnoDB类型更快，但是不提供事务支持。</p>
+<p>InnoBD: InnoDB提供事务支持事务，外部键（foreign key）等高级数据库功能。</p>
+<h3 id="SELECT-UPDATE-INSERT，Delete操作"><a href="#SELECT-UPDATE-INSERT，Delete操作" class="headerlink" title="SELECT UPDATE,INSERT，Delete操作"></a>SELECT UPDATE,INSERT，Delete操作</h3><p>MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。</p>
+<p>InnoBD：如果执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；<br>DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br>LOAD  TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的<br>额外的InnoDB特性（例如外键）的表不适用。</p>
+<h2 id="如何在MyISAM与InnoBD之间选择"><a href="#如何在MyISAM与InnoBD之间选择" class="headerlink" title="如何在MyISAM与InnoBD之间选择"></a>如何在MyISAM与InnoBD之间选择</h2><p>（1）InnoDB支持事务，MyISAM不支持，这一点是非常之重要。事务是一种高级的处理方式，如在一些列增删改中只要哪个出错还可以回滚还原，而MyISAM就不可以了。<br>（2）MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用<br>（3）InnoDB支持外键，MyISAM不支持<br>（4）MyISAM是默认引擎，InnoDB需要指定<br>（5）InnoDB不支持FULLTEXT类型的索引<br>（6）InnoDB中不保存表的行数，如select count(<em>) fromtable时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存<br>好的行数即可。注意的是，当count(</em>)语句包含where条件时MyISAM也需要扫描整个表<br>（7）对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引<br>（8）清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表<br>（9）InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’</p>
+<h2 id="MyISAM-1"><a href="#MyISAM-1" class="headerlink" title="MyISAM"></a>MyISAM</h2><p>每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名<br>为.MYD (MYData)。<br>MyISAM表格可以被压缩，而且它们支持全文搜索。不支持事务，而且也不支持外键。如果事物回滚将造成不完全回滚，不具有原子性。在进<br>行updata时进行表锁，并发量相对较小。如果执行大量的SELECT，MyISAM是更好的选择。<br>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，<br>没有使用压缩从而会造成Innodb比MyISAM体积庞大不小<br>MyISAM缓存在内存的是索引，不是数据。而InnoDB缓存在内存的是数据，相对来说，服务器内存越大，InnoDB发挥的优势越大。</p>
+<p>优点：查询数据相对较快，适合大量的select，可以全文索引。</p>
+<p>缺点：不支持事务，不支持外键，并发量较小，不适合大量update</p>
+<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>这种类型是事务安全的。.它与BDB类型具有相同的特性,它们还支持外键。InnoDB表格速度很快。具有比BDB还丰富的特性,因此如果需要一个事务安全的存储引擎，建议使用它。在update时表进行行锁，并发量相对较大。如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。</p>
+<p>优点：支持事务，支持外键，并发量较大，适合大量update</p>
+<p>缺点：查询数据相对较快，不适合大量的select</p>
+<p>对于支持事物的InnoDB类型的表，影响速度的主要原因是AUTOCOMMIT默认设置是打开的，而且程序没有显式调用BEGIN 开始事务，导致每插入一条都自动Commit，严重影响了速度。可以在执行sql前调用begin，多条sql形成一个事物（即使autocommit打开也可以），将大大提高性能。</p>
+<p>基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。</p>
+<p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-mysql-tst-ntst" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -444,69 +529,6 @@
 <p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should<br>become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
 <h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void deleteNode(ListNode node) &#123;</span><br><span class="line">        <span class="keyword">if</span>(node!=null)&#123;</span><br><span class="line">            node.val=node.next.val;</span><br><span class="line">            node.next=node.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先把题意搞懂，自己刚开始做的没把题意读明白就写代码，然后就懵了，感觉不对，甚至以为题目有问题。今早写博客，重新看提<br>时，恍然大悟，是自己太菜了。<br>题意：删除单项链表中的一个节点，所给的是要删除的节点。<br>写一个可以删除单项链表中特定节点的方法，该方法的参数是要删除的节点。预先声明了 listnode类，该类有两个属性，val和<br>next。也就是说通过一个节点的值和它所连接的下一个节点便可确定该节点，因此要删除一个节点将这两个属性的值更改为其下个节<br>点的对应的值就可以了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-349-intersection-two-arrays" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/12/leetcode-349-intersection-two-arrays/" class="article-date">
-  	<time datetime="2016-07-12T00:41:46.000Z" itemprop="datePublished">2016-07-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/12/leetcode-349-intersection-two-arrays/">leetcode-349-intersection-two-arrays</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
-<p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
-<p>Note:<br>1.Each element in the result must be unique.<br>2.The result can be in any order.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><p>``` bash<br>(code=java)<br>public class Solution {<br>    public int[] intersection(int[] nums1, int[] nums2) {<br>        Set<integer> set1=new HashSet<integer>();<br>        Set<integer> result=new HashSet<integer>();<br>        for(int i:nums1){<br>            set1.add(i);<br>        }<br>        for(int j:nums2){<br>            if(set1.contains(j)) result.add(j);<br>        }<br>        int length=result.size();<br>        int[] nums=new int[length];<br>        for(int k:result){<br>            nums[–length]=k;<br>          }<br>        return nums;</integer></integer></integer></integer></p>
-<pre><code>}
-</code></pre><p>}</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>通过题意，我们可以知道，本题要做的是写一个方法找出两个数组中的相同元素，将这些元素以数组的形式返回，并保证这个返回的<br>数组中的元素是唯一的，不要求顺序。<br>难点：<br>1.找出两个数组的相同元素<br>2.把数组中的重复元素去除<br>对于此题，比较好的方法是用 Set，下面介绍下 Set 的用法。<br>Set 不保存重复的元素，如果试图将多个重复的元素添加到 Set ，那么它会阻止这种重复现象。Set中最常被使用的是测试贵属性，<br>可以很容易的查询某个对象是否在 某个Set 中，因此 查找就成为了 Set 中最重要的操作，通常会选择一个HashSet实现，因为它<br>专门对快速查找进行了优化。<br>本题先将 nums1中的对象存入set1,再判断nums2中的对象是否存在于nums1，若存在则放入 result中，result也是 一个Set对象，在<br>存入的过程中会自动把重复的元忽略，最后再将result的元素存入一个数组返回。</p>
 
       
     </div>

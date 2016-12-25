@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-237-Delete-Node" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/13/leetcode-237-Delete-Node/" class="article-date">
+  	<time datetime="2016-07-13T00:42:34.000Z" itemprop="datePublished">2016-07-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/13/leetcode-237-Delete-Node/">leetcode-237-Delete-Node</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
+<p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should<br>become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void deleteNode(ListNode node) &#123;</span><br><span class="line">        <span class="keyword">if</span>(node!=null)&#123;</span><br><span class="line">            node.val=node.next.val;</span><br><span class="line">            node.next=node.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先把题意搞懂，自己刚开始做的没把题意读明白就写代码，然后就懵了，感觉不对，甚至以为题目有问题。今早写博客，重新看提<br>时，恍然大悟，是自己太菜了。<br>题意：删除单项链表中的一个节点，所给的是要删除的节点。<br>写一个可以删除单项链表中特定节点的方法，该方法的参数是要删除的节点。预先声明了 listnode类，该类有两个属性，val和<br>next。也就是说通过一个节点的值和它所连接的下一个节点便可确定该节点，因此要删除一个节点将这两个属性的值更改为其下个节<br>点的对应的值就可以了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-349-intersection-two-arrays" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -429,74 +489,6 @@
 <h3 id="创建本地yum仓库"><a href="#创建本地yum仓库" class="headerlink" title="创建本地yum仓库"></a>创建本地yum仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可以有N级目录 ，单感觉一级就好</span></span><br><span class="line">mkdir  /yum  </span><br><span class="line"><span class="comment">#复制RPM包到上述目录</span></span><br><span class="line">cp ...  </span><br><span class="line"><span class="comment">#或者将需要的包下载下来但不安装</span></span><br><span class="line">yum install --downloadonly --downloaddir=/yum   &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="创建repo文件-1"><a href="#创建repo文件-1" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim/etc/yum.repos.d/CentOS-Local.repo</span><br><span class="line"></span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///yum/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### 安装createrepo，用以创建索引，centos7自带，其他版本自己测试下就好</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#使用yum安装createrepo </span></span><br><span class="line">yum install createrepo  </span><br><span class="line">rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/createrepo-0.9.9-23.el7.noarch.rpm</span><br><span class="line"><span class="comment">### 创建索引</span></span><br><span class="line">``` bash</span><br><span class="line">createrepo /yum   </span><br><span class="line">yum makecache <span class="comment">#更新缓存</span></span><br></pre></td></tr></table></figure>
 <p>好了，制作完毕，现在就可以用了，本人推荐这种方法，感觉这种方法比较便捷，并且可以满足大多数情况，可以结合第一种方法一<br>起使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install  package-name</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/pip源/" class="article-date">
-  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/pip源/">制作pip源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。<br>这里介绍两种方法：</p>
-<h2 id="一、同步官方pip源到本地"><a href="#一、同步官方pip源到本地" class="headerlink" title="一、同步官方pip源到本地"></a>一、同步官方pip源到本地</h2><p>用脚本安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip pip.master.zip</span><br><span class="line"><span class="built_in">cd</span> pip.master</span><br><span class="line">python setup.py  install</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip distribute-0.7.3.zip</span><br><span class="line"><span class="built_in">cd</span> distribute-0.7.3</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip virtualenv.zip</span><br><span class="line"><span class="built_in">cd</span> virtualenv</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtualenv-2.7 bandersnatch</span><br><span class="line"><span class="built_in">cd</span> bandersnatch</span><br><span class="line">bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span><br></pre></td></tr></table></figure>
-<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Run （- it will create an empty configuration file for you in /etc/bandersnatch.conf.）根据自己的需求更改配置文件 </span><br><span class="line">#/etc/bandersnatch.conf</span><br><span class="line"></span><br><span class="line">bandersnatch mirror </span><br><span class="line"></span><br><span class="line">#Run again.</span><br><span class="line">#It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect </span><br><span class="line">#this to grow substantially over time.Run bandersnatch mirror regularly to update your mirror with any #intermediate changes.</span><br><span class="line">bandersnatch mirror</span><br></pre></td></tr></table></figure>
-<p>用这个方法可以将官方pip源同步到本地，但是速度比较慢，我同步的时候用了一种，共220G左右，随着时间的推移，这个源是在不<br>断变化的。单自己同步完之后并不会用啊，太伤了，所以又换了中方法。</p>
-<h2 id="二、制作自定义pip源"><a href="#二、制作自定义pip源" class="headerlink" title="二、制作自定义pip源"></a>二、制作自定义pip源</h2><p>需要什么就在可以上网的电脑上提前下载好，然后复制到部署环境的电脑上就可以。</p>
-<h3 id="1-将需要的pip包下载到本地"><a href="#1-将需要的pip包下载到本地" class="headerlink" title="1.将需要的pip包下载到本地"></a>1.将需要的pip包下载到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="_">-d</span> /path/to/save/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=file:///path_to/packages/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
 
       
     </div>

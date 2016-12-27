@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-yum源" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/yum源/" class="article-date">
+  	<time datetime="2016-06-26T09:39:06.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/yum源/">制作yum源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>先说下为什么要制作本地yum源，在实际工程中，很多国企或者公司的某些研发环境为了网络安全，避免网络攻击，不会连接外网，在这种情况下就需要离线部署环境，此时就需要本地yum源和pip源，本篇仅介绍本地yum源制作方法，下篇介绍pip源制作方法。</p>
+<h3 id="制作本地yum源有三种方法："><a href="#制作本地yum源有三种方法：" class="headerlink" title="制作本地yum源有三种方法："></a>制作本地yum源有三种方法：</h3><p>一、<br>直接使用CentOS安装镜像文件作为本地yum源，优点是简单便捷，缺点是镜像文件中的软件包不完整，(centos 7 Everything才7G<br>左右)；<br>二、<br>同步CentOS官方源到本地（相当于创建了一个公共镜像），优点是软件包很全，缺点是占空间费流量；<br>三、<br>创建完全自定义的本地源，优点是灵活性最大，缺点是只是作为其他源的补充。</p>
+<p>上面的三种方法，我自己试过第一种和第三种，第一种用centos 7 Everything的iso文件做本地yum源，安装scrapy时需要的依赖包<br>有些本地源中有，但有些并没有，因此第一种相对来说不太可靠。第三种很方便，需要什么软件就在能上网的电脑上提前下载好单不<br>安装，单独放在一个文件夹，把这个文件夹当作本地yum源。</p>
+<h3 id="第一种：-使用CentOS7-iso镜像文件作为本地yum源"><a href="#第一种：-使用CentOS7-iso镜像文件作为本地yum源" class="headerlink" title="第一种： 使用CentOS7 iso镜像文件作为本地yum源"></a>第一种： 使用CentOS7 iso镜像文件作为本地yum源</h3><h4 id="挂载ISO镜像文件"><a href="#挂载ISO镜像文件" class="headerlink" title="挂载ISO镜像文件"></a>挂载ISO镜像文件</h4><p>(1) 实体机上直接放入光盘<br>(2) VMware Workstation 虚拟机：虚拟机–&gt;可移动设备–&gt;连接<br>(此处我用的是移动硬盘，由于移动硬盘是ntfs文件系统，需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz，编译安装，需要先安装gcc 再挂载 ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建目录</span></span><br><span class="line">mkdir /mnt/ntfs   </span><br><span class="line"><span class="comment">#挂载  此处挂载移动硬盘，若是优盘则（mount  /dev/sdb1  /mnt/ntfs）</span></span><br><span class="line">mount -t ntfs-3g /dev/sdb1  /mnt/ntfs </span><br><span class="line"><span class="comment">#卸载</span></span><br><span class="line">umount /mnt/ntfs</span><br></pre></td></tr></table></figure></p>
+<p>若不想每次都要放光盘，那就复制iso文件到本地硬盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  -a：该选项保留链接、文件属性，并递归地复制目录将iso文件挂载</span></span><br><span class="line">cp -avf /mnt/ntfs/CentOS-7-x86_64-Everything-1511.iso  /home/star</span><br><span class="line">mkdir /media/cdrom/</span><br><span class="line">mount -t iso9660 /home/star/CentOS-7-x86_64-Everything-1511.iso /media/cdrom/</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建repo文件"><a href="#创建repo文件" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/yum.repos.d/CentOS-Local.repo </span><br><span class="line"> </span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///media/cdrom/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<p>并把/etc/yum.repos.d/目录下的其他repo文件暂时移走。</p>
+<h2 id="2-同步官方镜像到本地，CentOS创建公共镜像"><a href="#2-同步官方镜像到本地，CentOS创建公共镜像" class="headerlink" title="2.同步官方镜像到本地，CentOS创建公共镜像"></a>2.同步官方镜像到本地，CentOS创建公共镜像</h2><p>详细说明见官方中文文档：<a href="http://wiki.centos.org/zh/HowTos/CreatePublicMirrors" target="_blank" rel="external">http://wiki.centos.org/zh/HowTos/CreatePublicMirrors</a><br>提供一个SHELL脚本，然后cron自动运行~~</p>
+<p>脚本稍作修改，换成中科大的镜像源。可用镜像列表见：<a href="http://www.centos.org/download/mirrors/" target="_blank" rel="external">http://www.centos.org/download/mirrors/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">localpath=<span class="string">"/mirrors/CentOS"</span>  </span><br><span class="line">mirror=<span class="string">"mirrors.hustunique.com::centos"</span>  </span><br><span class="line">rsync=<span class="string">"rsync -avzH --delete"</span>  </span><br><span class="line"> </span><br><span class="line">verlist=<span class="string">"7"</span>  </span><br><span class="line">baselist=<span class="string">"centosplus extras fasttrack os updates"</span>  </span><br><span class="line">archlist=<span class="string">"x86_64"</span>  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> ver <span class="keyword">in</span> <span class="variable">$verlist</span>  </span><br><span class="line"><span class="keyword">do</span>  </span><br><span class="line">	<span class="keyword">for</span> base <span class="keyword">in</span> <span class="variable">$baselist</span>  </span><br><span class="line">	<span class="keyword">do</span>  </span><br><span class="line">		<span class="keyword">for</span> arch <span class="keyword">in</span> <span class="variable">$archlist</span>  </span><br><span class="line">		<span class="keyword">do</span>  </span><br><span class="line">			remote=<span class="variable">$mirror</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			mkdir -pv <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			<span class="variable">$rsync</span> <span class="variable">$remote</span> <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">		<span class="keyword">done</span>  </span><br><span class="line">	<span class="keyword">done</span>  </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="三、创建完全自定义的本地源"><a href="#三、创建完全自定义的本地源" class="headerlink" title="三、创建完全自定义的本地源"></a>三、创建完全自定义的本地源</h2><p>在联网的电脑上把需要的软件包提前下载到一个目录中，或把平时收藏的一些RPM软件包放在一个目录里，就变成一个自定义源了，可以用YUM来管理，灵活性相当大。</p>
+<h3 id="创建本地yum仓库"><a href="#创建本地yum仓库" class="headerlink" title="创建本地yum仓库"></a>创建本地yum仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可以有N级目录 ，单感觉一级就好</span></span><br><span class="line">mkdir  /yum  </span><br><span class="line"><span class="comment">#复制RPM包到上述目录</span></span><br><span class="line">cp ...  </span><br><span class="line"><span class="comment">#或者将需要的包下载下来但不安装</span></span><br><span class="line">yum install --downloadonly --downloaddir=/yum   &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="创建repo文件-1"><a href="#创建repo文件-1" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim/etc/yum.repos.d/CentOS-Local.repo</span><br><span class="line"></span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///yum/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### 安装createrepo，用以创建索引，centos7自带，其他版本自己测试下就好</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#使用yum安装createrepo </span></span><br><span class="line">yum install createrepo  </span><br><span class="line">rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/createrepo-0.9.9-23.el7.noarch.rpm</span><br><span class="line"><span class="comment">### 创建索引</span></span><br><span class="line">``` bash</span><br><span class="line">createrepo /yum   </span><br><span class="line">yum makecache <span class="comment">#更新缓存</span></span><br></pre></td></tr></table></figure>
+<p>好了，制作完毕，现在就可以用了，本人推荐这种方法，感觉这种方法比较便捷，并且可以满足大多数情况，可以结合第一种方法一<br>起使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install  package-name</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -441,65 +510,6 @@
 <h2 id="第7题"><a href="#第7题" class="headerlink" title="第7题"></a>第7题</h2><p>求s=a+aa+aaa+aaaa+aa…a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数），几个数相加<br>由键盘决定。</p>
 <h3 id="程序分析-6"><a href="#程序分析-6" class="headerlink" title="程序分析"></a>程序分析</h3><p>此程序需要注意两点：1.从键盘获取数据（上题已经用过），2.数字拼接。数字拼接直接实现比较复杂，我们可以将数字转为字符串，用字符串拼接，然后再将字符串转为数字。</p>
 <h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int sour=2;</span><br><span class="line">		System.out.println(<span class="string">"请输入相加得次数："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String  str=input.nextLine();</span><br><span class="line">		int fre=Integer.parseInt(str);</span><br><span class="line">        func(2,fre);</span><br><span class="line">	&#125;</span><br><span class="line">	private static void func(int sour1,int fre1) &#123;</span><br><span class="line">		Integer a=new Integer(sour1);</span><br><span class="line">		int sum=0;</span><br><span class="line">		String a_str=a.toString();</span><br><span class="line">		int arr[]=new int[fre1];</span><br><span class="line">		arr[0]=a;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;fre1;i++)&#123;</span><br><span class="line">			a_str=a_str+a.toString();</span><br><span class="line">			arr[i]=Integer.parseInt(a_str);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.print(<span class="string">"s"</span>+<span class="string">"="</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">			<span class="keyword">if</span>(i==arr.length-1) System.out.print(arr[i]);</span><br><span class="line">			<span class="keyword">else</span> System.out.print(arr[i]+<span class="string">"+"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"="</span>+sum);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java7-ftp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/java7-ftp/" class="article-date">
-  	<time datetime="2016-06-07T13:12:14.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/java7-ftp/">JAVA进阶-FTP服务器端与客户端实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>此程序涉及socket编程，socket读写，文件读写。</p>
-<h3 id="server端"><a href="#server端" class="headerlink" title="server端"></a>server端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line">public class ServerFTP &#123;</span><br><span class="line">	int port=8082;       //监听端口</span><br><span class="line">	String filepath=<span class="string">"E:\\123.txt"</span>;  //待传输的文件的路径，注意路径的写法</span><br><span class="line">	void <span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">		Socket s=null;   </span><br><span class="line">		try &#123;</span><br><span class="line">			ServerSocket ss=new ServerSocket(port);   //创建服务端socket用以监听客户端的socket连接</span><br><span class="line">			<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">				File file=new File(filepath);        </span><br><span class="line">				<span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">					file.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"文件长度："</span>+(int)file.length());</span><br><span class="line">				s=ss.accept();       //与客户端socket建立连接</span><br><span class="line">				System.out.println(<span class="string">"建立socket连接"</span>);</span><br><span class="line">				//创建输入流，从文件读取数据</span><br><span class="line">				DataInputStream dis=new DataInputStream(new BufferedInputStream(new FileInputStream(filepath)));</span><br><span class="line">				//创建输出流，将数据输出到socket连接</span><br><span class="line">				DataOutputStream dos=new DataOutputStream(s.getOutputStream());</span><br><span class="line">				dos.writeUTF(file.getName());</span><br><span class="line">				dos.writeLong((long)file.length());</span><br><span class="line">				int bufferSize=8000;</span><br><span class="line">				byte[] buf=new byte[bufferSize];   //存储读取的数据</span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					int <span class="built_in">read</span>=0;</span><br><span class="line">					<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">						<span class="built_in">read</span>=dis.read(buf);      //从输入流读取数据并存入 buf[]中，             </span><br><span class="line">					&#125;                            //dis.read(buf)返回的是读取数据流的大小</span><br><span class="line">					<span class="keyword">if</span>(<span class="built_in">read</span>==-1)&#123;</span><br><span class="line">						<span class="built_in">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					dos.write(buf,0,<span class="built_in">read</span>);       //将buff[]中的数据通过输出流写入到socket中</span><br><span class="line">				&#125;</span><br><span class="line">				dis.close();</span><br><span class="line">				s.close();</span><br><span class="line">				System.out.println(<span class="string">"文件传输完毕！！"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new ServerFTP().start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="client端"><a href="#client端" class="headerlink" title="client端"></a>client端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">package ftp;</span><br><span class="line">import java.io.*;</span><br><span class="line">import java.net.*;</span><br><span class="line"></span><br><span class="line">import javax.security.auth.login.CredentialException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class Client &#123;</span><br><span class="line">	private Socket s=null;</span><br><span class="line">	private int port=8082;            //服务器端的监听端口</span><br><span class="line">	private String ip=<span class="string">"localhost"</span>;   //要连接的服务器端地址</span><br><span class="line">	//构造函数，建立socket连接</span><br><span class="line">	public <span class="function"><span class="title">Client</span></span>()&#123;</span><br><span class="line">		createconnection();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建socket连接</span><br><span class="line">	private void <span class="function"><span class="title">createconnection</span></span>()&#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			s=new Socket(ip, port);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"连接出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private void <span class="function"><span class="title">getFile</span></span>() &#123;</span><br><span class="line">		String savePath=<span class="string">"F:\\"</span>;   //指定文件存储路径</span><br><span class="line">		int bufferSize=8000;      </span><br><span class="line">		byte[] buf=new byte[bufferSize];</span><br><span class="line">		int total_len=0;</span><br><span class="line">		long length=0;</span><br><span class="line">		try &#123;</span><br><span class="line">			//创建输入流从socket读取数据</span><br><span class="line">			DataInputStream dis=new DataInputStream(new BufferedInputStream(s.getInputStream()));</span><br><span class="line">			savePath+=dis.readUTF();    //dis.readUTF() 获取文件名</span><br><span class="line">			//创建输出流，将数据输出到文件</span><br><span class="line">			DataOutputStream dos=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(savePath)));</span><br><span class="line">			length=dis.readLong();</span><br><span class="line">			System.out.println(<span class="string">"文件长度："</span>+length+<span class="string">"\n"</span>);</span><br><span class="line">			<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">				int <span class="built_in">read</span>=0;</span><br><span class="line">				<span class="keyword">if</span>(dis!=null)&#123;</span><br><span class="line">					<span class="built_in">read</span>=dis.read(buf);  //从socket读取数据并存入buf[]</span><br><span class="line">				&#125;</span><br><span class="line">				total_len+=<span class="built_in">read</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">read</span>==-1) &#123;</span><br><span class="line">					<span class="built_in">break</span>;					</span><br><span class="line">				&#125;</span><br><span class="line">				dos.write(buf,0,<span class="built_in">read</span>);   //将buf[]中的数据写入文件</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"接收文件另存为："</span>+savePath+<span class="string">"\n"</span>);</span><br><span class="line">			dos.close();</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		new Client().getFile();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

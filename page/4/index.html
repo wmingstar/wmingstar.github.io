@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,70 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-242-Valid-Anagram" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/16/leetcode-242-Valid-Anagram/" class="article-date">
+  	<time datetime="2016-11-16T07:53:45.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/16/leetcode-242-Valid-Anagram/">leetcode-242-Valid-Anagram</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
+<p>For example,<br>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        s=sorted(s)</span><br><span class="line">        t=sorted(t)</span><br><span class="line">        <span class="keyword">if</span> s==t:</span><br><span class="line">            <span class="built_in">return</span> True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">return</span> False</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> sorted(s)==sorted(t)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> Counter(s)==Countert)</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>重要的是读题，明白题目什么意思。题目的意思，输入两个字符串，来比较两个字符串是否是 anagram 关系。<br>(anagram 关系：两个字符串由相同字符且字符数相同的字符构成，只是字符的顺序不同。)<br>思路：将两个字符串中的字符进行排序，然后比较排序后的字符串是否相同就可以。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>sort()函数是容器对象的函数，在容器内排序，无返回值，字符串对象没有该函数。<br>sorted()函数是内置函数，可对可迭代类型进行排序，并返回排好序的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sorted(...)</span><br><span class="line">    sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list</span><br><span class="line"></span><br><span class="line">iterable：待排序的可迭代类型的容器;</span><br><span class="line">cmp：用于比较的函数，比较什么由key决定,有默认值，迭代集合中的一项;</span><br><span class="line">key：用列表元素的某个已命名的属性或函数（只有一个参数并且返回一个用于排序的值）作为关键字，有默认值，迭代集合中的一项;</span><br><span class="line">reverse：排序规则. reverse = True 或者 reverse = False，有默认值。</span><br><span class="line">返回值：是一个经过排序的可迭代类型，与iterable一样。</span><br></pre></td></tr></table></figure></p>
+<p>Counter是collections模块中的计数器类，可以用来计数，输入是字典，其他 iterable 的数据类型，还有命名的参数对。<br>输出是字典，其中元素作为key，其计数作为value。 </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -426,77 +490,6 @@
 <h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># rm -rf file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
 <h2 id="软连接与硬链接的区别"><a href="#软连接与硬链接的区别" class="headerlink" title="软连接与硬链接的区别"></a>软连接与硬链接的区别</h2><p>(1)软连接可以跨文件系统 ，硬连接不可以 。<br>(2)关于Inode节点的问题，硬连接不管有多少个，都指向的是同一个Inode节点，会把Inode结点连接数增加 ，只要结点的连接数不<br>是 0，文件就一直存在 ，不管你删除的是源文件还是连接文件。只要有一个存在，文件就存在。（其实源文件与连接文件并无本<br>质区别 ，因为他们指向都是同一个Inode节点）。 当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的<br>修改 。软链接不直接使用Inode节点号作为文件指针，而是使用文件路径名作为指针。所以 删除连接文件 对源文件无影响，但<br>是删除源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode，并在磁盘上有一小片空间存放路径名。<br>(3)软连接可以对一个不存在的文件名进行连接 。<br>(4)软连接可以对目录进行连接。</p>
 <p>备注：Inode节点 :它是UNIX内部用于描述文件特性的数据结构，通常称Inode节点为文件索引结点(信息结点)，Inode节点含有关于<br>文件的大部分的重要信息，包括文件数据块在磁盘上的地址。每一个I节点有它自己的标志号，我们称为文件顺序号<br>。Inode节点包含的信息:文件类型、文件属主关系、文件的访问权限、文件的时间截。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
-  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
-<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
-<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
-<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
-<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
-<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
-<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
-<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
-<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
-<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
-<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
-<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
-<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
-<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
 
       
     </div>

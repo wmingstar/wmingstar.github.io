@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,58 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-13-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/18/leetcode-13-Roman-to-Integer/" class="article-date">
+  	<time datetime="2016-12-18T12:54:40.000Z" itemprop="datePublished">2016-12-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/18/leetcode-13-Roman-to-Integer/">leetcode-13-Roman-to-Integer</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-kvm基本操作" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -431,89 +483,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/22/python-装饰器/" class="article-date">
-  	<time datetime="2016-11-22T02:22:38.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/python-装饰器/">python-装饰器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在代码运行期间，动态增加功能的方式，称之为“装饰器”（Decorator）。<br>本质上，decorator就是一个返回函数的高阶函数。</p>
-<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span></span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure>
-<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
-<blockquote>
-<blockquote>
-<p>now()<br>call now():<br>2013-12-25</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>把@log放到now()函数的定义处，相当于执行了语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(now)</span><br></pre></td></tr></table></figure></p>
-<p>由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用<br>now()将执行新函数，即在log()函数中返回的wrapper()函数。</p>
-<p>wrapper()函数的参数定义是(<em>args,*</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，<br>再紧接着调用原始函数。</p>
-<h3 id="用法2"><a href="#用法2" class="headerlink" title="用法2"></a>用法2</h3><p>decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span>(<span class="string">'execute'</span>)</span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
-<blockquote>
-<blockquote>
-<p>now()<br>execute now():<br>2013-12-25</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure></p>
-<p>首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变<br>成了’wrapper’。</p>
-<p>因为返回的那个wrapper()函数名字就是’wrapper’，所以，需要把原始函数的<strong>name</strong>等属性复制到wrapper()函数中，否则，有些<br>依赖函数签名的代码执行就会出错。</p>
-<p>不需要编写wrapper.<strong>name</strong> = func.<strong>name</strong>这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的<br>decorator的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    @functools.wraps(func)</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        @functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br></pre></td></tr></table></figure>
-<p>参考：<br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
       

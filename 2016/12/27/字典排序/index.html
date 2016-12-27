@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>leetcode-387-first-unique character | 明动天下</title>
+  <title>字典排序 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
-分析得到字符串中unique">
+  <meta name="description" content="python字典（dict）无序的,可以用下列方法对字典进行排序。
+按字典的值（value）排序12345678dic = &amp;#123;&apos;a&apos;:31, &apos;bc&apos;:5, &apos;c&apos;:3, &apos;asd&apos;:4, &apos;aa&apos;:74, &apos;d&apos;:0&amp;#125;dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)print dict #输出结果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-387-first-unique character">
-<meta property="og:url" content="http://yoursite.com/2016/11/11/leetcode-387-first-unique-character/index.html">
+<meta property="og:title" content="字典排序">
+<meta property="og:url" content="http://yoursite.com/2016/12/27/字典排序/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
-分析得到字符串中unique">
-<meta property="og:updated_time" content="2016-11-11T08:14:42.097Z">
+<meta property="og:description" content="python字典（dict）无序的,可以用下列方法对字典进行排序。
+按字典的值（value）排序12345678dic = &amp;#123;&apos;a&apos;:31, &apos;bc&apos;:5, &apos;c&apos;:3, &apos;asd&apos;:4, &apos;aa&apos;:74, &apos;d&apos;:0&amp;#125;dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)print dict #输出结果">
+<meta property="og:updated_time" content="2016-12-27T06:23:29.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-387-first-unique character">
-<meta name="twitter:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.For Example:12345s = &quot;leetcode&quot;return 0.s = &quot;loveleetcode&quot;,return 2.
-分析得到字符串中unique">
+<meta name="twitter:title" content="字典排序">
+<meta name="twitter:description" content="python字典（dict）无序的,可以用下列方法对字典进行排序。
+按字典的值（value）排序12345678dic = &amp;#123;&apos;a&apos;:31, &apos;bc&apos;:5, &apos;c&apos;:3, &apos;asd&apos;:4, &apos;aa&apos;:74, &apos;d&apos;:0&amp;#125;dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)print dict #输出结果">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -200,11 +200,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-字典排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/leetcode-387-first-unique-character/" class="article-date">
-  	<time datetime="2016-11-11T06:33:48.000Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/12/27/字典排序/" class="article-date">
+  	<time datetime="2016-12-27T05:49:36.000Z" itemprop="datePublished">2016-12-27</time>
 </a>
     </div>
   
@@ -217,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-387-first-unique character
+      字典排序
     </h1>
   
 
@@ -226,7 +226,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ptthon/">ptthon</a></li></ul>
 	</div>
 
         
@@ -237,11 +237,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"leetcode"</span></span><br><span class="line"><span class="built_in">return</span> 0.</span><br><span class="line"></span><br><span class="line">s = <span class="string">"loveleetcode"</span>,</span><br><span class="line"><span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>得到字符串中unique字符的序号</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def firstUniqChar(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        letters=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">        char_index=[s.index(char) <span class="keyword">for</span> char <span class="keyword">in</span> letters <span class="keyword">if</span> s.count(char)==1]</span><br><span class="line">        <span class="built_in">return</span> min(char_index) <span class="keyword">if</span> char_index <span class="keyword">else</span> -1</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>开始时考虑用for循环遍历字符串判断字符串是否unique并返回其序号；这种方法忽略了两个问题：效率（运行时间）；当字符串特别大时会有内存溢出问题，所以不能用for遍历。</p>
-<h3 id="新学到的方法"><a href="#新学到的方法" class="headerlink" title="新学到的方法"></a>新学到的方法</h3><p>str.index(char)  获取字符串中某个字符的索引<br>str.count(char)  获取字符串中某个字符出现的次数</p>
+        <p>python字典（dict）无序的,可以用下列方法对字典进行排序。</p>
+<h3 id="按字典的值（value）排序"><a href="#按字典的值（value）排序" class="headerlink" title="按字典的值（value）排序"></a>按字典的值（value）排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"> </span><br><span class="line"><span class="comment">#输出结果：</span></span><br><span class="line">[(<span class="string">'aa'</span>, 74), (<span class="string">'a'</span>, 31), (<span class="string">'bc'</span>, 5), (<span class="string">'asd'</span>, 4), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
+<p>dic.iteritems()方法，得到[(键，值)]的列表。<br>sorted方法，用key这个参数，指定按照字典的value进行排序，也就是第一个元素d[1]的值。reverse = True,表示是需要翻转的，默认是从小到大，翻转的话，那就是从大到小。</p>
+<h4 id="按字典键（key）排序："><a href="#按字典键（key）排序：" class="headerlink" title="按字典键（key）排序："></a>按字典键（key）排序：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[0])    <span class="comment">#d[0]表示字典的键</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[(<span class="string">'a'</span>, 31), (<span class="string">'aa'</span>, 74), (<span class="string">'asd'</span>, 4), (<span class="string">'bc'</span>, 5), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -251,18 +250,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/11/16/leetcode-242-Valid-Anagram/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          leetcode-242-Valid-Anagram
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/11/leetcode-171-column-number/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-171-column-number</div>
+    <a href="/2016/12/25/大话数据结构目录结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大话数据结构目录结构</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -297,7 +287,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="leetcode-387-first-unique-character" data-title="leetcode-387-first-unique character" data-url="http://yoursite.com/2016/11/11/leetcode-387-first-unique-character/"></div>
+	<div class="ds-thread" data-thread-key="字典排序" data-title="字典排序" data-url="http://yoursite.com/2016/12/27/字典排序/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

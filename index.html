@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-字典排序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/27/字典排序/" class="article-date">
+  	<time datetime="2016-12-27T05:49:36.000Z" itemprop="datePublished">2016-12-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/27/字典排序/">字典排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python字典（dict）无序的,可以用下列方法对字典进行排序。</p>
+<h3 id="按字典的值（value）排序"><a href="#按字典的值（value）排序" class="headerlink" title="按字典的值（value）排序"></a>按字典的值（value）排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"> </span><br><span class="line"><span class="comment">#输出结果：</span></span><br><span class="line">[(<span class="string">'aa'</span>, 74), (<span class="string">'a'</span>, 31), (<span class="string">'bc'</span>, 5), (<span class="string">'asd'</span>, 4), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
+<p>dic.iteritems()方法，得到[(键，值)]的列表。<br>sorted方法，用key这个参数，指定按照字典的value进行排序，也就是第一个元素d[1]的值。reverse = True,表示是需要翻转的，默认是从小到大，翻转的话，那就是从大到小。</p>
+<h4 id="按字典键（key）排序："><a href="#按字典键（key）排序：" class="headerlink" title="按字典键（key）排序："></a>按字典键（key）排序：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[0])    <span class="comment">#d[0]表示字典的键</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[(<span class="string">'a'</span>, 31), (<span class="string">'aa'</span>, 74), (<span class="string">'asd'</span>, 4), (<span class="string">'bc'</span>, 5), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ptthon/">ptthon</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-大话数据结构目录结构" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -453,58 +513,6 @@
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
 	</div>
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-13-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/18/leetcode-13-Roman-to-Integer/" class="article-date">
-  	<time datetime="2016-12-18T12:54:40.000Z" itemprop="datePublished">2016-12-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/18/leetcode-13-Roman-to-Integer/">leetcode-13-Roman-to-Integer</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       

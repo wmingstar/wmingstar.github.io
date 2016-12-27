@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,77 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
+  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
+<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
+<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
+<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
+<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
+<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
+<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
+<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
+<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
+<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
+<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
+<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python连接mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -471,58 +542,6 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/21/spark技术概述/" class="article-date">
-  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/spark技术概述/">spark技术概述</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       

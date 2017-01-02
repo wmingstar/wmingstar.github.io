@@ -73,13 +73,13 @@
 				<div class="tips-box hide">
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
-						<li>菜单</li>
+						<li>Menu</li>
 						<li>Tags</li>
 						
-						<li>友情链接</li>
+						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,83 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux硬盘分区与挂载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/08/linux硬盘分区与挂载/" class="article-date">
+  	<time datetime="2016-10-08T01:51:26.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/08/linux硬盘分区与挂载/">linux硬盘分区与挂载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MBR的基本概念"><a href="#MBR的基本概念" class="headerlink" title="MBR的基本概念"></a>MBR的基本概念</h3><p>硬盘的第一个扇区也就是第0扇区是用来存放主引导记录(MBR)的，因此也称MBR扇区。一个扇区是512字节，因此MBR的大小也是512字<br>节，其具体数据结构是：446个字节的引导代码、64个字节的分区表及2个字节的签名值”55AA”。由于MBR的分区表只有64个字节<br>，这决定了它只能存储4个分区记录。这就是为什么一块硬盘最多只能有4个“主分区”的原因。记住，“主分区”就是指记录在主引导记<br>录MBR分区表中的分区，除此之外主分区并无特别之处，但是过去的一些老操作系统往往不能安装在主分区之外的分区上，所以，主<br>分区也贴上“专门用来安装操作系统”的标签。</p>
+<p>我们已经知道了MBR中的分表区只能存放4个分区（即4个主分区），那系统是如何划分出4个以上的分区的呢？一种直白而简单的思路<br>就是把其中一个主分区再进行细分，衍生出一个二级分区表。对的，这个被用来二次分区的主分区就是“扩展分区”，它下面的二级分<br>区就是“逻辑分区”。</p>
+<p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机开机后访问硬盘时所必须要读取的首个扇区，<br>它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
+<p>MBR是由分区程序（如Fdisk，Parted）所产生的，它不依赖任何操作系统，而且硬盘引导程序也是可以改变的，从而能够实现多系统引导。</p>
+<p>从主引导记录的结构可以知道，它仅仅包含一个64个字节的硬盘分区表。由于每个分区信息需要16个字节，所以对于采用MBR型分区<br>结构的硬盘(其磁盘卷标类型为MS-DOS)，最多只能识别4个主要分区。所以对于一个采用此种分区结构的硬盘来说，想要得到4个以上<br>的主要分区是不可能的。这里就需要引出扩展分区了。扩展分区也是主分区(Primary partition）的一种，但它与主分区的不同在于<br>理论上可以划分为无数个逻辑分区，每一个逻辑分区都有一个和MBR结构类似的扩展引导记录(EBR)。<br>在MBR分区表中最多4个主分区或者3个主分区＋1个扩展分区，也就是说扩展分区只能有一个，然后可以再细分为多个逻辑分区。<br>在Linux系统中，硬盘分区命名为sda1－sda4或者hda1－hda4（其中a表示硬盘编号可能是a、b、c等等）。在MBR硬盘中，分区号1－4是主分区（或者扩展分区），逻辑分区号只能从5开始。<br>在MBR分区表中，一个分区最大的容量为2T，且每个分区的起始柱面必须在这个disk的前2T内。你有一个3T的硬盘，根据要求你至少要把它划分为2个分区，且最后一个分区的起始扇区要位于硬盘的前2T空间内。如果硬盘太大则必须改用GPT。</p>
+<h3 id="GPT是什么"><a href="#GPT是什么" class="headerlink" title="GPT是什么"></a>GPT是什么</h3><p>全局唯一标识分区表（GUID Partition Table，缩写：GPT）是一个实体硬盘的分区结构。它是EFI(可扩展固件接口标准)的一部分，<br>用来替代BIOS中的主引导记录分区表。但因为MBR分区表不支持容量大于2.2TB（2.2 × 1012字节）的分区，所以也有一些BIOS系统<br>为了支持大容量硬盘而用GPT分区表取代MBR分区表。</p>
+<p>在MBR硬盘中，分区信息直接存储于主引导记录(MBR)中（主引导记录中还存储着系统的引导程序）。但在GPT硬盘中，分区表的位置信息储存在GPT头中。但出于兼容性考虑，硬盘的第一个扇区仍然用作MBR，之后才是GPT头。</p>
+<p>与支持最大卷为2 TB（Terabytes）并且每个磁盘最多有4个主分区（或3个主分区，1个扩展分区和无限制的逻辑驱动器）<br>的MBR磁盘分区的样式相比，GPT磁盘分区样式支持最大卷为18 EB（Exabytes）并且每磁盘的分区数没有上限，只受到操作系统限制<br>（由于分区表本身需要占用一定空间，最初规划硬盘分区时，留给分区表的空间决定了最多可以有多少个分区，IA-64版Windows<br>限制最多有128个分区，这也是EFI标准规定的分区表的最小尺寸）。与MBR分区的磁盘不同，至关重要的平台操作数据位于分区，<br>而不是位于非分区或隐藏扇区。另外，GPT分区磁盘有备份分区表来提高分区数据结构的完整性。</p>
+<h3 id="EFI"><a href="#EFI" class="headerlink" title="EFI"></a>EFI</h3><p>可扩展固件接口（英文名Extensible Firmware Interface 或EFI）是一种个人电脑系统规格，用来定义操作系统与系统韧体之<br>间的软件界面，为替代BIOS的升级方案。可扩展固件接口负责加电自检（POST）、连系操作系统以及提供连接操作系统与硬件的接<br>口。EFI最初由英特尔开发，现时由UEFI论坛来推广与发展。</p>
+<h3 id="使用fdisk创建分区-小于2TB"><a href="#使用fdisk创建分区-小于2TB" class="headerlink" title="使用fdisk创建分区(小于2TB)"></a>使用fdisk创建分区(小于2TB)</h3><h4 id="1-使用fdisk-l命令查看机器上的硬盘信息"><a href="#1-使用fdisk-l命令查看机器上的硬盘信息" class="headerlink" title="1. 使用fdisk -l命令查看机器上的硬盘信息"></a>1. 使用fdisk -l命令查看机器上的硬盘信息</h4><p><img src="/img/fdisk1.jpg" alt=""><br>上面的信息告诉我们这台机器拥有3块硬盘，其中只有第一块硬盘进行了分区，剩余的两块尚未分区。</p>
+<h4 id="2-使用fdisk对某个硬盘进行分区"><a href="#2-使用fdisk对某个硬盘进行分区" class="headerlink" title="2.使用fdisk对某个硬盘进行分区"></a>2.使用fdisk对某个硬盘进行分区</h4><p>这里我们展示的是对硬盘/dev/xvdc的分区操作，首先键入“fdisk /dev/xvdc”进入分区的向导模式：</p>
+<ol>
+<li>输入n，表示要建立一个新的分区</li>
+<li>输入p, 表示我们想要创建一个主分区</li>
+<li>直接回车，使用默认的起始柱面，也就是柱面1</li>
+<li>直接回车，使用默认的截止柱面，也就是柱面4894， 也就是说对于这块硬盘，我们就建立一个分区，大小是整个磁盘。</li>
+<li>输入w, 保存分区表并退出<br><img src="/img/fdisk2.jpg" alt=""><h4 id="3-格式化新创建的分区"><a href="#3-格式化新创建的分区" class="headerlink" title="3. 格式化新创建的分区"></a>3. 格式化新创建的分区</h4>对新建的分区进行格式化，这里我们选择ext4文件系统。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/xvdc</span><br><span class="line"><span class="comment">#格式化时指定的是“分区”而不是硬盘！这里的xvdc1显然是硬盘xvdc的第一个分区，如果错写成xvdc就意味着要格式化整个硬盘</span></span><br><span class="line"><span class="comment">#mkfs + Tab Tab 查看支持的文件系统</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="使用parted-创建分区"><a href="#使用parted-创建分区" class="headerlink" title="使用parted 创建分区"></a>使用parted 创建分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line"></span><br><span class="line"><span class="comment">#GNU Parted 1.8.1</span></span><br><span class="line"><span class="comment">#Using /dev/sdb</span></span><br><span class="line"><span class="comment">#Welcome to GNU Parted! Type ‘help’ to view a list of commands.</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#将MBR磁盘格式化为GPT</span></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#划分所有空间到一个分区</span></span><br><span class="line">(parted) mkpart primary 0 -1</span><br><span class="line"> </span><br><span class="line"><span class="comment">#这一步也可以这样设置：</span></span><br><span class="line"><span class="comment">#unit TB           (设置单位为TB)</span></span><br><span class="line"><span class="comment">#mkpart primary 0 3 (设置为一个主分区,大小为3TB，开始是0，结束是3）</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#显示设置的分区大小</span></span><br><span class="line">(parted) <span class="built_in">print</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#退出parted程序</span></span><br><span class="line">(parted) quit</span><br><span class="line"> </span><br><span class="line"><span class="comment">#用parted将分区做好后，进行格式化操作,完成后即可挂载使用</span></span><br><span class="line">mkfs.ext3 -F /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/bluishglc/article/details/9189437" target="_blank" rel="external">参考http://blog.csdn.net/bluishglc</a><br><a href="http://www.centoscn.com/CentOS/Intermediate/2015/0712/5841.html" target="_blank" rel="external">参考http://www.centoscn.com/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python-random" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -454,76 +531,9 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
 
 
   
-    <article id="post-经典算法—-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/06/经典算法—-1/" class="article-date">
-  	<time datetime="2016-09-06T14:34:42.000Z" itemprop="datePublished">2016-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/06/经典算法—-1/">互联网笔试常考经典算法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的，所以，这种多阶<br>段最优化决策解决问题的过程就称为动态规划。</p>
-<h3 id="思想与策略"><a href="#思想与策略" class="headerlink" title="思想与策略"></a>思想与策略</h3><p>基本思想与分治法类似，在分析时将待求解的问题分解为若干个子问题（阶段），按顺序求解各个子问题，前一子问题的解，为后一子<br>问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃<br>其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
-<p>要用动态规划解决的问题多数有个特点：某些子问题重叠，为减少重复计算，对每一个子问题只解一次，可将其不同阶段的不同状态<br>保存在一个二维数组中。</p>
-<p>与分治法最大的区别：动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上）</p>
-<h3 id="适用情景"><a href="#适用情景" class="headerlink" title="适用情景"></a>适用情景</h3><p>动态规划求解的问题一般具有以下特征：<br>（1）最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>（2）无后效性：某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与<br>当前状态有关。<br>（3）有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的<br>必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
-<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>（1）问题划分：按照问题的时间或空间特征，把问题分为若干个阶段。在划分阶段时，注意划分后的阶段一定要是有序的或者是可排序的，否则问题就无法求解。<br>（2）确定状态和状态变量：将问题在各个阶段所处的各种客观情况用不同的状态表示出来。当然，状态的选择要满足无后效性。<br>（3）确定决策并写出状态转移方程：因为决策和状态转移有着天然的联系，状态转移就是根据上一阶段的状态和决策来导出本阶段的状态。所以如果确定了决策，状态转移方程也就可写出。但事实上常常是反过来做，根据相邻两个阶段的状态之间的关系来确定决策方法和状态转移方程。<br>（4）寻找边界条件：给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件。</p>
-<h4 id="简化的步骤设计"><a href="#简化的步骤设计" class="headerlink" title="简化的步骤设计"></a>简化的步骤设计</h4><p>（1）分析最优解的性质，并刻画其结构特征。<br>（2）递归的定义最优解。<br>（3）以自底向上或自顶向下的记忆化方式（备忘录法）计算出最优值。<br>（4）根据计算最优值时得到的信息，构造问题的最优解。</p>
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>使用动态规划求解问题，最重要的就是确定动态规划的三要素：<br>（1）将问题划分为多个子阶段 （2）确定各子阶段的状态  （3）从前一个阶段转化到后一个阶段的之间的递推关系。</p>
-<p>确定了动态规划的这三要素，整个求解过程就可以用一个最优决策表来描述。最优决策表是一个二维表，其中行表示决策的阶段，列<br>表示问题状态，表格需要填写的数据一般对应此问题的在某个阶段某个状态下的最优值（如最短路径，最长公共子序列，最大价值等<br>），填表的过程就是根据递推关系，从1行1列开始，以行或者列优先的顺序，依次填写表格，最后根据整个表格的数据通过简单的取<br>舍或者运算求得问题的最优解。</p>
-<h3 id="动态规划算法基本框架"><a href="#动态规划算法基本框架" class="headerlink" title="动态规划算法基本框架"></a>动态规划算法基本框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"><span class="keyword">for</span>(j=1; j&lt;=m; j=j+1) // 第一个阶段</span><br><span class="line">   xn[j] = 初始值;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(i=n-1; i&gt;=1; i=i-1)// 其他n-1个阶段</span><br><span class="line">   <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)//f(i)与i有关的表达式</span><br><span class="line">     xi[j]=j=max（或min）&#123;g(xi-1[j1:j2]), ......, g(xi-1[jk:jk+1])&#125;;</span><br><span class="line"></span><br><span class="line">t = g(x1[j1:j2]); // 由子问题的最优解求解整个问题的最优解的方案</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1[j1]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=2; i&lt;=n-1; i=i+1）</span><br><span class="line">&#123;  </span><br><span class="line">     t = t-xi-1[ji];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)</span><br><span class="line">        <span class="keyword">if</span>(t=xi[ji])</span><br><span class="line">             <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html" target="_blank" rel="external">参考自博客园</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 </div>

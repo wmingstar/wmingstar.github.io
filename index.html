@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -198,6 +198,70 @@
 
       <div class="body-wrap">
   
+    <article id="post-vim常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/05/vim常用操作/" class="article-date">
+  	<time datetime="2017-01-05T13:55:35.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/vim常用操作/">vim常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">O   <span class="comment">#开启新的一行</span></span><br><span class="line">^   <span class="comment">#行的开始</span></span><br><span class="line">$   <span class="comment">#行的结尾</span></span><br><span class="line">gg   <span class="comment">#文档的第一行</span></span><br><span class="line">[N]G  <span class="comment">#文档的第N行或者最后一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i  <span class="comment">#插入到光标前面</span></span><br><span class="line">I  <span class="comment">#插入到行的开始位置</span></span><br><span class="line">a  <span class="comment">#插入到光标的后面</span></span><br><span class="line">A  <span class="comment">#插入到行的最后位置</span></span><br><span class="line">o, O  <span class="comment">#新开一行</span></span><br><span class="line">Esc  <span class="comment">#关闭插入模式</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">r    <span class="comment">#在插入模式替换光标所在的一个字符</span></span><br><span class="line">J    <span class="comment">#合并下一行到上一行</span></span><br><span class="line">s    <span class="comment">#删除光标所在的一个字符, 光标还在当行</span></span><br><span class="line">S    <span class="comment">#删除光标所在的一行，光标还在当行，不同于dd</span></span><br><span class="line">u    <span class="comment">#撤销上一步操作</span></span><br><span class="line">ctrl+r  <span class="comment">#恢复上一步操作</span></span><br><span class="line">.    <span class="comment">#重复最后一个命令</span></span><br><span class="line">~    <span class="comment">#变换为大写</span></span><br><span class="line">[N]&gt;&gt; 一行或N行往右移动一个tab</span><br><span class="line">[N]&lt;&lt; 一行或N行往左移动一个tab</span><br></pre></td></tr></table></figure>
+<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:w   <span class="comment">#保存</span></span><br><span class="line">:wq  <span class="comment">#保存并关闭</span></span><br><span class="line">:q   <span class="comment">#关闭（已保存）</span></span><br><span class="line">:q!  <span class="comment">#强制关闭</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/pattern     <span class="comment">#搜索（非插入模式)</span></span><br><span class="line">?pattern     <span class="comment">#往后搜索</span></span><br><span class="line">n            <span class="comment">#光标到达搜索结果的前一个目标</span></span><br><span class="line">N            <span class="comment">#光标到达搜索结果的后一个目标</span></span><br></pre></td></tr></table></figure>
+<h3 id="视觉模式"><a href="#视觉模式" class="headerlink" title="视觉模式"></a>视觉模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v  <span class="comment">#选中一个或多个字符</span></span><br><span class="line">V  <span class="comment">#选中一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd    <span class="comment">#删除一行</span></span><br><span class="line">dw    <span class="comment">#删除一个单词</span></span><br><span class="line">x     <span class="comment">#删除后一个字符</span></span><br><span class="line">X     <span class="comment">#删除前一个字符</span></span><br><span class="line">D     <span class="comment">#删除一行最后一个字符</span></span><br><span class="line">[N]yy <span class="comment">#复制一行或者N行</span></span><br><span class="line">yw    <span class="comment">#复制一个单词</span></span><br><span class="line">p     <span class="comment">#粘贴</span></span><br></pre></td></tr></table></figure>
+<h3 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:split   <span class="comment">#水平方向分割出一个窗口</span></span><br><span class="line">:vsplit  <span class="comment">#垂直方向分割出一个窗口</span></span><br><span class="line">:close   <span class="comment">#关闭窗口</span></span><br><span class="line">Ctrl+W   <span class="comment">#切换窗口, h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-redis基本操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -224,65 +288,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="移除给定的一个或多个key"><a href="#移除给定的一个或多个key" class="headerlink" title="移除给定的一个或多个key"></a>移除给定的一个或多个key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEL key [key ...]</span><br></pre></td></tr></table></figure>
+<h3 id="查找符合给定模式的key"><a href="#查找符合给定模式的key" class="headerlink" title="查找符合给定模式的key"></a>查找符合给定模式的key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYS pattern</span><br><span class="line"></span><br><span class="line">KEYS *  <span class="comment">#命中数据库中所有key</span></span><br><span class="line">KEYS h?llo  <span class="comment">#命中hello， hallo and hxllo等</span></span><br><span class="line">KEYS h*llo  <span class="comment">#命中hllo和heeeeello等。</span></span><br><span class="line">KEYS h[ae]llo <span class="comment">#命中hello和hallo，但不命中hillo。</span></span><br></pre></td></tr></table></figure>
+<h3 id="返回给定key的剩余生存时间-time-to-live-以秒为单位"><a href="#返回给定key的剩余生存时间-time-to-live-以秒为单位" class="headerlink" title="返回给定key的剩余生存时间(time to live)(以秒为单位)"></a>返回给定key的剩余生存时间(time to live)(以秒为单位)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TTL</span><br><span class="line">TTL key</span><br></pre></td></tr></table></figure>
+<h3 id="检查给定key是否存在"><a href="#检查给定key是否存在" class="headerlink" title="检查给定key是否存在"></a>检查给定key是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXISTS</span><br><span class="line">EXISTS key</span><br></pre></td></tr></table></figure>
+<h3 id="将key改名为newkey"><a href="#将key改名为newkey" class="headerlink" title="将key改名为newkey"></a>将key改名为newkey</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RENAME key newkey</span><br><span class="line"><span class="comment">#当key和newkey相同或者key不存在时，返回一个错误。</span></span><br><span class="line"><span class="comment">#当newkey已经存在时，RENAME命令将覆盖旧值。</span></span><br></pre></td></tr></table></figure>
+<h3 id="为给定key设置生存时间"><a href="#为给定key设置生存时间" class="headerlink" title="为给定key设置生存时间"></a>为给定key设置生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EXPIRE key seconds</span><br><span class="line"><span class="comment">#当key过期时，它会被自动删除。</span></span><br><span class="line"><span class="comment">#在Redis中，带有生存时间的key被称作“易失的”(volatile)。</span></span><br></pre></td></tr></table></figure>
+<h3 id="移除给定key的生存时间"><a href="#移除给定key的生存时间" class="headerlink" title="移除给定key的生存时间"></a>移除给定key的生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PERSIST key</span><br></pre></td></tr></table></figure>
+<h3 id="对key中的元素进行排序"><a href="#对key中的元素进行排序" class="headerlink" title="对key中的元素进行排序"></a>对key中的元素进行排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SORT</span><br><span class="line">SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC | DESC] [ALPHA] [STORE destination]</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回或保存给定列表、集合、有序集合key中经过排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#排序默认以数字作为对象，值被解释为双精度浮点数，然后进行比较。</span></span><br></pre></td></tr></table></figure>
+<h3 id="SETNX-key-value"><a href="#SETNX-key-value" class="headerlink" title="SETNX key value"></a>SETNX key value</h3><p>将key的值设为value，当且仅当key不存在。<br>若给定的key已经存在，则SETNX不做任何动作。<br>SETNX是”SET if Not eXists”(如果不存在，则SET)的简写。</p>
+<h3 id="SETEX"><a href="#SETEX" class="headerlink" title="SETEX"></a>SETEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SETEX key seconds value</span><br></pre></td></tr></table></figure>
+<p>将值value关联到key，并将key的生存时间设为seconds(以秒为单位)。<br>如果key 已经存在，SETEX命令将覆写旧值。<br>这个命令类似于以下两个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET key value</span><br><span class="line">EXPIRE key seconds  <span class="comment"># 设置生存时间</span></span><br></pre></td></tr></table></figure>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET key<br>返回key所关联的字符串值。<br>如果key不存在则返回特殊值nil。</p>
+<h3 id="HSET-key-field-value"><a href="#HSET-key-field-value" class="headerlink" title="HSET key field value"></a>HSET key field value</h3><p>将哈希表key中的域field的值设为value。<br>如果key不存在，一个新的哈希表被创建并进行HSET操作。<br>如果域field已经存在于哈希表中，旧值将被覆盖。</p>
+<h3 id="HSETNX-key-field-value"><a href="#HSETNX-key-field-value" class="headerlink" title="HSETNX key field value"></a>HSETNX key field value</h3><p>将哈希表key中的域field的值设置为value，当且仅当域field不存在。<br>若域field已经存在，该操作无效。<br>如果key不存在，一个新哈希表被创建并执行HSETNX命令。</p>
+<h3 id="HGET-key-field"><a href="#HGET-key-field" class="headerlink" title="HGET key field"></a>HGET key field</h3><p>返回哈希表key中给定域field的值。</p>
+<h3 id="HGETALL-key"><a href="#HGETALL-key" class="headerlink" title="HGETALL key"></a>HGETALL key</h3><p>返回哈希表key中，所有的域和值。<br>在返回值里，紧跟每个域名(field name)之后是域的值(value)，所以返回值的长度是哈希表大小的两倍。</p>
+<h3 id="HDEL-key-field-field-…"><a href="#HDEL-key-field-field-…" class="headerlink" title="HDEL key field [field …]"></a>HDEL key field [field …]</h3><p>删除哈希表key中的一个或多个指定域，不存在的域将被忽略。</p>
+<h3 id="HLEN-key"><a href="#HLEN-key" class="headerlink" title="HLEN key"></a>HLEN key</h3><p>返回哈希表key中域的数量。</p>
+<h3 id="HKEYS"><a href="#HKEYS" class="headerlink" title="HKEYS"></a>HKEYS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEYS key</span><br><span class="line"><span class="comment">#返回哈希表key中的所有域。</span></span><br></pre></td></tr></table></figure>
+<h3 id="HVALS"><a href="#HVALS" class="headerlink" title="HVALS"></a>HVALS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HVALS key</span><br><span class="line">返回哈希表key中的所有值。</span><br></pre></td></tr></table></figure>
+<h3 id="LPUSH"><a href="#LPUSH" class="headerlink" title="LPUSH"></a>LPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
+<p>将一个或多个值value插入到列表key的表头。<br>如果有多个value值，那么各个value值按从左到右的顺序依次插入到表头：比如对一个空列表(mylist)执行<br>LPUSH mylist a b c，则结果列表为c b a，等同于执行执行命令LPUSH mylist a、LPUSH mylist b、<br>LPUSH mylist c。</p>
+<p>如果key不存在，一个空列表会被创建并执行LPUSH操作。</p>
+<p>当key存在但不是列表类型时，返回一个错误。</p>
+<h3 id="LPUSHX"><a href="#LPUSHX" class="headerlink" title="LPUSHX"></a>LPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSHX key value</span><br></pre></td></tr></table></figure>
+<p>将值value插入到列表key的表头，当且仅当key存在并且是一个列表。<br>和LPUSH命令相反，当key不存在时，LPUSHX命令什么也不做。</p>
+<h3 id="RPUSH"><a href="#RPUSH" class="headerlink" title="RPUSH"></a>RPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
+<p>将一个或多个值value插入到列表key的表尾。</p>
+<h3 id="RPUSHX"><a href="#RPUSHX" class="headerlink" title="RPUSHX"></a>RPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSHX key value</span><br></pre></td></tr></table></figure>
+<p>将值value插入到列表key的表尾，当且仅当key存在并且是一个列表。<br>和RPUSH命令相反，当key不存在时，RPUSHX命令什么也不做。</p>
+<h3 id="LPOP"><a href="#LPOP" class="headerlink" title="LPOP"></a>LPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的头元素。</span></span><br></pre></td></tr></table></figure>
+<h3 id="RPOP"><a href="#RPOP" class="headerlink" title="RPOP"></a>RPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的尾元素。</span></span><br></pre></td></tr></table></figure>
+<h3 id="BLPOP"><a href="#BLPOP" class="headerlink" title="BLPOP"></a>BLPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BLPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
+<p>BLPOP是列表的阻塞式(blocking)弹出原语。<br>它是LPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BLPOP命令阻塞，直到等待超<br>时或发现可弹出元素为止。<br>超时参数timeout接受一个以秒为单位的数字作为值。超时参数设为0表示阻塞时间可以无限期延长(block<br>indefinitely) 。</p>
+<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的头元素。</p>
+<p>当BLPOP被调用时，如果给定key内至少有一个非空列表，那么弹出遇到的第一个非空列表的头元素，并和被弹<br>出元素所属的列表的名字一起，组成结果返回给调用者。</p>
+<p>当存在多个给定key时，BLPOP按给定key参数排列的先后顺序，依次检查各个列表。</p>
+<p>假设现在有job、<br>command和request三个列表，其中job不存在，command和request都持有非空列表。考虑以下命令：</p>
+<p>BLPOP job command request 0</p>
+<p>BLPOP保证返回的元素来自command，因为它是按”查找job -&gt; 查找command -&gt;<br>查找request“这样的顺序，第一个找到的非空列表。</p>
+<h3 id="BRPOP"><a href="#BRPOP" class="headerlink" title="BRPOP"></a>BRPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BRPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
+<p>BRPOP是列表的阻塞式(blocking)弹出原语。</p>
+<p>它是RPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BRPOP命令阻塞，直到等待超时或发现可弹出元素为止。</p>
+<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的尾部元素。</p>
+<p>关于阻塞操作的更多信息，请查看BLPOP命令，BRPOP除了弹出元素的位置和BLPOP不同之外，其他表现一致。</p>
+<h3 id="LLEN"><a href="#LLEN" class="headerlink" title="LLEN"></a>LLEN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LLEN key</span><br><span class="line"><span class="comment">#返回列表key的长度。</span></span><br><span class="line"><span class="comment">#如果key不存在，则key被解释为一个空列表，返回0.</span></span><br><span class="line"><span class="comment">#如果key不是列表类型，返回一个错误。</span></span><br></pre></td></tr></table></figure>
+<h3 id="LRANGE"><a href="#LRANGE" class="headerlink" title="LRANGE"></a>LRANGE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LRANGE key start stop</span><br></pre></td></tr></table></figure>
+<p>返回列表key中指定区间内的元素，区间以偏移量start和stop指定。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。</p>
+<p>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。</p>
+<h3 id="LREM"><a href="#LREM" class="headerlink" title="LREM"></a>LREM</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LREM key count value</span><br></pre></td></tr></table></figure>
+<p>根据参数count的值，移除列表中与参数value相等的元素。</p>
+<p>count的值可以是以下几种：<br>count &gt; 0: 从表头开始向表尾搜索，移除与value相等的元素，数量为count。<br>count &lt; 0: 从表尾开始向表头搜索，移除与value相等的元素，数量为count的绝对值。<br>count = 0: 移除表中所有与value相等的值。</p>
+<h3 id="LSET"><a href="#LSET" class="headerlink" title="LSET"></a>LSET</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LSET key index value</span><br></pre></td></tr></table></figure>
+<p>将列表key下标为index的元素的值设至为value。<br>更多信息请参考LINDEX操作。<br>当index参数超出范围，或对一个空列表(key不存在)进行LSET时，返回一个错误。</p>
+<h3 id="LINDEX"><a href="#LINDEX" class="headerlink" title="LINDEX"></a>LINDEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LINDEX key index</span><br></pre></td></tr></table></figure>
+<p>返回列表key中，下标为index的元素。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。<br>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。<br>如果key不是列表类型，返回一个错误。</p>
+
       
     </div>
     
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-liredis基本操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/05/liredis基本操作/" class="article-date">
-  	<time datetime="2017-01-05T12:54:20.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/liredis基本操作/">liredis基本操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       

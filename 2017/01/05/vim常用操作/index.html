@@ -4,63 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>linux常用命令——1 | 明动天下</title>
+  <title>vim常用操作 | 明动天下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="显示系统当前支持的语言# echo $LANG
-
-修改系统当前支持的语言# LANG=en_US
-
-显示日期# date
-# date +%Y/%m/%d
-# date +%H:%M
-
-显示日历# cal
-# cal 2016
-# cal 8 2016
-
-常用的热键# [Tab] 接在一串命令的第一个命令后面，则为命令补齐
-# [Tab] 接在一串命令的第二个命令后面，则为文件补齐
-
-#[Ctrl">
+  <meta name="description" content="光标移动12345O   #开启新的一行^   #行的开始$   #行的结尾gg   #文档的第一行[N]G  #文档的第N行或者最后一行
+插入模式123456i  #插入到光标前面I  #插入到行的开始位置a  #插入到光标的后面A  #插入到行的最后位置o, O  #新开一行Esc  #关闭插入模式
+编辑模式12345678910r    #在插入模式替换光标所在的一个字符J    #合并下一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux常用命令——1">
-<meta property="og:url" content="http://yoursite.com/2016/09/05/linux-command1/index.html">
+<meta property="og:title" content="vim常用操作">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/vim常用操作/index.html">
 <meta property="og:site_name" content="明动天下">
-<meta property="og:description" content="显示系统当前支持的语言# echo $LANG
-
-修改系统当前支持的语言# LANG=en_US
-
-显示日期# date
-# date +%Y/%m/%d
-# date +%H:%M
-
-显示日历# cal
-# cal 2016
-# cal 8 2016
-
-常用的热键# [Tab] 接在一串命令的第一个命令后面，则为命令补齐
-# [Tab] 接在一串命令的第二个命令后面，则为文件补齐
-
-#[Ctrl">
-<meta property="og:updated_time" content="2016-09-12T12:50:00.623Z">
+<meta property="og:description" content="光标移动12345O   #开启新的一行^   #行的开始$   #行的结尾gg   #文档的第一行[N]G  #文档的第N行或者最后一行
+插入模式123456i  #插入到光标前面I  #插入到行的开始位置a  #插入到光标的后面A  #插入到行的最后位置o, O  #新开一行Esc  #关闭插入模式
+编辑模式12345678910r    #在插入模式替换光标所在的一个字符J    #合并下一">
+<meta property="og:updated_time" content="2017-01-05T14:09:34.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux常用命令——1">
-<meta name="twitter:description" content="显示系统当前支持的语言# echo $LANG
-
-修改系统当前支持的语言# LANG=en_US
-
-显示日期# date
-# date +%Y/%m/%d
-# date +%H:%M
-
-显示日历# cal
-# cal 2016
-# cal 8 2016
-
-常用的热键# [Tab] 接在一串命令的第一个命令后面，则为命令补齐
-# [Tab] 接在一串命令的第二个命令后面，则为文件补齐
-
-#[Ctrl">
+<meta name="twitter:title" content="vim常用操作">
+<meta name="twitter:description" content="光标移动12345O   #开启新的一行^   #行的开始$   #行的结尾gg   #文档的第一行[N]G  #文档的第N行或者最后一行
+插入模式123456i  #插入到光标前面I  #插入到行的开始位置a  #插入到光标的后面A  #插入到行的最后位置o, O  #新开一行Esc  #关闭插入模式
+编辑模式12345678910r    #在插入模式替换光标所在的一个字符J    #合并下一">
   
     <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
   
@@ -242,11 +203,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vim常用操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/05/linux-command1/" class="article-date">
-  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
+      <a href="/2017/01/05/vim常用操作/" class="article-date">
+  	<time datetime="2017-01-05T13:55:35.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     </div>
   
@@ -259,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux常用命令——1
+      vim常用操作
     </h1>
   
 
@@ -279,24 +240,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
-</code></pre>
-<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
-</code></pre>
-<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
-<span class="comment"># date +%Y/%m/%d</span>
-<span class="comment"># date +%H:%M</span>
-</code></pre>
-<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
-<span class="comment"># cal 2016</span>
-<span class="comment"># cal 8 2016</span>
-</code></pre>
-<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
-<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
-
-<span class="comment">#[Ctrl]+c 终止命令</span>
-<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
-</code></pre>
+        <h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">O   <span class="comment">#开启新的一行</span></span><br><span class="line">^   <span class="comment">#行的开始</span></span><br><span class="line">$   <span class="comment">#行的结尾</span></span><br><span class="line">gg   <span class="comment">#文档的第一行</span></span><br><span class="line">[N]G  <span class="comment">#文档的第N行或者最后一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i  <span class="comment">#插入到光标前面</span></span><br><span class="line">I  <span class="comment">#插入到行的开始位置</span></span><br><span class="line">a  <span class="comment">#插入到光标的后面</span></span><br><span class="line">A  <span class="comment">#插入到行的最后位置</span></span><br><span class="line">o, O  <span class="comment">#新开一行</span></span><br><span class="line">Esc  <span class="comment">#关闭插入模式</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">r    <span class="comment">#在插入模式替换光标所在的一个字符</span></span><br><span class="line">J    <span class="comment">#合并下一行到上一行</span></span><br><span class="line">s    <span class="comment">#删除光标所在的一个字符, 光标还在当行</span></span><br><span class="line">S    <span class="comment">#删除光标所在的一行，光标还在当行，不同于dd</span></span><br><span class="line">u    <span class="comment">#撤销上一步操作</span></span><br><span class="line">ctrl+r  <span class="comment">#恢复上一步操作</span></span><br><span class="line">.    <span class="comment">#重复最后一个命令</span></span><br><span class="line">~    <span class="comment">#变换为大写</span></span><br><span class="line">[N]&gt;&gt; 一行或N行往右移动一个tab</span><br><span class="line">[N]&lt;&lt; 一行或N行往左移动一个tab</span><br></pre></td></tr></table></figure>
+<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:w   <span class="comment">#保存</span></span><br><span class="line">:wq  <span class="comment">#保存并关闭</span></span><br><span class="line">:q   <span class="comment">#关闭（已保存）</span></span><br><span class="line">:q!  <span class="comment">#强制关闭</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/pattern     <span class="comment">#搜索（非插入模式)</span></span><br><span class="line">?pattern     <span class="comment">#往后搜索</span></span><br><span class="line">n            <span class="comment">#光标到达搜索结果的前一个目标</span></span><br><span class="line">N            <span class="comment">#光标到达搜索结果的后一个目标</span></span><br></pre></td></tr></table></figure>
+<h3 id="视觉模式"><a href="#视觉模式" class="headerlink" title="视觉模式"></a>视觉模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v  <span class="comment">#选中一个或多个字符</span></span><br><span class="line">V  <span class="comment">#选中一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd    <span class="comment">#删除一行</span></span><br><span class="line">dw    <span class="comment">#删除一个单词</span></span><br><span class="line">x     <span class="comment">#删除后一个字符</span></span><br><span class="line">X     <span class="comment">#删除前一个字符</span></span><br><span class="line">D     <span class="comment">#删除一行最后一个字符</span></span><br><span class="line">[N]yy <span class="comment">#复制一行或者N行</span></span><br><span class="line">yw    <span class="comment">#复制一个单词</span></span><br><span class="line">p     <span class="comment">#粘贴</span></span><br></pre></td></tr></table></figure>
+<h3 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:split   <span class="comment">#水平方向分割出一个窗口</span></span><br><span class="line">:vsplit  <span class="comment">#垂直方向分割出一个窗口</span></span><br><span class="line">:close   <span class="comment">#关闭窗口</span></span><br><span class="line">Ctrl+W   <span class="comment">#切换窗口, h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -306,18 +257,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/06/经典算法—-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          互联网笔试常考经典算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/08/27/kvmvm-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">kvm基本概念</div>
+    <a href="/2017/01/05/redis基本操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis基本操作</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -352,7 +294,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="linux-command1" data-title="linux常用命令——1" data-url="http://yoursite.com/2016/09/05/linux-command1/"></div>
+	<div class="ds-thread" data-thread-key="vim常用操作" data-title="vim常用操作" data-url="http://yoursite.com/2017/01/05/vim常用操作/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

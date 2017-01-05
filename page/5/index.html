@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,194 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-242-Valid-Anagram" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/16/leetcode-242-Valid-Anagram/" class="article-date">
+  	<time datetime="2016-11-16T07:53:45.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/16/leetcode-242-Valid-Anagram/">leetcode-242-Valid-Anagram</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
+<p>For example,<br>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        s=sorted(s)</span><br><span class="line">        t=sorted(t)</span><br><span class="line">        <span class="keyword">if</span> s==t:</span><br><span class="line">            <span class="built_in">return</span> True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">return</span> False</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> sorted(s)==sorted(t)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> Counter(s)==Countert)</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>重要的是读题，明白题目什么意思。题目的意思，输入两个字符串，来比较两个字符串是否是 anagram 关系。<br>(anagram 关系：两个字符串由相同字符且字符数相同的字符构成，只是字符的顺序不同。)<br>思路：将两个字符串中的字符进行排序，然后比较排序后的字符串是否相同就可以。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>sort()函数是容器对象的函数，在容器内排序，无返回值，字符串对象没有该函数。<br>sorted()函数是内置函数，可对可迭代类型进行排序，并返回排好序的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sorted(...)</span><br><span class="line">    sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list</span><br><span class="line"></span><br><span class="line">iterable：待排序的可迭代类型的容器;</span><br><span class="line">cmp：用于比较的函数，比较什么由key决定,有默认值，迭代集合中的一项;</span><br><span class="line">key：用列表元素的某个已命名的属性或函数（只有一个参数并且返回一个用于排序的值）作为关键字，有默认值，迭代集合中的一项;</span><br><span class="line">reverse：排序规则. reverse = True 或者 reverse = False，有默认值。</span><br><span class="line">返回值：是一个经过排序的可迭代类型，与iterable一样。</span><br></pre></td></tr></table></figure></p>
+<p>Counter是collections模块中的计数器类，可以用来计数，输入是字典，其他 iterable 的数据类型，还有命名的参数对。<br>输出是字典，其中元素作为key，其计数作为value。 </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/11/leetcode-387-first-unique-character/" class="article-date">
+  	<time datetime="2016-11-11T06:33:48.000Z" itemprop="datePublished">2016-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/11/leetcode-387-first-unique-character/">leetcode-387-first-unique character</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"leetcode"</span></span><br><span class="line"><span class="built_in">return</span> 0.</span><br><span class="line"></span><br><span class="line">s = <span class="string">"loveleetcode"</span>,</span><br><span class="line"><span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>得到字符串中unique字符的序号</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def firstUniqChar(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        letters=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">        char_index=[s.index(char) <span class="keyword">for</span> char <span class="keyword">in</span> letters <span class="keyword">if</span> s.count(char)==1]</span><br><span class="line">        <span class="built_in">return</span> min(char_index) <span class="keyword">if</span> char_index <span class="keyword">else</span> -1</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>开始时考虑用for循环遍历字符串判断字符串是否unique并返回其序号；这种方法忽略了两个问题：效率（运行时间）；当字符串特别大时会有内存溢出问题，所以不能用for遍历。</p>
+<h3 id="新学到的方法"><a href="#新学到的方法" class="headerlink" title="新学到的方法"></a>新学到的方法</h3><p>str.index(char)  获取字符串中某个字符的索引<br>str.count(char)  获取字符串中某个字符出现的次数</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-171-column-number" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/11/leetcode-171-column-number/" class="article-date">
+  	<time datetime="2016-11-11T05:26:52.000Z" itemprop="datePublished">2016-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/11/leetcode-171-column-number/">leetcode-171-column-number</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a column title as appear in an Excel sheet, return its corresponding column number<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A -&gt; 1</span><br><span class="line">B -&gt; 2</span><br><span class="line">C -&gt; 3</span><br><span class="line">...</span><br><span class="line">Z -&gt; 26</span><br><span class="line">AA -&gt; 27</span><br><span class="line">AB -&gt; 28</span><br></pre></td></tr></table></figure></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>忽略杂音（Excel sheet），与Excel没关系，本质是将字母字符串转换为十进制数，再进一步分析，每一个字母（A——Z）对应一个数字<br>（1——26），此题的本质是进制转换，将26进制转换为十进制。</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def titleToNumber(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num = 0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            num = num*26+ord(char)-64</span><br><span class="line">        <span class="built_in">return</span> num</span><br></pre></td></tr></table></figure>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><p>10进制转16进制:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex(16)  ==&gt;  0x10</span><br></pre></td></tr></table></figure></p>
+<p>16进制转10进制：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'0x10'</span>, 16)  ==&gt;  16</span><br></pre></td></tr></table></figure></p>
+<p>类似的还有八进制oct()， 二进制bin()</p>
+<h4 id="数字与ascii字符互转"><a href="#数字与ascii字符互转" class="headerlink" title="数字与ascii字符互转"></a>数字与ascii字符互转</h4><p>chr() 数字转换为对应的ascii字符 （0~255）<br>ord() ascii字符转为对应的数字</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python-optparse" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -311,214 +499,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
-  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
-<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
-<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
-<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
-<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
-<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
-<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
-<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
-<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
-<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
-<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
-<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
-<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
-<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python连接mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/09/python连接mysql/" class="article-date">
-  	<time datetime="2016-10-09T10:28:53.000Z" itemprop="datePublished">2016-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/python连接mysql/">python连接mysql</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-安装mysql"><a href="#1-安装mysql" class="headerlink" title="1.安装mysql"></a>1.安装mysql</h3><h3 id="2-安装配置python环境"><a href="#2-安装配置python环境" class="headerlink" title="2.安装配置python环境"></a>2.安装配置python环境</h3><h3 id="3-安装MySQL-python"><a href="#3-安装MySQL-python" class="headerlink" title="3.安装MySQL-python"></a>3.安装MySQL-python</h3><h3 id="4-导入MySQLdb-模块"><a href="#4-导入MySQLdb-模块" class="headerlink" title="4.导入MySQLdb 模块"></a>4.导入MySQLdb 模块</h3><p>前面几步不需要多说，具体说下连接的问题。<br>之前用python操作数据库，都是用下面的方式进行连接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_connect= MySQLdb.connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"123456"</span>,<span class="string">"myciti"</span> )</span><br></pre></td></tr></table></figure></p>
-<p>上面的几个参数大家都知道：第一个为服务器的地址，第二个为用户名，第三个为密码，第四个为要访问的数据库，其实该connect函数 的参数不止这些，不过由于其有默认值而且大多数情况下不用修改，因而省略了。<br>完整的connect()参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">host    <span class="comment">#连接的数据库服务器主机名，默认为本地主机(localhost)。</span></span><br><span class="line">user    <span class="comment">#连接数据库的用户名，默认为当前用户。</span></span><br><span class="line">passwd  <span class="comment">#连接密码，没有默认值。</span></span><br><span class="line">db      <span class="comment">#连接的数据库名，没有默认值。</span></span><br><span class="line">conv    <span class="comment">#将文字映射到Python类型的字典。默认为MySQLdb.converters.conversions</span></span><br><span class="line">cursorclass，cursor()     <span class="comment">#使用的种类，默认值为MySQLdb.cursors.Cursor。</span></span><br><span class="line">compress                  <span class="comment">#启用协议压 缩功能。</span></span><br><span class="line">named_pipe                <span class="comment">#在windows中，与一个命名管道相连接。</span></span><br><span class="line">init_<span class="built_in">command</span>              <span class="comment">#一旦连接建立，就为数据库服务器指定一条语句来运行。</span></span><br><span class="line"><span class="built_in">read</span>_default_file         <span class="comment">#使用指定的MySQL配置文件。</span></span><br><span class="line"><span class="built_in">read</span>_default_group        <span class="comment">#读取的默认组。</span></span><br><span class="line">unix_socket               <span class="comment">#在unix中，连接使用的套接字，默认使用TCP。</span></span><br><span class="line">port                      <span class="comment">#指定数据库服务器的连接端口，默认是3306</span></span><br><span class="line">``` </span><br><span class="line">一般没有用到端口号，这是因为MySQLdb的connect函数的该参数的默认值便是3306，如果你在安装mysql的时候修改了数据库的端口</span><br><span class="line">号，那么你就需要在源码中加上该参数的修改值了。</span><br><span class="line">若加上端口号，连接方式如下：</span><br><span class="line">``` bash</span><br><span class="line">conn= MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-判断连接是否存在"><a href="#5-判断连接是否存在" class="headerlink" title="5.判断连接是否存在"></a>5.判断连接是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    conn.ping()</span><br><span class="line">execept:</span><br><span class="line">    conn=MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-<p>用conn.ping()进行判断，若连接不存在则会产生异常，捕获异常，然后重新连接。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spark安装教程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/09/spark安装教程/" class="article-date">
-  	<time datetime="2016-10-09T01:43:30.000Z" itemprop="datePublished">2016-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/spark安装教程/">spark安装教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>(注：本教程基于Cenos7)</p>
-<h3 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h3><p>Centos7若不是最小化安装，则会自动安装jdk-8。<br>之所以需要安装JDK是因为scala依赖java运行环境。</p>
-<p>(1)从oracle网站下载JDK 安装包，解压安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf jdk-8u65-linux-x64.tar.gz</span><br><span class="line">mv jdk1.8.0_65 java</span><br></pre></td></tr></table></figure></p>
-<p>(2)设置Java 环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">JAVA_HOME=/opt/jdk1.8.0</span><br><span class="line"><span class="built_in">export</span> JRE_HOME = <span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><p>(1)从官网下载安装包，解压安装<br><a href="http://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="external">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf scala-2.11.8.tgz</span><br></pre></td></tr></table></figure></p>
-<p>(2)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SCALA_HOME=/opt/scala-2.11.8</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME PATH</span><br></pre></td></tr></table></figure></p>
-<p>(3)验证scala<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br><span class="line">Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-安装spark"><a href="#3-安装spark" class="headerlink" title="3.安装spark"></a>3.安装spark</h3><p>(1)官网下载spark 包  spark-2.0.1-bin-hadoop2.7.tgz<br>(2)解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安到/usr/local 下</span></span><br><span class="line">tar  zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br><span class="line">mv  spark-2.0.1-bin-hadoop2.7   spark</span><br></pre></td></tr></table></figure></p>
-<p>(3)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME SPARK_HOME PATH</span><br></pre></td></tr></table></figure></p>
-<p>(4)验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure></p>
-<p>若成功<br><img src="/img/spark.png" alt=""></p>
-<h3 id="4-自动安装sbt"><a href="#4-自动安装sbt" class="headerlink" title="4.自动安装sbt"></a>4.自动安装sbt</h3><p><a href="http://www.scala-sbt.org/release/tutorial/zh-cn/index.html" target="_blank" rel="external">参考</a><br>(1)添加sbt镜像源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl   https://bintray.com/sbt/rpm/rpm  &gt;   bintray-sbt-rpm.repo</span><br><span class="line">mv bintray-sbt-rpm.repo  /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></p>
-<p>(2)安装sbt<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sbt</span><br></pre></td></tr></table></figure></p>
-<p>(3)hello world<br>一个合法的 sbt 项目可以是一个包含单个源码文件的目录。 尝试创建一个 hello 目录，包含内容如下的源码文件 hw.scala：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Hi &#123;</span><br><span class="line">  def main(args: Array[String]) = println(<span class="string">"Hi!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-手动安装sbt"><a href="#5-手动安装sbt" class="headerlink" title="5.手动安装sbt"></a>5.手动安装sbt</h3><p>(1)下载sbt通用平台压缩包：sbt-0.13.12.tgz<br><a href="http://www.scala-sbt.org/download.html" target="_blank" rel="external">网址</a><br>(2)建立目录，解压文件到所建立目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar zxvf sbt-0.13.5.tgz -C /opt/scala/</span><br></pre></td></tr></table></figure></p>
-<p>(3)建立启动sbt的脚本文件<br>选定一个位置，建立启动sbt的脚本文本文件，如/opt/scala/sbt/ 目录下面新建文件名为sbt的文本文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/scala/sbt/</span><br><span class="line">$ vim sbt</span><br></pre></td></tr></table></figure></p>
-<p>在sbt文本文件中添加一下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SBT_OPTS=<span class="string">"-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"</span></span><br><span class="line">java <span class="variable">$SBT_OPTS</span> -jar /opt/scala/sbt/bin/sbt-launch.jar <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>上面的路径是定位到解压的sbt文件包中的sbt-launch.jar文件的绝对路径*/</p>
-<p>/×修改sbt文件权限×/<br>$ chmod u+x sbt<br>(4)配置PATH环境变量，保证在控制台中可以使用sbt命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br><span class="line"><span class="comment">#在文件尾部添加如下代码后，保存退出</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/scala/sbt/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>/<em>使配置文件立刻生效</em>/<br>$ source /etc/profile</p>
-<p>(5)测试sbt是否安装成功<br>第一次执行时，会下载一些文件包，然后才能正常使用，要确保联网了，安装成功后显示如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbt sbt-version</span><br><span class="line"></span><br><span class="line">[info] Set current project to sbt (<span class="keyword">in</span> build file:/opt/scala/sbt/)</span><br><span class="line">[info] 0.13.5</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
 	</div>
 
       

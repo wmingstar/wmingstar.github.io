@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,189 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-13-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/18/leetcode-13-Roman-to-Integer/" class="article-date">
+  	<time datetime="2016-12-18T12:54:40.000Z" itemprop="datePublished">2016-12-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/18/leetcode-13-Roman-to-Integer/">leetcode-13-Roman-to-Integer</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-kvm基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/16/linux-kvm基本操作/" class="article-date">
+  	<time datetime="2016-12-16T00:59:26.000Z" itemprop="datePublished">2016-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/linux-kvm基本操作/">linux-kvm基本操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="查看linux中是否配置了虚拟环境"><a href="#查看linux中是否配置了虚拟环境" class="headerlink" title="查看linux中是否配置了虚拟环境"></a>查看linux中是否配置了虚拟环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egrep <span class="string">'(vmx|svm)'</span> --color=always /proc/cpuinfo</span><br></pre></td></tr></table></figure>
+<h3 id="安装虚拟机环境之前需要注意的地方"><a href="#安装虚拟机环境之前需要注意的地方" class="headerlink" title="安装虚拟机环境之前需要注意的地方"></a>安装虚拟机环境之前需要注意的地方</h3><p>关闭selinux</p>
+<p>关闭防火墙</p>
+<h3 id="安装kvm软件包"><a href="#安装kvm软件包" class="headerlink" title="安装kvm软件包"></a>安装kvm软件包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install kvm python-virtinst libvirt tunctl bridge-utils virt-manager qemu-kvm-tools virt-viewer virt-v2v</span><br></pre></td></tr></table></figure>
+<h3 id="安装虚拟化管理工具"><a href="#安装虚拟化管理工具" class="headerlink" title="安装虚拟化管理工具"></a>安装虚拟化管理工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install libguestfs-tools</span><br></pre></td></tr></table></figure>
+<h3 id="查看虚拟机环境及KVM模块支持"><a href="#查看虚拟机环境及KVM模块支持" class="headerlink" title="查看虚拟机环境及KVM模块支持"></a>查看虚拟机环境及KVM模块支持</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl status libvirtd.service</span><br><span class="line"></span><br><span class="line">systemctl start libvirtd.service  <span class="comment"># 若未启动，用该命令启动即可</span></span><br><span class="line"></span><br><span class="line">lsmod   grep |kvm   <span class="comment"># 查看kvm模块</span></span><br><span class="line"></span><br><span class="line">virsh  --version  <span class="comment"># 查看virsh版本</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># qcow2格式（空间动态增长）</span></span><br><span class="line">qemu-img create <span class="_">-f</span> qcow2 <span class="built_in">test</span>02.img 7G</span><br><span class="line"></span><br><span class="line">virt-install --name=oeltest02 --os-variant=RHEL5.8 --ram 512 --vcpus=1 --disk path=/data/<span class="built_in">test</span>02.img,format=qcow2,size=7,bus=virtio --accelerate --cdrom /data/iso/oel58x64.iso --vnc --vncport=5910 --vnclisten=0.0.0.0 --network bridge=br0,model=virtio --noautoconsole</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只是示例，具体要按什么系统，请自习修改相应参数</span></span><br><span class="line"><span class="comment"># 安装时，借助VNC工具，在自己电脑安装vnc客户端，服务器端安装并开启vnc，就可以用自己电脑连接到服务器，界面化操作</span></span><br></pre></td></tr></table></figure>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1.借助  虚拟系统管理器 可以界面化操作kvm管理虚拟机，和VMware类似。<br>可以用 虚拟系统管理器 直接打开 qcow2镜像。</p>
+<p>2.配置文件路径   /etc/libvirt/qemu/</p>
+<p>3.快照配置文件路径    /var/lib/libvirt/qemu/snapshot/test</p>
+<h3 id="virsh-命令"><a href="#virsh-命令" class="headerlink" title="virsh 命令"></a>virsh 命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">virsh  list --all    <span class="comment"># 查看虚拟机状态</span></span><br><span class="line"></span><br><span class="line">virsh start vm_name   <span class="comment"># 开启虚拟机</span></span><br><span class="line"></span><br><span class="line">virsh  shutdown vm_name  <span class="comment"># 关闭虚拟机</span></span><br><span class="line"></span><br><span class="line">virsh create /etc/libvirt/qemu/vm_name.xml   <span class="comment"># 通过配置文件启动虚拟机 </span></span><br><span class="line"></span><br><span class="line">virsh undefine  vm_name  <span class="comment"># 该命令只是删除wintest01的配置文件，并不删除虚拟磁盘文件</span></span><br><span class="line"></span><br><span class="line">virsh dumpxml vm_name &gt; /etc/libvirt/qemu/vm_name02.xml  <span class="comment"># 导出虚拟机配置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过导出备份的配置文件恢复原KVM虚拟机的定义，并重新定义虚拟机</span></span><br><span class="line">mv  /etc/libvirt/qemu/vm_name02.xml   /etc/libvirt/qemu/vm_name01.xml </span><br><span class="line">virsh  define  /etc/libvirt/qemu/vm_name01.xml </span><br><span class="line"></span><br><span class="line">virsh edit <span class="built_in">test</span>   <span class="comment"># 编辑虚拟机配置文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看磁盘格式"><a href="#查看磁盘格式" class="headerlink" title="查看磁盘格式"></a>查看磁盘格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img info   vm_name.qcow2</span><br></pre></td></tr></table></figure>
+<h3 id="创建虚拟机快照"><a href="#创建虚拟机快照" class="headerlink" title="创建虚拟机快照"></a>创建虚拟机快照</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virsh snapshot-create-as   <span class="built_in">test</span>   <span class="built_in">test</span>_sn1</span><br></pre></td></tr></table></figure>
+<h3 id="恢复虚拟机快照"><a href="#恢复虚拟机快照" class="headerlink" title="恢复虚拟机快照"></a>恢复虚拟机快照</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virsh  snapshot-revert  <span class="built_in">test</span>  <span class="built_in">test</span>_sn1   <span class="comment"># 须关闭虚拟机</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看虚拟机快照版本"><a href="#查看虚拟机快照版本" class="headerlink" title="查看虚拟机快照版本"></a>查看虚拟机快照版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virsh  snapshot-list  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql-数据的导入于导出" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/01/mysql-数据的导入于导出/" class="article-date">
+  	<time datetime="2016-12-01T09:01:50.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/mysql-数据的导入于导出/">mysql-数据的导入于导出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><h3 id="导出整个数据库-包括结构和数据"><a href="#导出整个数据库-包括结构和数据" class="headerlink" title="导出整个数据库(包括结构和数据)"></a>导出整个数据库(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name &gt; db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库中的某些表-包括结构和数据"><a href="#导出数据库中的某些表-包括结构和数据" class="headerlink" title="导出数据库中的某些表(包括结构和数据)"></a>导出数据库中的某些表(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name table_name1 table_name2 &gt;data.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库结构"><a href="#导出数据库结构" class="headerlink" title="导出数据库结构"></a>导出数据库结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name&gt;db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出一个表结构"><a href="#导出一个表结构" class="headerlink" title="导出一个表结构"></a>导出一个表结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name  table_name &gt;tb.sql</span><br></pre></td></tr></table></figure>
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p sms &lt; /home/star/mysql/sms.sql </span><br><span class="line"><span class="comment">##或者</span></span><br><span class="line">MariaDB [sms]&gt;<span class="built_in">source</span> /home/tb.sql</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-206-Reverse-Linked-List" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -291,229 +474,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line">        </span><br><span class="line">        int i = 0;</span><br><span class="line">        int iL = nums1.length;</span><br><span class="line">        </span><br><span class="line">        int j = 0;</span><br><span class="line">        int jL = nums2.length;</span><br><span class="line">        </span><br><span class="line">        int counter = 0;</span><br><span class="line">        int[] results = new int [iL &lt; jL ? iL : jL];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt; iL &amp;&amp; j &lt; jL) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] == nums2[j]) &#123;</span><br><span class="line">                results[counter++] = nums1[i];</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  Arrays.copyOf(results, counter);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题，本质是求两个数组的交集。最直接的思路是遍历其中一个数组，判断其中的元素是否也存在于另一个数组，将同时存在于两个<br>数组的元素存储起来。</p>
 <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>remove(i)将list中最前面的元素i删除，而不是将所有的i删除。<br>collections模块的运用，</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/22/python-装饰器/" class="article-date">
-  	<time datetime="2016-11-22T02:22:38.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/python-装饰器/">python-装饰器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在代码运行期间，动态增加功能的方式，称之为“装饰器”（Decorator）。<br>本质上，decorator就是一个返回函数的高阶函数。</p>
-<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span></span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure>
-<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
-<blockquote>
-<blockquote>
-<p>now()<br>call now():<br>2013-12-25</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>把@log放到now()函数的定义处，相当于执行了语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(now)</span><br></pre></td></tr></table></figure></p>
-<p>由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用<br>now()将执行新函数，即在log()函数中返回的wrapper()函数。</p>
-<p>wrapper()函数的参数定义是(<em>args,*</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，<br>再紧接着调用原始函数。</p>
-<h3 id="用法2"><a href="#用法2" class="headerlink" title="用法2"></a>用法2</h3><p>decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span>(<span class="string">'execute'</span>)</span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
-<blockquote>
-<blockquote>
-<p>now()<br>execute now():<br>2013-12-25</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure></p>
-<p>首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变<br>成了’wrapper’。</p>
-<p>因为返回的那个wrapper()函数名字就是’wrapper’，所以，需要把原始函数的<strong>name</strong>等属性复制到wrapper()函数中，否则，有些<br>依赖函数签名的代码执行就会出错。</p>
-<p>不需要编写wrapper.<strong>name</strong> = func.<strong>name</strong>这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的<br>decorator的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    @functools.wraps(func)</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        @functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br></pre></td></tr></table></figure>
-<p>参考：<br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-面试-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/21/面试-操作系统/" class="article-date">
-  	<time datetime="2016-11-21T08:26:37.000Z" itemprop="datePublished">2016-11-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/21/面试-操作系统/">面试-操作系统</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-进程和线程的概念以及它们的区别"><a href="#1-进程和线程的概念以及它们的区别" class="headerlink" title="1.进程和线程的概念以及它们的区别"></a>1.进程和线程的概念以及它们的区别</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是具有一定功能的程序关于某个数据集合上的一次运行活动，进程是系统调度和分配资源的一个独立实体。</p>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>线程是进程的实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。</p>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>一个进程可以有多个线程，多个线程可以并发执行。</p>
-<h3 id="2-线程同步的方式有哪些？"><a href="#2-线程同步的方式有哪些？" class="headerlink" title="2.线程同步的方式有哪些？"></a>2.线程同步的方式有哪些？</h3><h4 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h4><p>采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多<br>个线程同时访问。</p>
-<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数。</p>
-<h4 id="事件（信号）"><a href="#事件（信号）" class="headerlink" title="事件（信号）"></a>事件（信号）</h4><p>通过通知操作的方式来保持多线程的同步，还可以方便的实现多线程优先级的比较操作。</p>
-<h3 id="3-进程通信的方式有哪些？"><a href="#3-进程通信的方式有哪些？" class="headerlink" title="3.进程通信的方式有哪些？"></a>3.进程通信的方式有哪些？</h3><p>管道、系统IPC(包括消息队列，信号量、共享存储)、SOCKET<br>管道主要分为：普通管道PIPE、流管道（S_pipe）、命名管道（name_pipe）</p>
-<h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4><p>管道（PIPE）是一种半双工的通信方式，数据只能单项流动，并且只能在具有亲缘关系的进程间流动，进程的亲缘关系通常是父子<br>进程。<br>命名管道（name_pipe）也是半双工的通信方式，它允许无亲缘关系的进程间进行通信。</p>
-<h4 id="系统IPC"><a href="#系统IPC" class="headerlink" title="系统IPC"></a>系统IPC</h4><p>消息队列是消息的链表，存放在内核中并由消息队列标识符标识。<br>信号量是一个计数器，用来控制多个进程对资源的访问，它通常作为一种锁机制。<br>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。<br>共享内存就是映射一段能被其它进程访问的内存，这段共享内存由一个进程创建，但是多个进程可以访问。</p>
-<h3 id="4-什么是缓冲区溢出？有什么危害？其原因是什么？"><a href="#4-什么是缓冲区溢出？有什么危害？其原因是什么？" class="headerlink" title="4.什么是缓冲区溢出？有什么危害？其原因是什么？"></a>4.什么是缓冲区溢出？有什么危害？其原因是什么？</h3><p>缓冲区溢出是指当计算机向缓冲区填充数据时超出了缓冲区本身的容量，溢出的数据覆盖在合法数据上。</p>
-<h4 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h4><p>程序崩溃，导致拒绝服务；<br>跳转并且执行一段恶意代码；</p>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>造成缓冲区溢出的主要原因是程序中没有仔细检查用户输入。 </p>
-<h3 id="5-什么是死锁？死锁产生的条件？"><a href="#5-什么是死锁？死锁产生的条件？" class="headerlink" title="5.什么是死锁？死锁产生的条件？"></a>5.什么是死锁？死锁产生的条件？</h3><p>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之<br>前都不能向前推进，称这一组进程产生了死锁。通俗的讲就是两个或多个进程无限期的阻塞、相互等待的一种状态。</p>
-<h4 id="产生的条件"><a href="#产生的条件" class="headerlink" title="产生的条件"></a>产生的条件</h4><p>(1)互斥条件：一个资源一次只能被一个进程使用;<br>(2)请求与保持条件：一个进程因请求资源而阻塞时，对已获得资源保持不放;<br>(3)不剥夺条件：进程获得的资源，在未完全使用完之前，不能强行剥夺;<br>(4)循环等待条件：若干进程之间形成一种头尾相接的环形等待资源关系 ;<br>（有一个条件不成立，则不会产生死锁）</p>
-<h3 id="6-进程有哪几种状态？"><a href="#6-进程有哪几种状态？" class="headerlink" title="6.进程有哪几种状态？"></a>6.进程有哪几种状态？</h3><p>就绪状态：进程已获得除处理机以外的所需资源，等待分配处理机资源;<br>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数;<br>阻塞状态： 进程等待某种条件，在条件满足之前无法执行;</p>
-<h3 id="7-分页和分段有什么区别？"><a href="#7-分页和分段有什么区别？" class="headerlink" title="7.分页和分段有什么区别？"></a>7.分页和分段有什么区别？</h3><p>(1)段是信息的逻辑单位，它是根据用户的需要划分的，因此段对用户是可见的；页是信息的物理单位，是为了管理主存的方便而划<br>分的，对用户是透明的。<br>(2)段的大小不固定，有它所完成的功能决定；页大大小固定，由系统决定。<br>(3)段向用户提供二维地址空间；页向用户提供的是一维地址空间。<br>(4)段是信息的逻辑单位，便于存储保护和信息的共享，页的保护和共享受到限制。</p>
-<h3 id="8-操作系统中进程调度策略有哪几种？"><a href="#8-操作系统中进程调度策略有哪几种？" class="headerlink" title="8. 操作系统中进程调度策略有哪几种？"></a>8. 操作系统中进程调度策略有哪几种？</h3><p>FCFS(先来先服务)，优先级，时间片轮转，多级反馈</p>
-<h3 id="9-进程同步有哪几种机制？"><a href="#9-进程同步有哪几种机制？" class="headerlink" title="9.进程同步有哪几种机制？"></a>9.进程同步有哪几种机制？</h3><p>原子操作、信号量机制、自旋锁管程、会合、分布式系统</p>
-<h3 id="10-死锁的处理基本策略和常用方法？"><a href="#10-死锁的处理基本策略和常用方法？" class="headerlink" title="10.死锁的处理基本策略和常用方法？"></a>10.死锁的处理基本策略和常用方法？</h3><h4 id="解决死锁的基本方法"><a href="#解决死锁的基本方法" class="headerlink" title="解决死锁的基本方法"></a>解决死锁的基本方法</h4><p>预防死锁、避免死锁、检测死锁、解除死锁 </p>
-<h4 id="解决死锁的常用策略"><a href="#解决死锁的常用策略" class="headerlink" title="解决死锁的常用策略"></a>解决死锁的常用策略</h4><p>鸵鸟策略、预防策略、避免策略、检测与解除死锁 </p>
-<p>参考：<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
-<p>作者：路人甲<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-217-Contains-Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/18/leetcode-217-Contains-Duplicate/" class="article-date">
-  	<time datetime="2016-11-18T06:09:10.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/leetcode-217-Contains-Duplicate/">leetcode-217-Contains-Duplicate</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean containsDuplicate(int[] nums) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums.length&lt;=1)&#123;</span><br><span class="line">             <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         Arrays.sort(nums);</span><br><span class="line">         <span class="keyword">for</span>(int i=0;i&lt;nums.length-1;i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(nums[i]==nums[i+1])&#123;</span><br><span class="line">                 <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def containsDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        nums_<span class="built_in">set</span>=<span class="built_in">set</span>(nums)</span><br><span class="line">        <span class="built_in">return</span> True <span class="keyword">if</span> len(nums_<span class="built_in">set</span>)&lt;len(nums) <span class="keyword">else</span> False</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题很简单，就是判断输入数组中是否有重复的数字。</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>Arrays类中sort()方法，对数组进行排序。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>python很简洁，用set()便可将list()转换为set容器，而set容器中的元素均为唯一的。</p>
 
       
     </div>

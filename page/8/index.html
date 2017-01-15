@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18.33px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,216 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-引用与指针" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/11/引用与指针/" class="article-date">
+  	<time datetime="2016-09-11T14:53:10.000Z" itemprop="datePublished">2016-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/11/引用与指针/">引用与指针</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一定认识，但对引用一直有<br>些疑惑，今天详细的查了下资料，总结一下。</p>
+<h4 id="借用书中的两行代码"><a href="#借用书中的两行代码" class="headerlink" title="借用书中的两行代码"></a>借用书中的两行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int m; </span><br><span class="line">int &amp;n = m;</span><br></pre></td></tr></table></figure>
+<p>在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。</p>
+<h3 id="引用的规则"><a href="#引用的规则" class="headerlink" title="引用的规则"></a>引用的规则</h3><p>（1）引用被创建的同时必须被初始化（即赋值，指针则可以在任何时候被初始化）。<br>（2）不能有NULL引用，引用必须与合法的存储单元关联（就像外号一样，必须存在这样一个人，才可以给这个人起外号；指针则可以<br>是NULL）。<br>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 </p>
+<h3 id="引用的主要功能是传递函数的参数和返回值。"><a href="#引用的主要功能是传递函数的参数和返回值。" class="headerlink" title="引用的主要功能是传递函数的参数和返回值。"></a>引用的主要功能是传递函数的参数和返回值。</h3><p>在C++语言中，参数和返回值的传递主要有三种方式：值传递、指针传递、引用传递。下面用三个简单的程序来说明下三者的不同。</p>
+<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func1(int x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Func1(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 0</span><br></pre></td></tr></table></figure>
+<p>在上面的程序中，x是n的一个拷贝，在Func()函数中改变x的值并不会对n造成影响，最后输出n的值仍是0.</p>
+<h3 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func2(int *x) </span><br><span class="line">&#123; </span><br><span class="line">(* x) = (* x) + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func2(&amp;n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
+<p>在上面代码中，Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
+<h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0;</span><br><span class="line">void Func3(int &amp;x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func3(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，Func3函数体内的x是外部变量n的引用，x和n是同一个对象，改变x等于改变n，所以n的值成为10。</p>
+<p>通过对比上述三个示例程序，发现”引用传递”的性质与”指针传递”很像，但函数内部实现的书写方式与”值传递”一样。<br>讲道理，实际上”引用”可以做的任何事情”指针”也都能够做，那为什么还要”引用”？<br>答案是”用适当的工具做恰如其分的工作”。 </p>
+<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。<br>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-经典算法—-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/06/经典算法—-1/" class="article-date">
+  	<time datetime="2016-09-06T14:34:42.000Z" itemprop="datePublished">2016-09-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/06/经典算法—-1/">互联网笔试常考经典算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的，所以，这种多阶<br>段最优化决策解决问题的过程就称为动态规划。</p>
+<h3 id="思想与策略"><a href="#思想与策略" class="headerlink" title="思想与策略"></a>思想与策略</h3><p>基本思想与分治法类似，在分析时将待求解的问题分解为若干个子问题（阶段），按顺序求解各个子问题，前一子问题的解，为后一子<br>问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃<br>其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
+<p>要用动态规划解决的问题多数有个特点：某些子问题重叠，为减少重复计算，对每一个子问题只解一次，可将其不同阶段的不同状态<br>保存在一个二维数组中。</p>
+<p>与分治法最大的区别：动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上）</p>
+<h3 id="适用情景"><a href="#适用情景" class="headerlink" title="适用情景"></a>适用情景</h3><p>动态规划求解的问题一般具有以下特征：<br>（1）最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>（2）无后效性：某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与<br>当前状态有关。<br>（3）有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的<br>必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
+<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>（1）问题划分：按照问题的时间或空间特征，把问题分为若干个阶段。在划分阶段时，注意划分后的阶段一定要是有序的或者是可排序的，否则问题就无法求解。<br>（2）确定状态和状态变量：将问题在各个阶段所处的各种客观情况用不同的状态表示出来。当然，状态的选择要满足无后效性。<br>（3）确定决策并写出状态转移方程：因为决策和状态转移有着天然的联系，状态转移就是根据上一阶段的状态和决策来导出本阶段的状态。所以如果确定了决策，状态转移方程也就可写出。但事实上常常是反过来做，根据相邻两个阶段的状态之间的关系来确定决策方法和状态转移方程。<br>（4）寻找边界条件：给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件。</p>
+<h4 id="简化的步骤设计"><a href="#简化的步骤设计" class="headerlink" title="简化的步骤设计"></a>简化的步骤设计</h4><p>（1）分析最优解的性质，并刻画其结构特征。<br>（2）递归的定义最优解。<br>（3）以自底向上或自顶向下的记忆化方式（备忘录法）计算出最优值。<br>（4）根据计算最优值时得到的信息，构造问题的最优解。</p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>使用动态规划求解问题，最重要的就是确定动态规划的三要素：<br>（1）将问题划分为多个子阶段 （2）确定各子阶段的状态  （3）从前一个阶段转化到后一个阶段的之间的递推关系。</p>
+<p>确定了动态规划的这三要素，整个求解过程就可以用一个最优决策表来描述。最优决策表是一个二维表，其中行表示决策的阶段，列<br>表示问题状态，表格需要填写的数据一般对应此问题的在某个阶段某个状态下的最优值（如最短路径，最长公共子序列，最大价值等<br>），填表的过程就是根据递推关系，从1行1列开始，以行或者列优先的顺序，依次填写表格，最后根据整个表格的数据通过简单的取<br>舍或者运算求得问题的最优解。</p>
+<h3 id="动态规划算法基本框架"><a href="#动态规划算法基本框架" class="headerlink" title="动态规划算法基本框架"></a>动态规划算法基本框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"><span class="keyword">for</span>(j=1; j&lt;=m; j=j+1) // 第一个阶段</span><br><span class="line">   xn[j] = 初始值;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(i=n-1; i&gt;=1; i=i-1)// 其他n-1个阶段</span><br><span class="line">   <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)//f(i)与i有关的表达式</span><br><span class="line">     xi[j]=j=max（或min）&#123;g(xi-1[j1:j2]), ......, g(xi-1[jk:jk+1])&#125;;</span><br><span class="line"></span><br><span class="line">t = g(x1[j1:j2]); // 由子问题的最优解求解整个问题的最优解的方案</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1[j1]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=2; i&lt;=n-1; i=i+1）</span><br><span class="line">&#123;  </span><br><span class="line">     t = t-xi-1[ji];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)</span><br><span class="line">        <span class="keyword">if</span>(t=xi[ji])</span><br><span class="line">             <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html" target="_blank" rel="external">参考自博客园</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/05/linux-command1/" class="article-date">
+  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/linux-command1/">linux常用命令——1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
+</code></pre>
+<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
+</code></pre>
+<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
+<span class="comment"># date +%Y/%m/%d</span>
+<span class="comment"># date +%H:%M</span>
+</code></pre>
+<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
+<span class="comment"># cal 2016</span>
+<span class="comment"># cal 8 2016</span>
+</code></pre>
+<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
+<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
+
+<span class="comment">#[Ctrl]+c 终止命令</span>
+<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
+</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-kvmvm-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -325,239 +535,9 @@
 
 
   
-    <article id="post-mysql-engine" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/05/mysql-engine/" class="article-date">
-  	<time datetime="2016-08-05T01:26:15.000Z" itemprop="datePublished">2016-08-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/05/mysql-engine/">MySQL进阶——存储引擎</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="MySQL-支持的搜索引擎"><a href="#MySQL-支持的搜索引擎" class="headerlink" title="MySQL 支持的搜索引擎"></a>MySQL 支持的搜索引擎</h2><p>可以通过以下命令查看mysql支持的存储引擎：<br>mysql&gt;show engines</p>
-<p>MySQL有多种存储引擎，每种存储引擎有各自的优缺点，可以择优选择使用：MyISAM、InnoDB、MERGE、MEMORY(HEAP)、BDB(BerkeleyDB)、EXAMPLE、FEDERATED、ARCHIVE、CSV、BLACKHOLE。</p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>MySQL支持数个存储引擎作为对不同表的类型的处理器，MySQL存储引擎包括处理事务安全表（TST）的引擎和处理非事务安全表(NTST)的引擎。</p>
-<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>管理非事务表。它提供高速存储和检索，以及全文搜索能力。MyISAM在所有MySQL配置里被支持，它是默认的存储引擎，除非你配置MySQL默认使用另外一个引擎。</p>
-<h3 id="InnoDB和BDB"><a href="#InnoDB和BDB" class="headerlink" title="InnoDB和BDB"></a>InnoDB和BDB</h3><p>支持事务安全表，BDB被包含在为支持它的操作系统发布的MySQL-Max二进制分发版里。InnoDB也默认被包括在所有MySQL5.1二进制分发版里，你可以按照喜好通过配置MySQL来允许或禁止任一引擎。</p>
-<h3 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h3><p>存储引擎提供“内存中”表。MERGE存储引擎允许集合将被处理同样的MyISAM表作为一个单独的表。就像MyISAM一样，MEMORY和MERGE存储引擎处理非事务表，这两个引擎也都被默认包含在MySQL中。</p>
-<h3 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h3><p>是一个“存根”引擎，它不做什么。你可以用这个引擎创建表，但没有数据被存储于其中或从其中检索。这个引擎的目的是服务，在 MySQL源代码中的一个例子，它演示说明如何开始编写新存储引擎。同样，它的主要兴趣是对开发者。</p>
-<h3 id="NDB-Cluster"><a href="#NDB-Cluster" class="headerlink" title="NDB Cluster"></a>NDB Cluster</h3><p>用来实现分割到多台计算机上的表的存储引擎。它在MySQL-Max 5.1二进制分发版里提供。这个存储引擎当前只被Linux, Solaris, 和Mac OS X 支持。在未来的MySQL分发版中，我们想要添加其它平台对这个引擎的支持，包括Windows。</p>
-<h3 id="ARCHIVE"><a href="#ARCHIVE" class="headerlink" title="ARCHIVE"></a>ARCHIVE</h3><p>用来无索引地，非常小地覆盖存储的大量数据。</p>
-<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>把数据以逗号分隔的格式存储在文本文件中。</p>
-<h3 id="BLACKHOLE"><a href="#BLACKHOLE" class="headerlink" title="BLACKHOLE"></a>BLACKHOLE</h3><p>接受但不存储数据，并且检索总是返回一个空集。</p>
-<h3 id="FEDERATED"><a href="#FEDERATED" class="headerlink" title="FEDERATED"></a>FEDERATED</h3><p>把数据存在远程数据库中。在MySQL 5.1中，它只和MySQL一起工作，使用MySQL C Client API。在未来的分发版中，<br>我们想要让它使用其它驱动器或客户端连接方法连接到另外的数据源。</p>
-<h2 id="MyISAM与InnoBD的区别"><a href="#MyISAM与InnoBD的区别" class="headerlink" title="MyISAM与InnoBD的区别"></a>MyISAM与InnoBD的区别</h2><p>在mysql存储中，比较常用的是MyISAM和InnoBD。</p>
-<h3 id="构成上的区别"><a href="#构成上的区别" class="headerlink" title="构成上的区别"></a>构成上的区别</h3><p>MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。frm文件存储表定义。数据文件的扩展<br>名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</p>
-<p>InnoBD：基于磁盘的资源是InnoDB表空间数据文件和它的日志文件，InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB.</p>
-<h3 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h3><p>MyISAM：MyISAM类型的表强调的是性能，其执行速度比InnoDB类型更快，但是不提供事务支持。</p>
-<p>InnoBD: InnoDB提供事务支持事务，外部键（foreign key）等高级数据库功能。</p>
-<h3 id="SELECT-UPDATE-INSERT，Delete操作"><a href="#SELECT-UPDATE-INSERT，Delete操作" class="headerlink" title="SELECT UPDATE,INSERT，Delete操作"></a>SELECT UPDATE,INSERT，Delete操作</h3><p>MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。</p>
-<p>InnoBD：如果执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；<br>DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br>LOAD  TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的<br>额外的InnoDB特性（例如外键）的表不适用。</p>
-<h2 id="如何在MyISAM与InnoBD之间选择"><a href="#如何在MyISAM与InnoBD之间选择" class="headerlink" title="如何在MyISAM与InnoBD之间选择"></a>如何在MyISAM与InnoBD之间选择</h2><p>（1）InnoDB支持事务，MyISAM不支持，这一点是非常之重要。事务是一种高级的处理方式，如在一些列增删改中只要哪个出错还可以回滚还原，而MyISAM就不可以了。<br>（2）MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用<br>（3）InnoDB支持外键，MyISAM不支持<br>（4）MyISAM是默认引擎，InnoDB需要指定<br>（5）InnoDB不支持FULLTEXT类型的索引<br>（6）InnoDB中不保存表的行数，如select count(<em>) fromtable时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存<br>好的行数即可。注意的是，当count(</em>)语句包含where条件时MyISAM也需要扫描整个表<br>（7）对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引<br>（8）清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表<br>（9）InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’</p>
-<h2 id="MyISAM-1"><a href="#MyISAM-1" class="headerlink" title="MyISAM"></a>MyISAM</h2><p>每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名<br>为.MYD (MYData)。<br>MyISAM表格可以被压缩，而且它们支持全文搜索。不支持事务，而且也不支持外键。如果事物回滚将造成不完全回滚，不具有原子性。在进<br>行updata时进行表锁，并发量相对较小。如果执行大量的SELECT，MyISAM是更好的选择。<br>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，<br>没有使用压缩从而会造成Innodb比MyISAM体积庞大不小<br>MyISAM缓存在内存的是索引，不是数据。而InnoDB缓存在内存的是数据，相对来说，服务器内存越大，InnoDB发挥的优势越大。</p>
-<p>优点：查询数据相对较快，适合大量的select，可以全文索引。</p>
-<p>缺点：不支持事务，不支持外键，并发量较小，不适合大量update</p>
-<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>这种类型是事务安全的。.它与BDB类型具有相同的特性,它们还支持外键。InnoDB表格速度很快。具有比BDB还丰富的特性,因此如果需要一个事务安全的存储引擎，建议使用它。在update时表进行行锁，并发量相对较大。如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。</p>
-<p>优点：支持事务，支持外键，并发量较大，适合大量update</p>
-<p>缺点：查询数据相对较快，不适合大量的select</p>
-<p>对于支持事物的InnoDB类型的表，影响速度的主要原因是AUTOCOMMIT默认设置是打开的，而且程序没有显式调用BEGIN 开始事务，导致每插入一条都自动Commit，严重影响了速度。可以在执行sql前调用begin，多条sql形成一个事物（即使autocommit打开也可以），将大大提高性能。</p>
-<p>基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。</p>
-<p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql-tst-ntst" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/04/mysql-tst-ntst/" class="article-date">
-  	<time datetime="2016-08-04T06:13:21.000Z" itemprop="datePublished">2016-08-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/04/mysql-tst-ntst/">MySQL进阶——事务表与非事务表</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>在谈事务表与非事务表之前先把必要的背景知识熟悉一下，首先谈一下什么是事务？</p>
-<h3 id="什么是事务？"><a href="#什么是事务？" class="headerlink" title="什么是事务？"></a>什么是事务？</h3><p>在MySQL环境中，一个事务由作为一个单独单元的一个或者多个sql语句组成。这个单元中的每个sql语句是互相依赖的， 而且单元作为一个整体是不<br>可分割的。如果单元中的一个语句不能成功完成，整个单元都会回滚，所有影响到的数据将返回到 事务开始之前的状态。因而，只有事务中的所有<br>语句都被成功的执行才能说这个事务被成功执行。</p>
-<h3 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h3><p>原子性，每个事务都必须被认为是一个不可分割的单元。<br>一致性，不管事务是完全成功还是中途失败，当事务使系统处于一致的状态时存在一致性。<br>孤立性，每个事务在它自己的空间发生，和其他发生在系统中的事务隔离，而且事务的结果只有在它完全被执行时才能看到。<br>持久性，即使系统崩溃，一个提交的事务扔在坚持。</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>为了初始化一个事务，并告诉MySQL所有随后的sql语句需要被认为是一个单元，MySQL提供了start transaction命令来标记 一个事务的开始。也可以使用begin或者begin work命令来初始化一个事务。通常情况下，start transction命令后跟随的是组成事务的sql语句。<br>一旦sql语句被执行，就可使用commit命令来把整个事务保存在磁盘上，或者使用rollback命令来撤销所有的变化。 如果事务包括事务表和非事务<br>表的变化，非事务表的事务处理部分是不能使用rollback命令撤销的。在这种情况下， MySQL将会返回一个错误，通知出现一个不完全撤销，<br>commit命令标记了事务块的结束。</p>
-<h2 id="事务表与非事务表的区别及各自优势"><a href="#事务表与非事务表的区别及各自优势" class="headerlink" title="事务表与非事务表的区别及各自优势"></a>事务表与非事务表的区别及各自优势</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>（1）MySQL事务表支持将批处理当做一个完整的任务统一提交或回滚，即对包含在事务中的多条语句要么全执行，要么全部不执行。非事务表则不支持此种操作，批处理中的语句如果遇到错误，在错误前的语句执行成功，之后的则不执行。<br>（2）MySQL事务表有表锁与行锁 非事务表则只有表锁</p>
-<h3 id="事务表的优势"><a href="#事务表的优势" class="headerlink" title="事务表的优势"></a>事务表的优势</h3><p>（1）更安全。即使MySQL崩溃或遇到硬件问题，要么自动恢复，要么从备份加事务日志恢复，可以取回数据。</p>
-<p>（2）可以合并许多语句，并用COMMIT语句同时接受它们全部（如果autocommit被禁止掉）。</p>
-<p>（3）可以执行ROLLBACK来忽略你的改变（如果autocommit被禁止掉）。</p>
-<p>（4）如果更新失败，你的所有改变都变回原来。（用非事务表，所有发生的改变都是永久的）。</p>
-<p>（5）事务安全存储引擎可以给那些当前用读得到许多更新的表提供更好的部署。</p>
-<h3 id="非事务表的优势"><a href="#非事务表的优势" class="headerlink" title="非事务表的优势"></a>非事务表的优势</h3><p>（1）更快</p>
-<p>（2）需要更少的磁盘空间</p>
-<p>（3）执行更新需要更少的内存</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql-index" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/02/mysql-index/" class="article-date">
-  	<time datetime="2016-08-02T12:39:24.000Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/mysql-index/">MySQL进阶——索引</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="索引的作用"><a href="#索引的作用" class="headerlink" title="索引的作用"></a>索引的作用</h2><p>数据库索引的主要作用是能够大大提高查询效率，特别是当数据量非常大，查询涉及多个表时，使用索引往往能使查询速度加快成千上万倍。</p>
-<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h2><p>有3个未索引的表t1、t2、t3，分别只包含列c1、c2、c3，每个表分别含有1000行数据组成，值为1～1000的数值，查找对应值相等行的查询语句如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT c1,c2,c3 FROM t1,t2,t3 WHERE c1=c2 AND c1=c3</span><br></pre></td></tr></table></figure></p>
-<p>此查询结果应该为1000行，每行包含3个相等的值。在无索引的情况下处理此查询，必须寻找3个表所有的组合，以便得出与WHERE子句相配的那些行。而可能的组合数目为1000×1000×1000（十亿），显然查询将会非常慢。</p>
-<p>如果对每个表进行索引，就能极大地提高查询效率，利用索引的查询处理如下。</p>
-<p>（1）从表t1中选择第一行，查看此行所包含的数据。</p>
-<p>（2）使用表t2上的索引，直接定位t2中与t1的值匹配的行。类似，利用表t3上的索引，直接定位t3中与来自t1的值匹配的行。</p>
-<p>（3）扫描表t1的下一行并重复前面的过程，直到遍历t1中所有的行。<br>在此情形下，仍然对表t1执行了一个完全扫描，但能够在表t2和t3上进行索引查找直接取出这些表中的行，比未用索引时要快一百万倍。利用索引，MySQL加速了WHERE子句满足条件行的搜索，而在多表连接查询时，在执行连接时加快了与其他表中的行匹配的速度。</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>INDEX 普通索引<br>PRIMARY KEY  主键（PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。）<br>UNIQUE 不包含重复值的索引</p>
-<p>在创建索引时，可以规定索引能否包含重复值。如果不包含，则索引应该创建为PRIMARY KEY或UNIQUE索引。对于单列惟一性索引，<br>这保证单列不包含重复的值。对于多列惟一性索引，保证多个值的组合不重复。</p>
-<p>PRIMARY KEY索引和UNIQUE索引非常类似，事实上，PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。<br>这表示一个表只能包含一个PRIMARY KEY，因为一个表中不可能具有两个同名的索引。</p>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p>ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD UNIQUE (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD PRIMARY KEY (column_list)</span><br></pre></td></tr></table></figure></p>
-<p>其中table_name是要增加索引的表名，column_list指出对哪些列进行索引，多列时各列之间用逗号分隔。索引名index_name可选，缺省时，MySQL将根据第一个索引列赋一个名称。另外，ALTER TABLE允许在单个语句中更改多个表，因此可以在同时创建多个索引。</p>
-<h3 id="CREATE-INDEX"><a href="#CREATE-INDEX" class="headerlink" title="CREATE INDEX"></a>CREATE INDEX</h3><p>CREATE INDEX可对表增加普通索引或UNIQUE索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX index_name ON table_name (column_list)</span><br><span class="line"></span><br><span class="line">CREATE UNIQUE INDEX index_name ON table_name (column_list)</span><br></pre></td></tr></table></figure></p>
-<p>table_name、index_name和column_list具有与ALTER TABLE语句中相同的含义，索引名不可选。另外，不能用CREATE INDEX语句创建PRIMARY KEY索引。</p>
-<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>可利用ALTER TABLE或DROP INDEX语句来删除索引。类似于CREATE INDEX语句，DROP INDEX可以在ALTERTABLE内部作为一条语<br>句处理，语法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX index_name ON talbe_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP INDEX index_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP PRIMARY KEY</span><br></pre></td></tr></table></figure></p>
-<p>其中，前两条语句是等价的，删除掉table_name中的索引index_name。</p>
-<p>第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引，因此不需要指定索引名。<br>如果没有创建PRIMARY KEY索引，但表具有一个或多个UNIQUE索引，则MySQL将删除第一个UNIQUE索引。<br>如果从表中删除了某列，则索引会受到影响。对于多列组合的索引，如果删除其中的某列，则该列也会从索引中删除。如果删除组成索引的所有列，则整个索引将被删除。</p>
-<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show index from tblname;</span><br><span class="line"></span><br><span class="line">mysql&gt; show keys from tblname;</span><br></pre></td></tr></table></figure>
-<p>Table           表的名称。<br>Non_unique      如果索引不能包括重复词，则为0。如果可以，则为1。<br>Key_name        索引的名称。<br>Seq_in_index    索引中的列序列号，从1开始。<br>Column_name     列名称。<br>Collation       列以什么方式存储在索引中。在MySQL中，有值‘A’（升序）或NULL（无分类）。<br>Cardinality     索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。</p>
-<p>Sub_part        如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL。<br>Packed          指示关键字如何被压缩。如果没有被压缩，则为NULL。<br>Null            如果列含有NULL，则含有YES。如果没有，则该列含有NO。<br>Index_type      用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。<br>Comment</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 </div>

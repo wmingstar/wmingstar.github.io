@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18.33px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,198 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-leetcode-349-intersection-two-arrays" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/12/leetcode-349-intersection-two-arrays/" class="article-date">
+  	<time datetime="2016-07-12T00:41:46.000Z" itemprop="datePublished">2016-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/12/leetcode-349-intersection-two-arrays/">leetcode-349-intersection-two-arrays</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
+<p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
+<p>Note:<br>1.Each element in the result must be unique.<br>2.The result can be in any order.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><p>``` bash<br>(code=java)<br>public class Solution {<br>    public int[] intersection(int[] nums1, int[] nums2) {<br>        Set<integer> set1=new HashSet<integer>();<br>        Set<integer> result=new HashSet<integer>();<br>        for(int i:nums1){<br>            set1.add(i);<br>        }<br>        for(int j:nums2){<br>            if(set1.contains(j)) result.add(j);<br>        }<br>        int length=result.size();<br>        int[] nums=new int[length];<br>        for(int k:result){<br>            nums[–length]=k;<br>          }<br>        return nums;</integer></integer></integer></integer></p>
+<pre><code>}
+</code></pre><p>}</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>通过题意，我们可以知道，本题要做的是写一个方法找出两个数组中的相同元素，将这些元素以数组的形式返回，并保证这个返回的<br>数组中的元素是唯一的，不要求顺序。<br>难点：<br>1.找出两个数组的相同元素<br>2.把数组中的重复元素去除<br>对于此题，比较好的方法是用 Set，下面介绍下 Set 的用法。<br>Set 不保存重复的元素，如果试图将多个重复的元素添加到 Set ，那么它会阻止这种重复现象。Set中最常被使用的是测试贵属性，<br>可以很容易的查询某个对象是否在 某个Set 中，因此 查找就成为了 Set 中最重要的操作，通常会选择一个HashSet实现，因为它<br>专门对快速查找进行了优化。<br>本题先将 nums1中的对象存入set1,再判断nums2中的对象是否存在于nums1，若存在则放入 result中，result也是 一个Set对象，在<br>存入的过程中会自动把重复的元忽略，最后再将result的元素存入一个数组返回。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-283-movezeros" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/11/leetcode-283-movezeros/" class="article-date">
+  	<time datetime="2016-07-11T05:45:05.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/leetcode-283-movezeros/">leetcode-283-movezeros</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
+<p>Note:<br>You must do this in-place without making a copy of the array.<br>Minimize the total number of operations.</p>
+<h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void moveZeroes(int[] nums) &#123;</span><br><span class="line">       int flag=0;</span><br><span class="line">       <span class="keyword">for</span>(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]!=0) nums[flag++]=nums[i];</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">for</span>(;flag&lt;nums.length;flag++)&#123;</span><br><span class="line">        nums[flag]=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void moveZeroes(int[] nums) &#123;</span><br><span class="line">       int length=nums.length;</span><br><span class="line">       int flag=0;</span><br><span class="line">       int[] intergers=new int[length];</span><br><span class="line">       <span class="keyword">for</span>(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]!=0) </span><br><span class="line">           &#123;</span><br><span class="line">               intergers[flag]=nums[i];</span><br><span class="line">               flag++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(j&lt;flag) nums[j]=intergers[j];</span><br><span class="line">           <span class="keyword">else</span> nums[j]=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>本题不难，分析后，我们要做的就是将一个数组中的零元素放到数组后面，而将非零元素放在数组前面，并不改变原数组中非零元素<br>的相对位置。</p>
+<p>第一种方法，相对简单一点，就是按顺序遍历整个数组，碰到非零元素就将非零元素放到原数组中，非零元素先不管，被覆盖也无所<br>谓，并用标识符flag记录非零元素的数量，将所有数组元素遍历一遍后，便把所有的非零元素置于数组前面了，然后从数组中下标为flag的位开始为数组赋值 0，直到将数组填满。</p>
+<p>第二种方法，代码量相对较多，单比较容易理解，思想就是遍历数组，将所有的非零元素放到另一个数组暂存，然后再将暂存非零元<br>素的数组的值逐一赋给原数组，再将原数组的剩余位用零填满。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-226-invert-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/leetcode-226-invert-binary-tree/" class="article-date">
+  	<time datetime="2016-07-08T13:38:37.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/leetcode-226-invert-binary-tree/">leetcode-226-invert-binary-tree</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好长时间没刷题，有点荒废了，想想蛮亏欠的，所以不能偷懒，决定了就全力以赴的坚持下去，come on man!</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Invert a binary tree.</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9</p>
+<p>to</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1</p>
+<h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode invertTree(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==null) <span class="built_in">return</span> root;</span><br><span class="line">        TreeNode temp=invertTree(root.left);</span><br><span class="line">        root.left=invertTree(root.right);</span><br><span class="line">        root.right=temp;</span><br><span class="line">        <span class="built_in">return</span> root;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>编程是门艺术，所以一定要追求完美，对于各种小的细节一定要考虑全，此处需判断root是否为空；其次将左右支树分别转换就可以了，思维很重要。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-yum源" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -335,214 +527,9 @@
 
 
   
-    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/python-1/" class="article-date">
-  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
-<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
-<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/linux目录详解/" class="article-date">
-  	<time datetime="2016-06-26T09:10:50.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/linux目录详解/">linux目录详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>六月是一个令我惆怅的月份，学长们相继跑路实习了，自己很荣幸的接过了学长留下的锅。最近做的项目是一个分布式的文件管理、计算、变异系统，分布式就意味着需要部署系统，配置环境，所以最近在看鸟哥的书，就顺手整理了下。今天说点linux系统目录的知识。</p>
-<h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><p>根目录，所有东西均在该目录下</p>
-<h2 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h2><p>这是系统管理员(root user)的目录.</p>
-<h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h2><p>这里存放了标准的(或者说是缺省的)linux的工具，比如像“ls”、“vi”还有“more”等等。通常来说，这个目录已经包含在你的“path”系 统变量里面了。系统所需要的那些命令位于此目录，比如 ls、cp、mkdir等命令；这个目录中的文件都是可执行的、普通用户都可以使用的命令。作为基础系统所需要的最基础的命令就是放在这里。</p>
-<h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h2><p>这里主要存放了系统配置方面的文件。举个例子：你安装了fastdfs，当你想要修改fastdfs配置文件的时候，你会发现它们(配置文件)就在/etc/fdfs目录下。</p>
-<h2 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h2><p>这里主要存放与设备(包括外设)有关的文件(unix和linux系统均把设备当成文件)。比如打印机,系统就是从这个目录开始工作的。另外还有一些包括磁盘驱动、USB驱动等都放在这个目录。</p>
-<h2 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h2><p>这里主要存放你的个人数据。具体每个用户的设置文件，用户的桌面文件夹，还有用户的数据都放在这里。每个用户都有自己的用户目录，位置为：/home/用户名。</p>
-<h2 id="tmp"><a href="#tmp" class="headerlink" title="/tmp"></a>/tmp</h2><p>这是临时目录。对于某些程序来说，有些文件被用了一次两次之后，就不会再被用到，像这样的文件就放在这里。有些linux系统会定期自动对这个目录进行清理，因此，千万不要把重要的数据放在这里。</p>
-<h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h2><p>在这个目录下，你可以找到那些不适合放在/bin或/etc目录下的额外的工具。比如游戏或等，/usr目录包含了许多子目录： /usr/bin目录用于存放程序;/usr/share用于存放一些共享的数据，比如音乐文件或者图标等等;/usr/lib目录用于存放那些不能直接 运行的，但却是许多程序运行所必需的一些函数库文件。你的软件包管理器(应该是“新立得”吧)会自动帮你管理好/usr目录的。<br>/usr/local主要存放那些用户手动编译安装的软件，一般是通过源码包安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下。</p>
-<h2 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h2><p>Linux的内核及引导系统程序所需要的文件目录，比如 vmlinuz initrd.img 文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录。</p>
-<h2 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h2><p>这个目录一般是用于存放挂载储存设备的挂载目录的，比如usb等目录,光驱可以挂载到/mnt/cdrom 。</p>
-<h2 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h2><p>表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure –prefix=/opt/目录 。</p>
-<h2 id="proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。"><a href="#proc-操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。-proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见-etc-fstab-。" class="headerlink" title="/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。"></a>/proc 操作系统运行时，进程信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。</h2><h2 id="sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"><a href="#sbin-大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和-usr-sbin-usr-X11R6-sbin或-usr-local-sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。" class="headerlink" title="/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。"></a>/sbin 大多是涉及系统管理的命令的存放，是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的；记住就行了，凡是目录sbin中包含的都是root权限才能执行的。</h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h2><p>这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，/var下有/var/log 这是用来存放系统日志的目录。/var/www目录是定义Apache服务器站点存放目录；/var/lib 用来存放一些库文件，比如MySQL的，以及MySQL数据库的的存放地。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java8-basis" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/java8-basis/" class="article-date">
-  	<time datetime="2016-06-07T13:43:33.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/java8-basis/">JAVA进阶——基础算法50道</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第-1-题"><a href="#第-1-题" class="headerlink" title="第 1 题"></a>第 1 题</h2><p>古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子对数为多少？  </p>
-<h3 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h3><p>根据题目，分析可知，每个月兔子的数量规律为数列 1,1,2,3,5,8,13,21….<br>第1、2个月数量均为1，第3个月开始兔子的数量为前两个月的和，因此知此题用递归比较合适。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public class Test1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int n;</span><br><span class="line">		n=10;</span><br><span class="line">		System.out.println(<span class="string">"第"</span>+n+<span class="string">"个月，兔子的数目为："</span>+func(n));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int func(int n)</span><br><span class="line">	&#123;</span><br><span class="line">	    //前两月数量为1</span><br><span class="line">	    <span class="keyword">if</span>(n==1 || n==2)&#123;</span><br><span class="line">	    	<span class="built_in">return</span>(1);</span><br><span class="line">	    &#125;</span><br><span class="line">		//第3个月开始，数量为前2个月之和</span><br><span class="line">	    <span class="keyword">else</span> <span class="built_in">return</span>(func(n-1)+func(n-2));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第-2-题"><a href="#第-2-题" class="headerlink" title="第 2 题"></a>第 2 题</h2><p>判断101-200之间有多少个素数，并输出所有素数。</p>
-<h3 id="程序分析-1"><a href="#程序分析-1" class="headerlink" title="程序分析"></a>程序分析</h3><p>素数：只能被1和自身整除的数，因此，用2-X之间的数去除X，若X不能被整除则为素数。</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package practice;</span><br><span class="line">import java.util.*;//本程序用到了ArrayList类，因此须导入相应的包</span><br><span class="line"> </span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int start=101;</span><br><span class="line">		int end=200;</span><br><span class="line">		//创建一个ArrayList来存储素数，相对于数组来说，ArrayList比较灵活，数组长度不可变。</span><br><span class="line">		ArrayList&lt;Object&gt; a=new ArrayList&lt;&gt;();</span><br><span class="line">		//判断start与end之间的数是否是素数，将素数存入ArrayList</span><br><span class="line">		<span class="keyword">for</span>(int j=start;j&lt;end;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(isPrime(j)) </span><br><span class="line">			&#123;</span><br><span class="line">			    a.add(j);  </span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(start+<span class="string">"至"</span>+end+<span class="string">"之间共有："</span>+a.size()+<span class="string">"个素数"</span>);</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;a.size();j++)&#123;</span><br><span class="line">        	System.out.println(a.get(j));</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//用此函数判断某个数是否是素数</span><br><span class="line">	public static boolean isPrime(int n)</span><br><span class="line">	&#123;</span><br><span class="line">		boolean flag=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(n==1) flag=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">for</span>(int i=2;i&lt;Math.sqrt(n);i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(n%i==0)&#123;</span><br><span class="line">					flag=<span class="literal">false</span>;</span><br><span class="line">					<span class="built_in">break</span>;  //只要2-sqrt(n)之间有一个可以整除n,n就不是素数</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第3题"><a href="#第3题" class="headerlink" title="第3题"></a>第3题</h2><p>打印出所有的”水仙花数”，所谓”水仙花数”是指一个三位数，其各位数字立方和等于该数本身。</p>
-<h3 id="程序分析-2"><a href="#程序分析-2" class="headerlink" title="程序分析"></a>程序分析</h3><p>首先由题我们知道，”水仙花数“为三位数，由此可以确定for循环的范围为100-999，关键就是得到待判定的数的百位、十位、个位。</p>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int j=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=100;i&lt;1000;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(isLotus(i))&#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">				j++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"共有"</span>+j+<span class="string">"个水仙花数"</span>);</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	//判断某个数是否是水仙花数</span><br><span class="line">	public static boolean  isLotus(int num)&#123;</span><br><span class="line">		Boolean flag=<span class="literal">false</span>;</span><br><span class="line">		int a1=num%10;    //获取个位</span><br><span class="line">		int a2=(num/10)%10;  //获取十位</span><br><span class="line">		int a3=num/100;    //获取百位</span><br><span class="line">		<span class="keyword">if</span>((a1*a1*a1+a2*a2*a2+a3*a3*a3)==num) flag=<span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第4题"><a href="#第4题" class="headerlink" title="第4题"></a>第4题</h2><p>将一个正整数分解质因数。例如：输入90,打印出90=2<em>3</em>3*5。</p>
-<h3 id="程序分析-3"><a href="#程序分析-3" class="headerlink" title="程序分析"></a>程序分析</h3><p>对n进行分解质因数，先找到一个最小的质数k，然后按以下步骤执行：<br>（1）如果n==k,说明分解质因数的过程已经结束，打印出即可。<br>（2）如果n&gt;k，且n能被k整除，则应打印出k的值，并用n除以k的商作为新的正整数n重复执行第一步。<br>（3）如果n不能被k整除，则将k+1作为k的值执行第一步。</p>
-<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Test4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int num;</span><br><span class="line">		num=28;</span><br><span class="line">		decompose(num);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static void decompose(int n) &#123;</span><br><span class="line">		System.out.print(n+<span class="string">"="</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">while</span>(n%i==0 &amp;&amp; n!=i)&#123;</span><br><span class="line">				n=n/i;</span><br><span class="line">				System.out.print(i+<span class="string">"*"</span>);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(n==i)&#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">				<span class="built_in">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第5题"><a href="#第5题" class="headerlink" title="第5题"></a>第5题</h2><p>输入两个正整数m、n，求其最大公约数和最小公倍数。</p>
-<h3 id="程序分析-4"><a href="#程序分析-4" class="headerlink" title="程序分析"></a>程序分析</h3><p>最大公约数为与最小公倍数之间有一定的关系，两数的最小公倍数等于两数的积除以两数的最大公约数，<br>所以此题的关键是求两数的最小公倍数，用辗转相除法。</p>
-<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class Test5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int m,n;</span><br><span class="line">		try&#123;</span><br><span class="line">			m=Integer.parseInt(args[0]);</span><br><span class="line">			n=Integer.parseInt(args[1]);</span><br><span class="line">		&#125;catch(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"输入有误"</span>);</span><br><span class="line">			<span class="built_in">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		max_min(m,n);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	private static void  max_min(int m,int n) &#123;</span><br><span class="line">		int temp=1;</span><br><span class="line">		int yshu=1;</span><br><span class="line">		int bshu=m*n;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;m)&#123;</span><br><span class="line">			temp=n;</span><br><span class="line">			n=m;</span><br><span class="line">			m=temp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(m!=0)&#123;</span><br><span class="line">			temp=n%m;</span><br><span class="line">			n=m;</span><br><span class="line">			m=temp;</span><br><span class="line">		&#125;</span><br><span class="line">		yshu=n;</span><br><span class="line">		bshu /=n;</span><br><span class="line">		System.out.println(<span class="string">"最大公约数为："</span>+yshu);</span><br><span class="line">		System.out.println(<span class="string">"最小公倍数为："</span>+bshu);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第6题"><a href="#第6题" class="headerlink" title="第6题"></a>第6题</h2><p>输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。</p>
-<h3 id="程序分析-5"><a href="#程序分析-5" class="headerlink" title="程序分析"></a>程序分析</h3><p>1.本程序需要注意的是 Scanner类的使用，利用该类可以得到输入的字符串。得到输入的字符串后就需要对<br>字符串中的每个字符进行判定。对英文字母进行判定时，需要知道英文字母的Ascll码，小写英文字母a的<br>Ascll码为97，小写字母z的Ascll码为122，而大写字母A的Ascll码为65，大写字母Z的Ascll码为90，由此知道英文字母<br>的范围。<br>2.java中字符类型与数字类型之间的转换。<br>3.注意输入的字符串以’\n’结尾。</p>
-<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		System.out.println(<span class="string">"请输入："</span>);</span><br><span class="line">		String str=input.nextLine();</span><br><span class="line">		count(str);</span><br><span class="line">		input.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void count(String str) &#123;</span><br><span class="line">		int char_num=0;</span><br><span class="line">		int blank_num=0;</span><br><span class="line">		int number=0;</span><br><span class="line">		int other=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;str.length();i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(str.charAt(i)==<span class="string">'\n'</span>) <span class="built_in">break</span>;</span><br><span class="line">			<span class="keyword">if</span>(str.charAt(i)&lt;=122 &amp;&amp; str.charAt(i)&gt;=97 || str.charAt(i)&lt;=90 &amp;&amp; str.charAt(i)&gt;=65 ) char_num++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(str.charAt(i)==<span class="string">' '</span>) blank_num++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>((str.charAt(i)-<span class="string">'0'</span>)&gt;=0 &amp;&amp; (str.charAt(i)-<span class="string">'0'</span>)&lt;=9) number++;</span><br><span class="line">			<span class="keyword">else</span> other++;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"英文字母："</span>+char_num);</span><br><span class="line">		System.out.println(<span class="string">"空格："</span>+blank_num);</span><br><span class="line">		System.out.println(<span class="string">"数字："</span>+number);</span><br><span class="line">		System.out.println(<span class="string">"其他："</span>+other);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第7题"><a href="#第7题" class="headerlink" title="第7题"></a>第7题</h2><p>求s=a+aa+aaa+aaaa+aa…a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数），几个数相加<br>由键盘决定。</p>
-<h3 id="程序分析-6"><a href="#程序分析-6" class="headerlink" title="程序分析"></a>程序分析</h3><p>此程序需要注意两点：1.从键盘获取数据（上题已经用过），2.数字拼接。数字拼接直接实现比较复杂，我们可以将数字转为字符串，用字符串拼接，然后再将字符串转为数字。</p>
-<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int sour=2;</span><br><span class="line">		System.out.println(<span class="string">"请输入相加得次数："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String  str=input.nextLine();</span><br><span class="line">		int fre=Integer.parseInt(str);</span><br><span class="line">        func(2,fre);</span><br><span class="line">	&#125;</span><br><span class="line">	private static void func(int sour1,int fre1) &#123;</span><br><span class="line">		Integer a=new Integer(sour1);</span><br><span class="line">		int sum=0;</span><br><span class="line">		String a_str=a.toString();</span><br><span class="line">		int arr[]=new int[fre1];</span><br><span class="line">		arr[0]=a;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;fre1;i++)&#123;</span><br><span class="line">			a_str=a_str+a.toString();</span><br><span class="line">			arr[i]=Integer.parseInt(a_str);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.print(<span class="string">"s"</span>+<span class="string">"="</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">			<span class="keyword">if</span>(i==arr.length-1) System.out.print(arr[i]);</span><br><span class="line">			<span class="keyword">else</span> System.out.print(arr[i]+<span class="string">"+"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"="</span>+sum);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
     </nav>
   
 </div>

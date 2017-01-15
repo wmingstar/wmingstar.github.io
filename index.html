@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18.33px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,201 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
+  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
+<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
+<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
+<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
+<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
+<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
+<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
+<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
+<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
+<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
+<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
+<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
+<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-防火墙开放指定端口/" class="article-date">
+  	<time datetime="2017-01-15T00:49:02.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-防火墙开放指定端口/">linux-防火墙开放指定端口</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，使用firewalld代替了原来的iptables。<br>firewalld是centos7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火<br>墙的“zone”概念。</p>
+<h2 id="firewalld-常用命令"><a href="#firewalld-常用命令" class="headerlink" title="firewalld 常用命令"></a>firewalld 常用命令</h2><h3 id="永久开启端口"><a href="#永久开启端口" class="headerlink" title="永久开启端口"></a>永久开启端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h4 id="命令说明："><a href="#命令说明：" class="headerlink" title="命令说明："></a>命令说明：</h4><p>–zone #作用域</p>
+<p>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议</p>
+<p>–permanent   #永久生效，没有此参数重启后失效</p>
+<h3 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭一个端口"><a href="#永久关闭一个端口" class="headerlink" title="永久关闭一个端口"></a>永久关闭一个端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br></pre></td></tr></table></figure>
+<h3 id="永久打开某项服务："><a href="#永久打开某项服务：" class="headerlink" title="永久打开某项服务："></a>永久打开某项服务：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭某项服务"><a href="#永久关闭某项服务" class="headerlink" title="永久关闭某项服务"></a>永久关闭某项服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="进行端口转发"><a href="#进行端口转发" class="headerlink" title="进行端口转发"></a>进行端口转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080:toaddr=192.0.2.55</span><br></pre></td></tr></table></figure>
+<h3 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld 或者 firewall-cmd –state</span><br></pre></td></tr></table></figure>
+<h3 id="停止防火墙服务"><a href="#停止防火墙服务" class="headerlink" title="停止防火墙服务"></a>停止防火墙服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="关闭放火墙"><a href="#关闭放火墙" class="headerlink" title="关闭放火墙"></a>关闭放火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-447-Number-of-Boomerangs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/06/leetcode-447-Number-of-Boomerangs/" class="article-date">
+  	<time datetime="2017-01-06T08:07:31.000Z" itemprop="datePublished">2017-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/leetcode-447-Number-of-Boomerangs/">leetcode-447-Number-of-Boomerangs</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-vim常用操作" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -375,187 +570,9 @@
 
 
   
-    <article id="post-KMP算法详解及java实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/04/KMP算法详解及java实现/" class="article-date">
-  	<time datetime="2017-01-04T12:47:56.000Z" itemprop="datePublished">2017-01-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/04/KMP算法详解及java实现/">KMP算法详解及java实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux配置ftp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/02/linux配置ftp/" class="article-date">
-  	<time datetime="2017-01-02T14:09:52.000Z" itemprop="datePublished">2017-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/linux配置ftp/">linux配置ftp</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>文件传输协议（File Transfer Protocol，缩写：FTP）是TCP/IP协议组中的协议之一。它属于网络传输协议的<br>应用层。FTP服务一般运行在20和21两个端口。端口20用于在客户端和服务器之间传输数据流，而端口21用于传<br>输控制流，并且是命令通向ftp服务器的进口。</p>
-<h2 id="查看是否安装"><a href="#查看是否安装" class="headerlink" title="查看是否安装"></a>查看是否安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -q vsftpd</span><br></pre></td></tr></table></figure>
-<h2 id="安装vsftp"><a href="#安装vsftp" class="headerlink" title="安装vsftp"></a>安装vsftp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd -y       <span class="comment">#(Redhat/CentOS)</span></span><br><span class="line">apt-get install vsftpd -y   <span class="comment">#(Ubuntu/Debian)</span></span><br><span class="line"></span><br><span class="line">systemctl <span class="built_in">enable</span> vsftpd     <span class="comment">#设置开机启动</span></span><br><span class="line">systemctl start vsftpd</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装完默认情况下是开启匿名登录的，对应的是 /var/ftp 目录，这时只要服务启动了，就可以直接连上<br>FTP了。</p>
-<p>然而，一般情况下我们都是按分配的用户去访问各自的目录，vsftpd的用户分为系统用户和虚拟用户，系统用<br>户也就是系统实际存在的Linux用户，而虚拟用户则是存在于配置文件里面的。系统用户方式比较简单，创建系<br>统用户，确保用户能对FTP目录进行读写就可以了。<br>以下是创建普通Linux用户，详见 useradd 命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># useradd -g root -M -d /var/www/html -s /sbin/nologin ftpuser</span></span><br><span class="line">[root@localhost ~]<span class="comment"># passwd ftpuser</span></span><br><span class="line">[root@localhost ~]<span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
-<p>把 /var/www/html 的所有权给ftpuser.root</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># chown -R ftpuser.root /var/www/html</span></span><br></pre></td></tr></table></figure>
-<p>这样就可以通过ftpuser用户连接FTP了。至于虚拟用户需要做的步骤就比较多了。</p>
-<h3 id="防火墙添加FTP服务"><a href="#防火墙添加FTP服务" class="headerlink" title="防火墙添加FTP服务"></a>防火墙添加FTP服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost vsftpd]<span class="comment"># firewall-cmd --permanent --zone=public --add-service=ftp</span></span><br><span class="line">[root@localhost vsftpd]<span class="comment"># firewall-cmd --reload</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-elasticsearch的相关操作-python" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/28/elasticsearch的相关操作-python/" class="article-date">
-  	<time datetime="2016-12-28T02:30:04.000Z" itemprop="datePublished">2016-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/28/elasticsearch的相关操作-python/">elasticsearch的相关操作-python</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elasticsearch/">elasticsearch</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

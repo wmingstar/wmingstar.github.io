@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -198,6 +198,309 @@
 
       <div class="body-wrap">
   
+    <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-防火墙开放指定端口/" class="article-date">
+  	<time datetime="2017-01-15T00:49:02.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-防火墙开放指定端口/">linux-防火墙开放指定端口</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，使用firewalld代替了原来的iptables。<br>firewalld是centos7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火<br>墙的“zone”概念。</p>
+<h2 id="firewalld-常用命令"><a href="#firewalld-常用命令" class="headerlink" title="firewalld 常用命令"></a>firewalld 常用命令</h2><h3 id="永久开启端口"><a href="#永久开启端口" class="headerlink" title="永久开启端口"></a>永久开启端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h4 id="命令说明："><a href="#命令说明：" class="headerlink" title="命令说明："></a>命令说明：</h4><p>–zone #作用域</p>
+<p>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议</p>
+<p>–permanent   #永久生效，没有此参数重启后失效</p>
+<h3 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭一个端口"><a href="#永久关闭一个端口" class="headerlink" title="永久关闭一个端口"></a>永久关闭一个端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br></pre></td></tr></table></figure>
+<h3 id="永久打开某项服务："><a href="#永久打开某项服务：" class="headerlink" title="永久打开某项服务："></a>永久打开某项服务：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭某项服务"><a href="#永久关闭某项服务" class="headerlink" title="永久关闭某项服务"></a>永久关闭某项服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="进行端口转发"><a href="#进行端口转发" class="headerlink" title="进行端口转发"></a>进行端口转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080:toaddr=192.0.2.55</span><br></pre></td></tr></table></figure>
+<h3 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld 或者 firewall-cmd –state</span><br></pre></td></tr></table></figure>
+<h3 id="停止防火墙服务"><a href="#停止防火墙服务" class="headerlink" title="停止防火墙服务"></a>停止防火墙服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="关闭放火墙"><a href="#关闭放火墙" class="headerlink" title="关闭放火墙"></a>关闭放火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-447-Number-of-Boomerangs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/06/leetcode-447-Number-of-Boomerangs/" class="article-date">
+  	<time datetime="2017-01-06T08:07:31.000Z" itemprop="datePublished">2017-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/leetcode-447-Number-of-Boomerangs/">leetcode-447-Number-of-Boomerangs</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-vim常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/05/vim常用操作/" class="article-date">
+  	<time datetime="2017-01-05T13:55:35.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/vim常用操作/">vim常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">O   <span class="comment">#开启新的一行</span></span><br><span class="line">^   <span class="comment">#行的开始</span></span><br><span class="line">$   <span class="comment">#行的结尾</span></span><br><span class="line">gg   <span class="comment">#文档的第一行</span></span><br><span class="line">[N]G  <span class="comment">#文档的第N行或者最后一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i  <span class="comment">#插入到光标前面</span></span><br><span class="line">I  <span class="comment">#插入到行的开始位置</span></span><br><span class="line">a  <span class="comment">#插入到光标的后面</span></span><br><span class="line">A  <span class="comment">#插入到行的最后位置</span></span><br><span class="line">o, O  <span class="comment">#新开一行</span></span><br><span class="line">Esc  <span class="comment">#关闭插入模式</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">r    <span class="comment">#在插入模式替换光标所在的一个字符</span></span><br><span class="line">J    <span class="comment">#合并下一行到上一行</span></span><br><span class="line">s    <span class="comment">#删除光标所在的一个字符, 光标还在当行</span></span><br><span class="line">S    <span class="comment">#删除光标所在的一行，光标还在当行，不同于dd</span></span><br><span class="line">u    <span class="comment">#撤销上一步操作</span></span><br><span class="line">ctrl+r  <span class="comment">#恢复上一步操作</span></span><br><span class="line">.    <span class="comment">#重复最后一个命令</span></span><br><span class="line">~    <span class="comment">#变换为大写</span></span><br><span class="line">[N]&gt;&gt; 一行或N行往右移动一个tab</span><br><span class="line">[N]&lt;&lt; 一行或N行往左移动一个tab</span><br></pre></td></tr></table></figure>
+<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:w   <span class="comment">#保存</span></span><br><span class="line">:wq  <span class="comment">#保存并关闭</span></span><br><span class="line">:q   <span class="comment">#关闭（已保存）</span></span><br><span class="line">:q!  <span class="comment">#强制关闭</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/pattern     <span class="comment">#搜索（非插入模式)</span></span><br><span class="line">?pattern     <span class="comment">#往后搜索</span></span><br><span class="line">n            <span class="comment">#光标到达搜索结果的前一个目标</span></span><br><span class="line">N            <span class="comment">#光标到达搜索结果的后一个目标</span></span><br></pre></td></tr></table></figure>
+<h3 id="视觉模式"><a href="#视觉模式" class="headerlink" title="视觉模式"></a>视觉模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v  <span class="comment">#选中一个或多个字符</span></span><br><span class="line">V  <span class="comment">#选中一行</span></span><br></pre></td></tr></table></figure>
+<h3 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd    <span class="comment">#删除一行</span></span><br><span class="line">dw    <span class="comment">#删除一个单词</span></span><br><span class="line">x     <span class="comment">#删除后一个字符</span></span><br><span class="line">X     <span class="comment">#删除前一个字符</span></span><br><span class="line">D     <span class="comment">#删除一行最后一个字符</span></span><br><span class="line">[N]yy <span class="comment">#复制一行或者N行</span></span><br><span class="line">yw    <span class="comment">#复制一个单词</span></span><br><span class="line">p     <span class="comment">#粘贴</span></span><br></pre></td></tr></table></figure>
+<h3 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:split   <span class="comment">#水平方向分割出一个窗口</span></span><br><span class="line">:vsplit  <span class="comment">#垂直方向分割出一个窗口</span></span><br><span class="line">:close   <span class="comment">#关闭窗口</span></span><br><span class="line">Ctrl+W   <span class="comment">#切换窗口, h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-redis基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/05/redis基本操作/" class="article-date">
+  	<time datetime="2017-01-05T13:00:51.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/redis基本操作/">redis基本操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="移除给定的一个或多个key"><a href="#移除给定的一个或多个key" class="headerlink" title="移除给定的一个或多个key"></a>移除给定的一个或多个key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEL key [key ...]</span><br></pre></td></tr></table></figure>
+<h3 id="查找符合给定模式的key"><a href="#查找符合给定模式的key" class="headerlink" title="查找符合给定模式的key"></a>查找符合给定模式的key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYS pattern</span><br><span class="line"></span><br><span class="line">KEYS *  <span class="comment">#命中数据库中所有key</span></span><br><span class="line">KEYS h?llo  <span class="comment">#命中hello， hallo and hxllo等</span></span><br><span class="line">KEYS h*llo  <span class="comment">#命中hllo和heeeeello等。</span></span><br><span class="line">KEYS h[ae]llo <span class="comment">#命中hello和hallo，但不命中hillo。</span></span><br></pre></td></tr></table></figure>
+<h3 id="返回给定key的剩余生存时间-time-to-live-以秒为单位"><a href="#返回给定key的剩余生存时间-time-to-live-以秒为单位" class="headerlink" title="返回给定key的剩余生存时间(time to live)(以秒为单位)"></a>返回给定key的剩余生存时间(time to live)(以秒为单位)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TTL</span><br><span class="line">TTL key</span><br></pre></td></tr></table></figure>
+<h3 id="检查给定key是否存在"><a href="#检查给定key是否存在" class="headerlink" title="检查给定key是否存在"></a>检查给定key是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXISTS</span><br><span class="line">EXISTS key</span><br></pre></td></tr></table></figure>
+<h3 id="将key改名为newkey"><a href="#将key改名为newkey" class="headerlink" title="将key改名为newkey"></a>将key改名为newkey</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RENAME key newkey</span><br><span class="line"><span class="comment">#当key和newkey相同或者key不存在时，返回一个错误。</span></span><br><span class="line"><span class="comment">#当newkey已经存在时，RENAME命令将覆盖旧值。</span></span><br></pre></td></tr></table></figure>
+<h3 id="为给定key设置生存时间"><a href="#为给定key设置生存时间" class="headerlink" title="为给定key设置生存时间"></a>为给定key设置生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EXPIRE key seconds</span><br><span class="line"><span class="comment">#当key过期时，它会被自动删除。</span></span><br><span class="line"><span class="comment">#在Redis中，带有生存时间的key被称作“易失的”(volatile)。</span></span><br></pre></td></tr></table></figure>
+<h3 id="移除给定key的生存时间"><a href="#移除给定key的生存时间" class="headerlink" title="移除给定key的生存时间"></a>移除给定key的生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PERSIST key</span><br></pre></td></tr></table></figure>
+<h3 id="对key中的元素进行排序"><a href="#对key中的元素进行排序" class="headerlink" title="对key中的元素进行排序"></a>对key中的元素进行排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SORT</span><br><span class="line">SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC | DESC] [ALPHA] [STORE destination]</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回或保存给定列表、集合、有序集合key中经过排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#排序默认以数字作为对象，值被解释为双精度浮点数，然后进行比较。</span></span><br></pre></td></tr></table></figure>
+<h3 id="SETNX-key-value"><a href="#SETNX-key-value" class="headerlink" title="SETNX key value"></a>SETNX key value</h3><p>将key的值设为value，当且仅当key不存在。<br>若给定的key已经存在，则SETNX不做任何动作。<br>SETNX是”SET if Not eXists”(如果不存在，则SET)的简写。</p>
+<h3 id="SETEX"><a href="#SETEX" class="headerlink" title="SETEX"></a>SETEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SETEX key seconds value</span><br></pre></td></tr></table></figure>
+<p>将值value关联到key，并将key的生存时间设为seconds(以秒为单位)。<br>如果key 已经存在，SETEX命令将覆写旧值。<br>这个命令类似于以下两个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET key value</span><br><span class="line">EXPIRE key seconds  <span class="comment"># 设置生存时间</span></span><br></pre></td></tr></table></figure>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET key<br>返回key所关联的字符串值。<br>如果key不存在则返回特殊值nil。</p>
+<h3 id="HSET-key-field-value"><a href="#HSET-key-field-value" class="headerlink" title="HSET key field value"></a>HSET key field value</h3><p>将哈希表key中的域field的值设为value。<br>如果key不存在，一个新的哈希表被创建并进行HSET操作。<br>如果域field已经存在于哈希表中，旧值将被覆盖。</p>
+<h3 id="HSETNX-key-field-value"><a href="#HSETNX-key-field-value" class="headerlink" title="HSETNX key field value"></a>HSETNX key field value</h3><p>将哈希表key中的域field的值设置为value，当且仅当域field不存在。<br>若域field已经存在，该操作无效。<br>如果key不存在，一个新哈希表被创建并执行HSETNX命令。</p>
+<h3 id="HGET-key-field"><a href="#HGET-key-field" class="headerlink" title="HGET key field"></a>HGET key field</h3><p>返回哈希表key中给定域field的值。</p>
+<h3 id="HGETALL-key"><a href="#HGETALL-key" class="headerlink" title="HGETALL key"></a>HGETALL key</h3><p>返回哈希表key中，所有的域和值。<br>在返回值里，紧跟每个域名(field name)之后是域的值(value)，所以返回值的长度是哈希表大小的两倍。</p>
+<h3 id="HDEL-key-field-field-…"><a href="#HDEL-key-field-field-…" class="headerlink" title="HDEL key field [field …]"></a>HDEL key field [field …]</h3><p>删除哈希表key中的一个或多个指定域，不存在的域将被忽略。</p>
+<h3 id="HLEN-key"><a href="#HLEN-key" class="headerlink" title="HLEN key"></a>HLEN key</h3><p>返回哈希表key中域的数量。</p>
+<h3 id="HKEYS"><a href="#HKEYS" class="headerlink" title="HKEYS"></a>HKEYS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEYS key</span><br><span class="line"><span class="comment">#返回哈希表key中的所有域。</span></span><br></pre></td></tr></table></figure>
+<h3 id="HVALS"><a href="#HVALS" class="headerlink" title="HVALS"></a>HVALS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HVALS key</span><br><span class="line">返回哈希表key中的所有值。</span><br></pre></td></tr></table></figure>
+<h3 id="LPUSH"><a href="#LPUSH" class="headerlink" title="LPUSH"></a>LPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
+<p>将一个或多个值value插入到列表key的表头。<br>如果有多个value值，那么各个value值按从左到右的顺序依次插入到表头：比如对一个空列表(mylist)执行<br>LPUSH mylist a b c，则结果列表为c b a，等同于执行执行命令LPUSH mylist a、LPUSH mylist b、<br>LPUSH mylist c。</p>
+<p>如果key不存在，一个空列表会被创建并执行LPUSH操作。</p>
+<p>当key存在但不是列表类型时，返回一个错误。</p>
+<h3 id="LPUSHX"><a href="#LPUSHX" class="headerlink" title="LPUSHX"></a>LPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSHX key value</span><br></pre></td></tr></table></figure>
+<p>将值value插入到列表key的表头，当且仅当key存在并且是一个列表。<br>和LPUSH命令相反，当key不存在时，LPUSHX命令什么也不做。</p>
+<h3 id="RPUSH"><a href="#RPUSH" class="headerlink" title="RPUSH"></a>RPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
+<p>将一个或多个值value插入到列表key的表尾。</p>
+<h3 id="RPUSHX"><a href="#RPUSHX" class="headerlink" title="RPUSHX"></a>RPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSHX key value</span><br></pre></td></tr></table></figure>
+<p>将值value插入到列表key的表尾，当且仅当key存在并且是一个列表。<br>和RPUSH命令相反，当key不存在时，RPUSHX命令什么也不做。</p>
+<h3 id="LPOP"><a href="#LPOP" class="headerlink" title="LPOP"></a>LPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的头元素。</span></span><br></pre></td></tr></table></figure>
+<h3 id="RPOP"><a href="#RPOP" class="headerlink" title="RPOP"></a>RPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的尾元素。</span></span><br></pre></td></tr></table></figure>
+<h3 id="BLPOP"><a href="#BLPOP" class="headerlink" title="BLPOP"></a>BLPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BLPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
+<p>BLPOP是列表的阻塞式(blocking)弹出原语。<br>它是LPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BLPOP命令阻塞，直到等待超<br>时或发现可弹出元素为止。<br>超时参数timeout接受一个以秒为单位的数字作为值。超时参数设为0表示阻塞时间可以无限期延长(block<br>indefinitely) 。</p>
+<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的头元素。</p>
+<p>当BLPOP被调用时，如果给定key内至少有一个非空列表，那么弹出遇到的第一个非空列表的头元素，并和被弹<br>出元素所属的列表的名字一起，组成结果返回给调用者。</p>
+<p>当存在多个给定key时，BLPOP按给定key参数排列的先后顺序，依次检查各个列表。</p>
+<p>假设现在有job、<br>command和request三个列表，其中job不存在，command和request都持有非空列表。考虑以下命令：</p>
+<p>BLPOP job command request 0</p>
+<p>BLPOP保证返回的元素来自command，因为它是按”查找job -&gt; 查找command -&gt;<br>查找request“这样的顺序，第一个找到的非空列表。</p>
+<h3 id="BRPOP"><a href="#BRPOP" class="headerlink" title="BRPOP"></a>BRPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BRPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
+<p>BRPOP是列表的阻塞式(blocking)弹出原语。</p>
+<p>它是RPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BRPOP命令阻塞，直到等待超时或发现可弹出元素为止。</p>
+<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的尾部元素。</p>
+<p>关于阻塞操作的更多信息，请查看BLPOP命令，BRPOP除了弹出元素的位置和BLPOP不同之外，其他表现一致。</p>
+<h3 id="LLEN"><a href="#LLEN" class="headerlink" title="LLEN"></a>LLEN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LLEN key</span><br><span class="line"><span class="comment">#返回列表key的长度。</span></span><br><span class="line"><span class="comment">#如果key不存在，则key被解释为一个空列表，返回0.</span></span><br><span class="line"><span class="comment">#如果key不是列表类型，返回一个错误。</span></span><br></pre></td></tr></table></figure>
+<h3 id="LRANGE"><a href="#LRANGE" class="headerlink" title="LRANGE"></a>LRANGE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LRANGE key start stop</span><br></pre></td></tr></table></figure>
+<p>返回列表key中指定区间内的元素，区间以偏移量start和stop指定。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。</p>
+<p>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。</p>
+<h3 id="LREM"><a href="#LREM" class="headerlink" title="LREM"></a>LREM</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LREM key count value</span><br></pre></td></tr></table></figure>
+<p>根据参数count的值，移除列表中与参数value相等的元素。</p>
+<p>count的值可以是以下几种：<br>count &gt; 0: 从表头开始向表尾搜索，移除与value相等的元素，数量为count。<br>count &lt; 0: 从表尾开始向表头搜索，移除与value相等的元素，数量为count的绝对值。<br>count = 0: 移除表中所有与value相等的值。</p>
+<h3 id="LSET"><a href="#LSET" class="headerlink" title="LSET"></a>LSET</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LSET key index value</span><br></pre></td></tr></table></figure>
+<p>将列表key下标为index的元素的值设至为value。<br>更多信息请参考LINDEX操作。<br>当index参数超出范围，或对一个空列表(key不存在)进行LSET时，返回一个错误。</p>
+<h3 id="LINDEX"><a href="#LINDEX" class="headerlink" title="LINDEX"></a>LINDEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LINDEX key index</span><br></pre></td></tr></table></figure>
+<p>返回列表key中，下标为index的元素。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。<br>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。<br>如果key不是列表类型，返回一个错误。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-KMP算法详解及java实现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -254,248 +557,9 @@
 
 
   
-    <article id="post-linux配置ftp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/02/linux配置ftp/" class="article-date">
-  	<time datetime="2017-01-02T14:09:52.000Z" itemprop="datePublished">2017-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/linux配置ftp/">linux配置ftp</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>文件传输协议（File Transfer Protocol，缩写：FTP）是TCP/IP协议组中的协议之一。它属于网络传输协议的<br>应用层。FTP服务一般运行在20和21两个端口。端口20用于在客户端和服务器之间传输数据流，而端口21用于传<br>输控制流，并且是命令通向ftp服务器的进口。</p>
-<h2 id="查看是否安装"><a href="#查看是否安装" class="headerlink" title="查看是否安装"></a>查看是否安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -q vsftpd</span><br></pre></td></tr></table></figure>
-<h2 id="安装vsftp"><a href="#安装vsftp" class="headerlink" title="安装vsftp"></a>安装vsftp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd -y       <span class="comment">#(Redhat/CentOS)</span></span><br><span class="line">apt-get install vsftpd -y   <span class="comment">#(Ubuntu/Debian)</span></span><br><span class="line"></span><br><span class="line">systemctl <span class="built_in">enable</span> vsftpd     <span class="comment">#设置开机启动</span></span><br><span class="line">systemctl start vsftpd</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装完默认情况下是开启匿名登录的，对应的是 /var/ftp 目录，这时只要服务启动了，就可以直接连上<br>FTP了。</p>
-<p>然而，一般情况下我们都是按分配的用户去访问各自的目录，vsftpd的用户分为系统用户和虚拟用户，系统用<br>户也就是系统实际存在的Linux用户，而虚拟用户则是存在于配置文件里面的。系统用户方式比较简单，创建系<br>统用户，确保用户能对FTP目录进行读写就可以了。<br>以下是创建普通Linux用户，详见 useradd 命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># useradd -g root -M -d /var/www/html -s /sbin/nologin ftpuser</span></span><br><span class="line">[root@localhost ~]<span class="comment"># passwd ftpuser</span></span><br><span class="line">[root@localhost ~]<span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
-<p>把 /var/www/html 的所有权给ftpuser.root</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># chown -R ftpuser.root /var/www/html</span></span><br></pre></td></tr></table></figure>
-<p>这样就可以通过ftpuser用户连接FTP了。至于虚拟用户需要做的步骤就比较多了。</p>
-<h3 id="防火墙添加FTP服务"><a href="#防火墙添加FTP服务" class="headerlink" title="防火墙添加FTP服务"></a>防火墙添加FTP服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost vsftpd]<span class="comment"># firewall-cmd --permanent --zone=public --add-service=ftp</span></span><br><span class="line">[root@localhost vsftpd]<span class="comment"># firewall-cmd --reload</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-elasticsearch的相关操作-python" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/28/elasticsearch的相关操作-python/" class="article-date">
-  	<time datetime="2016-12-28T02:30:04.000Z" itemprop="datePublished">2016-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/28/elasticsearch的相关操作-python/">elasticsearch的相关操作-python</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elasticsearch/">elasticsearch</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-字典排序" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/27/字典排序/" class="article-date">
-  	<time datetime="2016-12-27T05:49:36.000Z" itemprop="datePublished">2016-12-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/27/字典排序/">字典排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python字典（dict）无序的,可以用下列方法对字典进行排序。</p>
-<h3 id="按字典的值（value）排序"><a href="#按字典的值（value）排序" class="headerlink" title="按字典的值（value）排序"></a>按字典的值（value）排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"> </span><br><span class="line"><span class="comment">#输出结果：</span></span><br><span class="line">[(<span class="string">'aa'</span>, 74), (<span class="string">'a'</span>, 31), (<span class="string">'bc'</span>, 5), (<span class="string">'asd'</span>, 4), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
-<p>dic.iteritems()方法，得到[(键，值)]的列表。<br>sorted方法，用key这个参数，指定按照字典的value进行排序，也就是第一个元素d[1]的值。reverse = True,表示是需要翻转的，默认是从小到大，翻转的话，那就是从大到小。</p>
-<h4 id="按字典键（key）排序："><a href="#按字典键（key）排序：" class="headerlink" title="按字典键（key）排序："></a>按字典键（key）排序：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[0])    <span class="comment">#d[0]表示字典的键</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[(<span class="string">'a'</span>, 31), (<span class="string">'aa'</span>, 74), (<span class="string">'asd'</span>, 4), (<span class="string">'bc'</span>, 5), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ptthon/">ptthon</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-大话数据结构目录结构" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/25/大话数据结构目录结构/" class="article-date">
-  	<time datetime="2016-12-25T12:12:45.000Z" itemprop="datePublished">2016-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/25/大话数据结构目录结构/">大话数据结构目录结构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第1章数据结构绪论"><a href="#第1章数据结构绪论" class="headerlink" title="第1章数据结构绪论"></a>第1章数据结构绪论</h2><h3 id="1-1开场白"><a href="#1-1开场白" class="headerlink" title="1.1开场白"></a>1.1开场白</h3><h3 id="1-2你数据结构怎么学的？"><a href="#1-2你数据结构怎么学的？" class="headerlink" title="1.2你数据结构怎么学的？"></a>1.2你数据结构怎么学的？</h3><h3 id="1-3数据结构起源"><a href="#1-3数据结构起源" class="headerlink" title="1.3数据结构起源"></a>1.3数据结构起源</h3><h3 id="1-4基本概念和术语"><a href="#1-4基本概念和术语" class="headerlink" title="1.4基本概念和术语"></a>1.4基本概念和术语</h3><h4 id="1-4-1数据"><a href="#1-4-1数据" class="headerlink" title="1.4.1数据"></a>1.4.1数据</h4><h4 id="1-4-2数据元素"><a href="#1-4-2数据元素" class="headerlink" title="1.4.2数据元素"></a>1.4.2数据元素</h4><h4 id="1-4-3数据项"><a href="#1-4-3数据项" class="headerlink" title="1.4.3数据项"></a>1.4.3数据项</h4><h4 id="1-4-4数据对象"><a href="#1-4-4数据对象" class="headerlink" title="1.4.4数据对象"></a>1.4.4数据对象</h4><h4 id="1-4-5数据结构"><a href="#1-4-5数据结构" class="headerlink" title="1.4.5数据结构"></a>1.4.5数据结构</h4><h3 id="1-5逻辑结构与物理结构"><a href="#1-5逻辑结构与物理结构" class="headerlink" title="1.5逻辑结构与物理结构"></a>1.5逻辑结构与物理结构</h3><h4 id="1-5-1逻辑结构"><a href="#1-5-1逻辑结构" class="headerlink" title="1.5.1逻辑结构"></a>1.5.1逻辑结构</h4><h4 id="1-5-2物理结构"><a href="#1-5-2物理结构" class="headerlink" title="1.5.2物理结构"></a>1.5.2物理结构</h4><h3 id="1-6抽象数据类型"><a href="#1-6抽象数据类型" class="headerlink" title="1.6抽象数据类型"></a>1.6抽象数据类型</h3><h4 id="1-6-1数据类型"><a href="#1-6-1数据类型" class="headerlink" title="1.6.1数据类型"></a>1.6.1数据类型</h4><h4 id="1-6-2抽象数据类型-12"><a href="#1-6-2抽象数据类型-12" class="headerlink" title="1.6.2抽象数据类型 12"></a>1.6.2抽象数据类型 12</h4><h3 id="1-7总结回顾"><a href="#1-7总结回顾" class="headerlink" title="1.7总结回顾"></a>1.7总结回顾</h3><h3 id="1-8结尾语"><a href="#1-8结尾语" class="headerlink" title="1.8结尾语"></a>1.8结尾语</h3><h2 id="第2章算法"><a href="#第2章算法" class="headerlink" title="第2章算法"></a>第2章算法</h2><h3 id="2-1开场白"><a href="#2-1开场白" class="headerlink" title="2.1开场白"></a>2.1开场白</h3><h3 id="2-2数据结构与算法关系"><a href="#2-2数据结构与算法关系" class="headerlink" title="2.2数据结构与算法关系"></a>2.2数据结构与算法关系</h3><h3 id="2-3两种算法的比较"><a href="#2-3两种算法的比较" class="headerlink" title="2.3两种算法的比较"></a>2.3两种算法的比较</h3><h3 id="2-4算法定义"><a href="#2-4算法定义" class="headerlink" title="2.4算法定义"></a>2.4算法定义</h3><h3 id="2-5算法的特性"><a href="#2-5算法的特性" class="headerlink" title="2.5算法的特性"></a>2.5算法的特性</h3><h4 id="2-5-1输入输出"><a href="#2-5-1输入输出" class="headerlink" title="2.5.1输入输出"></a>2.5.1输入输出</h4><h4 id="2-5-2有穷性"><a href="#2-5-2有穷性" class="headerlink" title="2.5.2有穷性"></a>2.5.2有穷性</h4><h4 id="2-5-3确定性"><a href="#2-5-3确定性" class="headerlink" title="2.5.3确定性"></a>2.5.3确定性</h4><h4 id="2-5-4可行性"><a href="#2-5-4可行性" class="headerlink" title="2.5.4可行性"></a>2.5.4可行性</h4><h3 id="2-6算法设计的要求"><a href="#2-6算法设计的要求" class="headerlink" title="2.6算法设计的要求"></a>2.6算法设计的要求</h3><h4 id="2-6-1正确性"><a href="#2-6-1正确性" class="headerlink" title="2.6.1正确性"></a>2.6.1正确性</h4><h4 id="2-6-2可读性"><a href="#2-6-2可读性" class="headerlink" title="2.6.2可读性"></a>2.6.2可读性</h4><h4 id="2-6-3健壮性"><a href="#2-6-3健壮性" class="headerlink" title="2.6.3健壮性"></a>2.6.3健壮性</h4><h4 id="2-6-4时间效率高和存储量低"><a href="#2-6-4时间效率高和存储量低" class="headerlink" title="2.6.4时间效率高和存储量低"></a>2.6.4时间效率高和存储量低</h4><h3 id="2-7算法效率的度量方法"><a href="#2-7算法效率的度量方法" class="headerlink" title="2.7算法效率的度量方法"></a>2.7算法效率的度量方法</h3><h4 id="2-7-1事后统计方法"><a href="#2-7-1事后统计方法" class="headerlink" title="2.7.1事后统计方法"></a>2.7.1事后统计方法</h4><h4 id="2-7-2事前分析估算方法"><a href="#2-7-2事前分析估算方法" class="headerlink" title="2.7.2事前分析估算方法"></a>2.7.2事前分析估算方法</h4><h3 id="2-8函数的渐近增长"><a href="#2-8函数的渐近增长" class="headerlink" title="2.8函数的渐近增长"></a>2.8函数的渐近增长</h3><h3 id="2-9算法时间复杂度"><a href="#2-9算法时间复杂度" class="headerlink" title="2.9算法时间复杂度"></a>2.9算法时间复杂度</h3><h4 id="2-9-1算法时间复杂度定义"><a href="#2-9-1算法时间复杂度定义" class="headerlink" title="2.9.1算法时间复杂度定义"></a>2.9.1算法时间复杂度定义</h4><h4 id="2-9-2推导大o阶方法"><a href="#2-9-2推导大o阶方法" class="headerlink" title="2.9.2推导大o阶方法"></a>2.9.2推导大o阶方法</h4><h4 id="2-9-3常数阶"><a href="#2-9-3常数阶" class="headerlink" title="2.9.3常数阶"></a>2.9.3常数阶</h4><h4 id="2-9-4线性阶"><a href="#2-9-4线性阶" class="headerlink" title="2.9.4线性阶"></a>2.9.4线性阶</h4><h4 id="2-9-5对数阶"><a href="#2-9-5对数阶" class="headerlink" title="2.9.5对数阶"></a>2.9.5对数阶</h4><h4 id="2-9-6平方阶"><a href="#2-9-6平方阶" class="headerlink" title="2.9.6平方阶"></a>2.9.6平方阶</h4><h3 id="2-10常见的时间复杂度"><a href="#2-10常见的时间复杂度" class="headerlink" title="2.10常见的时间复杂度"></a>2.10常见的时间复杂度</h3><h3 id="2-11最坏情况与平均情况"><a href="#2-11最坏情况与平均情况" class="headerlink" title="2.11最坏情况与平均情况"></a>2.11最坏情况与平均情况</h3><h3 id="2-12算法空间复杂度"><a href="#2-12算法空间复杂度" class="headerlink" title="2.12算法空间复杂度"></a>2.12算法空间复杂度</h3><h3 id="2-13总结回顾"><a href="#2-13总结回顾" class="headerlink" title="2.13总结回顾"></a>2.13总结回顾</h3><h3 id="2-14结尾语"><a href="#2-14结尾语" class="headerlink" title="2.14结尾语"></a>2.14结尾语</h3><h2 id="第3章线性表"><a href="#第3章线性表" class="headerlink" title="第3章线性表"></a>第3章线性表</h2><h3 id="3-1开场白"><a href="#3-1开场白" class="headerlink" title="3.1开场白"></a>3.1开场白</h3><h3 id="3-2线性表的定义"><a href="#3-2线性表的定义" class="headerlink" title="3.2线性表的定义"></a>3.2线性表的定义</h3><h3 id="3-3线性表的抽象数据类型"><a href="#3-3线性表的抽象数据类型" class="headerlink" title="3.3线性表的抽象数据类型"></a>3.3线性表的抽象数据类型</h3><h3 id="3-4线性表的顺序存储结构"><a href="#3-4线性表的顺序存储结构" class="headerlink" title="3.4线性表的顺序存储结构"></a>3.4线性表的顺序存储结构</h3><h4 id="3-4-1顺序存储定义"><a href="#3-4-1顺序存储定义" class="headerlink" title="3.4.1顺序存储定义"></a>3.4.1顺序存储定义</h4><h4 id="3-4-2顺序存储方式"><a href="#3-4-2顺序存储方式" class="headerlink" title="3.4.2顺序存储方式"></a>3.4.2顺序存储方式</h4><h4 id="3-4-3数据长度与线性表长度区别"><a href="#3-4-3数据长度与线性表长度区别" class="headerlink" title="3.4.3数据长度与线性表长度区别"></a>3.4.3数据长度与线性表长度区别</h4><h4 id="3-4-4地址计算方法"><a href="#3-4-4地址计算方法" class="headerlink" title="3.4.4地址计算方法"></a>3.4.4地址计算方法</h4><h3 id="3-5顺序存储结构的插入与删除"><a href="#3-5顺序存储结构的插入与删除" class="headerlink" title="3.5顺序存储结构的插入与删除"></a>3.5顺序存储结构的插入与删除</h3><h4 id="3-5-1获得元素操作"><a href="#3-5-1获得元素操作" class="headerlink" title="3.5.1获得元素操作"></a>3.5.1获得元素操作</h4><h4 id="3-5-2插入操作"><a href="#3-5-2插入操作" class="headerlink" title="3.5.2插入操作"></a>3.5.2插入操作</h4><p>####3.5.3删除操作</p>
-<h4 id="3-5-4线性表顺序存储结构的优缺点"><a href="#3-5-4线性表顺序存储结构的优缺点" class="headerlink" title="3.5.4线性表顺序存储结构的优缺点"></a>3.5.4线性表顺序存储结构的优缺点</h4><h3 id="3-6线性表的链式存储结构"><a href="#3-6线性表的链式存储结构" class="headerlink" title="3.6线性表的链式存储结构"></a>3.6线性表的链式存储结构</h3><h4 id="3-6-1顺序存储结构不足的解决办法"><a href="#3-6-1顺序存储结构不足的解决办法" class="headerlink" title="3.6.1顺序存储结构不足的解决办法"></a>3.6.1顺序存储结构不足的解决办法</h4><h4 id="3-6-2线性表链式存储结构定义"><a href="#3-6-2线性表链式存储结构定义" class="headerlink" title="3.6.2线性表链式存储结构定义"></a>3.6.2线性表链式存储结构定义</h4><h4 id="3-6-3头指针与头结点的异同"><a href="#3-6-3头指针与头结点的异同" class="headerlink" title="3.6.3头指针与头结点的异同"></a>3.6.3头指针与头结点的异同</h4><h4 id="3-6-4线性表链式存储结构代码描述"><a href="#3-6-4线性表链式存储结构代码描述" class="headerlink" title="3.6.4线性表链式存储结构代码描述"></a>3.6.4线性表链式存储结构代码描述</h4><h3 id="3-7单链表的读取"><a href="#3-7单链表的读取" class="headerlink" title="3.7单链表的读取"></a>3.7单链表的读取</h3><h3 id="3-8单链表的插入与删除"><a href="#3-8单链表的插入与删除" class="headerlink" title="3.8单链表的插入与删除"></a>3.8单链表的插入与删除</h3><h4 id="3-8-1单链表的插入"><a href="#3-8-1单链表的插入" class="headerlink" title="3.8.1单链表的插入"></a>3.8.1单链表的插入</h4><h4 id="3-8-2单链表的删除"><a href="#3-8-2单链表的删除" class="headerlink" title="3.8.2单链表的删除"></a>3.8.2单链表的删除</h4><h3 id="3-9单链表的整表创建"><a href="#3-9单链表的整表创建" class="headerlink" title="3.9单链表的整表创建"></a>3.9单链表的整表创建</h3><h3 id="3-10单链表的整表删除"><a href="#3-10单链表的整表删除" class="headerlink" title="3.10单链表的整表删除"></a>3.10单链表的整表删除</h3><h3 id="3-11单链表结构与顺序存储结构优缺点"><a href="#3-11单链表结构与顺序存储结构优缺点" class="headerlink" title="3.11单链表结构与顺序存储结构优缺点"></a>3.11单链表结构与顺序存储结构优缺点</h3><h3 id="3-12静态链表"><a href="#3-12静态链表" class="headerlink" title="3.12静态链表"></a>3.12静态链表</h3><h4 id="3-12-1静态链表的插入操作"><a href="#3-12-1静态链表的插入操作" class="headerlink" title="3.12.1静态链表的插入操作"></a>3.12.1静态链表的插入操作</h4><h4 id="3-12-2静态链表的删除操作"><a href="#3-12-2静态链表的删除操作" class="headerlink" title="3.12.2静态链表的删除操作"></a>3.12.2静态链表的删除操作</h4><h4 id="3-12-3静态链表优缺点"><a href="#3-12-3静态链表优缺点" class="headerlink" title="3.12.3静态链表优缺点"></a>3.12.3静态链表优缺点</h4><h3 id="3-13循环链表"><a href="#3-13循环链表" class="headerlink" title="3.13循环链表"></a>3.13循环链表</h3><h3 id="3-14双向链表"><a href="#3-14双向链表" class="headerlink" title="3.14双向链表"></a>3.14双向链表</h3><h3 id="3-15总结回顾"><a href="#3-15总结回顾" class="headerlink" title="3.15总结回顾"></a>3.15总结回顾</h3><h3 id="3-16结尾语"><a href="#3-16结尾语" class="headerlink" title="3.16结尾语"></a>3.16结尾语</h3><h2 id="第4章栈与队列"><a href="#第4章栈与队列" class="headerlink" title="第4章栈与队列"></a>第4章栈与队列</h2><h3 id="4-1开场白"><a href="#4-1开场白" class="headerlink" title="4.1开场白"></a>4.1开场白</h3><h3 id="4-2栈的定义"><a href="#4-2栈的定义" class="headerlink" title="4.2栈的定义"></a>4.2栈的定义</h3><h4 id="4-2-1栈的定义"><a href="#4-2-1栈的定义" class="headerlink" title="4.2.1栈的定义"></a>4.2.1栈的定义</h4><h4 id="4-2-2进栈出栈变化形式"><a href="#4-2-2进栈出栈变化形式" class="headerlink" title="4.2.2进栈出栈变化形式"></a>4.2.2进栈出栈变化形式</h4><h3 id="4-3栈的抽象数据类型"><a href="#4-3栈的抽象数据类型" class="headerlink" title="4.3栈的抽象数据类型"></a>4.3栈的抽象数据类型</h3><h3 id="4-4栈的顺序存储结构及实现"><a href="#4-4栈的顺序存储结构及实现" class="headerlink" title="4.4栈的顺序存储结构及实现"></a>4.4栈的顺序存储结构及实现</h3><h4 id="4-4-1栈的顺序存储结构"><a href="#4-4-1栈的顺序存储结构" class="headerlink" title="4.4.1栈的顺序存储结构"></a>4.4.1栈的顺序存储结构</h4><h4 id="4-4-2栈的顺序存储结构进栈操作"><a href="#4-4-2栈的顺序存储结构进栈操作" class="headerlink" title="4.4.2栈的顺序存储结构进栈操作"></a>4.4.2栈的顺序存储结构进栈操作</h4><h4 id="4-4-3栈的顺序存储结构出栈操作"><a href="#4-4-3栈的顺序存储结构出栈操作" class="headerlink" title="4.4.3栈的顺序存储结构出栈操作"></a>4.4.3栈的顺序存储结构出栈操作</h4><h3 id="4-5两栈共享空间"><a href="#4-5两栈共享空间" class="headerlink" title="4.5两栈共享空间"></a>4.5两栈共享空间</h3><h3 id="4-6栈的链式存储结构及实现"><a href="#4-6栈的链式存储结构及实现" class="headerlink" title="4.6栈的链式存储结构及实现"></a>4.6栈的链式存储结构及实现</h3><h4 id="4-6-1栈的链式存储结构"><a href="#4-6-1栈的链式存储结构" class="headerlink" title="4.6.1栈的链式存储结构"></a>4.6.1栈的链式存储结构</h4><h4 id="4-6-2栈的链式存储结构进栈操作"><a href="#4-6-2栈的链式存储结构进栈操作" class="headerlink" title="4.6.2栈的链式存储结构进栈操作"></a>4.6.2栈的链式存储结构进栈操作</h4><h4 id="4-6-3栈的链式存储结构出栈操作"><a href="#4-6-3栈的链式存储结构出栈操作" class="headerlink" title="4.6.3栈的链式存储结构出栈操作"></a>4.6.3栈的链式存储结构出栈操作</h4><h3 id="4-7栈的作用"><a href="#4-7栈的作用" class="headerlink" title="4.7栈的作用"></a>4.7栈的作用</h3><h3 id="4-8栈的应用——递归"><a href="#4-8栈的应用——递归" class="headerlink" title="4.8栈的应用——递归"></a>4.8栈的应用——递归</h3><h4 id="4-8-1斐波那契数列实现"><a href="#4-8-1斐波那契数列实现" class="headerlink" title="4.8.1斐波那契数列实现"></a>4.8.1斐波那契数列实现</h4><h4 id="4-8-2递归定义"><a href="#4-8-2递归定义" class="headerlink" title="4.8.2递归定义"></a>4.8.2递归定义</h4><h3 id="4-9栈的应用——四则运算表达式求值"><a href="#4-9栈的应用——四则运算表达式求值" class="headerlink" title="4.9栈的应用——四则运算表达式求值"></a>4.9栈的应用——四则运算表达式求值</h3><h4 id="4-9-1后缀（逆波兰）表示法定义"><a href="#4-9-1后缀（逆波兰）表示法定义" class="headerlink" title="4.9.1后缀（逆波兰）表示法定义"></a>4.9.1后缀（逆波兰）表示法定义</h4><h4 id="4-9-2后缀表达式计算结果"><a href="#4-9-2后缀表达式计算结果" class="headerlink" title="4.9.2后缀表达式计算结果"></a>4.9.2后缀表达式计算结果</h4><h4 id="4-9-3中缀表达式转后缀表达式"><a href="#4-9-3中缀表达式转后缀表达式" class="headerlink" title="4.9.3中缀表达式转后缀表达式"></a>4.9.3中缀表达式转后缀表达式</h4><h3 id="4-10队列的定义"><a href="#4-10队列的定义" class="headerlink" title="4.10队列的定义"></a>4.10队列的定义</h3><h3 id="4-11队列的抽象数据类型"><a href="#4-11队列的抽象数据类型" class="headerlink" title="4.11队列的抽象数据类型"></a>4.11队列的抽象数据类型</h3><h3 id="4-12循环队列"><a href="#4-12循环队列" class="headerlink" title="4.12循环队列"></a>4.12循环队列</h3><h4 id="4-12-1队列顺序存储的不足"><a href="#4-12-1队列顺序存储的不足" class="headerlink" title="4.12.1队列顺序存储的不足"></a>4.12.1队列顺序存储的不足</h4><h4 id="4-12-2循环队列定义"><a href="#4-12-2循环队列定义" class="headerlink" title="4.12.2循环队列定义"></a>4.12.2循环队列定义</h4><h4 id="4-13队列的链式存储结构及实现"><a href="#4-13队列的链式存储结构及实现" class="headerlink" title="4.13队列的链式存储结构及实现"></a>4.13队列的链式存储结构及实现</h4><h4 id="4-13-1队列链式存储结构入队操作"><a href="#4-13-1队列链式存储结构入队操作" class="headerlink" title="4.13.1队列链式存储结构入队操作"></a>4.13.1队列链式存储结构入队操作</h4><h4 id="4-13-2队列链式存储结构出队操作-119"><a href="#4-13-2队列链式存储结构出队操作-119" class="headerlink" title="4.13.2队列链式存储结构出队操作 119"></a>4.13.2队列链式存储结构出队操作 119</h4><h3 id="4-14总结回顾"><a href="#4-14总结回顾" class="headerlink" title="4.14总结回顾"></a>4.14总结回顾</h3><h3 id="4-15结尾语"><a href="#4-15结尾语" class="headerlink" title="4.15结尾语"></a>4.15结尾语</h3><h2 id="第5章串"><a href="#第5章串" class="headerlink" title="第5章串"></a>第5章串</h2><h3 id="5-1开场白"><a href="#5-1开场白" class="headerlink" title="5.1开场白"></a>5.1开场白</h3><h3 id="5-2串的定义"><a href="#5-2串的定义" class="headerlink" title="5.2串的定义"></a>5.2串的定义</h3><h3 id="5-3串的比较"><a href="#5-3串的比较" class="headerlink" title="5.3串的比较"></a>5.3串的比较</h3><h3 id="5-4串的抽象数据类型"><a href="#5-4串的抽象数据类型" class="headerlink" title="5.4串的抽象数据类型"></a>5.4串的抽象数据类型</h3><h3 id="5-5串的存储结构"><a href="#5-5串的存储结构" class="headerlink" title="5.5串的存储结构"></a>5.5串的存储结构</h3><h4 id="5-5-1串的顺序存储结构"><a href="#5-5-1串的顺序存储结构" class="headerlink" title="5.5.1串的顺序存储结构"></a>5.5.1串的顺序存储结构</h4><h4 id="5-5-2串的链式存储结构"><a href="#5-5-2串的链式存储结构" class="headerlink" title="5.5.2串的链式存储结构"></a>5.5.2串的链式存储结构</h4><h3 id="5-6朴素的模式匹配算法"><a href="#5-6朴素的模式匹配算法" class="headerlink" title="5.6朴素的模式匹配算法"></a>5.6朴素的模式匹配算法</h3><h3 id="5-7kmp模式匹配算法"><a href="#5-7kmp模式匹配算法" class="headerlink" title="5.7kmp模式匹配算法"></a>5.7kmp模式匹配算法</h3><h4 id="5-7-1kmp模式匹配算法原理"><a href="#5-7-1kmp模式匹配算法原理" class="headerlink" title="5.7.1kmp模式匹配算法原理"></a>5.7.1kmp模式匹配算法原理</h4><h4 id="5-7-2next数组值推导"><a href="#5-7-2next数组值推导" class="headerlink" title="5.7.2next数组值推导"></a>5.7.2next数组值推导</h4><h4 id="5-7-3kmp模式匹配算法实现"><a href="#5-7-3kmp模式匹配算法实现" class="headerlink" title="5.7.3kmp模式匹配算法实现"></a>5.7.3kmp模式匹配算法实现</h4><h4 id="5-7-4kmp模式匹配算法改进"><a href="#5-7-4kmp模式匹配算法改进" class="headerlink" title="5.7.4kmp模式匹配算法改进"></a>5.7.4kmp模式匹配算法改进</h4><h4 id="5-7-5nextval数组值推导"><a href="#5-7-5nextval数组值推导" class="headerlink" title="5.7.5nextval数组值推导"></a>5.7.5nextval数组值推导</h4><h3 id="5-8总结回顾"><a href="#5-8总结回顾" class="headerlink" title="5.8总结回顾"></a>5.8总结回顾</h3><h3 id="5-9结尾语"><a href="#5-9结尾语" class="headerlink" title="5.9结尾语"></a>5.9结尾语</h3><h2 id="第6章树"><a href="#第6章树" class="headerlink" title="第6章树"></a>第6章树</h2><h3 id="6-1开场白"><a href="#6-1开场白" class="headerlink" title="6.1开场白"></a>6.1开场白</h3><h3 id="6-2树的定义"><a href="#6-2树的定义" class="headerlink" title="6.2树的定义"></a>6.2树的定义</h3><h4 id="6-2-1结点分类"><a href="#6-2-1结点分类" class="headerlink" title="6.2.1结点分类"></a>6.2.1结点分类</h4><h4 id="6-2-2结点间关系"><a href="#6-2-2结点间关系" class="headerlink" title="6.2.2结点间关系"></a>6.2.2结点间关系</h4><h4 id="6-2-3树的其他相关概念"><a href="#6-2-3树的其他相关概念" class="headerlink" title="6.2.3树的其他相关概念"></a>6.2.3树的其他相关概念</h4><h3 id="6-3树的抽象数据类型"><a href="#6-3树的抽象数据类型" class="headerlink" title="6.3树的抽象数据类型"></a>6.3树的抽象数据类型</h3><h3 id="6-4树的存储结构"><a href="#6-4树的存储结构" class="headerlink" title="6.4树的存储结构"></a>6.4树的存储结构</h3><h4 id="6-4-1双亲表示法"><a href="#6-4-1双亲表示法" class="headerlink" title="6.4.1双亲表示法"></a>6.4.1双亲表示法</h4><h4 id="6-4-2孩子表示法"><a href="#6-4-2孩子表示法" class="headerlink" title="6.4.2孩子表示法"></a>6.4.2孩子表示法</h4><h4 id="6-4-3孩子兄弟表示法"><a href="#6-4-3孩子兄弟表示法" class="headerlink" title="6.4.3孩子兄弟表示法"></a>6.4.3孩子兄弟表示法</h4><h3 id="6-5二叉树的定义"><a href="#6-5二叉树的定义" class="headerlink" title="6.5二叉树的定义"></a>6.5二叉树的定义</h3><h4 id="6-5-1二叉树特点"><a href="#6-5-1二叉树特点" class="headerlink" title="6.5.1二叉树特点"></a>6.5.1二叉树特点</h4><h4 id="6-5-2特殊二叉树"><a href="#6-5-2特殊二叉树" class="headerlink" title="6.5.2特殊二叉树"></a>6.5.2特殊二叉树</h4><h3 id="6-6二叉树的性质"><a href="#6-6二叉树的性质" class="headerlink" title="6.6二叉树的性质"></a>6.6二叉树的性质</h3><h4 id="6-6-1二叉树性质"><a href="#6-6-1二叉树性质" class="headerlink" title="6.6.1二叉树性质"></a>6.6.1二叉树性质</h4><h4 id="6-6-2二叉树性质"><a href="#6-6-2二叉树性质" class="headerlink" title="6.6.2二叉树性质"></a>6.6.2二叉树性质</h4><h4 id="6-6-3二叉树性质"><a href="#6-6-3二叉树性质" class="headerlink" title="6.6.3二叉树性质"></a>6.6.3二叉树性质</h4><h4 id="6-6-4二叉树性质"><a href="#6-6-4二叉树性质" class="headerlink" title="6.6.4二叉树性质"></a>6.6.4二叉树性质</h4><h4 id="6-6-5二叉树性质"><a href="#6-6-5二叉树性质" class="headerlink" title="6.6.5二叉树性质"></a>6.6.5二叉树性质</h4><h3 id="6-7二叉树的存储结构"><a href="#6-7二叉树的存储结构" class="headerlink" title="6.7二叉树的存储结构"></a>6.7二叉树的存储结构</h3><h4 id="6-7-1二叉树顺序存储结构"><a href="#6-7-1二叉树顺序存储结构" class="headerlink" title="6.7.1二叉树顺序存储结构"></a>6.7.1二叉树顺序存储结构</h4><h4 id="6-7-2二叉链表"><a href="#6-7-2二叉链表" class="headerlink" title="6.7.2二叉链表"></a>6.7.2二叉链表</h4><h3 id="6-8遍历二叉树"><a href="#6-8遍历二叉树" class="headerlink" title="6.8遍历二叉树"></a>6.8遍历二叉树</h3><h4 id="6-8-1二叉树遍历原理"><a href="#6-8-1二叉树遍历原理" class="headerlink" title="6.8.1二叉树遍历原理"></a>6.8.1二叉树遍历原理</h4><h4 id="6-8-2二叉树遍历方法"><a href="#6-8-2二叉树遍历方法" class="headerlink" title="6.8.2二叉树遍历方法"></a>6.8.2二叉树遍历方法</h4><h4 id="6-8-3前序遍历算法"><a href="#6-8-3前序遍历算法" class="headerlink" title="6.8.3前序遍历算法"></a>6.8.3前序遍历算法</h4><h4 id="6-8-4中序遍历算法"><a href="#6-8-4中序遍历算法" class="headerlink" title="6.8.4中序遍历算法"></a>6.8.4中序遍历算法</h4><h4 id="6-8-5后序遍历算法"><a href="#6-8-5后序遍历算法" class="headerlink" title="6.8.5后序遍历算法"></a>6.8.5后序遍历算法</h4><h4 id="6-8-6推导遍历结果"><a href="#6-8-6推导遍历结果" class="headerlink" title="6.8.6推导遍历结果"></a>6.8.6推导遍历结果</h4><h3 id="6-9二叉树的建立"><a href="#6-9二叉树的建立" class="headerlink" title="6.9二叉树的建立"></a>6.9二叉树的建立</h3><h3 id="6-10线索二叉树"><a href="#6-10线索二叉树" class="headerlink" title="6.10线索二叉树"></a>6.10线索二叉树</h3><h4 id="6-10-1线索二叉树原理"><a href="#6-10-1线索二叉树原理" class="headerlink" title="6.10.1线索二叉树原理"></a>6.10.1线索二叉树原理</h4><h4 id="6-10-2线索二叉树结构实现"><a href="#6-10-2线索二叉树结构实现" class="headerlink" title="6.10.2线索二叉树结构实现"></a>6.10.2线索二叉树结构实现</h4><h3 id="6-11树、森林与二叉树的转换"><a href="#6-11树、森林与二叉树的转换" class="headerlink" title="6.11树、森林与二叉树的转换"></a>6.11树、森林与二叉树的转换</h3><h4 id="6-11-1树转换为二叉树"><a href="#6-11-1树转换为二叉树" class="headerlink" title="6.11.1树转换为二叉树"></a>6.11.1树转换为二叉树</h4><h4 id="6-11-2森林转换为二叉树"><a href="#6-11-2森林转换为二叉树" class="headerlink" title="6.11.2森林转换为二叉树"></a>6.11.2森林转换为二叉树</h4><h4 id="6-11-3二叉树转换为树"><a href="#6-11-3二叉树转换为树" class="headerlink" title="6.11.3二叉树转换为树"></a>6.11.3二叉树转换为树</h4><h4 id="6-11-4二叉树转换为森林"><a href="#6-11-4二叉树转换为森林" class="headerlink" title="6.11.4二叉树转换为森林"></a>6.11.4二叉树转换为森林</h4><h4 id="6-11-5树与森林的遍历"><a href="#6-11-5树与森林的遍历" class="headerlink" title="6.11.5树与森林的遍历"></a>6.11.5树与森林的遍历</h4><h3 id="6-12赫夫曼树及其应用"><a href="#6-12赫夫曼树及其应用" class="headerlink" title="6.12赫夫曼树及其应用"></a>6.12赫夫曼树及其应用</h3><h4 id="6-12-1赫夫曼树"><a href="#6-12-1赫夫曼树" class="headerlink" title="6.12.1赫夫曼树"></a>6.12.1赫夫曼树</h4><h4 id="6-12-2赫夫曼树定义与原理"><a href="#6-12-2赫夫曼树定义与原理" class="headerlink" title="6.12.2赫夫曼树定义与原理"></a>6.12.2赫夫曼树定义与原理</h4><h4 id="6-12-3赫夫曼编码"><a href="#6-12-3赫夫曼编码" class="headerlink" title="6.12.3赫夫曼编码"></a>6.12.3赫夫曼编码</h4><h3 id="6-13总结回顾"><a href="#6-13总结回顾" class="headerlink" title="6.13总结回顾"></a>6.13总结回顾</h3><h3 id="6-14结尾语"><a href="#6-14结尾语" class="headerlink" title="6.14结尾语"></a>6.14结尾语</h3><h2 id="第7章图"><a href="#第7章图" class="headerlink" title="第7章图"></a>第7章图</h2><h3 id="7-1开场白"><a href="#7-1开场白" class="headerlink" title="7.1开场白"></a>7.1开场白</h3><h3 id="7-2图的定义"><a href="#7-2图的定义" class="headerlink" title="7.2图的定义"></a>7.2图的定义</h3><h4 id="7-2-1各种图定义"><a href="#7-2-1各种图定义" class="headerlink" title="7.2.1各种图定义"></a>7.2.1各种图定义</h4><h4 id="7-2-2图的顶点与边间关系"><a href="#7-2-2图的顶点与边间关系" class="headerlink" title="7.2.2图的顶点与边间关系"></a>7.2.2图的顶点与边间关系</h4><h4 id="7-2-3连通图相关术语"><a href="#7-2-3连通图相关术语" class="headerlink" title="7.2.3连通图相关术语"></a>7.2.3连通图相关术语</h4><h4 id="7-2-4图的定义与术语总结"><a href="#7-2-4图的定义与术语总结" class="headerlink" title="7.2.4图的定义与术语总结"></a>7.2.4图的定义与术语总结</h4><h3 id="7-3图的抽象数据类型"><a href="#7-3图的抽象数据类型" class="headerlink" title="7.3图的抽象数据类型"></a>7.3图的抽象数据类型</h3><h3 id="7-4图的存储结构"><a href="#7-4图的存储结构" class="headerlink" title="7.4图的存储结构"></a>7.4图的存储结构</h3><h4 id="7-4-1邻接矩阵"><a href="#7-4-1邻接矩阵" class="headerlink" title="7.4.1邻接矩阵"></a>7.4.1邻接矩阵</h4><h4 id="7-4-2邻接表"><a href="#7-4-2邻接表" class="headerlink" title="7.4.2邻接表"></a>7.4.2邻接表</h4><h4 id="7-4-3十字链表"><a href="#7-4-3十字链表" class="headerlink" title="7.4.3十字链表"></a>7.4.3十字链表</h4><h4 id="7-4-4邻接多重表"><a href="#7-4-4邻接多重表" class="headerlink" title="7.4.4邻接多重表"></a>7.4.4邻接多重表</h4><h4 id="7-4-5边集数组"><a href="#7-4-5边集数组" class="headerlink" title="7.4.5边集数组"></a>7.4.5边集数组</h4><h3 id="7-5图的遍历"><a href="#7-5图的遍历" class="headerlink" title="7.5图的遍历"></a>7.5图的遍历</h3><h4 id="7-5-1深度优先遍历"><a href="#7-5-1深度优先遍历" class="headerlink" title="7.5.1深度优先遍历"></a>7.5.1深度优先遍历</h4><h4 id="7-5-2广度优先遍历"><a href="#7-5-2广度优先遍历" class="headerlink" title="7.5.2广度优先遍历"></a>7.5.2广度优先遍历</h4><h3 id="7-6最小生成树"><a href="#7-6最小生成树" class="headerlink" title="7.6最小生成树"></a>7.6最小生成树</h3><h4 id="7-6-1普里姆（prim）算法"><a href="#7-6-1普里姆（prim）算法" class="headerlink" title="7.6.1普里姆（prim）算法"></a>7.6.1普里姆（prim）算法</h4><h4 id="7-6-2克鲁斯卡尔（kruskal）算法"><a href="#7-6-2克鲁斯卡尔（kruskal）算法" class="headerlink" title="7.6.2克鲁斯卡尔（kruskal）算法"></a>7.6.2克鲁斯卡尔（kruskal）算法</h4><h3 id="7-7最短路径"><a href="#7-7最短路径" class="headerlink" title="7.7最短路径"></a>7.7最短路径</h3><h4 id="7-7-1迪杰斯特拉（dijkstra）算法"><a href="#7-7-1迪杰斯特拉（dijkstra）算法" class="headerlink" title="7.7.1迪杰斯特拉（dijkstra）算法"></a>7.7.1迪杰斯特拉（dijkstra）算法</h4><h4 id="7-7-3弗洛伊德（floyd）算法"><a href="#7-7-3弗洛伊德（floyd）算法" class="headerlink" title="7.7.3弗洛伊德（floyd）算法"></a>7.7.3弗洛伊德（floyd）算法</h4><h3 id="7-8拓扑排序"><a href="#7-8拓扑排序" class="headerlink" title="7.8拓扑排序"></a>7.8拓扑排序</h3><h4 id="7-8-1拓扑排序介绍"><a href="#7-8-1拓扑排序介绍" class="headerlink" title="7.8.1拓扑排序介绍"></a>7.8.1拓扑排序介绍</h4><h4 id="7-8-2拓扑排序算法"><a href="#7-8-2拓扑排序算法" class="headerlink" title="7.8.2拓扑排序算法"></a>7.8.2拓扑排序算法</h4><h3 id="7-9关键路径"><a href="#7-9关键路径" class="headerlink" title="7.9关键路径"></a>7.9关键路径</h3><h4 id="7-9-1关键路径算法原理-279"><a href="#7-9-1关键路径算法原理-279" class="headerlink" title="7.9.1关键路径算法原理 279"></a>7.9.1关键路径算法原理 279</h4><h4 id="7-9-2关键路径算法-280"><a href="#7-9-2关键路径算法-280" class="headerlink" title="7.9.2关键路径算法 280"></a>7.9.2关键路径算法 280</h4><h3 id="7-10总结回顾"><a href="#7-10总结回顾" class="headerlink" title="7.10总结回顾"></a>7.10总结回顾</h3><h3 id="7-11结尾语"><a href="#7-11结尾语" class="headerlink" title="7.11结尾语"></a>7.11结尾语</h3><h2 id="第8章查找"><a href="#第8章查找" class="headerlink" title="第8章查找"></a>第8章查找</h2><h3 id="8-1开场白"><a href="#8-1开场白" class="headerlink" title="8.1开场白"></a>8.1开场白</h3><h3 id="8-2查找概论"><a href="#8-2查找概论" class="headerlink" title="8.2查找概论"></a>8.2查找概论</h3><h3 id="8-3顺序表查找"><a href="#8-3顺序表查找" class="headerlink" title="8.3顺序表查找"></a>8.3顺序表查找</h3><h4 id="8-3-1顺序表查找算法"><a href="#8-3-1顺序表查找算法" class="headerlink" title="8.3.1顺序表查找算法"></a>8.3.1顺序表查找算法</h4><h4 id="8-3-2顺序表查找优化"><a href="#8-3-2顺序表查找优化" class="headerlink" title="8.3.2顺序表查找优化"></a>8.3.2顺序表查找优化</h4><h3 id="8-4有序表查找"><a href="#8-4有序表查找" class="headerlink" title="8.4有序表查找"></a>8.4有序表查找</h3><h4 id="8-4-1折半查找"><a href="#8-4-1折半查找" class="headerlink" title="8.4.1折半查找"></a>8.4.1折半查找</h4><h4 id="8-4-2插值查找"><a href="#8-4-2插值查找" class="headerlink" title="8.4.2插值查找"></a>8.4.2插值查找</h4><h4 id="8-4-3斐波那契查找"><a href="#8-4-3斐波那契查找" class="headerlink" title="8.4.3斐波那契查找"></a>8.4.3斐波那契查找</h4><h3 id="8-5线性索引查找"><a href="#8-5线性索引查找" class="headerlink" title="8.5线性索引查找"></a>8.5线性索引查找</h3><h4 id="8-5-1稠密索引"><a href="#8-5-1稠密索引" class="headerlink" title="8.5.1稠密索引"></a>8.5.1稠密索引</h4><h4 id="8-5-2分块索引"><a href="#8-5-2分块索引" class="headerlink" title="8.5.2分块索引"></a>8.5.2分块索引</h4><h4 id="8-5-3倒排索引"><a href="#8-5-3倒排索引" class="headerlink" title="8.5.3倒排索引"></a>8.5.3倒排索引</h4><h3 id="8-6二叉排序树"><a href="#8-6二叉排序树" class="headerlink" title="8.6二叉排序树"></a>8.6二叉排序树</h3><h4 id="8-6-1二叉排序树查找操作"><a href="#8-6-1二叉排序树查找操作" class="headerlink" title="8.6.1二叉排序树查找操作"></a>8.6.1二叉排序树查找操作</h4><h4 id="8-6-2二叉排序树插入操作"><a href="#8-6-2二叉排序树插入操作" class="headerlink" title="8.6.2二叉排序树插入操作"></a>8.6.2二叉排序树插入操作</h4><h4 id="8-6-3二叉排序树删除操作"><a href="#8-6-3二叉排序树删除操作" class="headerlink" title="8.6.3二叉排序树删除操作"></a>8.6.3二叉排序树删除操作</h4><h4 id="8-6-4二叉排序树总结"><a href="#8-6-4二叉排序树总结" class="headerlink" title="8.6.4二叉排序树总结"></a>8.6.4二叉排序树总结</h4><h3 id="8-7平衡二叉树（avl树）"><a href="#8-7平衡二叉树（avl树）" class="headerlink" title="8.7平衡二叉树（avl树）"></a>8.7平衡二叉树（avl树）</h3><h4 id="8-7-1平衡二叉树实现原理"><a href="#8-7-1平衡二叉树实现原理" class="headerlink" title="8.7.1平衡二叉树实现原理"></a>8.7.1平衡二叉树实现原理</h4><h4 id="8-7-2平衡二叉树实现算法"><a href="#8-7-2平衡二叉树实现算法" class="headerlink" title="8.7.2平衡二叉树实现算法"></a>8.7.2平衡二叉树实现算法</h4><h3 id="8-8多路查找树（b树）"><a href="#8-8多路查找树（b树）" class="headerlink" title="8.8多路查找树（b树）"></a>8.8多路查找树（b树）</h3><h4 id="8-8-12-3树"><a href="#8-8-12-3树" class="headerlink" title="8.8.12-3树"></a>8.8.12-3树</h4><h4 id="8-8-22-3-4树"><a href="#8-8-22-3-4树" class="headerlink" title="8.8.22-3-4树"></a>8.8.22-3-4树</h4><h4 id="8-8-3b树"><a href="#8-8-3b树" class="headerlink" title="8.8.3b树"></a>8.8.3b树</h4><h4 id="8-8-4b-树"><a href="#8-8-4b-树" class="headerlink" title="8.8.4b+树"></a>8.8.4b+树</h4><h3 id="8-9散列表查找（哈希表）概述"><a href="#8-9散列表查找（哈希表）概述" class="headerlink" title="8.9散列表查找（哈希表）概述"></a>8.9散列表查找（哈希表）概述</h3><h4 id="8-9-1散列表查找定义"><a href="#8-9-1散列表查找定义" class="headerlink" title="8.9.1散列表查找定义"></a>8.9.1散列表查找定义</h4><h4 id="8-9-2散列表查找步骤"><a href="#8-9-2散列表查找步骤" class="headerlink" title="8.9.2散列表查找步骤"></a>8.9.2散列表查找步骤</h4><h3 id="8-10散列函数的构造方法"><a href="#8-10散列函数的构造方法" class="headerlink" title="8.10散列函数的构造方法"></a>8.10散列函数的构造方法</h3><h4 id="8-10-1直接定址法"><a href="#8-10-1直接定址法" class="headerlink" title="8.10.1直接定址法"></a>8.10.1直接定址法</h4><h4 id="8-10-2数字分析法"><a href="#8-10-2数字分析法" class="headerlink" title="8.10.2数字分析法"></a>8.10.2数字分析法</h4><h4 id="8-10-3平方取中法"><a href="#8-10-3平方取中法" class="headerlink" title="8.10.3平方取中法"></a>8.10.3平方取中法</h4><h4 id="8-10-4折叠法"><a href="#8-10-4折叠法" class="headerlink" title="8.10.4折叠法"></a>8.10.4折叠法</h4><h4 id="8-10-5除留余数法"><a href="#8-10-5除留余数法" class="headerlink" title="8.10.5除留余数法"></a>8.10.5除留余数法</h4><h4 id="8-10-6随机数法"><a href="#8-10-6随机数法" class="headerlink" title="8.10.6随机数法"></a>8.10.6随机数法</h4><h3 id="8-11处理散列冲突的方法"><a href="#8-11处理散列冲突的方法" class="headerlink" title="8.11处理散列冲突的方法"></a>8.11处理散列冲突的方法</h3><h4 id="8-11-1开放定址法"><a href="#8-11-1开放定址法" class="headerlink" title="8.11.1开放定址法"></a>8.11.1开放定址法</h4><h4 id="8-11-2再散列函数法"><a href="#8-11-2再散列函数法" class="headerlink" title="8.11.2再散列函数法"></a>8.11.2再散列函数法</h4><h4 id="8-11-3链地址法"><a href="#8-11-3链地址法" class="headerlink" title="8.11.3链地址法"></a>8.11.3链地址法</h4><h4 id="8-11-4公共溢出区法"><a href="#8-11-4公共溢出区法" class="headerlink" title="8.11.4公共溢出区法"></a>8.11.4公共溢出区法</h4><h3 id="8-12散列表查找实现"><a href="#8-12散列表查找实现" class="headerlink" title="8.12散列表查找实现"></a>8.12散列表查找实现</h3><h4 id="8-12-1散列表查找算法实现"><a href="#8-12-1散列表查找算法实现" class="headerlink" title="8.12.1散列表查找算法实现"></a>8.12.1散列表查找算法实现</h4><h4 id="8-12-2散列表查找性能分析"><a href="#8-12-2散列表查找性能分析" class="headerlink" title="8.12.2散列表查找性能分析"></a>8.12.2散列表查找性能分析</h4><h3 id="8-13总结回顾"><a href="#8-13总结回顾" class="headerlink" title="8.13总结回顾"></a>8.13总结回顾</h3><h3 id="8-14结尾语"><a href="#8-14结尾语" class="headerlink" title="8.14结尾语"></a>8.14结尾语</h3><h2 id="第9章排序"><a href="#第9章排序" class="headerlink" title="第9章排序"></a>第9章排序</h2><h3 id="9-1开场白"><a href="#9-1开场白" class="headerlink" title="9.1开场白"></a>9.1开场白</h3><h3 id="9-2排序的基本概念与分类"><a href="#9-2排序的基本概念与分类" class="headerlink" title="9.2排序的基本概念与分类"></a>9.2排序的基本概念与分类</h3><h4 id="9-2-1排序的稳定性"><a href="#9-2-1排序的稳定性" class="headerlink" title="9.2.1排序的稳定性"></a>9.2.1排序的稳定性</h4><h4 id="9-2-2内排序与外排序"><a href="#9-2-2内排序与外排序" class="headerlink" title="9.2.2内排序与外排序"></a>9.2.2内排序与外排序</h4><h4 id="9-2-3排序用到的结构与函数"><a href="#9-2-3排序用到的结构与函数" class="headerlink" title="9.2.3排序用到的结构与函数"></a>9.2.3排序用到的结构与函数</h4><h3 id="9-3冒泡排序"><a href="#9-3冒泡排序" class="headerlink" title="9.3冒泡排序"></a>9.3冒泡排序</h3><h4 id="9-3-1最简单排序实现"><a href="#9-3-1最简单排序实现" class="headerlink" title="9.3.1最简单排序实现"></a>9.3.1最简单排序实现</h4><h4 id="9-3-2冒泡排序算法"><a href="#9-3-2冒泡排序算法" class="headerlink" title="9.3.2冒泡排序算法"></a>9.3.2冒泡排序算法</h4><h4 id="9-3-3冒泡排序优化"><a href="#9-3-3冒泡排序优化" class="headerlink" title="9.3.3冒泡排序优化"></a>9.3.3冒泡排序优化</h4><h4 id="9-3-4冒泡排序复杂度分析"><a href="#9-3-4冒泡排序复杂度分析" class="headerlink" title="9.3.4冒泡排序复杂度分析"></a>9.3.4冒泡排序复杂度分析</h4><h3 id="9-4简单选择排序"><a href="#9-4简单选择排序" class="headerlink" title="9.4简单选择排序"></a>9.4简单选择排序</h3><h4 id="9-4-1简单选择排序算法"><a href="#9-4-1简单选择排序算法" class="headerlink" title="9.4.1简单选择排序算法"></a>9.4.1简单选择排序算法</h4><h4 id="9-4-2简单选择排序复杂度分析"><a href="#9-4-2简单选择排序复杂度分析" class="headerlink" title="9.4.2简单选择排序复杂度分析"></a>9.4.2简单选择排序复杂度分析</h4><h3 id="9-5直接插入排序"><a href="#9-5直接插入排序" class="headerlink" title="9.5直接插入排序"></a>9.5直接插入排序</h3><h4 id="9-5-1直接插入排序算法"><a href="#9-5-1直接插入排序算法" class="headerlink" title="9.5.1直接插入排序算法"></a>9.5.1直接插入排序算法</h4><h4 id="9-5-2直接插入排序复杂度分析"><a href="#9-5-2直接插入排序复杂度分析" class="headerlink" title="9.5.2直接插入排序复杂度分析"></a>9.5.2直接插入排序复杂度分析</h4><h3 id="9-6希尔排序"><a href="#9-6希尔排序" class="headerlink" title="9.6希尔排序"></a>9.6希尔排序</h3><h4 id="9-6-1希尔排序原理"><a href="#9-6-1希尔排序原理" class="headerlink" title="9.6.1希尔排序原理"></a>9.6.1希尔排序原理</h4><h4 id="9-6-2希尔排序算法"><a href="#9-6-2希尔排序算法" class="headerlink" title="9.6.2希尔排序算法"></a>9.6.2希尔排序算法</h4><h4 id="9-6-3希尔排序复杂度分析"><a href="#9-6-3希尔排序复杂度分析" class="headerlink" title="9.6.3希尔排序复杂度分析"></a>9.6.3希尔排序复杂度分析</h4><h3 id="9-7堆排序"><a href="#9-7堆排序" class="headerlink" title="9.7堆排序"></a>9.7堆排序</h3><h4 id="9-7-1堆排序算法"><a href="#9-7-1堆排序算法" class="headerlink" title="9.7.1堆排序算法"></a>9.7.1堆排序算法</h4><h4 id="9-7-2堆排序复杂度分析"><a href="#9-7-2堆排序复杂度分析" class="headerlink" title="9.7.2堆排序复杂度分析"></a>9.7.2堆排序复杂度分析</h4><h3 id="9-8归并排序"><a href="#9-8归并排序" class="headerlink" title="9.8归并排序"></a>9.8归并排序</h3><h4 id="9-8-1归并排序算法"><a href="#9-8-1归并排序算法" class="headerlink" title="9.8.1归并排序算法"></a>9.8.1归并排序算法</h4><h4 id="9-8-2归并排序复杂度分析"><a href="#9-8-2归并排序复杂度分析" class="headerlink" title="9.8.2归并排序复杂度分析"></a>9.8.2归并排序复杂度分析</h4><h4 id="9-8-3非递归实现归并排序"><a href="#9-8-3非递归实现归并排序" class="headerlink" title="9.8.3非递归实现归并排序"></a>9.8.3非递归实现归并排序</h4><h3 id="9-9快速排序"><a href="#9-9快速排序" class="headerlink" title="9.9快速排序"></a>9.9快速排序</h3><h4 id="9-9-1快速排序算法"><a href="#9-9-1快速排序算法" class="headerlink" title="9.9.1快速排序算法"></a>9.9.1快速排序算法</h4><h4 id="9-9-2快速排序复杂度分析"><a href="#9-9-2快速排序复杂度分析" class="headerlink" title="9.9.2快速排序复杂度分析"></a>9.9.2快速排序复杂度分析</h4><h4 id="9-9-3快速排序优化"><a href="#9-9-3快速排序优化" class="headerlink" title="9.9.3快速排序优化"></a>9.9.3快速排序优化</h4><h3 id="9-10总结回顾"><a href="#9-10总结回顾" class="headerlink" title="9.10总结回顾"></a>9.10总结回顾</h3><h3 id="9-11结尾语"><a href="#9-11结尾语" class="headerlink" title="9.11结尾语"></a>9.11结尾语</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

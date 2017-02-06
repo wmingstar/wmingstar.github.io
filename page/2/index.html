@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
+  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
+<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
+<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
+<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
+<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
+<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
+<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
+<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
+<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
+<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
+<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
+<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
+<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -480,62 +549,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-KMP算法详解及java实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/04/KMP算法详解及java实现/" class="article-date">
-  	<time datetime="2017-01-04T12:47:56.000Z" itemprop="datePublished">2017-01-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/04/KMP算法详解及java实现/">KMP算法详解及java实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</div>
 
       

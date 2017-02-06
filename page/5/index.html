@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mysql-数据的导入于导出" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/01/mysql-数据的导入于导出/" class="article-date">
+  	<time datetime="2016-12-01T09:01:50.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/mysql-数据的导入于导出/">mysql-数据的导入于导出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><h3 id="导出整个数据库-包括结构和数据"><a href="#导出整个数据库-包括结构和数据" class="headerlink" title="导出整个数据库(包括结构和数据)"></a>导出整个数据库(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name &gt; db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库中的某些表-包括结构和数据"><a href="#导出数据库中的某些表-包括结构和数据" class="headerlink" title="导出数据库中的某些表(包括结构和数据)"></a>导出数据库中的某些表(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name table_name1 table_name2 &gt;data.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库结构"><a href="#导出数据库结构" class="headerlink" title="导出数据库结构"></a>导出数据库结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name&gt;db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出一个表结构"><a href="#导出一个表结构" class="headerlink" title="导出一个表结构"></a>导出一个表结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name  table_name &gt;tb.sql</span><br></pre></td></tr></table></figure>
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p sms &lt; /home/star/mysql/sms.sql </span><br><span class="line"><span class="comment">##或者</span></span><br><span class="line">MariaDB [sms]&gt;<span class="built_in">source</span> /home/tb.sql</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-206-Reverse-Linked-List" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -461,68 +521,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-217-Contains-Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/18/leetcode-217-Contains-Duplicate/" class="article-date">
-  	<time datetime="2016-11-18T06:09:10.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/leetcode-217-Contains-Duplicate/">leetcode-217-Contains-Duplicate</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean containsDuplicate(int[] nums) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums.length&lt;=1)&#123;</span><br><span class="line">             <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         Arrays.sort(nums);</span><br><span class="line">         <span class="keyword">for</span>(int i=0;i&lt;nums.length-1;i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(nums[i]==nums[i+1])&#123;</span><br><span class="line">                 <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def containsDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        nums_<span class="built_in">set</span>=<span class="built_in">set</span>(nums)</span><br><span class="line">        <span class="built_in">return</span> True <span class="keyword">if</span> len(nums_<span class="built_in">set</span>)&lt;len(nums) <span class="keyword">else</span> False</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题很简单，就是判断输入数组中是否有重复的数字。</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>Arrays类中sort()方法，对数组进行排序。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>python很简洁，用set()便可将list()转换为set容器，而set容器中的元素均为唯一的。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</div>
 
       

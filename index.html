@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -197,6 +197,78 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java序列化和文件读写" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/06/java序列化和文件读写/" class="article-date">
+  	<time datetime="2017-02-06T02:56:16.000Z" itemprop="datePublished">2017-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/java序列化和文件读写/">java序列化和文件读写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java中存储状态的选择有很多种：<br>1.如果只有自己写的java程序会用到这些数据，用序列化的方式。<br>2.如果数据需要被其他程序使用，写一个纯文本文件，用其他程序可以识别的字符写进文件中。</p>
+<h3 id="将序列化对象写入文件"><a href="#将序列化对象写入文件" class="headerlink" title="将序列化对象写入文件"></a>将序列化对象写入文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fileStream = new FileOutputStream(<span class="string">"Myfile.txt"</span>);</span><br><span class="line">ObjectOutputStream os = new ObjectOutputStream(fileStream);</span><br><span class="line">os.writeObject(Objectone);</span><br><span class="line">os.close()</span><br><span class="line"><span class="comment"># Objectone 须是可以序列化的，即实现 Serializable接口的。</span></span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>如果某实例变量不能或不应该被序列化，就把它标记为transient(瞬时)。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Chat implements Serializable &#123;</span><br><span class="line">    transient String id;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="解序列化"><a href="#解序列化" class="headerlink" title="解序列化"></a>解序列化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fileStream = new FileInputStream(<span class="string">"Myfile.txt"</span>);</span><br><span class="line">ObjectInputStream os = new ObjectInputStream(fileStream);</span><br><span class="line">Object one os.readObject();</span><br><span class="line">Dog dog = (Dog) one;</span><br><span class="line">os.close()</span><br></pre></td></tr></table></figure>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>每次调用 readObject()都会从stream 中读取一个对象，读取顺序与写入顺序相同，次数超过会抛出异常。</p>
+<p>readObject() 返回值是类型是 Object 因此必须要转换类型。</p>
+<p>新的对象会被配置在堆上，单构造函数不会执行，因为若构造函数执行会把对象状态抹去又变成全新的，这不是想要的结果，我们需要的是对象回到存储时的状态。</p>
+<p>如果对象在继承树有个不可序列化的祖先类，则该不可序列化类以及在它之上的类的构造函数（就算可序列化也一样）就会执行。一旦构造函数连锁启动之后将无法停止。也就是说，从第一个不可序列化的父类开始，全部都会重新初始状态。</p>
+<p>对象的实例变量会被还原成序列化时点的状态值，transient变量会被赋值null。</p>
+<p>对象必须实现序列化这个接口才能被序列化，如果父类实现序列化，则子类就自动实现，而不管是否有明确的声明。</p>
+<p>当对象被序列化时，整个对象版图都会被序列化，这代表它的实例变量所引用的对象也会被序列化。</p>
+<p>静态变量不会被序列化，因为所有对象都共享同一份静态变量值。</p>
+<h3 id="字符串写入文本文件"><a href="#字符串写入文本文件" class="headerlink" title="字符串写入文本文件"></a>字符串写入文本文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  FileWriter writer = new FileWriter(<span class="string">"test.txt"</span>);</span><br><span class="line">  writer.write(<span class="string">"hello"</span>);</span><br><span class="line">  writer.close()</span><br><span class="line">&#125;</span><br><span class="line">catch(IOException ex)&#123;</span><br><span class="line">  ex.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># test.txt 如果不存在就会被创建</span></span><br><span class="line"><span class="comment">#输入输出相关的操作必须包在 try catch 块中。</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用缓冲区"><a href="#使用缓冲区" class="headerlink" title="使用缓冲区"></a>使用缓冲区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter writer = new BufferedWriter(new FileWriter(afile))</span><br><span class="line">writer.flush()</span><br></pre></td></tr></table></figure>
+<p>通过BufferedWriter 和 FileWriter 的链接，BufferedWriter可以暂存一堆数据，然后到缓冲区满时再实际写入磁盘，这样可以减少对磁盘操作的次数，提高效率。</p>
+<p>``` bash<br>try {<br>  File myFile = new File(“mytext.txt”);<br>  FileReader filereader new FileReader(myFile);<br>  BufferedReader reader = new BufferedReader(filereader);<br>  String line = null;<br>  while ((line = reader.readline())!= null){<br>    System.out.println(line);<br>  }<br>  reader.close()<br>}<br>catch(Excption ex){<br>  ex.printStackTrace();<br>}</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-常用信息查询命令" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -435,75 +507,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
-  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
-<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
-<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
-<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
-<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
-<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
-<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
-<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
-<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
-<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
-<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
-<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
-<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
       

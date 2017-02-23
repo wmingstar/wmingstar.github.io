@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18.33px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
 					</div>
 				</section>
 				
@@ -156,72 +156,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-leetcode-292-Nim-Game" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/19/leetcode-292-Nim-Game/" class="article-date">
-  	<time datetime="2016-04-19T00:33:22.000Z" itemprop="datePublished">2016-04-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/19/leetcode-292-Nim-Game/">leetcode-292-Nim Game 解题及思考</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近，学长们一直在忙着找实习，而在这个过程中，不管是笔试或是面试都会遇到的问题便是编程和算法，而这两方面都是自己欠缺的。本科未深入系统的学过一门编程语言，C和C++接触过，但均是浅尝辄止，所以为了弥补自己的不足，最近一直在学习JAVA。学习过程中，学长们给了很多建议，这些建议里面，最重要的的一条便是————一定要多些代码。之前也看过一篇帖子，说代码得至少写够10000才能基本对语法熟练。所以自己下定决心多写代码，让自己从小白编程初级小码农。我的编码道路就从LeetCode开始吧，为鞭策和记录自己成长的过程，遂写博客记录，今天第一篇。</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h3><p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
-<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
-<p>For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean canW<span class="keyword">in</span>Nim(int n) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;4||n%4!=0) <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>看完代码之后是不是感觉好简单，确实很简单，因为这是leetcode上最简单的题目了。这类题目适合找规律，从1开始，逐渐分析几个数（我分析到13）就会发现规律。</p>
-<h3 id="相关思考"><a href="#相关思考" class="headerlink" title="相关思考"></a>相关思考</h3><p>在做这道题的时候，学长就在旁边，说阿里笔试的时候有一道相似的题目，那道题：在每轮游戏过程中，只能移动 1、3、6块石头。其他条件不变。</p>
-<h3 id="解-1"><a href="#解-1" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean canW<span class="keyword">in</span>Nim(int n) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%9!=0&amp;&amp;n%9!=2&amp;&amp;n%9!=4) <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><p>同样，在解本题时也是找规律:<br>1  2  3  4  5  6  7  8  9  10  11  12  13 ….</p>
-<p>   2     4              9                 会输，以此推测11   13   18会输。<br>做算法题，切忌偷懒，一定多动手，在草纸上多写一写、画一画，感觉自己好啰嗦，没办法，都是被高中老师荼毒的。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-github1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -270,7 +204,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
 	</div>
 
       

@@ -21,7 +21,7 @@
 将压缩包解压到相应目录，cmd进入该目录，安装。1python setup.py install
 将相应目录（D:\python2\Scripts）">
 <meta property="og:image" content="http://yoursite.com/img/pyqt_demo.png">
-<meta property="og:updated_time" content="2017-01-17T02:09:30.908Z">
+<meta property="og:updated_time" content="2017-02-23T07:27:03.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows安装配置python-pip-pyinstaller-pyqt4">
 <meta name="twitter:description" content="安装pythonPython的官方主页下载相应的Python安装包。
@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 11.67px;">Github</a> <a href="/tags/LeetCode/" style="font-size: 18.33px;">LeetCode</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ptthon/" style="font-size: 10px;">ptthon</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 11.67px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
 					</div>
 				</section>
 				
@@ -195,7 +195,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
         
@@ -220,9 +220,18 @@
 <p>第2行引入的QtGui是PyQt中最基本的模块，包含了PyQt的绘图组件及其相关类。</p>
 <p>第4行使用QApplication创建了一个application。每个PyQt程序中均要包含一个application对象。</p>
 <p>第5行使用QWidget创建了一个widget，并在第6行中使用resize设置了它的大小。第7行的setWindowsTitle设置了窗口标题的文字。第8行的show使这个widget显示出来。</p>
-<p>最后一行是这个程序的主循环，事件处理从本行语句开始。至于为什么是exec_而不是exec呢？是因为exec是Python的关键字。</p>
+<p>最后一行是这个程序的主循环，事件处理从本行语句开始。至于为什么是exec_而不是exec呢？是因为exec<br>是Python的关键字。</p>
 <p><img src="/img/pyqt_demo.png" alt=""></p>
-<h3 id="pyinstaller-的常用操作"><a href="#pyinstaller-的常用操作" class="headerlink" title="pyinstaller 的常用操作"></a>pyinstaller 的常用操作</h3>
+<h3 id="pyinstaller-的常用操作"><a href="#pyinstaller-的常用操作" class="headerlink" title="pyinstaller 的常用操作"></a>pyinstaller 的常用操作</h3><p>PyInstaller可以用来打包python应用程序，打包完的程序就可以在没有安装Python解释器的机器上运行了。<br>PyInstaller支持Python 2.7和Python 3.3+。可以在Windows、Mac OS X和Linux上使用，但是并不是跨平台<br>的，而是说你要是希望打包成.exe文件，需要在Windows系统上运行PyInstaller进行打包工作；打包成mac<br>app，需要在Mac OS上使用。</p>
+<p>PyInstaller分析你的python程序，找到所有的依赖项。然后将依赖文件和python解释器放到一个文件夹下或者<br>一个可执行文件中。</p>
+<h4 id="打包成一个文件夹"><a href="#打包成一个文件夹" class="headerlink" title="打包成一个文件夹"></a>打包成一个文件夹</h4><p>当使用PyInstaller打包的时候，默认生成一个文件夹，文件夹中包含所有依赖项，以及可执行文件。打包成文<br>件夹的好处就是debug的时候可以清楚的看到依赖项有没有包含。另一个好处是更新的时候，只需要更新可执行<br>文件就可以了。当然缺点也很明显，不方便，不易管理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller script.py</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">pyinstaller -F -w --icon=<span class="string">"output.ico"</span>  script.py</span><br></pre></td></tr></table></figure></p>
+<p>参数解释：<br>-F<br>注意指令区分大小写。这里是大写。使用-F指令可以把应用打包成一个独立的exe文件，否则是一个带各种dll<br>和依赖文件的文件夹<br>-w  屏蔽带命令行的调试窗口(黑窗口)  使用窗口，无控制台<br>–icon 应用程序图标路径<br>-i    改变生成程序的icon图标<br>-D    –onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）<br>-c    –console, –nowindowed 使用控制台，无界面(默认)<br>-p    添加搜索路径，让其找到对应的库。</p>
+<p>执行完毕之后会发现多出来两个文件夹，其中单文件exe就存放在dist目录下</p>
+<p>那么它是如何工作的呢？PyInstaller的引导程序是一个二进制可执行程序。当用户启动你的程序的时候，PyIn<br>staller的引导程序开始运行，首先创建一个临时的Python环境，然后通过Python解释器导入程序的依赖，当然<br>他们都在同一个文件夹下。</p>
+<h4 id="打包成一个文件"><a href="#打包成一个文件" class="headerlink" title="打包成一个文件"></a>打包成一个文件</h4><p>我们可以用onefile参数将所有文件打包到一个可执行文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --onefile script.py</span><br></pre></td></tr></table></figure></p>
+<p>打包成一个文件相对于文件夹更容易管理。坏处运行相对比较慢。这个文件中包含了压缩的依赖文件拷贝（.so<br>文件）。</p>
+<p>当程序运行时，PyInstaller的引导程序会新建一个临时文件夹。然后解压程序的第三方依赖文件到临时文件夹<br>中。这也是为什么一个可执行文件比文件夹中执行的时间要长的原因。剩下的就和上面的一样了。</p>
+
       
     </div>
     

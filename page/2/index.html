@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-面试题-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
-  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
+      <a href="/2017/03/09/java-面试题-1/" class="article-date">
+  	<time datetime="2017-03-09T11:55:03.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
+      <a class="article-title" href="/2017/03/09/java-面试题-1/">java-面试题-1</a>
     </h1>
   
 
@@ -182,19 +182,81 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
-<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
-<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
-<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
-<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
-<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
-<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
-<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
-<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
-<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
-<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
-<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
-<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
+        <h2 id="java必须知道的300个问题-读书总结"><a href="#java必须知道的300个问题-读书总结" class="headerlink" title="java必须知道的300个问题  读书总结"></a>java必须知道的300个问题  读书总结</h2><p>1.表达式3-2.6==0.4的值？</p>
+<p>答：false。 这是有基本数据类型浮点数计算的不精确性造成的。</p>
+<p>3-2.6=0.39999999999999999999..</p>
+<p>可以用BigDecimal进行浮点数精确计算。</p>
+<p>2.&amp;和&amp;&amp;两个运算符的区别？</p>
+<p>答：&amp; 位与，&amp;&amp; 逻辑与。</p>
+<p>3.不适用循环和条件语句如何求1+2+3+…+n？</p>
+<p>答：函数递归调用。</p>
+<p>4.能正确编译”short s=1;s=s+1;”吗？</p>
+<p>答：不能。类型不匹配。可：s+=1；</p>
+<ol>
+<li>+= 计算结果一定正确吗？</li>
+</ol>
+<p>答：不。可能溢出。</p>
+<p>6.两个整数相乘结果一定正确吗？</p>
+<p>不。</p>
+<p>long num=2147483648.超出int范围，编译错误。</p>
+<p>long num=214748364*10 结果为-10.int溢出。</p>
+<p>long num=2147483648L*10 正确。</p>
+<p>7.如何跳出多重嵌套循环？</p>
+<p>label:<br>fori(){<br>break label;<br>}<br>8.存储相同数据量的一维数组和二维数组所占内存是否相同？</p>
+<p>二维数组远远大于一维数组。</p>
+<p>9.只能通过构造方法构造对象吗？</p>
+<p>不是。</p>
+<p>Calendar c=Clalendar.getInstance();</p>
+<p>10.接口和抽象类的区别？</p>
+<p>（1）抽象类可以提供成员的实现细节，而接口不能。数级抽象时如果要求提供成员的实现细节，可选抽象类。</p>
+<p>（2）如果涉及抽象时选择抽象类，在以后的版本中可以随意为抽象类添加新成员。而接口只有修改现有代码才能添加新成员。</p>
+<p>（3）一个类可以实现多个接口，但是能继承一个抽象类。如果要实现类似多重继承的效果，选接口。</p>
+<p>两者相似，某些功能可以互换。但理念不同，抽象类用于继承，表示is-a；接口用于实现，表示like-a。</p>
+<p>11.clone()方法的使用？</p>
+<p>1.浅克隆</p>
+<p>被克隆的对象各个属性都是基本类型，而不是引用类型，如果存在引用类型的属性，则需要进行深克隆。</p>
+<p>2.深克隆</p>
+<p>如果需要克隆的对象的域包含引用类型，则需要使用深克隆；<br>繁殖，可以直接使用Object类的clone()方法进行浅克隆。</p>
+<p>12.两种方式可以实现深克隆，效率如何？</p>
+<p>1.序列化，效率很差。</p>
+<p>2.榆次克隆各个可变的引用类型域的方式。</p>
+<p>13.在内部类中调用外部类同名的成员？</p>
+<p>在内部类中调用内容类的x： this.x=…</p>
+<p>在内部类调用外部类的X: TheSamName.this.x=…</p>
+<p>15.自动装包、拆包？</p>
+<p>基本数据类型自动转换成类.集合中不能存储基本数据类型。</p>
+<p>int a=3;</p>
+<p>arraylist.add(a);</p>
+<p>16.String可以被继承么？</p>
+<p>不可以。final修饰的类不能被继承。</p>
+<p>17.各种进制的转换</p>
+<p>Integer.parseInt(“101001010”,2);二进制转int<br>Integer.toBinaryString(int i);<br>…</p>
+<p>Java集合类框架</p>
+<p>18.数组 和 集合的转换</p>
+<p>List list=new Arrays.asList(1,2,3,4,5);</p>
+<p>Interger[] array=list.toArray(new Integer[]{});</p>
+<p>19.Collection 和 Collections 的区别？</p>
+<p>Collection是集合类的派生接口。是Java集合类的基础。</p>
+<p>Collections是为集合类定义的工具类，包含了一些查找排序的方法，非常实用。</p>
+<p>20.获得Map中的全部键？</p>
+<p>Map接口中的keySet()方法</p>
+<p>Set keySet()</p>
+<p>Set keySet=map.keySet();</p>
+<p>然后通过键获得值。</p>
+<p>21.获得Map中的全部值？</p>
+<p>values()</p>
+<p>Collection values()</p>
+<p>Collection values=map.values();</p>
+<p>22.获得Map中的全部键值对？</p>
+<p>Set</p>
+<p>异常处理</p>
+<p>23.throw和throws区别</p>
+<p>throws是方法里的声明要抛出什么异常</p>
+<p>throw是抛出具体异常</p>
+<p>I/O</p>
+<p>24.对象流？</p>
+<p>DataInput DataOutput 可以吧对象写入到磁盘中</p>
+<p>但是读写的对象必须实现了Serializable接口。</p>
 
       
     </div>
@@ -203,7 +265,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -225,11 +287,11 @@
 
 
   
-    <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-基本类型以及数组列表常用操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/15/linux-防火墙开放指定端口/" class="article-date">
-  	<time datetime="2017-01-15T00:49:02.000Z" itemprop="datePublished">2017-01-15</time>
+      <a href="/2017/02/27/java-基本类型以及数组列表常用操作/" class="article-date">
+  	<time datetime="2017-02-27T01:48:12.000Z" itemprop="datePublished">2017-02-27</time>
 </a>
     </div>
   
@@ -242,7 +304,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/linux-防火墙开放指定端口/">linux-防火墙开放指定端口</a>
+      <a class="article-title" href="/2017/02/27/java-基本类型以及数组列表常用操作/">java-基本类型以及数组列表常用操作</a>
     </h1>
   
 
@@ -251,20 +313,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，使用firewalld代替了原来的iptables。<br>firewalld是centos7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火<br>墙的“zone”概念。</p>
-<h2 id="firewalld-常用命令"><a href="#firewalld-常用命令" class="headerlink" title="firewalld 常用命令"></a>firewalld 常用命令</h2><h3 id="永久开启端口"><a href="#永久开启端口" class="headerlink" title="永久开启端口"></a>永久开启端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-<h4 id="命令说明："><a href="#命令说明：" class="headerlink" title="命令说明："></a>命令说明：</h4><p>–zone #作用域</p>
-<p>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议</p>
-<p>–permanent   #永久生效，没有此参数重启后失效</p>
-<h3 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<h3 id="永久关闭一个端口"><a href="#永久关闭一个端口" class="headerlink" title="永久关闭一个端口"></a>永久关闭一个端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br></pre></td></tr></table></figure>
-<h3 id="永久打开某项服务："><a href="#永久打开某项服务：" class="headerlink" title="永久打开某项服务："></a>永久打开某项服务：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service=http</span><br></pre></td></tr></table></figure>
-<h3 id="永久关闭某项服务"><a href="#永久关闭某项服务" class="headerlink" title="永久关闭某项服务"></a>永久关闭某项服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-service=http</span><br></pre></td></tr></table></figure>
-<h3 id="进行端口转发"><a href="#进行端口转发" class="headerlink" title="进行端口转发"></a>进行端口转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080:toaddr=192.0.2.55</span><br></pre></td></tr></table></figure>
-<h3 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
-<h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld 或者 firewall-cmd –state</span><br></pre></td></tr></table></figure>
-<h3 id="停止防火墙服务"><a href="#停止防火墙服务" class="headerlink" title="停止防火墙服务"></a>停止防火墙服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
-<h3 id="关闭放火墙"><a href="#关闭放火墙" class="headerlink" title="关闭放火墙"></a>关闭放火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><pre><code class="bash"><span class="comment"># 取字符串特定索引的字符</span>
+String <span class="built_in">test</span>_str = <span class="string">"hello world"</span>;
+char a = <span class="built_in">test</span>_str.charAt(0);
+<span class="comment">#字符串转字符数组</span>
+char a[] = <span class="built_in">test</span>_str.toCharArray();
+<span class="comment">#取得字符串中某字符的索引，没有该字符时返回 -1</span>
+int c_index = <span class="built_in">test</span>_str.indexOf(e);
+</code></pre>
 
       
     </div>
@@ -273,7 +329,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -295,11 +351,11 @@
 
 
   
-    <article id="post-leetcode-447-Number-of-Boomerangs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java常用排序算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/06/leetcode-447-Number-of-Boomerangs/" class="article-date">
-  	<time datetime="2017-01-06T08:07:31.000Z" itemprop="datePublished">2017-01-06</time>
+      <a href="/2017/02/27/java常用排序算法/" class="article-date">
+  	<time datetime="2017-02-27T01:19:11.000Z" itemprop="datePublished">2017-02-27</time>
 </a>
     </div>
   
@@ -312,7 +368,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/leetcode-447-Number-of-Boomerangs/">leetcode-447-Number-of-Boomerangs</a>
+      <a class="article-title" href="/2017/02/27/java常用排序算法/">java常用排序算法</a>
     </h1>
   
 
@@ -321,7 +377,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="基本排序算法分类："><a href="#基本排序算法分类：" class="headerlink" title="基本排序算法分类："></a>基本排序算法分类：</h3><p>1）插入排序（直接插入排序、希尔排序）<br>2）交换排序（冒泡排序、快速排序）<br>3）选择排序（直接选择排序、堆排序）<br>4）归并排序<br>5）分配排序（基数排序）<br>所需辅助空间最多：归并排序<br>所需辅助空间最少：堆排序<br>平均速度最快：快速排序<br>不稳定：快速排序，希尔排序，堆排序</p>
+<h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##思想：假设数组 a  前 j (j=i-1) 个是有序的，将第 i 个与前 j 个比较，当a[i]&lt;a[j]时，将a[j]</span></span><br><span class="line"><span class="comment">##后移，将a[i]插入</span></span><br><span class="line">public class InsertSort&#123;</span><br><span class="line">  public void insertSort(int[] arry)&#123;</span><br><span class="line">    int temp = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1;i&lt;arry.length;i++)&#123;</span><br><span class="line">      temp =arry[i];</span><br><span class="line">      j = i - 1;</span><br><span class="line">      <span class="keyword">for</span>(;j&gt;=0&amp;&amp;temp&lt;arry[j];j--)&#123;</span><br><span class="line">        arry[j+1] = arry[j];</span><br><span class="line">      &#125;</span><br><span class="line">      arry[j+1] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int k=0;k&lt;arry.length;k++)&#123;</span><br><span class="line">      System.out.println(a[k]);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 希尔排序</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">##将数组按增量 d 分为 多组，每组进行插入排序，直到 d=1</span></span><br><span class="line"></span><br><span class="line">public class ShellSort &#123;</span><br><span class="line"></span><br><span class="line">    public static int[] shellSort(int a[]) &#123;</span><br><span class="line">        double d1 = a.length;</span><br><span class="line">        int temp = 0;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            //增量取数组的长度的  1/2，将数组分为多组，分别用 插入排序进行排序</span><br><span class="line">            d1 = Math.ceil(d1 / 2);</span><br><span class="line">            int d = (int) d1;</span><br><span class="line">            <span class="keyword">for</span> (int x = 0; x &lt; d; x++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (int i = x + d; i &lt; a.length; i += d) &#123;</span><br><span class="line">                    int j = i - d;</span><br><span class="line">                    temp = a[i];</span><br><span class="line">                    <span class="keyword">for</span> (; j &gt;= 0 &amp;&amp; temp &lt; a[j]; j -= d) &#123;</span><br><span class="line">                        a[j + d] = a[j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    a[j + d] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (d == 1) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int a[] = &#123;1, 7,5&#125;;</span><br><span class="line">        int b[] = ShellSort.shellSort(a);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; b.length; i++) &#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">    public static int[] selectSort(int a[])&#123;</span><br><span class="line">        int position =0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            int temp = a[i];</span><br><span class="line">            position = i;</span><br><span class="line">            int j = i+1;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;a.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&lt;temp)&#123;</span><br><span class="line">                    temp = a[j];</span><br><span class="line">                    position =j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[position] = a[i];</span><br><span class="line">            a[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= SelectSort.selectSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class BubbleSort &#123;</span><br><span class="line">    public static int[] bubbleSort(int[] a)&#123;</span><br><span class="line">        int temp = 0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=0;j&lt;a.length-i-1;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&gt;a[j+1])&#123;</span><br><span class="line">                    temp =a[j+1];</span><br><span class="line">                    a[j+1]=a[j];</span><br><span class="line">                    a[j]=temp;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= BubbleSort.bubbleSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class QuickSort &#123;</span><br><span class="line">    public static int[] quickSort(int[] arr)&#123;</span><br><span class="line">        qsort(arr,0,arr.length-1);</span><br><span class="line">        <span class="built_in">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void qsort(int[] arr,int low,int high)&#123;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)&#123;</span><br><span class="line">            int piv = partition(arr,low,high);</span><br><span class="line">            qsort(arr,low,piv-1);</span><br><span class="line">            qsort(arr,piv+1,high);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static int partition(int[] arr,int low,int high)&#123;</span><br><span class="line">        int pivot = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">            <span class="keyword">while</span>(low&lt;high &amp;&amp; arr[high]&gt;=pivot)&#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[low] = arr[high];</span><br><span class="line">            <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot)&#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[high] = arr[low];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[low] = pivot;</span><br><span class="line">        <span class="built_in">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b = QuickSort.quickSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -329,7 +390,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -351,11 +412,11 @@
 
 
   
-    <article id="post-vim常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tornado-简介与基本使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/05/vim常用操作/" class="article-date">
-  	<time datetime="2017-01-05T13:55:35.000Z" itemprop="datePublished">2017-01-05</time>
+      <a href="/2017/02/23/tornado-简介与基本使用/" class="article-date">
+  	<time datetime="2017-02-23T08:04:04.000Z" itemprop="datePublished">2017-02-23</time>
 </a>
     </div>
   
@@ -368,7 +429,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/vim常用操作/">vim常用操作</a>
+      <a class="article-title" href="/2017/02/23/tornado-简介与基本使用/">tornado-简介与基本使用</a>
     </h1>
   
 
@@ -377,14 +438,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">O   <span class="comment">#开启新的一行</span></span><br><span class="line">^   <span class="comment">#行的开始</span></span><br><span class="line">$   <span class="comment">#行的结尾</span></span><br><span class="line">gg   <span class="comment">#文档的第一行</span></span><br><span class="line">[N]G  <span class="comment">#文档的第N行或者最后一行</span></span><br></pre></td></tr></table></figure>
-<h3 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i  <span class="comment">#插入到光标前面</span></span><br><span class="line">I  <span class="comment">#插入到行的开始位置</span></span><br><span class="line">a  <span class="comment">#插入到光标的后面</span></span><br><span class="line">A  <span class="comment">#插入到行的最后位置</span></span><br><span class="line">o, O  <span class="comment">#新开一行</span></span><br><span class="line">Esc  <span class="comment">#关闭插入模式</span></span><br></pre></td></tr></table></figure>
-<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">r    <span class="comment">#在插入模式替换光标所在的一个字符</span></span><br><span class="line">J    <span class="comment">#合并下一行到上一行</span></span><br><span class="line">s    <span class="comment">#删除光标所在的一个字符, 光标还在当行</span></span><br><span class="line">S    <span class="comment">#删除光标所在的一行，光标还在当行，不同于dd</span></span><br><span class="line">u    <span class="comment">#撤销上一步操作</span></span><br><span class="line">ctrl+r  <span class="comment">#恢复上一步操作</span></span><br><span class="line">.    <span class="comment">#重复最后一个命令</span></span><br><span class="line">~    <span class="comment">#变换为大写</span></span><br><span class="line">[N]&gt;&gt; 一行或N行往右移动一个tab</span><br><span class="line">[N]&lt;&lt; 一行或N行往左移动一个tab</span><br></pre></td></tr></table></figure>
-<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:w   <span class="comment">#保存</span></span><br><span class="line">:wq  <span class="comment">#保存并关闭</span></span><br><span class="line">:q   <span class="comment">#关闭（已保存）</span></span><br><span class="line">:q!  <span class="comment">#强制关闭</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/pattern     <span class="comment">#搜索（非插入模式)</span></span><br><span class="line">?pattern     <span class="comment">#往后搜索</span></span><br><span class="line">n            <span class="comment">#光标到达搜索结果的前一个目标</span></span><br><span class="line">N            <span class="comment">#光标到达搜索结果的后一个目标</span></span><br></pre></td></tr></table></figure>
-<h3 id="视觉模式"><a href="#视觉模式" class="headerlink" title="视觉模式"></a>视觉模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v  <span class="comment">#选中一个或多个字符</span></span><br><span class="line">V  <span class="comment">#选中一行</span></span><br></pre></td></tr></table></figure>
-<h3 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd    <span class="comment">#删除一行</span></span><br><span class="line">dw    <span class="comment">#删除一个单词</span></span><br><span class="line">x     <span class="comment">#删除后一个字符</span></span><br><span class="line">X     <span class="comment">#删除前一个字符</span></span><br><span class="line">D     <span class="comment">#删除一行最后一个字符</span></span><br><span class="line">[N]yy <span class="comment">#复制一行或者N行</span></span><br><span class="line">yw    <span class="comment">#复制一个单词</span></span><br><span class="line">p     <span class="comment">#粘贴</span></span><br></pre></td></tr></table></figure>
-<h3 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:split   <span class="comment">#水平方向分割出一个窗口</span></span><br><span class="line">:vsplit  <span class="comment">#垂直方向分割出一个窗口</span></span><br><span class="line">:close   <span class="comment">#关闭窗口</span></span><br><span class="line">Ctrl+W   <span class="comment">#切换窗口, h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</span></span><br></pre></td></tr></table></figure>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，<br>处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。</p>
+<p>Tornado 大体上可以被分为4个主要的部分:</p>
+<h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><p>包括创建web应用的 RequestHandler 类，还有很多其他支持的类。</p>
+<h3 id="HTTP的客户端和服务端实现"><a href="#HTTP的客户端和服务端实现" class="headerlink" title="HTTP的客户端和服务端实现"></a>HTTP的客户端和服务端实现</h3><p>HTTPServer and AsyncHTTPClient.</p>
+<h3 id="异步网络库-IOLoop-and-IOStream"><a href="#异步网络库-IOLoop-and-IOStream" class="headerlink" title="异步网络库 (IOLoop and IOStream)"></a>异步网络库 (IOLoop and IOStream)</h3><p>为HTTP组件提供构建模块，也可以用来实现其他协议。</p>
+<h3 id="协程库-tornado-gen"><a href="#协程库-tornado-gen" class="headerlink" title="协程库 (tornado.gen)"></a>协程库 (tornado.gen)</h3><p>允许异步代码写的更直接而不用链式回调的方式。</p>
+<p>Tornado web 框架和HTTP server 一起为 WSGI 提供了一个全栈式的选择。<br>在WSGI容器在WSGI容器 (WSGIAdapter) 中使用Tornado web框架或者使用Tornado HTTP server<br>作为一个其他WSGI框架(WSGIContainer)的容器,这样的组合方式都是有局限性的。<br>为了充分利用Tornado的特性，你需要一起使用Tornado的web框架和HTTP server。</p>
+<h2 id="Tornado-web应用的结构"><a href="#Tornado-web应用的结构" class="headerlink" title="Tornado web应用的结构"></a>Tornado web应用的结构</h2><p>通常一个Tornado web应用包括一个或者多个 RequestHandler 子类，<br>一个可以将收到的请求路由到对应handler的 Application 对象，和 一个启动服务的 main() 函数。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import tornado.ioloop</span><br><span class="line">import tornado.web</span><br><span class="line"></span><br><span class="line">class MainHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">"Hello, world"</span>)</span><br><span class="line"></span><br><span class="line">def make_app():</span><br><span class="line">    <span class="built_in">return</span> tornado.web.Application([</span><br><span class="line">        (r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = make_app()</span><br><span class="line">    app.listen(8888)</span><br><span class="line">    tornado.ioloop.IOLoop.current().start()</span><br></pre></td></tr></table></figure>
+<h3 id="Application-对象"><a href="#Application-对象" class="headerlink" title="Application 对象"></a>Application 对象</h3><p>Application 对象是负责全局配置的，包括映射请求转发给处理程序的路由表。</p>
+<p>路由表是 URLSpec 对象(或元组)的列表，其中每个都包含(至少)一个正则表达式和一个处理类。顺序问题;<br>第一个匹配的规则会被使用。如果正则表达式包含捕获组，这些组会被作为路径参数传递给处理函数的<br>HTTP方法。如果一个字典作为URLSpec 的第三个参数被传递，它会作为初始参数传递给<br>RequestHandler.initialize。最后URLSpec可能有一个名字，这将允许它被 RequestHandler.reverse_url<br>使用。</p>
+<p>例如，在这个片段中根URL / 映射到了MainHandler，像 /story/ 后跟着一个数字这种形式的URL被映射到了<br>StoryHandler。这个数字被传递(作为字符串)给 StoryHandler.get。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class MainHandler(RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;a href="%s"&gt;link to story 1&lt;/a&gt;'</span> %</span><br><span class="line">                   self.reverse_url(<span class="string">"story"</span>, <span class="string">"1"</span>))</span><br><span class="line"></span><br><span class="line">class StoryHandler(RequestHandler):</span><br><span class="line">    def initialize(self, db):</span><br><span class="line">        self.db = db</span><br><span class="line"></span><br><span class="line">    def get(self, story_id):</span><br><span class="line">        self.write(<span class="string">"this is story %s"</span> % story_id)</span><br><span class="line"></span><br><span class="line">app = Application([</span><br><span class="line">    url(r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    url(r<span class="string">"/story/([0-9]+)"</span>, StoryHandler, dict(db=db), name=<span class="string">"story"</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure></p>
+<p>Application 构造函数有很多关键字参数可以用于自定义应用程序的行为和使用某些特性(或者功能);<br>完整列表请查看 Application.settings。</p>
+<h3 id="RequestHandler子类"><a href="#RequestHandler子类" class="headerlink" title="RequestHandler子类"></a>RequestHandler子类</h3><p>Tornado web 应用程序的大部分工作是在 RequestHandler子类下完成的。<br>处理子类的主入口点是一个命名为处理HTTP方法的函数: get(), post(), 等等.<br>每个处理程序可以定义一个或者多个这种方法来处理不同 的HTTP动作， 如上所述，<br>这些方法将被匹配路由规则的捕获组对应的参数调用。</p>
+<p>在处理程序中, 调用方法如 RequestHandler.render 或者 RequestHandler.write 产生一个响应。 render()<br>通过名字加载一个 Template 并使用给定的参数渲染它。write()被用于非模板基础的输出; 它接受字符串,<br>字节, 和字典(字典会被编码成JSON).</p>
+<p>在 RequestHandler 中的很多方法的设计是为了在子类中复写和在整个应用中使用。常用的方法是定义一个<br>BaseHandler类， 复写一些方法例如 write_error 和 get_current_user 然后子类继承使用你自己的<br>BaseHandler 而不是 RequestHandler 在你所有具体的处理程序中。</p>
+<h3 id="处理输入请求"><a href="#处理输入请求" class="headerlink" title="处理输入请求"></a>处理输入请求</h3><p>处理请求的程序(request handler)可以使用 self.request 访问代表当前请求的对象。通过<br>HTTPServerRequest 的类定义查看完整的属性列表.</p>
+<p>使用HTML表单格式请求的数据会被解析并且可以在一些方法中使用，例如 get_query_argument 和<br>get_body_argument。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MyFormHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;html&gt;&lt;body&gt;&lt;form action="/myform" method="POST"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="text" name="message"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="submit" value="Submit"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;'</span>)</span><br><span class="line"></span><br><span class="line">    def post(self):</span><br><span class="line">        self.set_header(<span class="string">"Content-Type"</span>, <span class="string">"text/plain"</span>)</span><br><span class="line">        self.write(<span class="string">"You wrote "</span> + self.get_body_argument(<span class="string">"message"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>由于HTLM表单编码不确定一个标签的参数是单一值还是一个列表，RequestHandler<br>有明确的方法来允许应用程序表明是否它期望接收一个列表。 对于列表，使用 get_query_arguments 和<br>get_body_arguments 而不是它们的单数形式。</p>
+<p>通过一个表单上传的文件可以使用 self.request.files, 它遍历名字(HTML 标签 <input type="file"> 的name)到一个文件列表. 每个文件都是一个字典的形式 {“filename”:…, “content_type”:…, “body”:…}. files 对象是当前唯一的如果文件上传是通过一个表单包装 (i.e. a multipart/form-data Content-Type); 如果没用这种格式, 原生上传的数据可以调用 self.request.body 使用. 默认上传的文件是完全缓存在内存中的; 如果你需要处理占用内存太大的文件 可以看看 stream_request_body 类装饰器.</p>
+<p>由于HTML表单编码格式的怪异 (e.g. 在单数和复数参数的含糊不清), Tornado 不会试图统一表单参数和其他输入类型的参数. 特别是, 我们不解析JSON请求体. 应用程序希望使用JSON代替表单编码可以复写 prepare 来解析它们的请求:</p>
+<p>def prepare(self):<br>    if self.request.headers[“Content-Type”].startswith(“application/json”):<br>        self.json_args = json.loads(self.request.body)<br>    else:<br>        self.json_args = None</p>
 
       
     </div>
@@ -393,7 +468,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
       
@@ -415,11 +490,11 @@
 
 
   
-    <article id="post-redis基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java序列化和文件读写" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/05/redis基本操作/" class="article-date">
-  	<time datetime="2017-01-05T13:00:51.000Z" itemprop="datePublished">2017-01-05</time>
+      <a href="/2017/02/06/java序列化和文件读写/" class="article-date">
+  	<time datetime="2017-02-06T02:56:16.000Z" itemprop="datePublished">2017-02-06</time>
 </a>
     </div>
   
@@ -432,7 +507,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/redis基本操作/">redis基本操作</a>
+      <a class="article-title" href="/2017/02/06/java序列化和文件读写/">java序列化和文件读写</a>
     </h1>
   
 
@@ -441,63 +516,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="移除给定的一个或多个key"><a href="#移除给定的一个或多个key" class="headerlink" title="移除给定的一个或多个key"></a>移除给定的一个或多个key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEL key [key ...]</span><br></pre></td></tr></table></figure>
-<h3 id="查找符合给定模式的key"><a href="#查找符合给定模式的key" class="headerlink" title="查找符合给定模式的key"></a>查找符合给定模式的key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYS pattern</span><br><span class="line"></span><br><span class="line">KEYS *  <span class="comment">#命中数据库中所有key</span></span><br><span class="line">KEYS h?llo  <span class="comment">#命中hello， hallo and hxllo等</span></span><br><span class="line">KEYS h*llo  <span class="comment">#命中hllo和heeeeello等。</span></span><br><span class="line">KEYS h[ae]llo <span class="comment">#命中hello和hallo，但不命中hillo。</span></span><br></pre></td></tr></table></figure>
-<h3 id="返回给定key的剩余生存时间-time-to-live-以秒为单位"><a href="#返回给定key的剩余生存时间-time-to-live-以秒为单位" class="headerlink" title="返回给定key的剩余生存时间(time to live)(以秒为单位)"></a>返回给定key的剩余生存时间(time to live)(以秒为单位)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TTL</span><br><span class="line">TTL key</span><br></pre></td></tr></table></figure>
-<h3 id="检查给定key是否存在"><a href="#检查给定key是否存在" class="headerlink" title="检查给定key是否存在"></a>检查给定key是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXISTS</span><br><span class="line">EXISTS key</span><br></pre></td></tr></table></figure>
-<h3 id="将key改名为newkey"><a href="#将key改名为newkey" class="headerlink" title="将key改名为newkey"></a>将key改名为newkey</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RENAME key newkey</span><br><span class="line"><span class="comment">#当key和newkey相同或者key不存在时，返回一个错误。</span></span><br><span class="line"><span class="comment">#当newkey已经存在时，RENAME命令将覆盖旧值。</span></span><br></pre></td></tr></table></figure>
-<h3 id="为给定key设置生存时间"><a href="#为给定key设置生存时间" class="headerlink" title="为给定key设置生存时间"></a>为给定key设置生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EXPIRE key seconds</span><br><span class="line"><span class="comment">#当key过期时，它会被自动删除。</span></span><br><span class="line"><span class="comment">#在Redis中，带有生存时间的key被称作“易失的”(volatile)。</span></span><br></pre></td></tr></table></figure>
-<h3 id="移除给定key的生存时间"><a href="#移除给定key的生存时间" class="headerlink" title="移除给定key的生存时间"></a>移除给定key的生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PERSIST key</span><br></pre></td></tr></table></figure>
-<h3 id="对key中的元素进行排序"><a href="#对key中的元素进行排序" class="headerlink" title="对key中的元素进行排序"></a>对key中的元素进行排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SORT</span><br><span class="line">SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC | DESC] [ALPHA] [STORE destination]</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回或保存给定列表、集合、有序集合key中经过排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#排序默认以数字作为对象，值被解释为双精度浮点数，然后进行比较。</span></span><br></pre></td></tr></table></figure>
-<h3 id="SETNX-key-value"><a href="#SETNX-key-value" class="headerlink" title="SETNX key value"></a>SETNX key value</h3><p>将key的值设为value，当且仅当key不存在。<br>若给定的key已经存在，则SETNX不做任何动作。<br>SETNX是”SET if Not eXists”(如果不存在，则SET)的简写。</p>
-<h3 id="SETEX"><a href="#SETEX" class="headerlink" title="SETEX"></a>SETEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SETEX key seconds value</span><br></pre></td></tr></table></figure>
-<p>将值value关联到key，并将key的生存时间设为seconds(以秒为单位)。<br>如果key 已经存在，SETEX命令将覆写旧值。<br>这个命令类似于以下两个命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET key value</span><br><span class="line">EXPIRE key seconds  <span class="comment"># 设置生存时间</span></span><br></pre></td></tr></table></figure>
-<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET key<br>返回key所关联的字符串值。<br>如果key不存在则返回特殊值nil。</p>
-<h3 id="HSET-key-field-value"><a href="#HSET-key-field-value" class="headerlink" title="HSET key field value"></a>HSET key field value</h3><p>将哈希表key中的域field的值设为value。<br>如果key不存在，一个新的哈希表被创建并进行HSET操作。<br>如果域field已经存在于哈希表中，旧值将被覆盖。</p>
-<h3 id="HSETNX-key-field-value"><a href="#HSETNX-key-field-value" class="headerlink" title="HSETNX key field value"></a>HSETNX key field value</h3><p>将哈希表key中的域field的值设置为value，当且仅当域field不存在。<br>若域field已经存在，该操作无效。<br>如果key不存在，一个新哈希表被创建并执行HSETNX命令。</p>
-<h3 id="HGET-key-field"><a href="#HGET-key-field" class="headerlink" title="HGET key field"></a>HGET key field</h3><p>返回哈希表key中给定域field的值。</p>
-<h3 id="HGETALL-key"><a href="#HGETALL-key" class="headerlink" title="HGETALL key"></a>HGETALL key</h3><p>返回哈希表key中，所有的域和值。<br>在返回值里，紧跟每个域名(field name)之后是域的值(value)，所以返回值的长度是哈希表大小的两倍。</p>
-<h3 id="HDEL-key-field-field-…"><a href="#HDEL-key-field-field-…" class="headerlink" title="HDEL key field [field …]"></a>HDEL key field [field …]</h3><p>删除哈希表key中的一个或多个指定域，不存在的域将被忽略。</p>
-<h3 id="HLEN-key"><a href="#HLEN-key" class="headerlink" title="HLEN key"></a>HLEN key</h3><p>返回哈希表key中域的数量。</p>
-<h3 id="HKEYS"><a href="#HKEYS" class="headerlink" title="HKEYS"></a>HKEYS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEYS key</span><br><span class="line"><span class="comment">#返回哈希表key中的所有域。</span></span><br></pre></td></tr></table></figure>
-<h3 id="HVALS"><a href="#HVALS" class="headerlink" title="HVALS"></a>HVALS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HVALS key</span><br><span class="line">返回哈希表key中的所有值。</span><br></pre></td></tr></table></figure>
-<h3 id="LPUSH"><a href="#LPUSH" class="headerlink" title="LPUSH"></a>LPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
-<p>将一个或多个值value插入到列表key的表头。<br>如果有多个value值，那么各个value值按从左到右的顺序依次插入到表头：比如对一个空列表(mylist)执行<br>LPUSH mylist a b c，则结果列表为c b a，等同于执行执行命令LPUSH mylist a、LPUSH mylist b、<br>LPUSH mylist c。</p>
-<p>如果key不存在，一个空列表会被创建并执行LPUSH操作。</p>
-<p>当key存在但不是列表类型时，返回一个错误。</p>
-<h3 id="LPUSHX"><a href="#LPUSHX" class="headerlink" title="LPUSHX"></a>LPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSHX key value</span><br></pre></td></tr></table></figure>
-<p>将值value插入到列表key的表头，当且仅当key存在并且是一个列表。<br>和LPUSH命令相反，当key不存在时，LPUSHX命令什么也不做。</p>
-<h3 id="RPUSH"><a href="#RPUSH" class="headerlink" title="RPUSH"></a>RPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
-<p>将一个或多个值value插入到列表key的表尾。</p>
-<h3 id="RPUSHX"><a href="#RPUSHX" class="headerlink" title="RPUSHX"></a>RPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSHX key value</span><br></pre></td></tr></table></figure>
-<p>将值value插入到列表key的表尾，当且仅当key存在并且是一个列表。<br>和RPUSH命令相反，当key不存在时，RPUSHX命令什么也不做。</p>
-<h3 id="LPOP"><a href="#LPOP" class="headerlink" title="LPOP"></a>LPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的头元素。</span></span><br></pre></td></tr></table></figure>
-<h3 id="RPOP"><a href="#RPOP" class="headerlink" title="RPOP"></a>RPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的尾元素。</span></span><br></pre></td></tr></table></figure>
-<h3 id="BLPOP"><a href="#BLPOP" class="headerlink" title="BLPOP"></a>BLPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BLPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
-<p>BLPOP是列表的阻塞式(blocking)弹出原语。<br>它是LPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BLPOP命令阻塞，直到等待超<br>时或发现可弹出元素为止。<br>超时参数timeout接受一个以秒为单位的数字作为值。超时参数设为0表示阻塞时间可以无限期延长(block<br>indefinitely) 。</p>
-<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的头元素。</p>
-<p>当BLPOP被调用时，如果给定key内至少有一个非空列表，那么弹出遇到的第一个非空列表的头元素，并和被弹<br>出元素所属的列表的名字一起，组成结果返回给调用者。</p>
-<p>当存在多个给定key时，BLPOP按给定key参数排列的先后顺序，依次检查各个列表。</p>
-<p>假设现在有job、<br>command和request三个列表，其中job不存在，command和request都持有非空列表。考虑以下命令：</p>
-<p>BLPOP job command request 0</p>
-<p>BLPOP保证返回的元素来自command，因为它是按”查找job -&gt; 查找command -&gt;<br>查找request“这样的顺序，第一个找到的非空列表。</p>
-<h3 id="BRPOP"><a href="#BRPOP" class="headerlink" title="BRPOP"></a>BRPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BRPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
-<p>BRPOP是列表的阻塞式(blocking)弹出原语。</p>
-<p>它是RPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BRPOP命令阻塞，直到等待超时或发现可弹出元素为止。</p>
-<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的尾部元素。</p>
-<p>关于阻塞操作的更多信息，请查看BLPOP命令，BRPOP除了弹出元素的位置和BLPOP不同之外，其他表现一致。</p>
-<h3 id="LLEN"><a href="#LLEN" class="headerlink" title="LLEN"></a>LLEN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LLEN key</span><br><span class="line"><span class="comment">#返回列表key的长度。</span></span><br><span class="line"><span class="comment">#如果key不存在，则key被解释为一个空列表，返回0.</span></span><br><span class="line"><span class="comment">#如果key不是列表类型，返回一个错误。</span></span><br></pre></td></tr></table></figure>
-<h3 id="LRANGE"><a href="#LRANGE" class="headerlink" title="LRANGE"></a>LRANGE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LRANGE key start stop</span><br></pre></td></tr></table></figure>
-<p>返回列表key中指定区间内的元素，区间以偏移量start和stop指定。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。</p>
-<p>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。</p>
-<h3 id="LREM"><a href="#LREM" class="headerlink" title="LREM"></a>LREM</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LREM key count value</span><br></pre></td></tr></table></figure>
-<p>根据参数count的值，移除列表中与参数value相等的元素。</p>
-<p>count的值可以是以下几种：<br>count &gt; 0: 从表头开始向表尾搜索，移除与value相等的元素，数量为count。<br>count &lt; 0: 从表尾开始向表头搜索，移除与value相等的元素，数量为count的绝对值。<br>count = 0: 移除表中所有与value相等的值。</p>
-<h3 id="LSET"><a href="#LSET" class="headerlink" title="LSET"></a>LSET</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LSET key index value</span><br></pre></td></tr></table></figure>
-<p>将列表key下标为index的元素的值设至为value。<br>更多信息请参考LINDEX操作。<br>当index参数超出范围，或对一个空列表(key不存在)进行LSET时，返回一个错误。</p>
-<h3 id="LINDEX"><a href="#LINDEX" class="headerlink" title="LINDEX"></a>LINDEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LINDEX key index</span><br></pre></td></tr></table></figure>
-<p>返回列表key中，下标为index的元素。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。<br>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。<br>如果key不是列表类型，返回一个错误。</p>
+        <p>java中存储状态的选择有很多种：<br>1.如果只有自己写的java程序会用到这些数据，用序列化的方式。<br>2.如果数据需要被其他程序使用，写一个纯文本文件，用其他程序可以识别的字符写进文件中。</p>
+<h3 id="将序列化对象写入文件"><a href="#将序列化对象写入文件" class="headerlink" title="将序列化对象写入文件"></a>将序列化对象写入文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fileStream = new FileOutputStream(<span class="string">"Myfile.txt"</span>);</span><br><span class="line">ObjectOutputStream os = new ObjectOutputStream(fileStream);</span><br><span class="line">os.writeObject(Objectone);</span><br><span class="line">os.close()</span><br><span class="line"><span class="comment"># Objectone 须是可以序列化的，即实现 Serializable接口的。</span></span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>如果某实例变量不能或不应该被序列化，就把它标记为transient(瞬时)。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Chat implements Serializable &#123;</span><br><span class="line">    transient String id;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="解序列化"><a href="#解序列化" class="headerlink" title="解序列化"></a>解序列化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fileStream = new FileInputStream(<span class="string">"Myfile.txt"</span>);</span><br><span class="line">ObjectInputStream os = new ObjectInputStream(fileStream);</span><br><span class="line">Object one os.readObject();</span><br><span class="line">Dog dog = (Dog) one;</span><br><span class="line">os.close()</span><br></pre></td></tr></table></figure>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>每次调用 readObject()都会从stream 中读取一个对象，读取顺序与写入顺序相同，次数超过会抛出异常。</p>
+<p>readObject() 返回值是类型是 Object 因此必须要转换类型。</p>
+<p>新的对象会被配置在堆上，单构造函数不会执行，因为若构造函数执行会把对象状态抹去又变成全新的，这不<br>是想要的结果，我们需要的是对象回到存储时的状态。</p>
+<p>如果对象在继承树有个不可序列化的祖先类，则该不可序列化类以及在它之上的类的构造函数（就算可序列化<br>也一样）就会执行。一旦构造函数连锁启动之后将无法停止。也就是说，从第一个不可序列化的父类开始，全<br>部都会重新初始状态。</p>
+<p>对象的实例变量会被还原成序列化时点的状态值，transient变量会被赋值null。</p>
+<p>对象必须实现序列化这个接口才能被序列化，如果父类实现序列化，则子类就自动实现，而不管是否有明确的<br>声明。</p>
+<p>当对象被序列化时，整个对象版图都会被序列化，这代表它的实例变量所引用的对象也会被序列化。</p>
+<p>静态变量不会被序列化，因为所有对象都共享同一份静态变量值。</p>
+<h3 id="字符串写入文本文件"><a href="#字符串写入文本文件" class="headerlink" title="字符串写入文本文件"></a>字符串写入文本文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  FileWriter writer = new FileWriter(<span class="string">"test.txt"</span>);</span><br><span class="line">  writer.write(<span class="string">"hello"</span>);</span><br><span class="line">  writer.close()</span><br><span class="line">&#125;</span><br><span class="line">catch(IOException ex)&#123;</span><br><span class="line">  ex.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># test.txt 如果不存在就会被创建</span></span><br><span class="line"><span class="comment">#输入输出相关的操作必须包在 try catch 块中。</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用缓冲区"><a href="#使用缓冲区" class="headerlink" title="使用缓冲区"></a>使用缓冲区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter writer = new BufferedWriter(new FileWriter(afile))</span><br><span class="line">writer.flush()</span><br></pre></td></tr></table></figure>
+<p>通过BufferedWriter 和 FileWriter 的链接，BufferedWriter可以暂存一堆数据，然后到缓冲区满时再实<br>际写入磁盘，这样可以减少对磁盘操作的次数，提高效率。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  File myFile = new File(<span class="string">"mytext.txt"</span>);</span><br><span class="line">  FileReader filereader new FileReader(myFile);</span><br><span class="line">  BufferedReader reader = new BufferedReader(filereader);</span><br><span class="line">  String line = null;</span><br><span class="line">  <span class="keyword">while</span> ((line = reader.readline())!= null)&#123;</span><br><span class="line">    System.out.println(line);</span><br><span class="line">  &#125;</span><br><span class="line">  reader.close()</span><br><span class="line">&#125;</span><br><span class="line">catch(Excption ex)&#123;</span><br><span class="line">  ex.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -506,7 +540,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -530,7 +564,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

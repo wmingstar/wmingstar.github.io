@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>tornado-简介与基本使用 | 明动天下</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。
+Tornado 大体上可以被分为4个主要的部分:
+web框架包括创建web应用的 RequestHandler 类，还有很多其他支持的类。
+HTTP的客户端和服务端实现HTTPServer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tornado-简介与基本使用">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/tornado-简介与基本使用/index.html">
+<meta property="og:site_name" content="明动天下">
+<meta property="og:description" content="简介Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。
+Tornado 大体上可以被分为4个主要的部分:
+web框架包括创建web应用的 RequestHandler 类，还有很多其他支持的类。
+HTTP的客户端和服务端实现HTTPServer">
+<meta property="og:updated_time" content="2017-02-23T09:10:13.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tornado-简介与基本使用">
+<meta name="twitter:description" content="简介Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。
+Tornado 大体上可以被分为4个主要的部分:
+web框架包括创建web应用的 RequestHandler 类，还有很多其他支持的类。
+HTTP的客户端和服务端实现HTTPServer">
+  
+    <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/me.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">明动天下</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">提笔写诗   落笔代码</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">概览</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wmingstar" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wmingstar" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">明动天下</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/me.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">明动天下</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">提笔写诗   落笔代码</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">概览</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wmingstar" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wmingstar" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-tornado-简介与基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/tornado-简介与基本使用/" class="article-date">
+  	<time datetime="2017-02-23T08:04:04.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      tornado-简介与基本使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，<br>处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。</p>
+<p>Tornado 大体上可以被分为4个主要的部分:</p>
+<h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><p>包括创建web应用的 RequestHandler 类，还有很多其他支持的类。</p>
+<h3 id="HTTP的客户端和服务端实现"><a href="#HTTP的客户端和服务端实现" class="headerlink" title="HTTP的客户端和服务端实现"></a>HTTP的客户端和服务端实现</h3><p>HTTPServer and AsyncHTTPClient.</p>
+<h3 id="异步网络库-IOLoop-and-IOStream"><a href="#异步网络库-IOLoop-and-IOStream" class="headerlink" title="异步网络库 (IOLoop and IOStream)"></a>异步网络库 (IOLoop and IOStream)</h3><p>为HTTP组件提供构建模块，也可以用来实现其他协议。</p>
+<h3 id="协程库-tornado-gen"><a href="#协程库-tornado-gen" class="headerlink" title="协程库 (tornado.gen)"></a>协程库 (tornado.gen)</h3><p>允许异步代码写的更直接而不用链式回调的方式。</p>
+<p>Tornado web 框架和HTTP server 一起为 WSGI 提供了一个全栈式的选择。<br>在WSGI容器在WSGI容器 (WSGIAdapter) 中使用Tornado web框架或者使用Tornado HTTP server<br>作为一个其他WSGI框架(WSGIContainer)的容器,这样的组合方式都是有局限性的。<br>为了充分利用Tornado的特性，你需要一起使用Tornado的web框架和HTTP server。</p>
+<h2 id="Tornado-web应用的结构"><a href="#Tornado-web应用的结构" class="headerlink" title="Tornado web应用的结构"></a>Tornado web应用的结构</h2><p>通常一个Tornado web应用包括一个或者多个 RequestHandler 子类，<br>一个可以将收到的请求路由到对应handler的 Application 对象，和 一个启动服务的 main() 函数。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import tornado.ioloop</span><br><span class="line">import tornado.web</span><br><span class="line"></span><br><span class="line">class MainHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">"Hello, world"</span>)</span><br><span class="line"></span><br><span class="line">def make_app():</span><br><span class="line">    <span class="built_in">return</span> tornado.web.Application([</span><br><span class="line">        (r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = make_app()</span><br><span class="line">    app.listen(8888)</span><br><span class="line">    tornado.ioloop.IOLoop.current().start()</span><br></pre></td></tr></table></figure>
+<h3 id="Application-对象"><a href="#Application-对象" class="headerlink" title="Application 对象"></a>Application 对象</h3><p>Application 对象是负责全局配置的，包括映射请求转发给处理程序的路由表。</p>
+<p>路由表是 URLSpec 对象(或元组)的列表，其中每个都包含(至少)一个正则表达式和一个处理类。顺序问题;<br>第一个匹配的规则会被使用。如果正则表达式包含捕获组，这些组会被作为路径参数传递给处理函数的<br>HTTP方法。如果一个字典作为URLSpec 的第三个参数被传递，它会作为初始参数传递给<br>RequestHandler.initialize。最后URLSpec可能有一个名字，这将允许它被 RequestHandler.reverse_url<br>使用。</p>
+<p>例如，在这个片段中根URL / 映射到了MainHandler，像 /story/ 后跟着一个数字这种形式的URL被映射到了<br>StoryHandler。这个数字被传递(作为字符串)给 StoryHandler.get。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class MainHandler(RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;a href="%s"&gt;link to story 1&lt;/a&gt;'</span> %</span><br><span class="line">                   self.reverse_url(<span class="string">"story"</span>, <span class="string">"1"</span>))</span><br><span class="line"></span><br><span class="line">class StoryHandler(RequestHandler):</span><br><span class="line">    def initialize(self, db):</span><br><span class="line">        self.db = db</span><br><span class="line"></span><br><span class="line">    def get(self, story_id):</span><br><span class="line">        self.write(<span class="string">"this is story %s"</span> % story_id)</span><br><span class="line"></span><br><span class="line">app = Application([</span><br><span class="line">    url(r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    url(r<span class="string">"/story/([0-9]+)"</span>, StoryHandler, dict(db=db), name=<span class="string">"story"</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure></p>
+<p>Application 构造函数有很多关键字参数可以用于自定义应用程序的行为和使用某些特性(或者功能);<br>完整列表请查看 Application.settings。</p>
+<h3 id="RequestHandler子类"><a href="#RequestHandler子类" class="headerlink" title="RequestHandler子类"></a>RequestHandler子类</h3><p>Tornado web 应用程序的大部分工作是在 RequestHandler子类下完成的。<br>处理子类的主入口点是一个命名为处理HTTP方法的函数: get(), post(), 等等.<br>每个处理程序可以定义一个或者多个这种方法来处理不同 的HTTP动作， 如上所述，<br>这些方法将被匹配路由规则的捕获组对应的参数调用。</p>
+<p>在处理程序中, 调用方法如 RequestHandler.render 或者 RequestHandler.write 产生一个响应。 render()<br>通过名字加载一个 Template 并使用给定的参数渲染它。write()被用于非模板基础的输出; 它接受字符串,<br>字节, 和字典(字典会被编码成JSON).</p>
+<p>在 RequestHandler 中的很多方法的设计是为了在子类中复写和在整个应用中使用。常用的方法是定义一个<br>BaseHandler类， 复写一些方法例如 write_error 和 get_current_user 然后子类继承使用你自己的<br>BaseHandler 而不是 RequestHandler 在你所有具体的处理程序中。</p>
+<h3 id="处理输入请求"><a href="#处理输入请求" class="headerlink" title="处理输入请求"></a>处理输入请求</h3><p>处理请求的程序(request handler)可以使用 self.request 访问代表当前请求的对象。通过<br>HTTPServerRequest 的类定义查看完整的属性列表.</p>
+<p>使用HTML表单格式请求的数据会被解析并且可以在一些方法中使用，例如 get_query_argument 和<br>get_body_argument。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MyFormHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;html&gt;&lt;body&gt;&lt;form action="/myform" method="POST"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="text" name="message"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="submit" value="Submit"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;'</span>)</span><br><span class="line"></span><br><span class="line">    def post(self):</span><br><span class="line">        self.set_header(<span class="string">"Content-Type"</span>, <span class="string">"text/plain"</span>)</span><br><span class="line">        self.write(<span class="string">"You wrote "</span> + self.get_body_argument(<span class="string">"message"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>由于HTLM表单编码不确定一个标签的参数是单一值还是一个列表，RequestHandler<br>有明确的方法来允许应用程序表明是否它期望接收一个列表。 对于列表，使用 get_query_arguments 和<br>get_body_arguments 而不是它们的单数形式。</p>
+<p>通过一个表单上传的文件可以使用 self.request.files, 它遍历名字(HTML 标签 <input type="file"> 的name)到一个文件列表. 每个文件都是一个字典的形式 {“filename”:…, “content_type”:…, “body”:…}. files 对象是当前唯一的如果文件上传是通过一个表单包装 (i.e. a multipart/form-data Content-Type); 如果没用这种格式, 原生上传的数据可以调用 self.request.body 使用. 默认上传的文件是完全缓存在内存中的; 如果你需要处理占用内存太大的文件 可以看看 stream_request_body 类装饰器.</p>
+<p>由于HTML表单编码格式的怪异 (e.g. 在单数和复数参数的含糊不清), Tornado 不会试图统一表单参数和其他输入类型的参数. 特别是, 我们不解析JSON请求体. 应用程序希望使用JSON代替表单编码可以复写 prepare 来解析它们的请求:</p>
+<p>def prepare(self):<br>    if self.request.headers[“Content-Type”].startswith(“application/json”):<br>        self.json_args = json.loads(self.request.body)<br>    else:<br>        self.json_args = None</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/27/java常用排序算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          java常用排序算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/06/java序列化和文件读写/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java序列化和文件读写</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="tornado-简介与基本使用" data-title="tornado-简介与基本使用" data-url="http://yoursite.com/2017/02/23/tornado-简介与基本使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 明动天下
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

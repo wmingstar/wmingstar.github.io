@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-github1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-spark1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/16/github1/" class="article-date">
-  	<time datetime="2016-04-16T03:13:56.000Z" itemprop="datePublished">2016-04-16</time>
+      <a href="/2016/05/25/spark1/" class="article-date">
+  	<time datetime="2016-05-25T07:15:32.000Z" itemprop="datePublished">2016-05-25</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/16/github1/">Github搭建个人博客</a>
+      <a class="article-title" href="/2016/05/25/spark1/">spark进阶之路——入门</a>
     </h1>
   
 
@@ -182,20 +182,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Github准备工作"><a href="#Github准备工作" class="headerlink" title="Github准备工作"></a>Github准备工作</h2><p>这周一直在折腾Github，今天终于基本完成，心里有点激动呢！好了，不废话，上干货。<br><a href="http://www.coldsatr.com/post/1da5e464_a95c488" target="_blank" rel="external">配置Github</a><br><a href="http://www.coldsatr.com/post/1da5e464_a9871a9" target="_blank" rel="external">Github基本操作</a></p>
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><p>Hexo其实就是一个博客框架，它特别简洁、高效，用它写博客特别方便。Hexo用Markdown(渲染引擎)解析文章。<br>它可以很快的用漂亮的主题生成静态网页，然后将其托管在Github上就可以，其实挺简单的东西，但自己折<br>腾的时候，还是走了一些弯路。</p>
-<h2 id="Hexo环境要求"><a href="#Hexo环境要求" class="headerlink" title="Hexo环境要求"></a>Hexo环境要求</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装<a href="https://git-scm.com/downloads" target="_blank" rel="external">Git</a></h3><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></h3><p>此时环境配置完成。</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>创建一个文件夹，来初始化Hexo,初始化之后才可以使用。比如哦，我是在E:盘下面创建了一个Github文件夹，<br>在Github下创建 hexo文件夹。进入该文件夹，打开Git Bash。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>此时Hexo安装全部完成，hexo文件夹下的目录（）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├──node_modules</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装Hexo插件"><a href="#安装Hexo插件" class="headerlink" title="安装Hexo插件"></a>安装Hexo插件</h2><p>有些已经有了就不需要再按，在 node_modules 子目录下可以看到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-renderer-marked@0.2 --save</span><br><span class="line">npm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">npm install hexo-generator-feed@1 --save</span><br><span class="line">npm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure></p>
-<p>此时，Hexo安装配置全部完成。</p>
-<h2 id="启动Hexo-server查看效果"><a href="#启动Hexo-server查看效果" class="headerlink" title="启动Hexo server查看效果"></a>启动Hexo server查看效果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>打开浏览器 ：localhost4000</p>
-<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="comment">#n:new 生成文章，或者source\_posts手动编辑</span></span><br><span class="line">hexo s <span class="comment">#s:server 本地发布预览效果</span></span><br><span class="line">hexo g <span class="comment">#g:generate生成public静态文件</span></span><br><span class="line">hexo d <span class="comment">#d:deploy同步更新至GitHub</span></span><br></pre></td></tr></table></figure>
-<h2 id="该更配置文件"><a href="#该更配置文件" class="headerlink" title="该更配置文件"></a>该更配置文件</h2><p>hexo文件夹下的 _config.yml 文件便是配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: Coder1919 <span class="comment">#你的博客名</span></span><br><span class="line">subtitle: Be a programmer! <span class="comment">#博客名下的副标题，就是个性签名</span></span><br><span class="line">description: java elasticsearch github!  <span class="comment">#描述你的博客，搜索引擎会爬取</span></span><br><span class="line">author: coder1919</span><br><span class="line">language: zh-CN <span class="comment">#配置博客的语言</span></span><br><span class="line">timezone:</span><br><span class="line"><span class="comment"># URL 无需改动</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"><span class="comment"># Writing 无需改动</span></span><br><span class="line">new_post_name: :title.md <span class="comment"># File name of new posts</span></span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line">external_link: <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line">filename_<span class="keyword">case</span>: 0</span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">future: <span class="literal">true</span></span><br><span class="line">highlight:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  line_number: <span class="literal">true</span></span><br><span class="line">  auto_detect: <span class="literal">false</span></span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag 无需改动</span></span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format 无需改动</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination 无需改动</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions </span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment">##theme: landscape</span></span><br><span class="line">theme: yilia <span class="comment">#更改主题</span></span><br><span class="line"><span class="comment"># Deployment 重要，如下配置之后才可以用   $ hexo d 命令同步至Github</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/coder1919/coder1919.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="另附："><a href="#另附：" class="headerlink" title="另附："></a>另附：</h2><p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git 简明指南</a><br><a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator/" target="_blank" rel="external">Git help</a><br><a href="http://www.jianshu.com/p/ed32ac187dbc/comments/2005400" target="_blank" rel="external">参考</a><br><a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo 主题</a></p>
+        <h2 id="spark是什么？"><a href="#spark是什么？" class="headerlink" title="spark是什么？"></a>spark是什么？</h2><p>Spark是基于内存的分布式计算框架，计算的中间结果无需利用 HDFS 进行保存，因此速度比较快。</p>
+<h2 id="spark有哪些优势？"><a href="#spark有哪些优势？" class="headerlink" title="spark有哪些优势？"></a>spark有哪些优势？</h2><p>1.计算速度快：基于内存，中间结果在内存存放，读写速度快。<br>2.方便使用：支持Scala, Java, Python ，还有交互式的 Python 和 Scala 的 shell。<br>3.功能强大：支持批处理、交互查询、流处理、机器学习、图计算。<br>4.兼容性好：可以使用各种现有的技术作为底层，也可以自己独立运行。</p>
+<h2 id="spark的架构"><a href="#spark的架构" class="headerlink" title="spark的架构"></a>spark的架构</h2><p><img src="/img/spark.jpg" alt=""></p>
+<p>Driver : 用户编写的程序，需要创建 SparkContext。<br>SparkContext : 用户和 Spark 集群交互的接口，它和 Cluster Manager 交互。<br>Cluster Manager : 负责资源管理调度。<br>Worker Node : 具体执行计算的节点。<br>Executer : 在 Worker Node 为某个应用启动的一个进程（Executer间相互独立）。<br>Task : 被送到 Executor 上的计算任务。</p>
+<h2 id="spark的工作流程"><a href="#spark的工作流程" class="headerlink" title="spark的工作流程"></a>spark的工作流程</h2><p>1.用户创建Driver ，在Driver中创建SparkContext ,连接到 Cluster Manager，Cluster Manager 分配计算资源并启动对应的 Executer。<br>2.Driver 将用户程序划分为不同的执行阶段，每个执行阶段由一组完全相同的 Task 组成，这些 Task 分别作用于待处理数据的不同分区。在阶段划分完成和 Task 创建后，Driver 会向 Executor 发送 Task。<br>3.Executor 接收到 Task 后，下载 Task 的运行依赖，在准备好 Task 的执行环境后，会开始执行Task，并  将Task 的运行状态汇报给 Driver。<br>4.Driver 根据收到的 Task 的运行状态来处理不同的状态更新。Task 分为两种：一种是 Shuffle Map Task，它实现数据的重新洗牌，洗牌的结果保存到 Executor 所在节点的文件系统中；另外一种是 Result Task，它负责生成结果数据。<br>5.Driver 会不断地调用 Task，将 Task发送到 Executor 执行，在所有的 Task 都正确执行或者超过执行   次数的限制仍然没有执行成功时停止。</p>
+<h2 id="spark系统的相关组件"><a href="#spark系统的相关组件" class="headerlink" title="spark系统的相关组件"></a>spark系统的相关组件</h2><p>Spark SQL: 类似 Hive，支持在不同 RDD 上进行类似 SQL 的操作。<br>Spark Streaming: 对于流数据进行处理。<br>MLlib: 机器学习库。<br>GraphX: 图并行框架。</p>
+<h2 id="数据抽象——RDD"><a href="#数据抽象——RDD" class="headerlink" title="数据抽象——RDD"></a>数据抽象——RDD</h2><p> RDD是Spark 框架中最重要的一类新的数据抽象，叫做 Resilient Distributed Dataset - RDD。RDD 是分布 式存储在集群中的内存对象，按照值的范围或者哈希结果进行划分。与此同时 RDD会记录关于数据进行<br>的各种操作（每次操作都会生成新的RDD），这样即使节点挂掉，也能够根据之前的操作日志重新得到损失的 RDD。</p>
+<h3 id="RDD-支持2种操作："><a href="#RDD-支持2种操作：" class="headerlink" title="RDD 支持2种操作："></a>RDD 支持2种操作：</h3><p>转换（transformation）：从现有的数据集创建一个新的数据集。<br>动作（actions）：在数据集上运行计算后，返回一个值给Driver。</p>
+<p>参考资料：<a href="http://wdxtub.com/" target="_blank" rel="external">http://wdxtub.com/</a></p>
 
       
     </div>
@@ -204,7 +199,247 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/15/java5/" class="article-date">
+  	<time datetime="2016-05-15T07:17:13.000Z" itemprop="datePublished">2016-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/15/java5/">JAVA进阶——接口</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是接口？这是一个问题"><a href="#什么是接口？这是一个问题" class="headerlink" title="什么是接口？这是一个问题"></a>什么是接口？这是一个问题</h2><p>因为之前没学过计算机相关的基础知识，在听大神谈到接口时总一脸懵逼，完全不理解接口是什么。今天<br>看java的相关知识，才有点明白。</p>
+<p>接口：是若干常量和抽象方法的集合。使用 interface关键字来声明，可以看做是一种特殊的抽象类，可以<br>指定一个类必须做什么，而不是规定它如何去做。</p>
+<h2 id="接口的几点特性"><a href="#接口的几点特性" class="headerlink" title="接口的几点特性"></a>接口的几点特性</h2><p>1.接口中只能定义抽象方法，这些方法默认为 public abstract 的，因而在声明方法时可以省略这些修饰符。<br>2.接口中没有构造方法，不能被实例化。<br>3.一个接口不实现另一个接口，但可以继承多个其他接口（类单继承）。</p>
+<h2 id="那为什么要用接口呢？"><a href="#那为什么要用接口呢？" class="headerlink" title="那为什么要用接口呢？"></a>那为什么要用接口呢？</h2><p>大型项目开发中，可能需要从继承链的中间插入一个类，让它的子类具备某些功能而不影响它们的父类。例<br>如 A -&gt; B -&gt; C -&gt; D -&gt; E，A 是祖先类，如果需要为C、D、E类添加某些通用的功能，最简单的方法是让C类再<br>继承另外一个类。但问题是，Java 是一种单继承的语言，不能再让C继承另外一个父类了，只到移动到继承链<br>的最顶端，让A再继承一个父类。这样一来，对C、D、E类的修改，影响到了整个继承链，不具备可插入性的设计。</p>
+<p>接口是可插入性的保证。在一个继承链中的任何一个类都可以实现一个接口，这个接口会影响到此类的所<br>有子类，但不会影响到此类的任何父类。此类将不得不实现这个接口所规定的方法，而子类可以从此类自动<br>继承这些方法，这时候，这些子类具有了可插入性。</p>
+<p>接口提供了关联以及方法调用上的可插入性，软件系统的规模越大，生命周期越长，接口使得软件系统的<br>灵活性和可扩展性，可插入性方面得到保证。</p>
+<p>接口在面向对象的 Java 程序设计中占有举足轻重的地位。事实上在设计阶段最重要的任务之一就是设计出<br>各部分的接口，然后通过接口的组合，形成程序的基本框架结构。</p>
+<h2 id="接口与抽象类的对比"><a href="#接口与抽象类的对比" class="headerlink" title="接口与抽象类的对比"></a>接口与抽象类的对比</h2><pre><code>相同点
+</code></pre><p>（1）都代表类树形结构的抽象层。在使用引用变量时，尽量使用类结构的抽象层，使方法的定义和实现分离，这<br>样做对于代码有松散耦合的好处。<br>（2）都不能被实例化。<br>（3）都能包含抽象方法，抽象方法用来描述系统提供哪些功能，而不必关心具体的实现。</p>
+<pre><code>区别
+</code></pre><p>（1）抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象<br>类的优势；而接口中只能包含抽象方法，不能包含任何实现。<br>（2）) 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。</p>
+<h2 id="对于接口和抽象类的选择"><a href="#对于接口和抽象类的选择" class="headerlink" title="对于接口和抽象类的选择"></a>对于接口和抽象类的选择</h2><p>（1）行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。<br>（2）选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/24/java4/" class="article-date">
+  	<time datetime="2016-04-24T01:29:32.000Z" itemprop="datePublished">2016-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/24/java4/">JAVA进阶——快速排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/quicksort.gif" alt=""></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">public static void quickSort(int[] arr)&#123;</span><br><span class="line">    qsort(arr, 0, arr.length-1);</span><br><span class="line">&#125;</span><br><span class="line">private static void qsort(int[] arr, int low, int high)&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)&#123;</span><br><span class="line">        int pivot=partition(arr, low, high);        //将数组分为两部分</span><br><span class="line">        qsort(arr, low, pivot-1);                   //递归排序左子数组</span><br><span class="line">        qsort(arr, pivot+1, high);                  //递归排序右子数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private static int partition(int[] arr, int low, int high)&#123;</span><br><span class="line">    int pivot = arr[low];     //枢轴记录</span><br><span class="line">    <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[high]&gt;=pivot) --high;</span><br><span class="line">        arr[low]=arr[high];             //交换比枢轴小的记录到左端</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot) ++low;</span><br><span class="line">        arr[high] = arr[low];           //交换比枢轴小的记录到右端</span><br><span class="line">    &#125;</span><br><span class="line">    //扫描完成，枢轴到位</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    //返回的是枢轴的位置</span><br><span class="line">    <span class="built_in">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/23/java3/" class="article-date">
+  	<time datetime="2016-04-23T09:43:50.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/java3/">JAVA进阶——插入排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/insertsort.jpg" alt=""></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class InsertSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;5,2,4,6,1,3&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int key=a[];</span><br><span class="line">			int j=i-1;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;=0&amp;&amp;a[j]&gt;key)</span><br><span class="line">			&#123;</span><br><span class="line">				a[j+1]=a[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			a[j+1]=key;			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>刚开始接触插入排序时，有点不太理解，不理解的是谁和谁进行比较，插入到哪？松哥给我讲了两遍，可惜还是似懂非懂。自己又思考了下终于弄懂。（自己太笨了，呵呵）<br>插入排序，简单来说就是将数字插入其应该在的位置。插入时，先选取待插入的数字（从数组下标i=1开始），将待插入的数字与其前面（下标小于i的数字）进行比较，当前面的数字大于待选数字时则将前面的数字后移。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/23/java2/" class="article-date">
+  	<time datetime="2016-04-23T09:11:16.000Z" itemprop="datePublished">2016-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/java2/">JAVA进阶——直接选择排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">（code=java）</span><br><span class="line">package <span class="built_in">test</span>;</span><br><span class="line">public class SelectSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		 </span><br><span class="line">		int a[]=&#123;25,36,21,45,98,13&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int index=0;</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=a.length-i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j]&gt;a[index])</span><br><span class="line">				&#123;</span><br><span class="line">					index=j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			int temp=0;</span><br><span class="line">			temp=a[index];</span><br><span class="line">			a[index]=a[a.length-i];</span><br><span class="line">			a[a.length-i]=temp;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">     <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">    	 System.out.println(a[i]);</span><br><span class="line">     &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -228,7 +463,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-leetcode-171-column-number" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-206-Reverse-Linked-List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/leetcode-171-column-number/" class="article-date">
-  	<time datetime="2016-11-11T05:26:52.000Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/23/leetcode-206-Reverse-Linked-List/" class="article-date">
+  	<time datetime="2016-11-23T08:25:49.000Z" itemprop="datePublished">2016-11-23</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/leetcode-171-column-number/">leetcode-171-column-number</a>
+      <a class="article-title" href="/2016/11/23/leetcode-206-Reverse-Linked-List/">leetcode-206-Reverse-Linked-List</a>
     </h1>
   
 
@@ -182,13 +182,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a column title as appear in an Excel sheet, return its corresponding column number<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A -&gt; 1</span><br><span class="line">B -&gt; 2</span><br><span class="line">C -&gt; 3</span><br><span class="line">...</span><br><span class="line">Z -&gt; 26</span><br><span class="line">AA -&gt; 27</span><br><span class="line">AB -&gt; 28</span><br></pre></td></tr></table></figure></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>忽略杂音（Excel sheet），与Excel没关系，本质是将字母字符串转换为十进制数，再进一步分析，每一个字母（A——Z）对应一个数字<br>（1——26），此题的本质是进制转换，将26进制转换为十进制。</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def titleToNumber(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num = 0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            num = num*26+ord(char)-64</span><br><span class="line">        <span class="built_in">return</span> num</span><br></pre></td></tr></table></figure>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><p>10进制转16进制:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex(16)  ==&gt;  0x10</span><br></pre></td></tr></table></figure></p>
-<p>16进制转10进制：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'0x10'</span>, 16)  ==&gt;  16</span><br></pre></td></tr></table></figure></p>
-<p>类似的还有八进制oct()， 二进制bin()</p>
-<h4 id="数字与ascii字符互转"><a href="#数字与ascii字符互转" class="headerlink" title="数字与ascii字符互转"></a>数字与ascii字符互转</h4><p>chr() 数字转换为对应的ascii字符 （0~255）<br>ord() ascii字符转为对应的数字</p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Reverse a singly linked list.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def reverseList(self, head):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type head: ListNode</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="keyword">if</span> not head or not head.next:</span><br><span class="line">            <span class="built_in">return</span> head</span><br><span class="line">        h0=None</span><br><span class="line">        h1,h2=head,head.next</span><br><span class="line">        <span class="keyword">while</span> h2:</span><br><span class="line">            h1.next=h0</span><br><span class="line">            h0=h2.next</span><br><span class="line">            h2.next=h1</span><br><span class="line">            h0,h1,h2=h1,h2,h0</span><br><span class="line">        <span class="built_in">return</span> h1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head==null || head.next==null)&#123;</span><br><span class="line">            <span class="built_in">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode node0=null;</span><br><span class="line">        ListNode node;</span><br><span class="line">        ListNode node1 = head;</span><br><span class="line">        ListNode node2 = head.next;</span><br><span class="line">        <span class="keyword">while</span>(node2!=null)&#123;</span><br><span class="line">            node1.next = node0;</span><br><span class="line">            node0 = node2.next;</span><br><span class="line">            node2.next = node1;</span><br><span class="line">            node = node1;</span><br><span class="line">            node1 = node2;</span><br><span class="line">            node2 = node0;</span><br><span class="line">            node0 = node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> node1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题题意很清晰，就是将链表反转，然后返回反转之后的链表。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>python 中用 None  java中用 null,java中注意对象的初始化。</p>
 
       
     </div>
@@ -219,11 +217,11 @@
 
 
   
-    <article id="post-python-optparse" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-350-Intersection-of-Two-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/12/python-optparse/" class="article-date">
-  	<time datetime="2016-10-12T11:18:06.000Z" itemprop="datePublished">2016-10-12</time>
+      <a href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/" class="article-date">
+  	<time datetime="2016-11-22T09:14:49.000Z" itemprop="datePublished">2016-11-22</time>
 </a>
     </div>
   
@@ -236,7 +234,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/12/python-optparse/">python-optparse</a>
+      <a class="article-title" href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/">leetcode-350-Intersection-of-Two-Arrays</a>
     </h1>
   
 
@@ -245,15 +243,95 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>optparse是Python 内建的用于处理命令行参数的模块，功能强大，易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行<br>说明。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(parse_test.py)</span><br><span class="line">from optparse import OptionParser  </span><br><span class="line">[...]  </span><br><span class="line">parser = OptionParser()  </span><br><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, dest=<span class="string">"filename"</span>, <span class="built_in">type</span>=<span class="string">"string"</span>, </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"write report to FILE"</span>, metavar=<span class="string">"FILE"</span>)  </span><br><span class="line">parser.add_option(<span class="string">"-q"</span>, <span class="string">"--quiet"</span>,  </span><br><span class="line">                  action=<span class="string">"store_false"</span>, dest=<span class="string">"verbose"</span>, default=True,  </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"don't print status messages to stdout"</span>)  </span><br><span class="line">  </span><br><span class="line">(options, args) = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span> options.filename</span><br></pre></td></tr></table></figure>
-<p>运行程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(任一命令均可)</span><br><span class="line">python parse_test.py --file=outfile -q  </span><br><span class="line">python parse_test.py <span class="_">-f</span> outfile --quiet  </span><br><span class="line">python parse_test.py --quiet --file outfile  </span><br><span class="line">python parse_test.py -q -foutfile  </span><br><span class="line">python parse_test.py -qfoutfile</span><br></pre></td></tr></table></figure></p>
-<h3 id="自动输出帮助信息"><a href="#自动输出帮助信息" class="headerlink" title="自动输出帮助信息"></a>自动输出帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python parse_test.py -h </span><br><span class="line">python parse_test.py --help</span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usage: parse_test.py [options]  </span><br><span class="line">  </span><br><span class="line">options:  </span><br><span class="line">  -h, --help            show this <span class="built_in">help</span> message and <span class="built_in">exit</span>  </span><br><span class="line">  <span class="_">-f</span> FILE, --file=FILE  write report to FILE  </span><br><span class="line">  -q, --quiet           don<span class="string">'t print status messages to stdout</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>(1)导入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from optparse import OptionParser</span><br></pre></td></tr></table></figure></p>
-<p>(2)用add_option() 方法 来定义命令行参数<br>(3)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, ...) </span><br><span class="line">其中 <span class="_">-f</span> 或者 –file 分别是长短参数名</span><br></pre></td></tr></table></figure></p>
-<p>(4)调用 parse_args() 来解析程序的命令行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(options, args) = parser.parse_args()</span><br></pre></td></tr></table></figure></p>
-<p>parse_args() 有两个返回值：<br>options：它是一个对象（optpars.Values），保存有命令行参数值。只要知道命令行参数名，如 file，就可以访问其对应的值： options.file 。<br>args：它是一个由 positional arguments 组成的列表。<br>(5) add_option() 方法的参数<br>action : 指示 optparse 当解析到一个命令行参数时该如何处理。actions 有一组固定的值可供选择，默认是’store‘表示将命令行<br>参数值保存在 options 对象里。<br>type:指定参数对应值的类型，默认为string，也可为int 、float等。<br>dest：用于指定存储参数值的键值名，例如，dest=’filename’  (options, args) = parser.parse_args()，option.filename<br>default: 用于设置默认值。<br>help：自定义帮助信息文本。</p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        result=[]</span><br><span class="line">        <span class="keyword">if</span> nums1==[] or nums2==[]:</span><br><span class="line">            <span class="built_in">return</span> result</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums1:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> nums2:</span><br><span class="line">                result.append(i)</span><br><span class="line">                nums2.remove(i)</span><br><span class="line">        <span class="built_in">return</span> result</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> num, count <span class="keyword">in</span> (collections.Counter(nums1) &amp; collections.Counter(nums2)).items():</span><br><span class="line">            res += [num] * count</span><br><span class="line">        <span class="built_in">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line">        </span><br><span class="line">        int i = 0;</span><br><span class="line">        int iL = nums1.length;</span><br><span class="line">        </span><br><span class="line">        int j = 0;</span><br><span class="line">        int jL = nums2.length;</span><br><span class="line">        </span><br><span class="line">        int counter = 0;</span><br><span class="line">        int[] results = new int [iL &lt; jL ? iL : jL];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt; iL &amp;&amp; j &lt; jL) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] == nums2[j]) &#123;</span><br><span class="line">                results[counter++] = nums1[i];</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  Arrays.copyOf(results, counter);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题，本质是求两个数组的交集。最直接的思路是遍历其中一个数组，判断其中的元素是否也存在于另一个数组，将同时存在于两个<br>数组的元素存储起来。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>remove(i)将list中最前面的元素i删除，而不是将所有的i删除。<br>collections模块的运用，</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/python-装饰器/" class="article-date">
+  	<time datetime="2016-11-22T02:22:38.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/python-装饰器/">python-装饰器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在代码运行期间，动态增加功能的方式，称之为“装饰器”（Decorator）。<br>本质上，decorator就是一个返回函数的高阶函数。</p>
+<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span></span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>call now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>把@log放到now()函数的定义处，相当于执行了语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(now)</span><br></pre></td></tr></table></figure></p>
+<p>由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用<br>now()将执行新函数，即在log()函数中返回的wrapper()函数。</p>
+<p>wrapper()函数的参数定义是(<em>args,*</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，<br>再紧接着调用原始函数。</p>
+<h3 id="用法2"><a href="#用法2" class="headerlink" title="用法2"></a>用法2</h3><p>decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span>(<span class="string">'execute'</span>)</span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>execute now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure></p>
+<p>首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变<br>成了’wrapper’。</p>
+<p>因为返回的那个wrapper()函数名字就是’wrapper’，所以，需要把原始函数的<strong>name</strong>等属性复制到wrapper()函数中，否则，有些<br>依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写wrapper.<strong>name</strong> = func.<strong>name</strong>这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的<br>decorator的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    @functools.wraps(func)</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        @functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
 
       
     </div>
@@ -284,11 +362,11 @@
 
 
   
-    <article id="post-linux-command3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-面试-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/11/linux-command3/" class="article-date">
-  	<time datetime="2016-10-11T12:55:01.000Z" itemprop="datePublished">2016-10-11</time>
+      <a href="/2016/11/21/面试-操作系统/" class="article-date">
+  	<time datetime="2016-11-21T08:26:37.000Z" itemprop="datePublished">2016-11-21</time>
 </a>
     </div>
   
@@ -301,7 +379,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/linux-command3/">linux创建、删除软连接、硬链接</a>
+      <a class="article-title" href="/2016/11/21/面试-操作系统/">面试-操作系统</a>
     </h1>
   
 
@@ -310,19 +388,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Linux系统中，内核为每一个新创建的文件分配一个Inode(索引结点)，每个文件都有一个惟一的inode号。文件属性保存在索引结点里<br>，在访问文件时，索引结点被复制到内存在，从而实现文件的快速访问。<br>Linux中包括两种链接：硬链接(Hard Link)和软链接(Soft Link)，软链接又称为符号链接（Symbolic link），符号连接相当于Windows<br>下的快捷方式。</p>
-<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><p>硬链接说白了是一个指针，指向文件索引节点，系统并不为它重新分配inode。可以用:ln命令来建立硬链接。<br>语法:<br>ln [options] existingfile newfile（sexistingfile 待建立链接文件的文件，newfile是新创建的链接文件）<br>ln [options] existingfile-list directory</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 1 root root 0 07-14 14:17 file2</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln file2 file2hand</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>注意在创建链接前，file2显示的链接数目为1，创建链接后file2和file2hand的链接数目都变为2;file2和file2hand的inode号是一样<br>的，file2和file2hand显示的文件大小也是一样。可见进行了ln命令的操作结果：file2和file2hand是同一个文件的两个名字，它们<br>具有同样的索引节点号和文件属性，建立文件file2的硬链接，就是为file2的文件索引节点在当前目录上建立一个新指针。你可以删除其中任何一个，如rm file2 ，每次只会删除一个指针，链接数同时减一，当链接数减为0时，内核才会把文件内容从磁盘上删除。<br>-f 建立时，将同档案名删除<br>-i 删除前进行询问<br>-n 如果”newfile”已存在，就不创建链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln abc cde 建立abc的硬连接，</span><br></pre></td></tr></table></figure></p>
-<p> 尽管硬链接节省空间，也是Linux系统整合文件系统的传统方式，但是存在不足之处：<br>（1）不可以在不同文件系统的文件间建立链接。<br>（2）只有超级用户才可以为目录创建硬链接。</p>
-<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p>软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。 建立软链接，只要在ln后面加上<br>选项 –s。</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line"></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln -s file1 file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
-<p>从上面链接后的结果可以看出来软链接与硬链接，区别不仅仅是在概念上，在实现上也是不同的。区别：硬链接原文件与链接文件共<br>用一个inode号，说明他们是同一个文件，而软链接原文件与链接文件拥有不同的inode号，表明他们是两个不同的文件；在文件属性<br>上软链接明确写出了是链接文件，而硬链接没有写出来，因为在本质上硬链接文件和原文件是完全平等关系；链接数目是不一样的，<br>软链接的链接数目不会增加；文件大小是不一样的，硬链接文件显示的大小是跟原文件是一样的，这用强调，因为是等同的嘛，而这<br>里软链接显示的大小与原文件就不同了，file1大小是48B，而file1soft是5B，这里面的5实际上就是“file1”的大小。<br>建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。</p>
-<p>当然软链接也有硬链接没有的缺点，因为链接文件包含有原文件的路径信息，所以当原文件从一个目录下移到其他目录中，再访问链<br>接文件，系统就找不到了，而硬链接就没有这个缺陷；还有它要系统分配额外的空间用于建立新的索引节点和保存原文件的路径。</p>
-<h2 id="删除链接"><a href="#删除链接" class="headerlink" title="删除链接"></a>删除链接</h2><p>有创建就有删除<br>rm -rf symbolic_name 注意不是rm -rf symbolic_name/</p>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># rm -rf file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
-<h2 id="软连接与硬链接的区别"><a href="#软连接与硬链接的区别" class="headerlink" title="软连接与硬链接的区别"></a>软连接与硬链接的区别</h2><p>(1)软连接可以跨文件系统 ，硬连接不可以 。<br>(2)关于Inode节点的问题，硬连接不管有多少个，都指向的是同一个Inode节点，会把Inode结点连接数增加 ，只要结点的连接数不<br>是 0，文件就一直存在 ，不管你删除的是源文件还是连接文件。只要有一个存在，文件就存在。（其实源文件与连接文件并无本<br>质区别 ，因为他们指向都是同一个Inode节点）。 当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的<br>修改 。软链接不直接使用Inode节点号作为文件指针，而是使用文件路径名作为指针。所以 删除连接文件 对源文件无影响，但<br>是删除源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode，并在磁盘上有一小片空间存放路径名。<br>(3)软连接可以对一个不存在的文件名进行连接 。<br>(4)软连接可以对目录进行连接。</p>
-<p>备注：Inode节点 :它是UNIX内部用于描述文件特性的数据结构，通常称Inode节点为文件索引结点(信息结点)，Inode节点含有关于<br>文件的大部分的重要信息，包括文件数据块在磁盘上的地址。每一个I节点有它自己的标志号，我们称为文件顺序号<br>。Inode节点包含的信息:文件类型、文件属主关系、文件的访问权限、文件的时间截。</p>
+        <h3 id="1-进程和线程的概念以及它们的区别"><a href="#1-进程和线程的概念以及它们的区别" class="headerlink" title="1.进程和线程的概念以及它们的区别"></a>1.进程和线程的概念以及它们的区别</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是具有一定功能的程序关于某个数据集合上的一次运行活动，进程是系统调度和分配资源的一个独立实体。</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>线程是进程的实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>一个进程可以有多个线程，多个线程可以并发执行。</p>
+<h3 id="2-线程同步的方式有哪些？"><a href="#2-线程同步的方式有哪些？" class="headerlink" title="2.线程同步的方式有哪些？"></a>2.线程同步的方式有哪些？</h3><h4 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h4><p>采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多<br>个线程同时访问。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数。</p>
+<h4 id="事件（信号）"><a href="#事件（信号）" class="headerlink" title="事件（信号）"></a>事件（信号）</h4><p>通过通知操作的方式来保持多线程的同步，还可以方便的实现多线程优先级的比较操作。</p>
+<h3 id="3-进程通信的方式有哪些？"><a href="#3-进程通信的方式有哪些？" class="headerlink" title="3.进程通信的方式有哪些？"></a>3.进程通信的方式有哪些？</h3><p>管道、系统IPC(包括消息队列，信号量、共享存储)、SOCKET<br>管道主要分为：普通管道PIPE、流管道（S_pipe）、命名管道（name_pipe）</p>
+<h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4><p>管道（PIPE）是一种半双工的通信方式，数据只能单项流动，并且只能在具有亲缘关系的进程间流动，进程的亲缘关系通常是父子<br>进程。<br>命名管道（name_pipe）也是半双工的通信方式，它允许无亲缘关系的进程间进行通信。</p>
+<h4 id="系统IPC"><a href="#系统IPC" class="headerlink" title="系统IPC"></a>系统IPC</h4><p>消息队列是消息的链表，存放在内核中并由消息队列标识符标识。<br>信号量是一个计数器，用来控制多个进程对资源的访问，它通常作为一种锁机制。<br>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。<br>共享内存就是映射一段能被其它进程访问的内存，这段共享内存由一个进程创建，但是多个进程可以访问。</p>
+<h3 id="4-什么是缓冲区溢出？有什么危害？其原因是什么？"><a href="#4-什么是缓冲区溢出？有什么危害？其原因是什么？" class="headerlink" title="4.什么是缓冲区溢出？有什么危害？其原因是什么？"></a>4.什么是缓冲区溢出？有什么危害？其原因是什么？</h3><p>缓冲区溢出是指当计算机向缓冲区填充数据时超出了缓冲区本身的容量，溢出的数据覆盖在合法数据上。</p>
+<h4 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h4><p>程序崩溃，导致拒绝服务；<br>跳转并且执行一段恶意代码；</p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>造成缓冲区溢出的主要原因是程序中没有仔细检查用户输入。 </p>
+<h3 id="5-什么是死锁？死锁产生的条件？"><a href="#5-什么是死锁？死锁产生的条件？" class="headerlink" title="5.什么是死锁？死锁产生的条件？"></a>5.什么是死锁？死锁产生的条件？</h3><p>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之<br>前都不能向前推进，称这一组进程产生了死锁。通俗的讲就是两个或多个进程无限期的阻塞、相互等待的一种状态。</p>
+<h4 id="产生的条件"><a href="#产生的条件" class="headerlink" title="产生的条件"></a>产生的条件</h4><p>(1)互斥条件：一个资源一次只能被一个进程使用;<br>(2)请求与保持条件：一个进程因请求资源而阻塞时，对已获得资源保持不放;<br>(3)不剥夺条件：进程获得的资源，在未完全使用完之前，不能强行剥夺;<br>(4)循环等待条件：若干进程之间形成一种头尾相接的环形等待资源关系 ;<br>（有一个条件不成立，则不会产生死锁）</p>
+<h3 id="6-进程有哪几种状态？"><a href="#6-进程有哪几种状态？" class="headerlink" title="6.进程有哪几种状态？"></a>6.进程有哪几种状态？</h3><p>就绪状态：进程已获得除处理机以外的所需资源，等待分配处理机资源;<br>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数;<br>阻塞状态： 进程等待某种条件，在条件满足之前无法执行;</p>
+<h3 id="7-分页和分段有什么区别？"><a href="#7-分页和分段有什么区别？" class="headerlink" title="7.分页和分段有什么区别？"></a>7.分页和分段有什么区别？</h3><p>(1)段是信息的逻辑单位，它是根据用户的需要划分的，因此段对用户是可见的；页是信息的物理单位，是为了管理主存的方便而划<br>分的，对用户是透明的。<br>(2)段的大小不固定，有它所完成的功能决定；页大大小固定，由系统决定。<br>(3)段向用户提供二维地址空间；页向用户提供的是一维地址空间。<br>(4)段是信息的逻辑单位，便于存储保护和信息的共享，页的保护和共享受到限制。</p>
+<h3 id="8-操作系统中进程调度策略有哪几种？"><a href="#8-操作系统中进程调度策略有哪几种？" class="headerlink" title="8. 操作系统中进程调度策略有哪几种？"></a>8. 操作系统中进程调度策略有哪几种？</h3><p>FCFS(先来先服务)，优先级，时间片轮转，多级反馈</p>
+<h3 id="9-进程同步有哪几种机制？"><a href="#9-进程同步有哪几种机制？" class="headerlink" title="9.进程同步有哪几种机制？"></a>9.进程同步有哪几种机制？</h3><p>原子操作、信号量机制、自旋锁管程、会合、分布式系统</p>
+<h3 id="10-死锁的处理基本策略和常用方法？"><a href="#10-死锁的处理基本策略和常用方法？" class="headerlink" title="10.死锁的处理基本策略和常用方法？"></a>10.死锁的处理基本策略和常用方法？</h3><h4 id="解决死锁的基本方法"><a href="#解决死锁的基本方法" class="headerlink" title="解决死锁的基本方法"></a>解决死锁的基本方法</h4><p>预防死锁、避免死锁、检测死锁、解除死锁 </p>
+<h4 id="解决死锁的常用策略"><a href="#解决死锁的常用策略" class="headerlink" title="解决死锁的常用策略"></a>解决死锁的常用策略</h4><p>鸵鸟策略、预防策略、避免策略、检测与解除死锁 </p>
+<p>参考：<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
+<p>作者：路人甲<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
 
       
     </div>
@@ -331,7 +418,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
 	</div>
 
       
@@ -353,11 +440,11 @@
 
 
   
-    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-217-Contains-Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
-  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
+      <a href="/2016/11/18/leetcode-217-Contains-Duplicate/" class="article-date">
+  	<time datetime="2016-11-18T06:09:10.000Z" itemprop="datePublished">2016-11-18</time>
 </a>
     </div>
   
@@ -370,7 +457,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
+      <a class="article-title" href="/2016/11/18/leetcode-217-Contains-Duplicate/">leetcode-217-Contains-Duplicate</a>
     </h1>
   
 
@@ -379,21 +466,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
-<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
-<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
-<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
-<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
-<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
-<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
-<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
-<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
-<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
-<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
-<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
-<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
-<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean containsDuplicate(int[] nums) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums.length&lt;=1)&#123;</span><br><span class="line">             <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         Arrays.sort(nums);</span><br><span class="line">         <span class="keyword">for</span>(int i=0;i&lt;nums.length-1;i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(nums[i]==nums[i+1])&#123;</span><br><span class="line">                 <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def containsDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        nums_<span class="built_in">set</span>=<span class="built_in">set</span>(nums)</span><br><span class="line">        <span class="built_in">return</span> True <span class="keyword">if</span> len(nums_<span class="built_in">set</span>)&lt;len(nums) <span class="keyword">else</span> False</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题很简单，就是判断输入数组中是否有重复的数字。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>Arrays类中sort()方法，对数组进行排序。</p>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>python很简洁，用set()便可将list()转换为set容器，而set容器中的元素均为唯一的。</p>
 
       
     </div>
@@ -402,67 +480,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python连接mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/09/python连接mysql/" class="article-date">
-  	<time datetime="2016-10-09T10:28:53.000Z" itemprop="datePublished">2016-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/python连接mysql/">python连接mysql</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-安装mysql"><a href="#1-安装mysql" class="headerlink" title="1.安装mysql"></a>1.安装mysql</h3><h3 id="2-安装配置python环境"><a href="#2-安装配置python环境" class="headerlink" title="2.安装配置python环境"></a>2.安装配置python环境</h3><h3 id="3-安装MySQL-python"><a href="#3-安装MySQL-python" class="headerlink" title="3.安装MySQL-python"></a>3.安装MySQL-python</h3><h3 id="4-导入MySQLdb-模块"><a href="#4-导入MySQLdb-模块" class="headerlink" title="4.导入MySQLdb 模块"></a>4.导入MySQLdb 模块</h3><p>前面几步不需要多说，具体说下连接的问题。<br>之前用python操作数据库，都是用下面的方式进行连接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_connect= MySQLdb.connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"123456"</span>,<span class="string">"myciti"</span> )</span><br></pre></td></tr></table></figure></p>
-<p>上面的几个参数大家都知道：第一个为服务器的地址，第二个为用户名，第三个为密码，第四个为要访问的数据库，其实该connect函数 的参数不止这些，不过由于其有默认值而且大多数情况下不用修改，因而省略了。<br>完整的connect()参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">host    <span class="comment">#连接的数据库服务器主机名，默认为本地主机(localhost)。</span></span><br><span class="line">user    <span class="comment">#连接数据库的用户名，默认为当前用户。</span></span><br><span class="line">passwd  <span class="comment">#连接密码，没有默认值。</span></span><br><span class="line">db      <span class="comment">#连接的数据库名，没有默认值。</span></span><br><span class="line">conv    <span class="comment">#将文字映射到Python类型的字典。默认为MySQLdb.converters.conversions</span></span><br><span class="line">cursorclass，cursor()     <span class="comment">#使用的种类，默认值为MySQLdb.cursors.Cursor。</span></span><br><span class="line">compress                  <span class="comment">#启用协议压 缩功能。</span></span><br><span class="line">named_pipe                <span class="comment">#在windows中，与一个命名管道相连接。</span></span><br><span class="line">init_<span class="built_in">command</span>              <span class="comment">#一旦连接建立，就为数据库服务器指定一条语句来运行。</span></span><br><span class="line"><span class="built_in">read</span>_default_file         <span class="comment">#使用指定的MySQL配置文件。</span></span><br><span class="line"><span class="built_in">read</span>_default_group        <span class="comment">#读取的默认组。</span></span><br><span class="line">unix_socket               <span class="comment">#在unix中，连接使用的套接字，默认使用TCP。</span></span><br><span class="line">port                      <span class="comment">#指定数据库服务器的连接端口，默认是3306</span></span><br><span class="line">``` </span><br><span class="line">一般没有用到端口号，这是因为MySQLdb的connect函数的该参数的默认值便是3306，如果你在安装mysql的时候修改了数据库的端口</span><br><span class="line">号，那么你就需要在源码中加上该参数的修改值了。</span><br><span class="line">若加上端口号，连接方式如下：</span><br><span class="line">``` bash</span><br><span class="line">conn= MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-判断连接是否存在"><a href="#5-判断连接是否存在" class="headerlink" title="5.判断连接是否存在"></a>5.判断连接是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    conn.ping()</span><br><span class="line">execept:</span><br><span class="line">    conn=MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-<p>用conn.ping()进行判断，若连接不存在则会产生异常，捕获异常，然后重新连接。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -486,7 +504,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 </div>

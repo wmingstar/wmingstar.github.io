@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-spark安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-409-Longest-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/09/spark安装教程/" class="article-date">
-  	<time datetime="2016-10-09T01:43:30.000Z" itemprop="datePublished">2016-10-09</time>
+      <a href="/2016/11/17/leetcode-409-Longest-Palindrome/" class="article-date">
+  	<time datetime="2016-11-17T14:00:56.000Z" itemprop="datePublished">2016-11-17</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/spark安装教程/">spark安装教程</a>
+      <a class="article-title" href="/2016/11/17/leetcode-409-Longest-Palindrome/">leetcode-409-Longest-Palindrome</a>
     </h1>
   
 
@@ -182,27 +182,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(注：本教程基于Cenos7)</p>
-<h3 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h3><p>Centos7若不是最小化安装，则会自动安装jdk-8。<br>之所以需要安装JDK是因为scala依赖java运行环境。</p>
-<p>(1)从oracle网站下载JDK 安装包，解压安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf jdk-8u65-linux-x64.tar.gz</span><br><span class="line">mv jdk1.8.0_65 java</span><br></pre></td></tr></table></figure></p>
-<p>(2)设置Java 环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">JAVA_HOME=/opt/jdk1.8.0</span><br><span class="line"><span class="built_in">export</span> JRE_HOME = <span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><p>(1)从官网下载安装包，解压安装<br><a href="http://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="external">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf scala-2.11.8.tgz</span><br></pre></td></tr></table></figure></p>
-<p>(2)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SCALA_HOME=/opt/scala-2.11.8</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME PATH</span><br></pre></td></tr></table></figure></p>
-<p>(3)验证scala<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br><span class="line">Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-安装spark"><a href="#3-安装spark" class="headerlink" title="3.安装spark"></a>3.安装spark</h3><p>(1)官网下载spark 包  spark-2.0.1-bin-hadoop2.7.tgz<br>(2)解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安到/usr/local 下</span></span><br><span class="line">tar  zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br><span class="line">mv  spark-2.0.1-bin-hadoop2.7   spark</span><br></pre></td></tr></table></figure></p>
-<p>(3)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME SPARK_HOME PATH</span><br></pre></td></tr></table></figure></p>
-<p>(4)验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure></p>
-<p>若成功<br><img src="/img/spark.png" alt=""></p>
-<h3 id="4-自动安装sbt"><a href="#4-自动安装sbt" class="headerlink" title="4.自动安装sbt"></a>4.自动安装sbt</h3><p><a href="http://www.scala-sbt.org/release/tutorial/zh-cn/index.html" target="_blank" rel="external">参考</a><br>(1)添加sbt镜像源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl   https://bintray.com/sbt/rpm/rpm  &gt;   bintray-sbt-rpm.repo</span><br><span class="line">mv bintray-sbt-rpm.repo  /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></p>
-<p>(2)安装sbt<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sbt</span><br></pre></td></tr></table></figure></p>
-<p>(3)hello world<br>一个合法的 sbt 项目可以是一个包含单个源码文件的目录。 尝试创建一个 hello 目录，包含内容如下的源码文件 hw.scala：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Hi &#123;</span><br><span class="line">  def main(args: Array[String]) = println(<span class="string">"Hi!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-手动安装sbt"><a href="#5-手动安装sbt" class="headerlink" title="5.手动安装sbt"></a>5.手动安装sbt</h3><p>(1)下载sbt通用平台压缩包：sbt-0.13.12.tgz<br><a href="http://www.scala-sbt.org/download.html" target="_blank" rel="external">网址</a><br>(2)建立目录，解压文件到所建立目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar zxvf sbt-0.13.5.tgz -C /opt/scala/</span><br></pre></td></tr></table></figure></p>
-<p>(3)建立启动sbt的脚本文件<br>选定一个位置，建立启动sbt的脚本文本文件，如/opt/scala/sbt/ 目录下面新建文件名为sbt的文本文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/scala/sbt/</span><br><span class="line">$ vim sbt</span><br></pre></td></tr></table></figure></p>
-<p>在sbt文本文件中添加一下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SBT_OPTS=<span class="string">"-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"</span></span><br><span class="line">java <span class="variable">$SBT_OPTS</span> -jar /opt/scala/sbt/bin/sbt-launch.jar <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>上面的路径是定位到解压的sbt文件包中的sbt-launch.jar文件的绝对路径*/</p>
-<p>/×修改sbt文件权限×/<br>$ chmod u+x sbt<br>(4)配置PATH环境变量，保证在控制台中可以使用sbt命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br><span class="line"><span class="comment">#在文件尾部添加如下代码后，保存退出</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/scala/sbt/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>/<em>使配置文件立刻生效</em>/<br>$ source /etc/profile</p>
-<p>(5)测试sbt是否安装成功<br>第一次执行时，会下载一些文件包，然后才能正常使用，要确保联网了，安装成功后显示如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbt sbt-version</span><br><span class="line"></span><br><span class="line">[info] Set current project to sbt (<span class="keyword">in</span> build file:/opt/scala/sbt/)</span><br><span class="line">[info] 0.13.5</span><br></pre></td></tr></table></figure></p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
+<p>This is case sensitive, for example “Aa” is not considered a palindrome here</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def longestPalindrome(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        char_dic=collections.Counter(s)</span><br><span class="line">        lenth=0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> char_dic:</span><br><span class="line">            lenth += char_dic[char]-char_dic[char]%2</span><br><span class="line">        <span class="built_in">return</span> lenth <span class="keyword">if</span> len(s)==lenth <span class="keyword">else</span> (lenth+1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int longestPalindrome(String s) &#123;</span><br><span class="line">        int nums[] = new int[52];</span><br><span class="line">        int temp_ord=0;</span><br><span class="line">        int lenth=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">'a'</span> &amp;&amp; s.charAt(i)&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'A'</span>+26;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[temp_ord]+=1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">            lenth += nums[j]-nums[j]%2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lenth==s.length())&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth+1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>回文字符串：正读和倒着读都一样的字符串。<br>最初读此题有疑惑：比如，输入为”aaabbbcc”，’a’和’b’的个数均为奇数，以为此时最长为5，其实此时最长为7，可以余下一个’a’或者’b’不用。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><h4 id="一维数组的声明方式："><a href="#一维数组的声明方式：" class="headerlink" title="一维数组的声明方式："></a>一维数组的声明方式：</h4><p>type var[]; 或type[] var;<br>声明数组时不能指定其长度（数组中元素的个数），<br>Java中使用关键字new创建数组对象，格式为：<br>数组名 = new 数组元素的类型 [数组元素的个数]</p>
+<h4 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h4><p>1.动态初始化：数组定义与为数组分配空间和赋值的操作分开进行；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestD  </span><br><span class="line">&#123;  </span><br><span class="line">     public static void main(String args[]) &#123;  </span><br><span class="line">         int a[] ;  </span><br><span class="line">         a = new int[3] ;  </span><br><span class="line">         a[0] = 0 ;  </span><br><span class="line">         a[1] = 1 ;  </span><br><span class="line">         a[2] = 2 ;  </span><br><span class="line">         Date days[] ;  </span><br><span class="line">         days = new Date[3] ;  </span><br><span class="line">         days[0] = new Date(2008,4,5) ;  </span><br><span class="line">         days[1] = new Date(2008,2,31) ;  </span><br><span class="line">         days[2] = new Date(2008,4,4) ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"> </span><br><span class="line">class Date  </span><br><span class="line">&#123;  </span><br><span class="line">     int year,month,day ;  </span><br><span class="line">     Date(int year ,int month ,int day) &#123;  </span><br><span class="line">         this.year = year ;  </span><br><span class="line">         this.month = month ;  </span><br><span class="line">         this.day = day ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.静态初始化：在定义数字的同时就为数组元素分配空间并赋值；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class TestS     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a[] = &#123;0,1,2&#125; ;     </span><br><span class="line">         Time <span class="built_in">times</span> [] = &#123;new Time(19,42,42),new Time(1,23,54),new Time(5,3,2)&#125; ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;     </span><br><span class="line"> </span><br><span class="line">class Time     </span><br><span class="line">&#123;     </span><br><span class="line">     int hour,min,sec ;     </span><br><span class="line">     Time(int hour ,int min ,int sec) &#123;     </span><br><span class="line">         this.hour = hour ;     </span><br><span class="line">         this.min = min ;     </span><br><span class="line">         this.sec = sec ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.默认初始化：数组是引用类型，它的元素相当于类的成员变量，因此数组分配空间后，每个元素也被按照成员变量的规则<br>被隐士初始化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestDefault     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a [] = new int [5] ;     </span><br><span class="line">         System.out.println(<span class="string">""</span> + a[3]) ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -211,7 +199,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -233,11 +221,11 @@
 
 
   
-    <article id="post-linux硬盘分区与挂载" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-169-Majority-Element" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/08/linux硬盘分区与挂载/" class="article-date">
-  	<time datetime="2016-10-08T01:51:26.000Z" itemprop="datePublished">2016-10-08</time>
+      <a href="/2016/11/16/leetcode-169-Majority-Element/" class="article-date">
+  	<time datetime="2016-11-16T13:49:20.000Z" itemprop="datePublished">2016-11-16</time>
 </a>
     </div>
   
@@ -250,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/08/linux硬盘分区与挂载/">linux硬盘分区与挂载</a>
+      <a class="article-title" href="/2016/11/16/leetcode-169-Majority-Element/">leetcode-169-Majority-Element</a>
     </h1>
   
 
@@ -259,27 +247,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="MBR的基本概念"><a href="#MBR的基本概念" class="headerlink" title="MBR的基本概念"></a>MBR的基本概念</h3><p>硬盘的第一个扇区也就是第0扇区是用来存放主引导记录(MBR)的，因此也称MBR扇区。一个扇区是512字节，因此MBR的大小也是512字<br>节，其具体数据结构是：446个字节的引导代码、64个字节的分区表及2个字节的签名值”55AA”。由于MBR的分区表只有64个字节<br>，这决定了它只能存储4个分区记录。这就是为什么一块硬盘最多只能有4个“主分区”的原因。记住，“主分区”就是指记录在主引导记<br>录MBR分区表中的分区，除此之外主分区并无特别之处，但是过去的一些老操作系统往往不能安装在主分区之外的分区上，所以，主<br>分区也贴上“专门用来安装操作系统”的标签。</p>
-<p>我们已经知道了MBR中的分表区只能存放4个分区（即4个主分区），那系统是如何划分出4个以上的分区的呢？一种直白而简单的思路<br>就是把其中一个主分区再进行细分，衍生出一个二级分区表。对的，这个被用来二次分区的主分区就是“扩展分区”，它下面的二级分<br>区就是“逻辑分区”。</p>
-<p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机开机后访问硬盘时所必须要读取的首个扇区，<br>它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
-<p>MBR是由分区程序（如Fdisk，Parted）所产生的，它不依赖任何操作系统，而且硬盘引导程序也是可以改变的，从而能够实现多系统引导。</p>
-<p>从主引导记录的结构可以知道，它仅仅包含一个64个字节的硬盘分区表。由于每个分区信息需要16个字节，所以对于采用MBR型分区<br>结构的硬盘(其磁盘卷标类型为MS-DOS)，最多只能识别4个主要分区。所以对于一个采用此种分区结构的硬盘来说，想要得到4个以上<br>的主要分区是不可能的。这里就需要引出扩展分区了。扩展分区也是主分区(Primary partition）的一种，但它与主分区的不同在于<br>理论上可以划分为无数个逻辑分区，每一个逻辑分区都有一个和MBR结构类似的扩展引导记录(EBR)。<br>在MBR分区表中最多4个主分区或者3个主分区＋1个扩展分区，也就是说扩展分区只能有一个，然后可以再细分为多个逻辑分区。<br>在Linux系统中，硬盘分区命名为sda1－sda4或者hda1－hda4（其中a表示硬盘编号可能是a、b、c等等）。在MBR硬盘中，分区号1－4是主分区（或者扩展分区），逻辑分区号只能从5开始。<br>在MBR分区表中，一个分区最大的容量为2T，且每个分区的起始柱面必须在这个disk的前2T内。你有一个3T的硬盘，根据要求你至少要把它划分为2个分区，且最后一个分区的起始扇区要位于硬盘的前2T空间内。如果硬盘太大则必须改用GPT。</p>
-<h3 id="GPT是什么"><a href="#GPT是什么" class="headerlink" title="GPT是什么"></a>GPT是什么</h3><p>全局唯一标识分区表（GUID Partition Table，缩写：GPT）是一个实体硬盘的分区结构。它是EFI(可扩展固件接口标准)的一部分，<br>用来替代BIOS中的主引导记录分区表。但因为MBR分区表不支持容量大于2.2TB（2.2 × 1012字节）的分区，所以也有一些BIOS系统<br>为了支持大容量硬盘而用GPT分区表取代MBR分区表。</p>
-<p>在MBR硬盘中，分区信息直接存储于主引导记录(MBR)中（主引导记录中还存储着系统的引导程序）。但在GPT硬盘中，分区表的位置信息储存在GPT头中。但出于兼容性考虑，硬盘的第一个扇区仍然用作MBR，之后才是GPT头。</p>
-<p>与支持最大卷为2 TB（Terabytes）并且每个磁盘最多有4个主分区（或3个主分区，1个扩展分区和无限制的逻辑驱动器）<br>的MBR磁盘分区的样式相比，GPT磁盘分区样式支持最大卷为18 EB（Exabytes）并且每磁盘的分区数没有上限，只受到操作系统限制<br>（由于分区表本身需要占用一定空间，最初规划硬盘分区时，留给分区表的空间决定了最多可以有多少个分区，IA-64版Windows<br>限制最多有128个分区，这也是EFI标准规定的分区表的最小尺寸）。与MBR分区的磁盘不同，至关重要的平台操作数据位于分区，<br>而不是位于非分区或隐藏扇区。另外，GPT分区磁盘有备份分区表来提高分区数据结构的完整性。</p>
-<h3 id="EFI"><a href="#EFI" class="headerlink" title="EFI"></a>EFI</h3><p>可扩展固件接口（英文名Extensible Firmware Interface 或EFI）是一种个人电脑系统规格，用来定义操作系统与系统韧体之<br>间的软件界面，为替代BIOS的升级方案。可扩展固件接口负责加电自检（POST）、连系操作系统以及提供连接操作系统与硬件的接<br>口。EFI最初由英特尔开发，现时由UEFI论坛来推广与发展。</p>
-<h3 id="使用fdisk创建分区-小于2TB"><a href="#使用fdisk创建分区-小于2TB" class="headerlink" title="使用fdisk创建分区(小于2TB)"></a>使用fdisk创建分区(小于2TB)</h3><h4 id="1-使用fdisk-l命令查看机器上的硬盘信息"><a href="#1-使用fdisk-l命令查看机器上的硬盘信息" class="headerlink" title="1. 使用fdisk -l命令查看机器上的硬盘信息"></a>1. 使用fdisk -l命令查看机器上的硬盘信息</h4><p><img src="/img/fdisk1.jpg" alt=""><br>上面的信息告诉我们这台机器拥有3块硬盘，其中只有第一块硬盘进行了分区，剩余的两块尚未分区。</p>
-<h4 id="2-使用fdisk对某个硬盘进行分区"><a href="#2-使用fdisk对某个硬盘进行分区" class="headerlink" title="2.使用fdisk对某个硬盘进行分区"></a>2.使用fdisk对某个硬盘进行分区</h4><p>这里我们展示的是对硬盘/dev/xvdc的分区操作，首先键入“fdisk /dev/xvdc”进入分区的向导模式：</p>
-<ol>
-<li>输入n，表示要建立一个新的分区</li>
-<li>输入p, 表示我们想要创建一个主分区</li>
-<li>直接回车，使用默认的起始柱面，也就是柱面1</li>
-<li>直接回车，使用默认的截止柱面，也就是柱面4894， 也就是说对于这块硬盘，我们就建立一个分区，大小是整个磁盘。</li>
-<li>输入w, 保存分区表并退出<br><img src="/img/fdisk2.jpg" alt=""><h4 id="3-格式化新创建的分区"><a href="#3-格式化新创建的分区" class="headerlink" title="3. 格式化新创建的分区"></a>3. 格式化新创建的分区</h4>对新建的分区进行格式化，这里我们选择ext4文件系统。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/xvdc</span><br><span class="line"><span class="comment">#格式化时指定的是“分区”而不是硬盘！这里的xvdc1显然是硬盘xvdc的第一个分区，如果错写成xvdc就意味着要格式化整个硬盘</span></span><br><span class="line"><span class="comment">#mkfs + Tab Tab 查看支持的文件系统</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="使用parted-创建分区"><a href="#使用parted-创建分区" class="headerlink" title="使用parted 创建分区"></a>使用parted 创建分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line"></span><br><span class="line"><span class="comment">#GNU Parted 1.8.1</span></span><br><span class="line"><span class="comment">#Using /dev/sdb</span></span><br><span class="line"><span class="comment">#Welcome to GNU Parted! Type ‘help’ to view a list of commands.</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#将MBR磁盘格式化为GPT</span></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#划分所有空间到一个分区</span></span><br><span class="line">(parted) mkpart primary 0 -1</span><br><span class="line"> </span><br><span class="line"><span class="comment">#这一步也可以这样设置：</span></span><br><span class="line"><span class="comment">#unit TB           (设置单位为TB)</span></span><br><span class="line"><span class="comment">#mkpart primary 0 3 (设置为一个主分区,大小为3TB，开始是0，结束是3）</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#显示设置的分区大小</span></span><br><span class="line">(parted) <span class="built_in">print</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#退出parted程序</span></span><br><span class="line">(parted) quit</span><br><span class="line"> </span><br><span class="line"><span class="comment">#用parted将分区做好后，进行格式化操作,完成后即可挂载使用</span></span><br><span class="line">mkfs.ext3 -F /dev/sdb1</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/bluishglc/article/details/9189437" target="_blank" rel="external">参考http://blog.csdn.net/bluishglc</a><br><a href="http://www.centoscn.com/CentOS/Intermediate/2015/0712/5841.html" target="_blank" rel="external">参考http://www.centoscn.com/</a></p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
+<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def majorityElement(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num_dic=collections.Counter(nums)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> num_dic:</span><br><span class="line">            <span class="keyword">if</span> num_dic[item]&gt;(len(nums)/2):</span><br><span class="line">                <span class="built_in">return</span> item</span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="built_in">return</span> nums[nums.length/2];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.分别统计数组中的元素个数，将个数大于length/2的元素返回<br>2.将数组排序，将排序后的下标为length/2的元素返回</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>1.用collections.Counter()统计各元素的个数，返回字典。<br>2.sort()是容器的函数，可将容器中的元素排序；sorted()为内置函数，可对可迭代类型排序。<br>3.nums.count(x)也可得到nums中某元素的个数。</p>
+<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>1.array.length属性得到数组长度。<br>2.Arrays类的sort()方法可以对数组进行排序。</p>
 
       
     </div>
@@ -288,7 +261,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -310,11 +283,11 @@
 
 
   
-    <article id="post-python-random" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-242-Valid-Anagram" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/22/python-random/" class="article-date">
-  	<time datetime="2016-09-22T09:25:22.000Z" itemprop="datePublished">2016-09-22</time>
+      <a href="/2016/11/16/leetcode-242-Valid-Anagram/" class="article-date">
+  	<time datetime="2016-11-16T07:53:45.000Z" itemprop="datePublished">2016-11-16</time>
 </a>
     </div>
   
@@ -327,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/22/python-random/">python random 模块常用方法</a>
+      <a class="article-title" href="/2016/11/16/leetcode-242-Valid-Anagram/">leetcode-242-Valid-Anagram</a>
     </h1>
   
 
@@ -336,28 +309,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="random-random"><a href="#random-random" class="headerlink" title="random.random()"></a>random.random()</h3><p>返回[0.0,1)之间的浮点数</p>
-<h3 id="random-uniform-a-b"><a href="#random-uniform-a-b" class="headerlink" title="random.uniform(a, b)"></a>random.uniform(a, b)</h3><p>返回[a,b]之间的浮点数</p>
-<h3 id="random-randint-a-b"><a href="#random-randint-a-b" class="headerlink" title="random.randint(a, b)"></a>random.randint(a, b)</h3><p>返回[a,b]之间的整数<br>范围 a &lt;= n &lt;= b  （注意：下限必须小于上限） </p>
-<h3 id="random-randrange-start-stop-step-，"><a href="#random-randrange-start-stop-step-，" class="headerlink" title="random.randrange(start, stop, step)，"></a>random.randrange(start, stop, step)，</h3><p>从指定范围内，按指定步长 step递增的集合中获取一个随机数。<br>如：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
-<p>random.randrange(10, 100, 2)在结果上与 random.choice(range(10, 100, 2) 等效。</p>
-<h3 id="random-choice-sequence"><a href="#random-choice-sequence" class="headerlink" title="random.choice(sequence)"></a>random.choice(sequence)</h3><p>参数sequence表示一个序列类型。这里要说明一下：sequence在python不是一种特定的类型，而是泛指一系列的类型。list, tuple, 字符串都属于sequence。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> random.choice(<span class="string">"学习Python"</span>)    </span><br><span class="line"><span class="built_in">print</span> random.choice([<span class="string">"JGood"</span>, <span class="string">"is"</span>, <span class="string">"a"</span>, <span class="string">"handsome"</span>, <span class="string">"boy"</span>])   </span><br><span class="line"><span class="built_in">print</span> random.choice((<span class="string">"Tuple"</span>, <span class="string">"List"</span>, <span class="string">"Dict"</span>))</span><br></pre></td></tr></table></figure></p>
-<h3 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random.shuffle()"></a>random.shuffle()</h3><p>用于将一个列表中的元素打乱<br>例如： </p>
-<pre><code class="bash">p = [<span class="string">"Python"</span>, <span class="string">"is"</span>, <span class="string">"powerful"</span>, <span class="string">"simple"</span>, <span class="string">"and so on..."</span>]   
-random.shuffle(p)   
-<span class="built_in">print</span> p   
-<span class="comment">#---- 结果（不同机器上的结果可能不一样。）   </span>
-<span class="comment">#['powerful', 'simple', 'is', 'Python', 'and so on...']</span>
-</code></pre>
-<h3 id="random-sample-sequence-k"><a href="#random-sample-sequence-k" class="headerlink" title="random.sample(sequence, k)"></a>random.sample(sequence, k)</h3><p>从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。<br>例如：</p>
-<pre><code class="bash">list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]   
-slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个元素，作为一个片断返回  </span>
-<span class="built_in">print</span> slice  
-<span class="built_in">print</span> list <span class="comment">#原有序列并没有改变。 </span>
-<span class="comment">#[3,2,6,7,1]</span>
-<span class="comment">#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
-</code></pre>
-<p><a href="http://wangwei007.blog.51cto.com/68019/1102838" target="_blank" rel="external">参考</a></p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
+<p>For example,<br>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        s=sorted(s)</span><br><span class="line">        t=sorted(t)</span><br><span class="line">        <span class="keyword">if</span> s==t:</span><br><span class="line">            <span class="built_in">return</span> True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">return</span> False</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> sorted(s)==sorted(t)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> Counter(s)==Countert)</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>重要的是读题，明白题目什么意思。题目的意思，输入两个字符串，来比较两个字符串是否是 anagram 关系。<br>(anagram 关系：两个字符串由相同字符且字符数相同的字符构成，只是字符的顺序不同。)<br>思路：将两个字符串中的字符进行排序，然后比较排序后的字符串是否相同就可以。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>sort()函数是容器对象的函数，在容器内排序，无返回值，字符串对象没有该函数。<br>sorted()函数是内置函数，可对可迭代类型进行排序，并返回排好序的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sorted(...)</span><br><span class="line">    sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list</span><br><span class="line"></span><br><span class="line">iterable：待排序的可迭代类型的容器;</span><br><span class="line">cmp：用于比较的函数，比较什么由key决定,有默认值，迭代集合中的一项;</span><br><span class="line">key：用列表元素的某个已命名的属性或函数（只有一个参数并且返回一个用于排序的值）作为关键字，有默认值，迭代集合中的一项;</span><br><span class="line">reverse：排序规则. reverse = True 或者 reverse = False，有默认值。</span><br><span class="line">返回值：是一个经过排序的可迭代类型，与iterable一样。</span><br></pre></td></tr></table></figure></p>
+<p>Counter是collections模块中的计数器类，可以用来计数，输入是字典，其他 iterable 的数据类型，还有命名的参数对。<br>输出是字典，其中元素作为key，其计数作为value。 </p>
 
       
     </div>
@@ -366,7 +325,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -388,11 +347,11 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
 
 
   
-    <article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/21/spark技术概述/" class="article-date">
-  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
+      <a href="/2016/11/11/leetcode-387-first-unique-character/" class="article-date">
+  	<time datetime="2016-11-11T06:33:48.000Z" itemprop="datePublished">2016-11-11</time>
 </a>
     </div>
   
@@ -405,7 +364,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/spark技术概述/">spark技术概述</a>
+      <a class="article-title" href="/2016/11/11/leetcode-387-first-unique-character/">leetcode-387-first-unique character</a>
     </h1>
   
 
@@ -414,7 +373,12 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"leetcode"</span></span><br><span class="line"><span class="built_in">return</span> 0.</span><br><span class="line"></span><br><span class="line">s = <span class="string">"loveleetcode"</span>,</span><br><span class="line"><span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>得到字符串中unique字符的序号</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def firstUniqChar(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        letters=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">        char_index=[s.index(char) <span class="keyword">for</span> char <span class="keyword">in</span> letters <span class="keyword">if</span> s.count(char)==1]</span><br><span class="line">        <span class="built_in">return</span> min(char_index) <span class="keyword">if</span> char_index <span class="keyword">else</span> -1</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>开始时考虑用for循环遍历字符串判断字符串是否unique并返回其序号；这种方法忽略了两个问题：效率（运行时间）；当字符串特别大时会有内存溢出问题，所以不能用for遍历。</p>
+<h3 id="新学到的方法"><a href="#新学到的方法" class="headerlink" title="新学到的方法"></a>新学到的方法</h3><p>str.index(char)  获取字符串中某个字符的索引<br>str.count(char)  获取字符串中某个字符出现的次数</p>
+
       
     </div>
     
@@ -422,7 +386,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -444,11 +408,11 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
 
 
   
-    <article id="post-linux-command2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-leetcode-171-column-number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/12/linux-command2/" class="article-date">
-  	<time datetime="2016-09-12T12:49:11.000Z" itemprop="datePublished">2016-09-12</time>
+      <a href="/2016/11/11/leetcode-171-column-number/" class="article-date">
+  	<time datetime="2016-11-11T05:26:52.000Z" itemprop="datePublished">2016-11-11</time>
 </a>
     </div>
   
@@ -461,7 +425,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/linux-command2/">linux常用命令——2</a>
+      <a class="article-title" href="/2016/11/11/leetcode-171-column-number/">leetcode-171-column-number</a>
     </h1>
   
 
@@ -470,8 +434,14 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="数据同步写入磁盘"><a href="#数据同步写入磁盘" class="headerlink" title="数据同步写入磁盘"></a>数据同步写入磁盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sync</span></span><br></pre></td></tr></table></figure>
-<h3 id="关机、重启"><a href="#关机、重启" class="headerlink" title="关机、重启"></a>关机、重启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#shutdown -h now  立刻关机</span></span><br><span class="line"><span class="comment">#shutdown -r now  立刻重启</span></span><br><span class="line"><span class="comment">#reboot   重启</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">### 改变文件属性与权限</span></span><br><span class="line">``` bash </span><br><span class="line"><span class="comment">#chgrp   改变文件所属用户组      组名必须要在/etc/group 文件内存在才可以</span></span><br><span class="line"><span class="comment">#chown   改变文件所属用户        用户必须是在/etc/passwd中存在的用户</span></span><br><span class="line"><span class="comment">#chmod   改变文件权限</span></span><br></pre></td></tr></table></figure>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a column title as appear in an Excel sheet, return its corresponding column number<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A -&gt; 1</span><br><span class="line">B -&gt; 2</span><br><span class="line">C -&gt; 3</span><br><span class="line">...</span><br><span class="line">Z -&gt; 26</span><br><span class="line">AA -&gt; 27</span><br><span class="line">AB -&gt; 28</span><br></pre></td></tr></table></figure></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>忽略杂音（Excel sheet），与Excel没关系，本质是将字母字符串转换为十进制数，再进一步分析，每一个字母（A——Z）对应一个数字<br>（1——26），此题的本质是进制转换，将26进制转换为十进制。</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def titleToNumber(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num = 0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            num = num*26+ord(char)-64</span><br><span class="line">        <span class="built_in">return</span> num</span><br></pre></td></tr></table></figure>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><p>10进制转16进制:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex(16)  ==&gt;  0x10</span><br></pre></td></tr></table></figure></p>
+<p>16进制转10进制：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'0x10'</span>, 16)  ==&gt;  16</span><br></pre></td></tr></table></figure></p>
+<p>类似的还有八进制oct()， 二进制bin()</p>
+<h4 id="数字与ascii字符互转"><a href="#数字与ascii字符互转" class="headerlink" title="数字与ascii字符互转"></a>数字与ascii字符互转</h4><p>chr() 数字转换为对应的ascii字符 （0~255）<br>ord() ascii字符转为对应的数字</p>
+
       
     </div>
     
@@ -479,7 +449,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -503,7 +473,7 @@ slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 </div>

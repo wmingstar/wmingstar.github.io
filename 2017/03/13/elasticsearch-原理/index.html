@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>elasticsearch-原理 | 明动天下</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ElasticSearch 原理简介ElasticSearch(以下简称ES)是一个基于Lucene构建的开源(open-source)，分布式(distributed)，RESTful，实时(real-time)的搜索与分析(analytics)引擎。它可以让你在浏览数据时具备非常快的速度和优秀的可扩展性。它用于全文索引、结构化数据索引、数据分析以及三者的结合。它可以运行在你的笔记本上，或者扩展">
+<meta property="og:type" content="article">
+<meta property="og:title" content="elasticsearch-原理">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/elasticsearch-原理/index.html">
+<meta property="og:site_name" content="明动天下">
+<meta property="og:description" content="ElasticSearch 原理简介ElasticSearch(以下简称ES)是一个基于Lucene构建的开源(open-source)，分布式(distributed)，RESTful，实时(real-time)的搜索与分析(analytics)引擎。它可以让你在浏览数据时具备非常快的速度和优秀的可扩展性。它用于全文索引、结构化数据索引、数据分析以及三者的结合。它可以运行在你的笔记本上，或者扩展">
+<meta property="og:image" content="http://yoursite.com/img/es倒序索引1.png">
+<meta property="og:image" content="http://yoursite.com/img/es倒序索引2.png">
+<meta property="og:image" content="http://yoursite.com/img/es倒序索引3.png">
+<meta property="og:image" content="http://yoursite.com/img/ES空集群.png">
+<meta property="og:image" content="http://yoursite.com/img/ES分片1.png">
+<meta property="og:image" content="http://yoursite.com/img/ES分片2.png">
+<meta property="og:image" content="http://yoursite.com/img/ES分片3.png">
+<meta property="og:image" content="http://yoursite.com/img/分片交互1.png">
+<meta property="og:image" content="http://yoursite.com/img/分片交互2.png">
+<meta property="og:image" content="http://yoursite.com/img/分片交互3.png">
+<meta property="og:image" content="http://yoursite.com/img/分片交互4.png">
+<meta property="og:updated_time" content="2017-03-13T13:48:51.769Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="elasticsearch-原理">
+<meta name="twitter:description" content="ElasticSearch 原理简介ElasticSearch(以下简称ES)是一个基于Lucene构建的开源(open-source)，分布式(distributed)，RESTful，实时(real-time)的搜索与分析(analytics)引擎。它可以让你在浏览数据时具备非常快的速度和优秀的可扩展性。它用于全文索引、结构化数据索引、数据分析以及三者的结合。它可以运行在你的笔记本上，或者扩展">
+<meta name="twitter:image" content="http://yoursite.com/img/es倒序索引1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="明动天下" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/me.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">明动天下</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">提笔写诗   落笔代码</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">概览</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wmingstar" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wmingstar" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">明动天下</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/me.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">明动天下</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">提笔写诗   落笔代码</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">概览</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wmingstar" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wmingstar" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-elasticsearch-原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/13/elasticsearch-原理/" class="article-date">
+  	<time datetime="2017-03-13T11:20:08.000Z" itemprop="datePublished">2017-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      elasticsearch-原理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ElasticSearch-原理"><a href="#ElasticSearch-原理" class="headerlink" title="ElasticSearch 原理"></a>ElasticSearch 原理</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ElasticSearch(以下简称ES)是一个基于Lucene构建的开源(open-source)，分布式(distributed)，RESTful，实时(real-time)的搜索与分析(analytics)引擎。它可以让你在浏览数据时具备非常快的速度和优秀的可扩展性。它用于全文索引、结构化数据索引、数据分析以及三者的结合。它可以运行在你的笔记本上，或者扩展至数百台的服务器节点上来处理PB级的数据。</p>
+<h3 id="与关系型数据库的名词对照"><a href="#与关系型数据库的名词对照" class="headerlink" title="与关系型数据库的名词对照"></a>与关系型数据库的名词对照</h3><p>Relational DB =&gt; Databases =&gt; Tables =&gt; Rows =&gt; Columns<br>Elasticsearch =&gt; Index =&gt; Types =&gt; Documents =&gt; Fields</p>
+<h3 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h3><p>ES面向文档，这就意味着你可以存储完整的对象或者文档。ES不仅存储它们，并且对它们的每一个文档的内容做了索引以便可以查询到它们。在ES中，你是对文档进行的建索引、查询、排序、过滤，而不是对关系型数据的一行数据。这就是ES处理数据的一个最基本的不同点，这也是ES为什么能处理全文索引的关键。</p>
+<h3 id="精确索引和全文索引"><a href="#精确索引和全文索引" class="headerlink" title="精确索引和全文索引"></a>精确索引和全文索引</h3><p>在ES中的数据可以分为两类：精确值(exact values)以及全文(full text)。 精确值：例如日期类型date，若date其有两个值:2014-09-15与2014，那么这两个值不相等。又例如字符串类型foo与Foo不相等。 全文：通常是人类语言写的文本，例如一段tweet信息、email的内容等。</p>
+<p>精确值很容易被索引：一个值要么相等要么不等。 索引全文值就需要很多功夫。例如我们不仅要想：这个文档符合我们的查询吗？还要想：这个文档有多符合我们的查询？换句话说就是：这个文档跟我们的查询关联大吗？我们很少精确的去匹配整个全文，我们最想要的是去匹配全文文本的内部信息。除此，我们还希望搜索能够理解我们的意图：例如</p>
+<p>如果你搜索UK，我们需要包含United Kingdom的文本也会被匹配。 如果你搜索jump，那么包含jumped,jumps,jumping,更甚者leap的文本会被匹配。</p>
+<p>为了更方便的进行全文索引，ES首先要先分析文本，然后使用分析过的文本去创建倒序索引。</p>
+<h3 id="倒序索引与文本分析"><a href="#倒序索引与文本分析" class="headerlink" title="倒序索引与文本分析"></a>倒序索引与文本分析</h3><p>ES使用倒序索引来加速全文索引。一个倒序索引由两部分组成：在文档中出现的所有不同的词；对每个词，它所出现的文档的列表。 例如：如果我们有两个文档，每一个文档有一个content字段，包含的内容如下：</p>
+<p>1.The quick brown fox jumped over the lazy dog<br>2.Quick brown foxes leap over lazy dogs in summer</p>
+<p>要创建一个倒序索引，首先要将content分割成单独的词(称为terms or tokens)，创建一个所有terms的列表，然后罗列每一个term出现的文档。此过程称为tokenization。如下图：<br><img src="/img/es倒序索引1.png" alt=""></p>
+<p>现在，如果我们想要搜索 quick brown，我们仅仅只需要找每一个term出现的文档即可。如下图：<br><img src="/img/es倒序索引2.png" alt=""></p>
+<p>每一个文档都匹配到了，但是第一个比第二个要匹配的多。如果我们使用一个简单的相似性算法仅仅只计算匹配的数量，那么我们可以称第一个文档要比第二个匹配的好(与我们的查询更有关联)。</p>
+<p>但是现在的倒序索引有一些问题：</p>
+<p>Quick与quick是两个不同的term，但是搜索的用户会认为它们应该是一样的term才是合理的。<br>fox和foxes，dog和dogs是一样的词根，应该列为同一个term。 jumped和leap虽然词根不一样，但是意义却相同。</p>
+<p>如果改善了上面的问题，那么倒序索引应该如下图：<br><img src="/img/es倒序索引3.png" alt=""></p>
+<h3 id="设计原理"><a href="#设计原理" class="headerlink" title="设计原理"></a>设计原理</h3><p><img src="/img/ES空集群.png" alt=""><br>如果我们启动了一个节点，没有索引没有数据，那么看起来就像上图一样。 一个节点Node运行着ES的实例，一个集群由一个或多个使用着同样名字(cluster.name)的节点组成，分享数据和负载。 当Node从集群中添加或删除时，集群会重组自己，使数据平摊的更均匀。</p>
+<p>集群中需要有一台master节点。master的作用是掌管集群的管理工作： 例如创建和删除索引。 从集群中添加或删除一台节点。 master节点无需掌管文档级的变更和索引。这也意味着在只有一台master的情况下，随着负载的增加master不会成为瓶颈。 所有的节点都可能变成master。</p>
+<p>作为user，我们可以与任何一台节点通信，包括master。每一台节点都知道每一个文档的位置并且可以将user的请求路由到文档所在的节点，并且这台节点负责接收它路由到的node or nodes的响应，并且将数据组织起来返回给用户。这些对用户都是透明的。</p>
+<h3 id="创建一个索引—index-shard-cluster"><a href="#创建一个索引—index-shard-cluster" class="headerlink" title="创建一个索引—index,shard,cluster"></a>创建一个索引—index,shard,cluster</h3><p>将数据添加到ES的前提是，我们需要一个索引(名词):index——一个存储与这个索引相对应数据的地方。实际上，index仅仅只是一个命名空间来指向一个或多个实际的物理分片(shard)。</p>
+<p>一个分片(shard)是一个比较低层的工作单元来处理这个索引(index)的所有数据的一个切片(slice)。一个shard实际上是一个Lucene实例，在它的能力范围内拥有完整的搜索功能(在处理它自己拥有的数据时有所有的功能)。我们所有文档的索引indexed(动词)和存储工作都是在shard上，但这是透明的，我们不需要直接和shard通信，而是和我们创建的index(名词)通信。</p>
+<p>shards是ES将数据分布式在你的集群的关键。想象下shards是数据的容器，文档存储在shards里，而shards被分配在集群的每一个节点Node里。当你的集群规模增长和降低时，ES会自动的在Nodes间迁移shards以保持集群的负载均衡。</p>
+<p>一个分片(shard)是一个比较低层的工作单元来处理这个索引(index)的所有数据的一个切片(slice)。一个shard实际上是一个Lucene实例，在它的能力范围内拥有完整的搜索功能(在处理它自己拥有的数据时有所有的功能)。我们所有文档的索引indexed(动词)和存储工作都是在shard上，但这是透明的，我们不需要直接和shard通信，而是和我们创建的index(名词)通信。</p>
+<p>shards是ES将数据分布式存储在你的集群的关键。想象下shards是数据的容器，文档存储在shards里，<br>而shards被分配在集群的每一个节点里。当你的集群规模增长和降低时，ES会自动的在Nodes间迁移shards以保持集群的负载均衡。</p>
+<p>shard可分为primary shard和replica shard。 在一个index里的每一个文档都属于一个单独的primary shard，所以primary shard的数量决定了最大存储容量(对应于一个index)。</p>
+<p>注意：shard是归属与index的，而不是cluster的。</p>
+<p>replica shard是primary shard的拷贝。replica有两个作用：<br>1.冗余备份       2.提供读请求服务，例如搜索或读取文档</p>
+<p>primary shard的数量在索引创建时确定后不能修改，replica可以在任何时候修改。</p>
+<p>例： 见Figure2，在2.1的集群上创建一个index，拥有3个primary shards以及1个replica shards。</p>
+<p><img src="/img/ES分片1.png" alt=""></p>
+<p>由于只有一台Node，而Primary shard的Replicas与其在同一台节点上毫无意义，所以集群没有初始化<br>replicas，这时添加另外一台Node。见Figure3，每一个primary shard初始化了一个replica。<br><img src="/img/ES分片2.png" alt=""></p>
+<h4 id="水平扩容"><a href="#水平扩容" class="headerlink" title="水平扩容"></a>水平扩容</h4><p>当我们继续添加一台节点时，Node1和Node2中的各取一个shard移动到了Node3.见Figure4<br><img src="/img/ES分片3.png" alt=""><br>这样，我们每一台Node上只有两个shard。这就意味着每一台Node的硬件资源(CPU,RAM,I/O)将会被更少的shards共享，提高了每一个shard的性能。在这个案例中，6个shards最多可使用6台Node，这样每个shard就可以使用100%的node硬件资源。</p>
+<h3 id="Shards文档路由"><a href="#Shards文档路由" class="headerlink" title="Shards文档路由"></a>Shards文档路由</h3><p>当你对一个文档建立索引时，它仅存储在一个primary shard上。<br>ES是怎么知道一个文档应该属于哪个shard？当你创建一个新的文档时，ES是怎么知道应该把它存储至shard1还是shard2？ 这个过程不能随机无规律的，因为以后我们还要将它取出来。它的路由算法是：</p>
+<p>shard = hash(routing) % numberofprimary_shards</p>
+<p>routing的值可以是文档的id，也可以是用户自己设置的一个值。hash将会根据routing算出一个数值然后%primaryshards的数量。这也是为什么primary_shards在index创建时就不能修改的原因。</p>
+<h3 id="Primary-Replica-Shards的交互"><a href="#Primary-Replica-Shards的交互" class="headerlink" title="Primary/Replica Shards的交互"></a>Primary/Replica Shards的交互</h3><p>假如我们有Figure8的集群。我们可以向这个集群的任何一台NODE发送请求，每一个NODE都有能力处理请求。每一个NODE都知道每一个文档所在的位置所以可以直接将请求路由过去。下面的例子，我们将所有的请求都发送到NODE1。<br><img src="/img/分片交互1.png" alt=""><br>注：最好的实践方式是轮询所有的NODE来发送请求，以达到请求负载均衡。</p>
+<h4 id="写操作"><a href="#写操作" class="headerlink" title="写操作"></a>写操作</h4><p>创建、索引、删除文档都是写操作，这些操作必须在primary shard完全成功后才能拷贝至其对应的replicas上,如下图。</p>
+<p><img src="/img/分片交互2.png" alt=""></p>
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><p>1.客户端向Node1发送写操作的请求。<br>2.Node1使用文档的_id来决定这个文档属于shard0，然后将请求路由至NODE3，P0所在的位置。<br>3.Node3在P0上执行了请求。如果请求成功，则将请求并行的路由至NODE1 NODE2的R0上。当所有的replicas报告成功后，NODE3向请求的node(NODE1)发送成功报告，NODE1再报告至Client。<br>当客户端收到执行成功后，操作已经在Primary shard和所有的replica shards上执行成功了。</p>
+<h4 id="读操作"><a href="#读操作" class="headerlink" title="读操作"></a>读操作</h4><p>一个文档可以在primary shard和所有的replica shard上读取。<br><img src="/img/分片交互3.png" alt=""></p>
+<h4 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h4><p>1.客户端发送Get请求到NODE1。<br>2.NODE1使用文档的_id决定文档属于shard 0.shard 0的所有拷贝存在于所有3个节点上。这次，它将请求路由至NODE2。<br>3.NODE2将文档返回给NODE1，NODE1将文档返回给客户端。 对于读请求，请求节点(NODE1)将在每次请求到来时都选择一个不同的replica。<br>shard来达到负载均衡。使用轮询策略轮询所有的replica shards。</p>
+<h4 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h4><p>更新操作，结合了以上的两个操作：读、写<br><img src="/img/分片交互4.png" alt=""></p>
+<p>1.客户端发送更新操作请求至NODE1<br>2.NODE1将请求路由至NODE3，Primary shard所在的位置<br>3.NODE3从P0读取文档，改变source字段的JSON内容，然后试图重新对修改后的数据在P0做索引。如果此时这个文档已经被其他的进程修改了，那么它将重新执行3步骤，这个过程如果超过了retryon_conflict设置的次数，就放弃。<br>4.如果NODE3成功更新了文档，它将并行的将新版本的文档同步到NODE1和NODE2的replica shards重新建立索引。一旦所有的replica<br>shards报告成功，NODE3向被请求的节点(NODE1)返回成功，然后NODE1向客户端返回成功。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/11/java-jvm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java-jvm</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="elasticsearch-原理" data-title="elasticsearch-原理" data-url="http://yoursite.com/2017/03/13/elasticsearch-原理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 明动天下
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

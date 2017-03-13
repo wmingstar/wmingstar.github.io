@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/linux/" style="font-size: 18.57px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-引用与指针" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python-optparse" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/11/引用与指针/" class="article-date">
-  	<time datetime="2016-09-11T14:53:10.000Z" itemprop="datePublished">2016-09-11</time>
+      <a href="/2016/10/12/python-optparse/" class="article-date">
+  	<time datetime="2016-10-12T11:18:06.000Z" itemprop="datePublished">2016-10-12</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/11/引用与指针/">引用与指针</a>
+      <a class="article-title" href="/2016/10/12/python-optparse/">python-optparse</a>
     </h1>
   
 
@@ -182,231 +182,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一<br>定认识，但对引用一直有些疑惑，今天详细的查了下资料，总结一下。</p>
-<h4 id="借用书中的两行代码"><a href="#借用书中的两行代码" class="headerlink" title="借用书中的两行代码"></a>借用书中的两行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int m; </span><br><span class="line">int &amp;n = m;</span><br></pre></td></tr></table></figure>
-<p>在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。</p>
-<h3 id="引用的规则"><a href="#引用的规则" class="headerlink" title="引用的规则"></a>引用的规则</h3><p>（1）引用被创建的同时必须被初始化（即赋值，指针则可以在任何时候被初始化）。<br>（2）不能有NULL引用，引用必须与合法的存储单元关联（就像外号一样，必须存在这样一个人，才可以给这个人起外号；指针则可以<br>是NULL）。<br>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 </p>
-<h3 id="引用的主要功能是传递函数的参数和返回值。"><a href="#引用的主要功能是传递函数的参数和返回值。" class="headerlink" title="引用的主要功能是传递函数的参数和返回值。"></a>引用的主要功能是传递函数的参数和返回值。</h3><p>在C++语言中，参数和返回值的传递主要有三种方式：值传递、指针传递、引用传递。下面用三个简单的程序来说明下三者的不同。</p>
-<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func1(int x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Func1(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 0</span><br></pre></td></tr></table></figure>
-<p>在上面的程序中，x是n的一个拷贝，在Func()函数中改变x的值并不会对n造成影响，最后输出n的值仍是0.</p>
-<h3 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func2(int *x) </span><br><span class="line">&#123; </span><br><span class="line">(* x) = (* x) + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func2(&amp;n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面代码中，Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
-<h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0;</span><br><span class="line">void Func3(int &amp;x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func3(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中，Func3函数体内的x是外部变量n的引用，x和n是同一个对象，改变x等于改变n，所以n的值成为10。</p>
-<p>通过对比上述三个示例程序，发现”引用传递”的性质与”指针传递”很像，但函数内部实现的书写方式与”值传递”一样。<br>讲道理，实际上”引用”可以做的任何事情”指针”也都能够做，那为什么还要”引用”？<br>答案是”用适当的工具做恰如其分的工作”。 </p>
-<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。<br>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-经典算法—-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/06/经典算法—-1/" class="article-date">
-  	<time datetime="2016-09-06T14:34:42.000Z" itemprop="datePublished">2016-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/06/经典算法—-1/">互联网笔试常考经典算法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的，所以，这种多阶<br>段最优化决策解决问题的过程就称为动态规划。</p>
-<h3 id="思想与策略"><a href="#思想与策略" class="headerlink" title="思想与策略"></a>思想与策略</h3><p>基本思想与分治法类似，在分析时将待求解的问题分解为若干个子问题（阶段），按顺序求解各个子问题，前一子问题的解，为后一子<br>问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃<br>其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
-<p>要用动态规划解决的问题多数有个特点：某些子问题重叠，为减少重复计算，对每一个子问题只解一次，可将其不同阶段的不同状态<br>保存在一个二维数组中。</p>
-<p>与分治法最大的区别：动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上）</p>
-<h3 id="适用情景"><a href="#适用情景" class="headerlink" title="适用情景"></a>适用情景</h3><p>动态规划求解的问题一般具有以下特征：<br>（1）最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>（2）无后效性：某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与<br>当前状态有关。<br>（3）有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的<br>必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
-<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>（1）问题划分：按照问题的时间或空间特征，把问题分为若干个阶段。在划分阶段时，注意划分后的阶段一定要是有序的或者是可排序的，否则问题就无法求解。<br>（2）确定状态和状态变量：将问题在各个阶段所处的各种客观情况用不同的状态表示出来。当然，状态的选择要满足无后效性。<br>（3）确定决策并写出状态转移方程：因为决策和状态转移有着天然的联系，状态转移就是根据上一阶段的状态和决策来导出本阶段的状态。所以如果确定了决策，状态转移方程也就可写出。但事实上常常是反过来做，根据相邻两个阶段的状态之间的关系来确定决策方法和状态转移方程。<br>（4）寻找边界条件：给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件。</p>
-<h4 id="简化的步骤设计"><a href="#简化的步骤设计" class="headerlink" title="简化的步骤设计"></a>简化的步骤设计</h4><p>（1）分析最优解的性质，并刻画其结构特征。<br>（2）递归的定义最优解。<br>（3）以自底向上或自顶向下的记忆化方式（备忘录法）计算出最优值。<br>（4）根据计算最优值时得到的信息，构造问题的最优解。</p>
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>使用动态规划求解问题，最重要的就是确定动态规划的三要素：<br>（1）将问题划分为多个子阶段 （2）确定各子阶段的状态  （3）从前一个阶段转化到后一个阶段的之间的递推关系。</p>
-<p>确定了动态规划的这三要素，整个求解过程就可以用一个最优决策表来描述。最优决策表是一个二维表，其中行表示决策的阶段，列<br>表示问题状态，表格需要填写的数据一般对应此问题的在某个阶段某个状态下的最优值（如最短路径，最长公共子序列，最大价值等<br>），填表的过程就是根据递推关系，从1行1列开始，以行或者列优先的顺序，依次填写表格，最后根据整个表格的数据通过简单的取<br>舍或者运算求得问题的最优解。</p>
-<h3 id="动态规划算法基本框架"><a href="#动态规划算法基本框架" class="headerlink" title="动态规划算法基本框架"></a>动态规划算法基本框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"><span class="keyword">for</span>(j=1; j&lt;=m; j=j+1) // 第一个阶段</span><br><span class="line">   xn[j] = 初始值;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(i=n-1; i&gt;=1; i=i-1)// 其他n-1个阶段</span><br><span class="line">   <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)//f(i)与i有关的表达式</span><br><span class="line">     xi[j]=j=max（或min）&#123;g(xi-1[j1:j2]), ......, g(xi-1[jk:jk+1])&#125;;</span><br><span class="line"></span><br><span class="line">t = g(x1[j1:j2]); // 由子问题的最优解求解整个问题的最优解的方案</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1[j1]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=2; i&lt;=n-1; i=i+1）</span><br><span class="line">&#123;  </span><br><span class="line">     t = t-xi-1[ji];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)</span><br><span class="line">        <span class="keyword">if</span>(t=xi[ji])</span><br><span class="line">             <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html" target="_blank" rel="external">参考自博客园</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/linux-command1/" class="article-date">
-  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/linux-command1/">linux常用命令——1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
-</code></pre>
-<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
-</code></pre>
-<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
-<span class="comment"># date +%Y/%m/%d</span>
-<span class="comment"># date +%H:%M</span>
-</code></pre>
-<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
-<span class="comment"># cal 2016</span>
-<span class="comment"># cal 8 2016</span>
-</code></pre>
-<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
-<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
-
-<span class="comment">#[Ctrl]+c 终止命令</span>
-<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
-</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-subprocess-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/07/python-subprocess-1/" class="article-date">
-  	<time datetime="2016-08-07T02:01:28.000Z" itemprop="datePublished">2016-08-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/07/python-subprocess-1/">python子进程模块subprocess详解与应用实例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="subprocess–子进程管理器"><a href="#subprocess–子进程管理器" class="headerlink" title="subprocess–子进程管理器"></a>subprocess–子进程管理器</h2><p>subprocess模块用来生成子进程，并可以通过管道连接它们的输入/输出/错误，以及获得它们的返回值。<br>它用来代替多个旧模块和函数:<br>os.system<br>os.spawn<em><br>os.popen</em><br>popen2.<em><br>commands.</em></p>
-<h2 id="subprocess模块中常用的函数"><a href="#subprocess模块中常用的函数" class="headerlink" title="subprocess模块中常用的函数"></a>subprocess模块中常用的函数</h2><p>启动子进程的推荐方式是使用下面的便利功能。<br>当这些还不能满足需求时，就需要使用底层的Popen接口。</p>
-<h3 id="subprocess-call"><a href="#subprocess-call" class="headerlink" title="subprocess.call"></a>subprocess.call</h3><p>语法:<br>     subprocess.call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令结束后，返回 返回码的属性值。<br>返回值：<br>     退出信息(returncode，相当于exit code，见Linux进程基础)</p>
-<p>上面的参数是最常见的方式，下面是示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; subprocess.call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
-<p>WARNING: 使用 shell=True 是一种安全保护机制。<br>NOTE: 在使用这个函数时，不要使用 stdout=PIPE 或 stderr=PIPE 参数，<br>      不然会导致子进程输出的死锁。<br>      如果要使用管道，可以在 communicate()方法中使用Popen<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">rc = subprocess.call([<span class="string">"ls"</span>,<span class="string">"-l"</span>])</span><br></pre></td></tr></table></figure></p>
-<p>可以通过一个shell来解释一整个字符串:<br>使用了shell=True这个参数。<br>这个时候，我们使用一整个字符串，而不是一个列表来运行子进程。<br>Python将先运行一个shell，再用这个shell来解释这整个字符串。</p>
-<p>shell命令中有一些是shell的内建命令，这些命令必须通过shell运行，$cd。<br>shell=True允许我们运行这样一些命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">out = subprocess.call(<span class="string">"ls -l"</span>, shell=True)</span><br><span class="line">out = subprocess.call(<span class="string">"cd .."</span>, shell=True)</span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-check-call"><a href="#subprocess-check-call" class="headerlink" title="subprocess.check_call"></a>subprocess.check_call</h3><p>这个函数在python 2.5版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>     subprocess.check_call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令执行完成。<br>     如果返回码为零，则返回。否则，抛出 CalledProcessError异常。<br>     CalledProcessError对象包含有返回码的属性值。<br>返回值：<br>      正常返回 0</p>
-<p>上面显示的参数仅仅是最常见的，下面是用户更常用的参数。<br>示例代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.check_call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-check-output"><a href="#subprocess-check-output" class="headerlink" title="subprocess.check_output"></a>subprocess.check_output</h3><p>这个函数在python 2.7版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>      subprocess.check_output(args, *, stdin=None, stderr=None, shell=False, universal_newlines=False)<br>语义:<br>     运行args定义的命令，并返回一个字符串表示的输出值。<br>     如果返回码为非零，则抛出 CalledProcessError异常。<br>返回值：<br>     返回子进程向标准输出的输出结果<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output([<span class="string">"echo"</span>, <span class="string">"Hello World!"</span>])</span><br><span class="line"><span class="string">'Hello World!\n'</span></span><br><span class="line">&gt;&gt;&gt; subprocess.check_output(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
-<p>如果要捕捉结果中的标准错误，使用 stderr=subprocess.STDOUT参数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output(</span><br><span class="line">...     <span class="string">"ls non_existent_file; exit 0"</span>,</span><br><span class="line">...     stderr=subprocess.STDOUT,</span><br><span class="line">...     shell=True)</span><br><span class="line"><span class="string">'ls: non_existent_file: No such file or directory\n'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-PIPE"><a href="#subprocess-PIPE" class="headerlink" title="subprocess.PIPE"></a>subprocess.PIPE</h3><p>使用Popen时，用于 stdin, stdout和stderr参数的特殊值，表示打开连接标准流的管道。</p>
-<h3 id="subprocess-STDOUT"><a href="#subprocess-STDOUT" class="headerlink" title="subprocess.STDOUT"></a>subprocess.STDOUT</h3><p>使用Popen时，用于 stderr 参数的特殊值，表示将标准错误重定向到标准输出的同一个句柄。</p>
-<h3 id="异常-subprocess-CalledProcessError"><a href="#异常-subprocess-CalledProcessError" class="headerlink" title="异常 subprocess.CalledProcessError"></a>异常 subprocess.CalledProcessError</h3><p>当由 check_call()或 check_output()运行的进程返回非零状态值时抛出的异常。</p>
-<h3 id="returncode"><a href="#returncode" class="headerlink" title="returncode"></a>returncode</h3><p>子进程的退出状态。</p>
+        <p>optparse是Python 内建的用于处理命令行参数的模块，功能强大，易于使用，可以方便地生成标准的、符合Unix/Posix 规范的命令行<br>说明。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(parse_test.py)</span><br><span class="line">from optparse import OptionParser  </span><br><span class="line">[...]  </span><br><span class="line">parser = OptionParser()  </span><br><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, dest=<span class="string">"filename"</span>, <span class="built_in">type</span>=<span class="string">"string"</span>, </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"write report to FILE"</span>, metavar=<span class="string">"FILE"</span>)  </span><br><span class="line">parser.add_option(<span class="string">"-q"</span>, <span class="string">"--quiet"</span>,  </span><br><span class="line">                  action=<span class="string">"store_false"</span>, dest=<span class="string">"verbose"</span>, default=True,  </span><br><span class="line">                  <span class="built_in">help</span>=<span class="string">"don't print status messages to stdout"</span>)  </span><br><span class="line">  </span><br><span class="line">(options, args) = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span> options.filename</span><br></pre></td></tr></table></figure>
+<p>运行程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(任一命令均可)</span><br><span class="line">python parse_test.py --file=outfile -q  </span><br><span class="line">python parse_test.py <span class="_">-f</span> outfile --quiet  </span><br><span class="line">python parse_test.py --quiet --file outfile  </span><br><span class="line">python parse_test.py -q -foutfile  </span><br><span class="line">python parse_test.py -qfoutfile</span><br></pre></td></tr></table></figure></p>
+<h3 id="自动输出帮助信息"><a href="#自动输出帮助信息" class="headerlink" title="自动输出帮助信息"></a>自动输出帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python parse_test.py -h </span><br><span class="line">python parse_test.py --help</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usage: parse_test.py [options]  </span><br><span class="line">  </span><br><span class="line">options:  </span><br><span class="line">  -h, --help            show this <span class="built_in">help</span> message and <span class="built_in">exit</span>  </span><br><span class="line">  <span class="_">-f</span> FILE, --file=FILE  write report to FILE  </span><br><span class="line">  -q, --quiet           don<span class="string">'t print status messages to stdout</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>(1)导入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from optparse import OptionParser</span><br></pre></td></tr></table></figure></p>
+<p>(2)用add_option() 方法 来定义命令行参数<br>(3)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(<span class="string">"-f"</span>, <span class="string">"--file"</span>, ...) </span><br><span class="line">其中 <span class="_">-f</span> 或者 –file 分别是长短参数名</span><br></pre></td></tr></table></figure></p>
+<p>(4)调用 parse_args() 来解析程序的命令行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(options, args) = parser.parse_args()</span><br></pre></td></tr></table></figure></p>
+<p>parse_args() 有两个返回值：<br>options：它是一个对象（optpars.Values），保存有命令行参数值。只要知道命令行参数名，如 file，就可以访问其对应的值： options.file 。<br>args：它是一个由 positional arguments 组成的列表。<br>(5) add_option() 方法的参数<br>action : 指示 optparse 当解析到一个命令行参数时该如何处理。actions 有一组固定的值可供选择，默认是’store‘表示将命令行<br>参数值保存在 options 对象里。<br>type:指定参数对应值的类型，默认为string，也可为int 、float等。<br>dest：用于指定存储参数值的键值名，例如，dest=’filename’  (options, args) = parser.parse_args()，option.filename<br>default: 用于设置默认值。<br>help：自定义帮助信息文本。</p>
 
       
     </div>
@@ -437,11 +221,11 @@
 
 
   
-    <article id="post-mysql-engine" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-command3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/05/mysql-engine/" class="article-date">
-  	<time datetime="2016-08-05T01:26:15.000Z" itemprop="datePublished">2016-08-05</time>
+      <a href="/2016/10/11/linux-command3/" class="article-date">
+  	<time datetime="2016-10-11T12:55:01.000Z" itemprop="datePublished">2016-10-11</time>
 </a>
     </div>
   
@@ -454,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/05/mysql-engine/">MySQL进阶——存储引擎</a>
+      <a class="article-title" href="/2016/10/11/linux-command3/">linux创建、删除软连接、硬链接</a>
     </h1>
   
 
@@ -463,35 +247,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MySQL-支持的搜索引擎"><a href="#MySQL-支持的搜索引擎" class="headerlink" title="MySQL 支持的搜索引擎"></a>MySQL 支持的搜索引擎</h2><p>可以通过以下命令查看mysql支持的存储引擎：<br>mysql&gt;show engines</p>
-<p>MySQL有多种存储引擎，每种存储引擎有各自的优缺点，可以择优选择使用：MyISAM、InnoDB、MERGE、MEMORY(HEAP)、BDB(BerkeleyDB)、EXAMPLE、FEDERATED、ARCHIVE、CSV、BLACKHOLE。</p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>MySQL支持数个存储引擎作为对不同表的类型的处理器，MySQL存储引擎包括处理事务安全表（TST）的引擎和处理非事务安全表(NTST)的引擎。</p>
-<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>管理非事务表。它提供高速存储和检索，以及全文搜索能力。MyISAM在所有MySQL配置里被支持，它是默认的存储引擎，除非你配置MySQL默认使用另外一个引擎。</p>
-<h3 id="InnoDB和BDB"><a href="#InnoDB和BDB" class="headerlink" title="InnoDB和BDB"></a>InnoDB和BDB</h3><p>支持事务安全表，BDB被包含在为支持它的操作系统发布的MySQL-Max二进制分发版里。InnoDB也默认被包括在所有MySQL5.1二进制分发版里，你可以按照喜好通过配置MySQL来允许或禁止任一引擎。</p>
-<h3 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h3><p>存储引擎提供“内存中”表。MERGE存储引擎允许集合将被处理同样的MyISAM表作为一个单独的表。就像MyISAM一样，MEMORY和MERGE存储引擎处理非事务表，这两个引擎也都被默认包含在MySQL中。</p>
-<h3 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h3><p>是一个“存根”引擎，它不做什么。你可以用这个引擎创建表，但没有数据被存储于其中或从其中检索。这个引擎的目的是服务，在 MySQL源代码中的一个例子，它演示说明如何开始编写新存储引擎。同样，它的主要兴趣是对开发者。</p>
-<h3 id="NDB-Cluster"><a href="#NDB-Cluster" class="headerlink" title="NDB Cluster"></a>NDB Cluster</h3><p>用来实现分割到多台计算机上的表的存储引擎。它在MySQL-Max 5.1二进制分发版里提供。这个存储引擎当前只被Linux, Solaris, 和Mac OS X 支持。在未来的MySQL分发版中，我们想要添加其它平台对这个引擎的支持，包括Windows。</p>
-<h3 id="ARCHIVE"><a href="#ARCHIVE" class="headerlink" title="ARCHIVE"></a>ARCHIVE</h3><p>用来无索引地，非常小地覆盖存储的大量数据。</p>
-<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>把数据以逗号分隔的格式存储在文本文件中。</p>
-<h3 id="BLACKHOLE"><a href="#BLACKHOLE" class="headerlink" title="BLACKHOLE"></a>BLACKHOLE</h3><p>接受但不存储数据，并且检索总是返回一个空集。</p>
-<h3 id="FEDERATED"><a href="#FEDERATED" class="headerlink" title="FEDERATED"></a>FEDERATED</h3><p>把数据存在远程数据库中。在MySQL 5.1中，它只和MySQL一起工作，使用MySQL C Client API。在未来的分发版中，<br>我们想要让它使用其它驱动器或客户端连接方法连接到另外的数据源。</p>
-<h2 id="MyISAM与InnoBD的区别"><a href="#MyISAM与InnoBD的区别" class="headerlink" title="MyISAM与InnoBD的区别"></a>MyISAM与InnoBD的区别</h2><p>在mysql存储中，比较常用的是MyISAM和InnoBD。</p>
-<h3 id="构成上的区别"><a href="#构成上的区别" class="headerlink" title="构成上的区别"></a>构成上的区别</h3><p>MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。frm文件存储表定义。数据文件的扩展<br>名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</p>
-<p>InnoBD：基于磁盘的资源是InnoDB表空间数据文件和它的日志文件，InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB.</p>
-<h3 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h3><p>MyISAM：MyISAM类型的表强调的是性能，其执行速度比InnoDB类型更快，但是不提供事务支持。</p>
-<p>InnoBD: InnoDB提供事务支持事务，外部键（foreign key）等高级数据库功能。</p>
-<h3 id="SELECT-UPDATE-INSERT，Delete操作"><a href="#SELECT-UPDATE-INSERT，Delete操作" class="headerlink" title="SELECT UPDATE,INSERT，Delete操作"></a>SELECT UPDATE,INSERT，Delete操作</h3><p>MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。</p>
-<p>InnoBD：如果执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；<br>DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br>LOAD  TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的<br>额外的InnoDB特性（例如外键）的表不适用。</p>
-<h2 id="如何在MyISAM与InnoBD之间选择"><a href="#如何在MyISAM与InnoBD之间选择" class="headerlink" title="如何在MyISAM与InnoBD之间选择"></a>如何在MyISAM与InnoBD之间选择</h2><p>（1）InnoDB支持事务，MyISAM不支持，这一点是非常之重要。事务是一种高级的处理方式，如在一些列增删改中只要哪个出错还可以回滚还原，而MyISAM就不可以了。<br>（2）MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用<br>（3）InnoDB支持外键，MyISAM不支持<br>（4）MyISAM是默认引擎，InnoDB需要指定<br>（5）InnoDB不支持FULLTEXT类型的索引<br>（6）InnoDB中不保存表的行数，如select count(<em>) fromtable时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存<br>好的行数即可。注意的是，当count(</em>)语句包含where条件时MyISAM也需要扫描整个表<br>（7）对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引<br>（8）清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表<br>（9）InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’</p>
-<h2 id="MyISAM-1"><a href="#MyISAM-1" class="headerlink" title="MyISAM"></a>MyISAM</h2><p>每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名<br>为.MYD (MYData)。<br>MyISAM表格可以被压缩，而且它们支持全文搜索。不支持事务，而且也不支持外键。如果事物回滚将造成不完全回滚，不具有原子性。在进<br>行updata时进行表锁，并发量相对较小。如果执行大量的SELECT，MyISAM是更好的选择。<br>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，<br>没有使用压缩从而会造成Innodb比MyISAM体积庞大不小<br>MyISAM缓存在内存的是索引，不是数据。而InnoDB缓存在内存的是数据，相对来说，服务器内存越大，InnoDB发挥的优势越大。</p>
-<p>优点：查询数据相对较快，适合大量的select，可以全文索引。</p>
-<p>缺点：不支持事务，不支持外键，并发量较小，不适合大量update</p>
-<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>这种类型是事务安全的。.它与BDB类型具有相同的特性,它们还支持外键。InnoDB表格速度很快。具有比BDB还丰富的特性,因此如果需要一个事务安全的存储引擎，建议使用它。在update时表进行行锁，并发量相对较大。如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。</p>
-<p>优点：支持事务，支持外键，并发量较大，适合大量update</p>
-<p>缺点：查询数据相对较快，不适合大量的select</p>
-<p>对于支持事物的InnoDB类型的表，影响速度的主要原因是AUTOCOMMIT默认设置是打开的，而且程序没有显式调用BEGIN 开始事务，导致每插入一条都自动Commit，严重影响了速度。可以在执行sql前调用begin，多条sql形成一个事物（即使autocommit打开也可以），将大大提高性能。</p>
-<p>基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。</p>
-<p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</p>
+        <p>在Linux系统中，内核为每一个新创建的文件分配一个Inode(索引结点)，每个文件都有一个惟一的inode号。文件属性保存在索引结点里<br>，在访问文件时，索引结点被复制到内存在，从而实现文件的快速访问。<br>Linux中包括两种链接：硬链接(Hard Link)和软链接(Soft Link)，软链接又称为符号链接（Symbolic link），符号连接相当于Windows<br>下的快捷方式。</p>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><p>硬链接说白了是一个指针，指向文件索引节点，系统并不为它重新分配inode。可以用:ln命令来建立硬链接。<br>语法:<br>ln [options] existingfile newfile（sexistingfile 待建立链接文件的文件，newfile是新创建的链接文件）<br>ln [options] existingfile-list directory</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 1 root root 0 07-14 14:17 file2</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln file2 file2hand</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>注意在创建链接前，file2显示的链接数目为1，创建链接后file2和file2hand的链接数目都变为2;file2和file2hand的inode号是一样<br>的，file2和file2hand显示的文件大小也是一样。可见进行了ln命令的操作结果：file2和file2hand是同一个文件的两个名字，它们<br>具有同样的索引节点号和文件属性，建立文件file2的硬链接，就是为file2的文件索引节点在当前目录上建立一个新指针。你可以删除其中任何一个，如rm file2 ，每次只会删除一个指针，链接数同时减一，当链接数减为0时，内核才会把文件内容从磁盘上删除。<br>-f 建立时，将同档案名删除<br>-i 删除前进行询问<br>-n 如果”newfile”已存在，就不创建链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln abc cde 建立abc的硬连接，</span><br></pre></td></tr></table></figure></p>
+<p> 尽管硬链接节省空间，也是Linux系统整合文件系统的传统方式，但是存在不足之处：<br>（1）不可以在不同文件系统的文件间建立链接。<br>（2）只有超级用户才可以为目录创建硬链接。</p>
+<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p>软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。 建立软链接，只要在ln后面加上<br>选项 –s。</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line"></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ln -s file1 file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 48 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
+<p>从上面链接后的结果可以看出来软链接与硬链接，区别不仅仅是在概念上，在实现上也是不同的。区别：硬链接原文件与链接文件共<br>用一个inode号，说明他们是同一个文件，而软链接原文件与链接文件拥有不同的inode号，表明他们是两个不同的文件；在文件属性<br>上软链接明确写出了是链接文件，而硬链接没有写出来，因为在本质上硬链接文件和原文件是完全平等关系；链接数目是不一样的，<br>软链接的链接数目不会增加；文件大小是不一样的，硬链接文件显示的大小是跟原文件是一样的，这用强调，因为是等同的嘛，而这<br>里软链接显示的大小与原文件就不同了，file1大小是48B，而file1soft是5B，这里面的5实际上就是“file1”的大小。<br>建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。</p>
+<p>当然软链接也有硬链接没有的缺点，因为链接文件包含有原文件的路径信息，所以当原文件从一个目录下移到其他目录中，再访问链<br>接文件，系统就找不到了，而硬链接就没有这个缺陷；还有它要系统分配额外的空间用于建立新的索引节点和保存原文件的路径。</p>
+<h2 id="删除链接"><a href="#删除链接" class="headerlink" title="删除链接"></a>删除链接</h2><p>有创建就有删除<br>rm -rf symbolic_name 注意不是rm -rf symbolic_name/</p>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491140 lrwxrwxrwx 1 root root 5 07-14 14:24 file1soft -&gt; file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># rm -rf file1soft</span></span><br><span class="line">[root@rekfan。com <span class="built_in">test</span>]<span class="comment"># ls -il</span></span><br><span class="line">总计 0</span><br><span class="line">1491138 -rw-r–r– 1 root root 0 07-14 14:17 file1</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2</span><br><span class="line">1491139 -rw-r–r– 2 root root 0 07-14 14:17 file2hand</span><br></pre></td></tr></table></figure>
+<h2 id="软连接与硬链接的区别"><a href="#软连接与硬链接的区别" class="headerlink" title="软连接与硬链接的区别"></a>软连接与硬链接的区别</h2><p>(1)软连接可以跨文件系统 ，硬连接不可以 。<br>(2)关于Inode节点的问题，硬连接不管有多少个，都指向的是同一个Inode节点，会把Inode结点连接数增加 ，只要结点的连接数不<br>是 0，文件就一直存在 ，不管你删除的是源文件还是连接文件。只要有一个存在，文件就存在。（其实源文件与连接文件并无本<br>质区别 ，因为他们指向都是同一个Inode节点）。 当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的<br>修改 。软链接不直接使用Inode节点号作为文件指针，而是使用文件路径名作为指针。所以 删除连接文件 对源文件无影响，但<br>是删除源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode，并在磁盘上有一小片空间存放路径名。<br>(3)软连接可以对一个不存在的文件名进行连接 。<br>(4)软连接可以对目录进行连接。</p>
+<p>备注：Inode节点 :它是UNIX内部用于描述文件特性的数据结构，通常称Inode节点为文件索引结点(信息结点)，Inode节点含有关于<br>文件的大部分的重要信息，包括文件数据块在磁盘上的地址。每一个I节点有它自己的标志号，我们称为文件顺序号<br>。Inode节点包含的信息:文件类型、文件属主关系、文件的访问权限、文件的时间截。</p>
 
       
     </div>
@@ -500,7 +268,215 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-centos软件安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/10/centos软件安装与卸载/" class="article-date">
+  	<time datetime="2016-10-10T13:21:17.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/10/centos软件安装与卸载/">centos软件安装与卸载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-rpm安装，更新与卸载"><a href="#1-rpm安装，更新与卸载" class="headerlink" title="1.rpm安装，更新与卸载"></a>1.rpm安装，更新与卸载</h2><p>RPM包，这种软件包就像windows的EXE安装文件一样，各种文件已经编译好，并打了包，哪个文件该放到哪个文件夹，都指定好了，<br>安装方便，在图形界面里只需双击就能自动安装，但是有个缺点，就是包的依赖关系。</p>
+<h3 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h3><p>(1)找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；<br>(2)打开一个终端，su 成root用户；<br>(3)cd soft.version.rpm所在的目录；<br>(4)执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh soft.version.rpm</span><br></pre></td></tr></table></figure></p>
+<h3 id="rpm更新"><a href="#rpm更新" class="headerlink" title="rpm更新"></a>rpm更新</h3><p>#rpm -Uvh soft.version.rpm </p>
+<h3 id="rpm卸载"><a href="#rpm卸载" class="headerlink" title="rpm卸载"></a>rpm卸载</h3><p>(1)查找欲卸载的软件包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep  soft_name</span><br></pre></td></tr></table></figure></p>
+<p>(2)例如找到软件mysql-4.1.22-2.el4_8.4 ，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm <span class="_">-e</span> mysql-4.1.22-2.el4_8.4 </span><br><span class="line"><span class="comment">#注意：查询软件的安装目录，用命令 </span></span><br><span class="line">rpm -ql mysql-4.1.22-2.el4_8.4</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-以-bin结尾的安装包"><a href="#2-以-bin结尾的安装包" class="headerlink" title="2.以.bin结尾的安装包"></a>2.以.bin结尾的安装包</h2><p>bin类似rpm包安装，也比较简单</p>
+<h3 id="bin安装"><a href="#bin安装" class="headerlink" title="bin安装"></a>bin安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)给文件加上可执行属性：chmod +x <strong>**</strong>.bin(中间是字母x，小写)<br>(4)执行命令：./<strong>**</strong>.bin 或者 直接执行 sh <strong>**</strong>.bin</p>
+<h3 id="bin卸载"><a href="#bin卸载" class="headerlink" title="bin卸载"></a>bin卸载</h3><p>把安装时中选择的安装目录删除就OK</p>
+<h2 id="3-tar-gz-bz或bz2等-结尾的源代码包"><a href="#3-tar-gz-bz或bz2等-结尾的源代码包" class="headerlink" title="3.tar.gz(bz或bz2等)结尾的源代码包"></a>3.tar.gz(bz或bz2等)结尾的源代码包</h2><p>这种软件包里面都是源程序，没有编译过，需要编译后才能安装。</p>
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入源代码压缩包所在的目录<br>(3)根据压缩包类型解压缩文件(*代表压缩包名称)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ****.tar.gz</span><br><span class="line">tar -jxvf ****.tar.bz(或bz2)</span><br></pre></td></tr></table></figure></p>
+<p>(4)用CD命令进入解压缩后的目录<br>(5)编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#有的压缩包已经编译过，这一步可以省去</span></span><br><span class="line">./make</span><br><span class="line">./make install</span><br></pre></td></tr></table></figure></p>
+<p>(注意：我们可以通过./configure –help 来查看配置软件的功能；大多软件是提供./configure 配置软件的功能的；<br>少数的也没有，如果没有的就不用./configure ;直接make;make install 就行了；./configure 比较重要的一个参数是<br> –prefix ，用–prefix 参数，我们可以指定软件安装目录。</p>
+<h3 id="源代码卸载"><a href="#源代码卸载" class="headerlink" title="源代码卸载"></a>源代码卸载</h3><p>(1)打开一个SHELL，即终端<br>(2)用CD 命令进入编译后的软件目录，即安装时的目录<br>(3)执行反安装命令：make uninstall</p>
+<h2 id="4-yum安装"><a href="#4-yum安装" class="headerlink" title="4.yum安装"></a>4.yum安装</h2><p>yum是rpm的管理工具，管理一个软件库，可以很好的解决依赖关系。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install -y 软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum更新</span></span><br><span class="line">``` bash</span><br><span class="line">yum update -y  软件名</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### yum卸载</span></span><br><span class="line">``` bash</span><br><span class="line">yum remove -y  软件名</span><br><span class="line">或</span><br><span class="line">yum erase -y   软件名</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python连接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/09/python连接mysql/" class="article-date">
+  	<time datetime="2016-10-09T10:28:53.000Z" itemprop="datePublished">2016-10-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/09/python连接mysql/">python连接mysql</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装mysql"><a href="#1-安装mysql" class="headerlink" title="1.安装mysql"></a>1.安装mysql</h3><h3 id="2-安装配置python环境"><a href="#2-安装配置python环境" class="headerlink" title="2.安装配置python环境"></a>2.安装配置python环境</h3><h3 id="3-安装MySQL-python"><a href="#3-安装MySQL-python" class="headerlink" title="3.安装MySQL-python"></a>3.安装MySQL-python</h3><h3 id="4-导入MySQLdb-模块"><a href="#4-导入MySQLdb-模块" class="headerlink" title="4.导入MySQLdb 模块"></a>4.导入MySQLdb 模块</h3><p>前面几步不需要多说，具体说下连接的问题。<br>之前用python操作数据库，都是用下面的方式进行连接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_connect= MySQLdb.connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"123456"</span>,<span class="string">"myciti"</span> )</span><br></pre></td></tr></table></figure></p>
+<p>上面的几个参数大家都知道：第一个为服务器的地址，第二个为用户名，第三个为密码，第四个为要访问的数据库，其实该connect函数 的参数不止这些，不过由于其有默认值而且大多数情况下不用修改，因而省略了。<br>完整的connect()参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">host    <span class="comment">#连接的数据库服务器主机名，默认为本地主机(localhost)。</span></span><br><span class="line">user    <span class="comment">#连接数据库的用户名，默认为当前用户。</span></span><br><span class="line">passwd  <span class="comment">#连接密码，没有默认值。</span></span><br><span class="line">db      <span class="comment">#连接的数据库名，没有默认值。</span></span><br><span class="line">conv    <span class="comment">#将文字映射到Python类型的字典。默认为MySQLdb.converters.conversions</span></span><br><span class="line">cursorclass，cursor()     <span class="comment">#使用的种类，默认值为MySQLdb.cursors.Cursor。</span></span><br><span class="line">compress                  <span class="comment">#启用协议压 缩功能。</span></span><br><span class="line">named_pipe                <span class="comment">#在windows中，与一个命名管道相连接。</span></span><br><span class="line">init_<span class="built_in">command</span>              <span class="comment">#一旦连接建立，就为数据库服务器指定一条语句来运行。</span></span><br><span class="line"><span class="built_in">read</span>_default_file         <span class="comment">#使用指定的MySQL配置文件。</span></span><br><span class="line"><span class="built_in">read</span>_default_group        <span class="comment">#读取的默认组。</span></span><br><span class="line">unix_socket               <span class="comment">#在unix中，连接使用的套接字，默认使用TCP。</span></span><br><span class="line">port                      <span class="comment">#指定数据库服务器的连接端口，默认是3306</span></span><br><span class="line">``` </span><br><span class="line">一般没有用到端口号，这是因为MySQLdb的connect函数的该参数的默认值便是3306，如果你在安装mysql的时候修改了数据库的端口</span><br><span class="line">号，那么你就需要在源码中加上该参数的修改值了。</span><br><span class="line">若加上端口号，连接方式如下：</span><br><span class="line">``` bash</span><br><span class="line">conn= MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-判断连接是否存在"><a href="#5-判断连接是否存在" class="headerlink" title="5.判断连接是否存在"></a>5.判断连接是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    conn.ping()</span><br><span class="line">execept:</span><br><span class="line">    conn=MySQLdb.connect(</span><br><span class="line">        host=<span class="string">'localhost'</span>,</span><br><span class="line">        port = 3306,</span><br><span class="line">        user=<span class="string">'root'</span>,</span><br><span class="line">        passwd=<span class="string">'123456'</span>,</span><br><span class="line">        db =<span class="string">'test'</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<p>用conn.ping()进行判断，若连接不存在则会产生异常，捕获异常，然后重新连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spark安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/09/spark安装教程/" class="article-date">
+  	<time datetime="2016-10-09T01:43:30.000Z" itemprop="datePublished">2016-10-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/09/spark安装教程/">spark安装教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(注：本教程基于Cenos7)</p>
+<h3 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h3><p>Centos7若不是最小化安装，则会自动安装jdk-8。<br>之所以需要安装JDK是因为scala依赖java运行环境。</p>
+<p>(1)从oracle网站下载JDK 安装包，解压安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf jdk-8u65-linux-x64.tar.gz</span><br><span class="line">mv jdk1.8.0_65 java</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置Java 环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">JAVA_HOME=/opt/jdk1.8.0</span><br><span class="line"><span class="built_in">export</span> JRE_HOME = <span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><p>(1)从官网下载安装包，解压安装<br><a href="http://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="external">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf scala-2.11.8.tgz</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SCALA_HOME=/opt/scala-2.11.8</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(3)验证scala<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br><span class="line">Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-安装spark"><a href="#3-安装spark" class="headerlink" title="3.安装spark"></a>3.安装spark</h3><p>(1)官网下载spark 包  spark-2.0.1-bin-hadoop2.7.tgz<br>(2)解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安到/usr/local 下</span></span><br><span class="line">tar  zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br><span class="line">mv  spark-2.0.1-bin-hadoop2.7   spark</span><br></pre></td></tr></table></figure></p>
+<p>(3)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME SPARK_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(4)验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure></p>
+<p>若成功<br><img src="/img/spark.png" alt=""></p>
+<h3 id="4-自动安装sbt"><a href="#4-自动安装sbt" class="headerlink" title="4.自动安装sbt"></a>4.自动安装sbt</h3><p><a href="http://www.scala-sbt.org/release/tutorial/zh-cn/index.html" target="_blank" rel="external">参考</a><br>(1)添加sbt镜像源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl   https://bintray.com/sbt/rpm/rpm  &gt;   bintray-sbt-rpm.repo</span><br><span class="line">mv bintray-sbt-rpm.repo  /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></p>
+<p>(2)安装sbt<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sbt</span><br></pre></td></tr></table></figure></p>
+<p>(3)hello world<br>一个合法的 sbt 项目可以是一个包含单个源码文件的目录。 尝试创建一个 hello 目录，包含内容如下的源码文件 hw.scala：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Hi &#123;</span><br><span class="line">  def main(args: Array[String]) = println(<span class="string">"Hi!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-手动安装sbt"><a href="#5-手动安装sbt" class="headerlink" title="5.手动安装sbt"></a>5.手动安装sbt</h3><p>(1)下载sbt通用平台压缩包：sbt-0.13.12.tgz<br><a href="http://www.scala-sbt.org/download.html" target="_blank" rel="external">网址</a><br>(2)建立目录，解压文件到所建立目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar zxvf sbt-0.13.5.tgz -C /opt/scala/</span><br></pre></td></tr></table></figure></p>
+<p>(3)建立启动sbt的脚本文件<br>选定一个位置，建立启动sbt的脚本文本文件，如/opt/scala/sbt/ 目录下面新建文件名为sbt的文本文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/scala/sbt/</span><br><span class="line">$ vim sbt</span><br></pre></td></tr></table></figure></p>
+<p>在sbt文本文件中添加一下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SBT_OPTS=<span class="string">"-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"</span></span><br><span class="line">java <span class="variable">$SBT_OPTS</span> -jar /opt/scala/sbt/bin/sbt-launch.jar <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的路径是定位到解压的sbt文件包中的sbt-launch.jar文件的绝对路径*/</p>
+<p>/×修改sbt文件权限×/<br>$ chmod u+x sbt<br>(4)配置PATH环境变量，保证在控制台中可以使用sbt命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br><span class="line"><span class="comment">#在文件尾部添加如下代码后，保存退出</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/scala/sbt/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>使配置文件立刻生效</em>/<br>$ source /etc/profile</p>
+<p>(5)测试sbt是否安装成功<br>第一次执行时，会下载一些文件包，然后才能正常使用，要确保联网了，安装成功后显示如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbt sbt-version</span><br><span class="line"></span><br><span class="line">[info] Set current project to sbt (<span class="keyword">in</span> build file:/opt/scala/sbt/)</span><br><span class="line">[info] 0.13.5</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
 	</div>
 
       
@@ -524,7 +500,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 </div>

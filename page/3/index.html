@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-linux-常用信息查询命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-面试题-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/21/linux-常用信息查询命令/" class="article-date">
-  	<time datetime="2017-01-21T11:39:46.000Z" itemprop="datePublished">2017-01-21</time>
+      <a href="/2017/03/09/java-面试题-2/" class="article-date">
+  	<time datetime="2017-03-09T12:11:06.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/21/linux-常用信息查询命令/">linux-常用信息查询命令</a>
+      <a class="article-title" href="/2017/03/09/java-面试题-2/">java-面试题-2</a>
     </h1>
   
 
@@ -182,70 +182,106 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">uname <span class="_">-a</span>               <span class="comment"># 查看内核/操作系统/CPU信息</span></span><br><span class="line">head -n 1 /etc/issue   <span class="comment"># 查看操作系统版本</span></span><br><span class="line">cat /proc/cpuinfo      <span class="comment"># 查看CPU信息</span></span><br><span class="line">hostname               <span class="comment"># 查看计算机名</span></span><br><span class="line">lspci -tv              <span class="comment"># 列出所有PCI设备</span></span><br><span class="line">lsusb -tv              <span class="comment"># 列出所有USB设备</span></span><br><span class="line">lsmod                  <span class="comment"># 列出加载的内核模块</span></span><br><span class="line">env                    <span class="comment"># 查看环境变量</span></span><br></pre></td></tr></table></figure>
-<h3 id="资源信息"><a href="#资源信息" class="headerlink" title="资源信息"></a>资源信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">free -m                <span class="comment"># 查看内存使用量和交换区使用量</span></span><br><span class="line">df -h                  <span class="comment"># 查看各分区使用情况</span></span><br><span class="line">du -sh    &lt;目录名&gt;        <span class="comment"># 查看指定目录的大小</span></span><br><span class="line">grep MemTotal /proc/meminfo   <span class="comment"># 查看内存总量</span></span><br><span class="line">grep MemFree /proc/meminfo    <span class="comment"># 查看空闲内存量</span></span><br><span class="line">uptime                 <span class="comment"># 查看系统运行时间、用户数、负载</span></span><br><span class="line">cat /proc/loadavg      <span class="comment"># 查看系统负载</span></span><br></pre></td></tr></table></figure>
-<h3 id="磁盘分区信息"><a href="#磁盘分区信息" class="headerlink" title="磁盘分区信息"></a>磁盘分区信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount | column -t      <span class="comment"># 查看挂接的分区状态</span></span><br><span class="line">fdisk <span class="_">-l</span>               <span class="comment"># 查看所有分区</span></span><br><span class="line">swapon <span class="_">-s</span>              <span class="comment"># 查看所有交换分区</span></span><br><span class="line">hdparm -i /dev/hda     <span class="comment"># 查看磁盘参数(仅适用于IDE设备)</span></span><br><span class="line">dmesg | grep IDE       <span class="comment"># 查看启动时IDE设备检测状况</span></span><br></pre></td></tr></table></figure>
-<h3 id="网络信息"><a href="#网络信息" class="headerlink" title="网络信息"></a>网络信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ifconfig               <span class="comment"># 查看所有网络接口的属性</span></span><br><span class="line">iptables -L            <span class="comment"># 查看防火墙设置</span></span><br><span class="line">route -n               <span class="comment"># 查看路由表</span></span><br><span class="line">netstat -lntp          <span class="comment"># 查看所有监听端口</span></span><br><span class="line">netstat -antp          <span class="comment"># 查看所有已经建立的连接</span></span><br><span class="line">netstat <span class="_">-s</span>             <span class="comment"># 查看网络统计信息</span></span><br></pre></td></tr></table></figure>
-<h3 id="进程信息"><a href="#进程信息" class="headerlink" title="进程信息"></a>进程信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef                 <span class="comment"># 查看所有进程</span></span><br><span class="line">top                    <span class="comment"># 实时显示进程状态</span></span><br></pre></td></tr></table></figure>
-<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w                      <span class="comment"># 查看活动用户</span></span><br><span class="line">id &lt;用户名&gt;            <span class="comment"># 查看指定用户信息</span></span><br><span class="line">last                   <span class="comment"># 查看用户登录日志</span></span><br><span class="line">cut <span class="_">-d</span>: <span class="_">-f</span>1 /etc/passwd   <span class="comment"># 查看系统所有用户</span></span><br><span class="line">cut <span class="_">-d</span>: <span class="_">-f</span>1 /etc/group    <span class="comment"># 查看系统所有组</span></span><br><span class="line">crontab <span class="_">-l</span>             <span class="comment"># 查看当前用户的计划任务</span></span><br></pre></td></tr></table></figure>
-<h3 id="服务信息"><a href="#服务信息" class="headerlink" title="服务信息"></a>服务信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list       <span class="comment"># 列出所有系统服务</span></span><br><span class="line">chkconfig --list | grep on    <span class="comment"># 列出所有启动的系统服务</span></span><br></pre></td></tr></table></figure>
-<h3 id="程序信息"><a href="#程序信息" class="headerlink" title="程序信息"></a>程序信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa                <span class="comment"># 查看所有安装的软件包</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java-异常处理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/18/java-异常处理/" class="article-date">
-  	<time datetime="2017-01-18T05:33:24.000Z" itemprop="datePublished">2017-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/18/java-异常处理/">java-异常处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
+        <h3 id="1-面向对象的特征有哪些方面？"><a href="#1-面向对象的特征有哪些方面？" class="headerlink" title="1.面向对象的特征有哪些方面？"></a>1.面向对象的特征有哪些方面？</h3><p>答：面向对象的特征主要有以下几个方面： </p>
+<ul>
+<li>抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。 </li>
+<li>继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息的类被称为子类（派生类）。继承让变化中的软件系统有了一定的延续性，同时继承也是封装程序中可变因素的重要手段。 </li>
+<li>封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据的访问只能通过已定义的接口。面向对象的本质就是将现实世界描绘成一系列完全自治、封闭的对象。我们在类中编写的方法就是对实现细节的一种封装；我们编写一个类就是对数据和数据操作的封装。可以说，封装就是隐藏一切可隐藏的东西，只向外界提供最简单的编程接口（可以想想普通洗衣机和全自动洗衣机的差别，明显全自动洗衣机封装更好因此操作起来更简单；我们现在使用的智能手机也是封装得足够好的，因为几个按键就搞定了所有的事情）。 </li>
+<li>多态性：多态性是指允许不同子类型的对象对同一消息作出不同的响应。简单的说就是用同样的对象引用调用同样的方法但是做了不同的事情。多态性分为编译时的多态性和运行时的多态性。如果将对象的方法视为对象向外界提供的服务，那么运行时的多态性可以解释为：当A系统访问B系统提供的服务时，B系统有多种提供服务的方式，但一切对A系统来说都是透明的（就像电动剃须刀是A系统，它的供电系统是B系统，B系统可以使用电池供电或者用交流电，甚至还有可能是太阳能，A系统只会通过B类对象调用供电的方法，但并不知道供电系统的底层实现是什么，究竟通过何种方式获得了动力）。方法重载（overload）实现的是编译时的多态性（也称为前绑定），而方法重写（override）实现的是运行时的多态性（也称为后绑定）。运行时的多态是面向对象最精髓的东西，要实现多态需要做两件事：<br>1). 方法重写（子类继承父类并重写父类中已有的或抽象的方法）；<br>2).对象造型（用父类型引用引用子类型对象，这样同样的引用调用同样的方法就会根据子类对象的不同而表现出不同的行为）。</li>
+</ul>
+<h3 id="2-访问修饰符public-private-protected-以及不写（默认）时的区别？"><a href="#2-访问修饰符public-private-protected-以及不写（默认）时的区别？" class="headerlink" title="2.访问修饰符public,private,protected,以及不写（默认）时的区别？"></a>2.访问修饰符public,private,protected,以及不写（默认）时的区别？</h3><p>修饰符    当前类  同包   子类    其他包<br>public      √     √       √        √<br>protected   √     √       √        ×<br>default     √     √       ×        ×<br>private     √     ×       ×        ×<br>类的成员不写访问修饰时默认为default。默认对于同一个包中的其他类相当于公开（public），对于不是同一个包中的其他类相当于私有（private）。受保护（protected）对子类相当于公开，对不是同一包中的没有父子关系的类相当于私有。Java中，外部类的修饰符只能是public或默认，类的成员（包括内部类）的修饰符可以是以上四种。</p>
+<h3 id="3-String-是最基本的数据类型吗？"><a href="#3-String-是最基本的数据类型吗？" class="headerlink" title="3.String 是最基本的数据类型吗？"></a>3.String 是最基本的数据类型吗？</h3><p>答：不是。Java中的基本数据类型只有8个：byte、short、int、long、float、double、char、boolean；除了基本类型（primitive type），剩下的都是引用类型（reference type），Java 5以后引入的枚举类型也算是一种比较特殊的引用类型。</p>
+<h3 id="4-float-f-3-4-是否正确？"><a href="#4-float-f-3-4-是否正确？" class="headerlink" title="4.float f=3.4;是否正确？"></a>4.float f=3.4;是否正确？</h3><p>答:不正确。3.4是双精度数，将双精度型（double）赋值给浮点型（float）属于下转型（down-casting，也称为窄化）会造成精度损失，因此需要强制类型转换float f =(float)3.4; 或者写成float f =3.4F;。</p>
+<h3 id="5-short-s1-1-s1-s1-1-有错吗-short-s1-1-s1-1-有错吗？"><a href="#5-short-s1-1-s1-s1-1-有错吗-short-s1-1-s1-1-有错吗？" class="headerlink" title="5.short s1 = 1; s1 = s1 + 1;有错吗?short s1 = 1; s1 += 1;有错吗？"></a>5.short s1 = 1; s1 = s1 + 1;有错吗?short s1 = 1; s1 += 1;有错吗？</h3><p>答：对于short s1 = 1; s1 = s1 + 1;由于1是int类型，因此s1+1运算结果也是int 型，需要强制转换类型才能赋值给short型。而short s1 = 1; s1 += 1;可以正确编译，因为s1+= 1;相当于s1 = (short)(s1 + 1);其中有隐含的强制类型转换。</p>
+<h3 id="6-Java有没有goto？"><a href="#6-Java有没有goto？" class="headerlink" title="6.Java有没有goto？"></a>6.Java有没有goto？</h3><p>答：goto 是Java中的保留字，在目前版本的Java中没有使用。（根据James Gosling（Java之父）编写的《The Java Programming Language》一书的附录中给出了一个Java关键字列表，其中有goto和const，但是这两个是目前无法使用的关键字，因此有些地方将其称之为保留字，其实保留字这个词应该有更广泛的意义，因为熟悉C语言的程序员都知道，在系统类库中使用过的有特殊意义的单词或单词的组合都被视为保留字）</p>
+<h3 id="6-int和Integer有什么区别？"><a href="#6-int和Integer有什么区别？" class="headerlink" title="6.int和Integer有什么区别？"></a>6.int和Integer有什么区别？</h3><p>答：Java是一个近乎纯洁的面向对象编程语言，但是为了编程的方便还是引入了基本数据类型，但是为了能够将这些基本数据类型当成对象操作，Java为每一个基本数据类型都引入了对应的包装类型（wrapper class），int的包装类就是Integer，从Java 5开始引入了自动装箱/拆箱机制，使得二者可以相互转换。<br>Java 为每个原始类型提供了包装类型： </p>
+<ul>
+<li>原始类型: boolean，char，byte，short，int，long，float，double </li>
+<li>包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class AutoUnboxingTest &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Integer a = new Integer(3);</span><br><span class="line">        Integer b = 3;                  // 将3自动装箱成Integer类型</span><br><span class="line">        int c = 3;</span><br><span class="line">        System.out.println(a == b);     // <span class="literal">false</span> 两个引用没有引用同一对象</span><br><span class="line">        System.out.println(a == c);     // <span class="literal">true</span> a自动拆箱成int类型再和c比较</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Test03 &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Integer f1 = 100, f2 = 100, f3 = 150, f4 = 150;</span><br><span class="line"></span><br><span class="line">        System.out.println(f1 == f2);</span><br><span class="line">        System.out.println(f3 == f4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不明就里很容易认为两个输出要么都是true要么都是false。首先需要注意的是f1、f2、f3、f4四个变量都是Integer对象引用，所以下面的==运算比较的不是值而是引用。装箱的本质是什么呢？当我们给一个Integer对象赋一个int值的时候，会调用Integer类的静态方法valueOf，如果看看valueOf的源代码就知道发生了什么。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static Integer valueOf(int i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="built_in">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="built_in">return</span> new Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>简单的说，如果整型字面量的值在-128到127之间，那么不会new新的Integer对象，而是直接引用常量池中的Integer对象，所以上面的面试题中f1==f2的结果是true，而f3==f4的结果是false。</p>
+<h3 id="8-amp-和-amp-amp-的区别？"><a href="#8-amp-和-amp-amp-的区别？" class="headerlink" title="8.&amp;和&amp;&amp;的区别？"></a>8.&amp;和&amp;&amp;的区别？</h3><p>答：&amp;运算符有两种用法：(1)按位与；(2)逻辑与。<br>    &amp;&amp;运算符是短路与运算。<br>逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(“”)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。注意：逻辑或运算符（|）和短路或运算符（||）的差别也是如此。</p>
+<h3 id="9-解释内存中的栈-stack-、堆-heap-和方法区-method-area-的用法。"><a href="#9-解释内存中的栈-stack-、堆-heap-和方法区-method-area-的用法。" class="headerlink" title="9.解释内存中的栈(stack)、堆(heap)和方法区(method area)的用法。"></a>9.解释内存中的栈(stack)、堆(heap)和方法区(method area)的用法。</h3><p>答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用JVM中的栈空间；而通过new关键字和构造器创建的对象则放在堆空间，堆是垃圾收集器管理的主要区域，由于现在的垃圾收集器都采用分代收集算法，所以堆空间还可以细分为新生代和老生代，再具体一点可以分为Eden、Survivor（又可分为From Survivor和To Survivor）、Tenured；<br>方法区和堆都是各个线程共享的内存区域，用于存储已经被JVM加载的类信息、常量、静态变量、JIT编译器编译后的代码等数据；程序中的字面量（literal）如直接书写的100、”hello”和常量都是放在常量池中，常量池是方法区的一部分。栈空间操作起来最快但是栈很小，通常大量的对象都是放在堆空间，栈和堆的大小都可以通过JVM的启动参数来进行调整，栈空间用光了会引发StackOverflowError，而堆和常量池空间不足则会引发OutOfMemoryError。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(<span class="string">"hello"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>上面的语句中变量str放在栈上，用new创建出来的字符串对象放在堆上，而”hello”这个字面量是放在方法区的。</p>
+<p>补充1：较新版本的Java（从Java 6的某个更新开始）中，由于JIT编译器的发展和”逃逸分析”技术的逐渐成熟，栈上分配、标量替换等优化技术使得对象一定分配在堆上这件事情已经变得不那么绝对了。</p>
+<p>补充2：运行时常量池相当于Class文件常量池具有动态性，Java语言并不要求常量一定只有编译期间才能产生，运行期间也可以将新的常量放入池中，String类的intern()方法就是这样的。<br>看看下面代码的执行结果是什么并且比较一下Java 7以前和以后的运行结果是否一致。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new StringBuilder(<span class="string">"go"</span>)</span><br><span class="line">    .append(<span class="string">"od"</span>).toString();</span><br><span class="line">System.out.println(s1.intern() == s1);</span><br><span class="line">String s2 = new StringBuilder(<span class="string">"ja"</span>)</span><br><span class="line">    .append(<span class="string">"va"</span>).toString();</span><br><span class="line">System.out.println(s2.intern() == s2);</span><br></pre></td></tr></table></figure></p>
+<h3 id="10-Math-round-11-5-等于多少？Math-round-11-5-等于多少？"><a href="#10-Math-round-11-5-等于多少？Math-round-11-5-等于多少？" class="headerlink" title="10.Math.round(11.5) 等于多少？Math.round(-11.5)等于多少？"></a>10.Math.round(11.5) 等于多少？Math.round(-11.5)等于多少？</h3><p>答：Math.round(11.5)的返回值是12，Math.round(-11.5)的返回值是-11。四舍五入的原理是在参数上加0.5然后进行下取整。</p>
+<h3 id="11-switch-是否能作用在byte-上，是否能作用在long-上，是否能作用在String上？"><a href="#11-switch-是否能作用在byte-上，是否能作用在long-上，是否能作用在String上？" class="headerlink" title="11.switch 是否能作用在byte 上，是否能作用在long 上，是否能作用在String上？"></a>11.switch 是否能作用在byte 上，是否能作用在long 上，是否能作用在String上？</h3><p>答：在Java 5以前，switch(expr)中，expr只能是byte、short、char、int。从Java 5开始，Java中引入了枚举类型，expr也可以是enum类型，从Java 7开始，expr还可以是字符串（String），但是长整型（long）在目前所有的版本中都是不可以的。</p>
+<h3 id="12-用最有效率的方法计算2乘以8？"><a href="#12-用最有效率的方法计算2乘以8？" class="headerlink" title="12.用最有效率的方法计算2乘以8？"></a>12.用最有效率的方法计算2乘以8？</h3><p>答： 2 &lt;&lt; 3（左移3位相当于乘以2的3次方，右移3位相当于除以2的3次方）。</p>
+<h3 id="13、数组有没有length-方法？String有没有length-方法？"><a href="#13、数组有没有length-方法？String有没有length-方法？" class="headerlink" title="13、数组有没有length()方法？String有没有length()方法？"></a>13、数组有没有length()方法？String有没有length()方法？</h3><p>答：数组没有length()方法，有length 的属性。String 有length()方法。</p>
+<h3 id="14、在Java中，如何跳出当前的多重嵌套循环？"><a href="#14、在Java中，如何跳出当前的多重嵌套循环？" class="headerlink" title="14、在Java中，如何跳出当前的多重嵌套循环？"></a>14、在Java中，如何跳出当前的多重嵌套循环？</h3><p>答：在最外层循环前加一个标记如A，然后用break A;可以跳出多重循环。（Java中支持带标签的break和continue语句，作用有点类似于C和C++中的goto语句，但是就像要避免使用goto一样，应该避免使用带标签的break和continue，因为它不会让你的程序变得更优雅，很多时候甚至有相反的作用，所以这种语法其实不知道更好）</p>
+<h3 id="15-构造器（constructor）是否可被重写（override）？"><a href="#15-构造器（constructor）是否可被重写（override）？" class="headerlink" title="15.构造器（constructor）是否可被重写（override）？"></a>15.构造器（constructor）是否可被重写（override）？</h3><p>答：构造器不能被继承，因此不能被重写，但可以被重载；也就是说，能被继承的方法才能被重写。</p>
+<h3 id="16-两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，这句话对不对？"><a href="#16-两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，这句话对不对？" class="headerlink" title="16.两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，这句话对不对？"></a>16.两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，这句话对不对？</h3><p>答：不对，如果两个对象x和y满足x.equals(y) == true，它们的哈希码（hash code）应当相同。<br>Java对于eqauls方法和hashCode方法是这样规定的：<br>(1)如果两个对象相同（equals方法返回true），那么它们的hashCode值一定要相同；<br>(2)如果两个对象的hashCode相同，它们并不一定相同。当然，你未必要按照要求去做，但是如果你违背了上述原则就会发现在使用容器时，相同的对象可以出现在Set集合中，同时增加新元素的效率会大大下降（对于使用哈希存储的系统，如果哈希码频繁的冲突将会造成存取性能急剧下降）。</p>
+<p>首先equals方法必须满足自反性（x.equals(x)必须返回true）、对称性（x.equals(y)返回true时，y.equals(x)也必须返回true）、传递性（x.equals(y)和y.equals(z)都返回true时，x.equals(z)也必须返回true）和一致性（当x和y引用的对象信息没有被修改时，多次调用x.equals(y)应该得到同样的返回值），而且对于任何非null值的引用x，x.equals(null)必须返回false。</p>
+<h3 id="17-是否可以继承String类？"><a href="#17-是否可以继承String类？" class="headerlink" title="17.是否可以继承String类？"></a>17.是否可以继承String类？</h3><p>答：String 类是final类，不可以被继承。</p>
+<h3 id="18-当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的"><a href="#18-当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的" class="headerlink" title="18.当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的"></a>18.当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的</h3><h3 id="结果，那么这里到底是值传递还是引用传递？"><a href="#结果，那么这里到底是值传递还是引用传递？" class="headerlink" title="结果，那么这里到底是值传递还是引用传递？"></a>结果，那么这里到底是值传递还是引用传递？</h3><p>答：是值传递。Java语言的方法调用只支持参数的值传递。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的属性可以在被调用过程中被改变，但对对象引用的改变是不会影响到调用者的。</p>
+<p>说明：Java中没有传引用实在是非常的不方便，这一点在Java 8中仍然没有得到改进，正是如此在Java编写的代码中才会出现大量的Wrapper类（将需要通过方法调用修改的引用置于一个Wrapper类中，再将Wrapper对象传入方法），这样的做法只会让代码变得臃肿，尤其是让从C和C++转型为Java程序员的开发者无法容忍。</p>
+<h3 id="19-String和StringBuilder、StringBuffer的区别？"><a href="#19-String和StringBuilder、StringBuffer的区别？" class="headerlink" title="19.String和StringBuilder、StringBuffer的区别？"></a>19.String和StringBuilder、StringBuffer的区别？</h3><p>答：Java平台提供了两种类型的字符串：String和StringBuffer/StringBuilder，它们可以储存和操作字符串。其中String是只读字符串，也就意味着String引用的字符串内容是不能被改变的。<br>而StringBuffer/StringBuilder类表示的字符串对象可以直接进行修改。StringBuilder是Java 5中引入的，它和StringBuffer的方法完全相同，区别在于它是在单线程环境下使用的，因为它的所有方面都没有被synchronized修饰，因此它的效率也比StringBuffer要高。</p>
+<p>面试题1 - 什么情况下用+运算符进行字符串连接比调用StringBuffer/StringBuilder对象的append方法连接字符串性能更好？</p>
+<p>面试题2 - 请说出下面程序的输出。<br>class StringEqualTest {</p>
+<pre><code>public static void main(String[] args) {
+    String s1 = &quot;Programming&quot;;
+    String s2 = new String(&quot;Programming&quot;);
+    String s3 = &quot;Program&quot;;
+    String s4 = &quot;ming&quot;;
+    String s5 = &quot;Program&quot; + &quot;ming&quot;;
+    String s6 = s3 + s4;
+    System.out.println(s1 == s2);
+    System.out.println(s1 == s5);
+    System.out.println(s1 == s6);
+    System.out.println(s1 == s6.intern());
+    System.out.println(s2 == s2.intern());
+}
+</code></pre><p>}</p>
+<p>补充：解答上面的面试题需要清除两点：<br>1.String对象的intern方法会得到字符串对象在常量池中对应的版本的引用（如果常量池中有一个字符串与String对象的equals结果是true），如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用；2. 字符串的+操作其本质是创建了StringBuilder对象进行append操作，然后将拼接后的StringBuilder对象用toString方法处理成String对象，这一点可以用javap -c StringEqualTest.class命令获得class文件对应的JVM字节码指令就可以看出来。</p>
+<h3 id="19-重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"><a href="#19-重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？" class="headerlink" title="19.重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"></a>19.重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？</h3><p>答：方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求。</p>
+<h3 id="20-描述一下JVM加载class文件的原理机制？"><a href="#20-描述一下JVM加载class文件的原理机制？" class="headerlink" title="20.描述一下JVM加载class文件的原理机制？"></a>20.描述一下JVM加载class文件的原理机制？</h3><p>答：JVM中类的装载是由类加载器（ClassLoader）和它的子类来实现的，Java中的类加载器是一个重要的Java运行时系统组件，它负责在运行时查找和装入类文件中的类。<br>由于Java的跨平台性，经过编译的Java源程序并不是一个可执行程序，而是一个或多个类文件。当Java程序需要使用某个类时，JVM会确保这个类已经被加载、连接（验证、准备和解析）和初始化。类的加载是指把类的.class文件中的数据读入到内存中，通常是创建一个字节数组读入.class文件，然后产生与所加载类对应的Class对象。加载完成后，Class对象还不完整，所以此时的类还不可用。当类被加载后就进入连接阶段，这一阶段包括验证、准备（为静态变量分配内存并设置默认的初始值）和解析（将符号引用替换为直接引用）三个步骤。最后JVM对类进行初始化，包括：<br>1)如果类存在直接的父类并且这个类还没有被初始化，那么就先初始化父类；<br>2)如果类中存在初始化语句，就依次执行这些初始化语句。<br>类的加载是由类加载器完成的，类加载器包括：根加载器（BootStrap）、扩展加载器（Extension）、系统加载器（System）和用户自定义类加载器（java.lang.ClassLoader的子类）。从Java 2（JDK 1.2）开始，类加载过程采取了父亲委托机制（PDM）。PDM更好的保证了Java平台的安全性，在该机制中，JVM自带的Bootstrap是根加载器，其他的加载器都有且仅有一个父类加载器。类的加载首先请求父类加载器加载，父类加载器无能为力时才由其子类加载器自行加载。JVM不会向Java程序提供对Bootstrap的引用。下面是关于几个类加载器的说明：</p>
+<p>Bootstrap：一般用本地代码实现，负责加载JVM基础核心类库（rt.jar）；<br>Extension：从java.ext.dirs系统属性所指定的目录中加载类库，它的父加载器是Bootstrap；<br>System：又叫应用类加载器，其父类是Extension。它是应用最广泛的类加载器。它从环境变量classpath或者系统属性java.class.path所指定的目录中记载类，是用户自定义加载器的默认父加载器。</p>
+<h3 id="21-char-型变量中能不能存贮一个中文汉字，为什么？"><a href="#21-char-型变量中能不能存贮一个中文汉字，为什么？" class="headerlink" title="21.char 型变量中能不能存贮一个中文汉字，为什么？"></a>21.char 型变量中能不能存贮一个中文汉字，为什么？</h3><p>答：char类型可以存储一个中文汉字，因为Java中使用的编码是Unicode（不选择任何特定的编码，直接使用字符在字符集中的编号，这是统一的唯一方法），一个char类型占2个字节（16比特），所以放一个中文是没问题的。<br>补充：使用Unicode意味着字符在JVM内部和外部有不同的表现形式，在JVM内部都是Unicode，当这个字符被从JVM内部转移到外部时（例如存入文件系统中），需要进行编码转换。所以Java中有字节流和字符流，以及在字符流和字节流之间进行转换的转换流，如InputStreamReader和OutputStreamReader，这两个类是字节流和字符流之间的适配器类，承担了编码转换的任务；对于C程序员来说，要完成这样的编码转换恐怕要依赖于union（联合体/共用体）共享内存的特征来实现了。</p>
+<h3 id="22-抽象类（abstract-class）和接口（interface）有什么异同？"><a href="#22-抽象类（abstract-class）和接口（interface）有什么异同？" class="headerlink" title="22.抽象类（abstract class）和接口（interface）有什么异同？"></a>22.抽象类（abstract class）和接口（interface）有什么异同？</h3><p>答：抽象类和接口都不能够实例化，但可以定义抽象类和接口类型的引用。一个类如果继承了某个抽象类或者实现了某个接口都需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类。接口比抽象类更加抽象，因为抽象类中可以定义构造器，可以有抽象方法和具体方法，而接口中不能定义构造器而且其中的方法全部都是抽象方法。抽象类中的成员可以是private、默认、protected、public的，而接口中的成员全都是public的。抽象类中可以定义成员变量，而接口中定义的成员变量实际上都是常量。有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法。</p>
+<h3 id="23-静态嵌套类-Static-Nested-Class-和内部类（Inner-Class）的不同？"><a href="#23-静态嵌套类-Static-Nested-Class-和内部类（Inner-Class）的不同？" class="headerlink" title="23.静态嵌套类(Static Nested Class)和内部类（Inner Class）的不同？"></a>23.静态嵌套类(Static Nested Class)和内部类（Inner Class）的不同？</h3><p>答：Static Nested Class是被声明为静态（static）的内部类，它可以不依赖于外部类实例被实例化。<br>而通常的内部类需要在外部类实例化后才能实例化。</p>
+<h3 id="24-Java-中会存在内存泄漏吗，请简单描述。"><a href="#24-Java-中会存在内存泄漏吗，请简单描述。" class="headerlink" title="24.Java 中会存在内存泄漏吗，请简单描述。"></a>24.Java 中会存在内存泄漏吗，请简单描述。</h3><p>答：理论上Java因为有垃圾回收机制（GC）不会存在内存泄露问题（这也是Java被广泛使用于服务器端编程的一个重要原因）；然而在实际开发中，可能会存在无用但可达的对象，这些对象不能被GC回收，因此也会导致内存泄露的发生。例如hibernate的Session（一级缓存）中的对象属于持久态，垃圾回收器是不会回收这些对象的，然而这些对象中可能存在无用的垃圾对象，如果不及时关闭（close）或清空（flush）一级缓存就可能导致内存泄露。 </p>
+<h3 id="25-抽象的（abstract）方法是否可同时是静态的（static）-是否可同时是本地方法（native），是否可同时被synchronized修饰？"><a href="#25-抽象的（abstract）方法是否可同时是静态的（static）-是否可同时是本地方法（native），是否可同时被synchronized修饰？" class="headerlink" title="25.抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？"></a>25.抽象的（abstract）方法是否可同时是静态的（static）,是否可同时是本地方法（native），是否可同时被synchronized修饰？</h3><p>答：都不能。抽象方法需要子类重写，而静态的方法是无法被重写的，因此二者是矛盾的。本地方法是由本地代码（如C代码）实现的方法，而抽象方法是没有实现的，也是矛盾的。synchronized和方法的实现细节有关，抽象方法不涉及实现细节，因此也是相互矛盾的。</p>
+<h3 id="26-阐述静态变量和实例变量的区别。"><a href="#26-阐述静态变量和实例变量的区别。" class="headerlink" title="26.阐述静态变量和实例变量的区别。"></a>26.阐述静态变量和实例变量的区别。</h3><p>答：静态变量是被static修饰符修饰的变量，也称为类变量，它属于类，不属于类的任何一个对象，一个类不管创建多少个对象，静态变量在内存中有且仅有一个拷贝；实例变量必须依存于某一实例，需要先创建对象然后通过对象才能访问到它。静态变量可以实现让多个对象共享内存。</p>
+<h3 id="27-是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？"><a href="#27-是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？" class="headerlink" title="27.是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？"></a>27.是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</h3><p>答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，在调用静态方法时可能对象并没有被初始化。</p>
+<h3 id="28-如何实现对象克隆？"><a href="#28-如何实现对象克隆？" class="headerlink" title="28.如何实现对象克隆？"></a>28.如何实现对象克隆？</h3><p>答：有两种方式：<br>（1）实现Cloneable接口并重写Object类中的clone()方法；<br>（2）实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆，代码如下。</p>
+<h3 id="29-GC是什么？为什么要有GC？"><a href="#29-GC是什么？为什么要有GC？" class="headerlink" title="29.GC是什么？为什么要有GC？"></a>29.GC是什么？为什么要有GC？</h3><p>答：GC是垃圾收集的意思，内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。Java程序员不用担心内存管理，因为垃圾收集器会自动进行管理。要请求垃圾收集，可以调用下面的方法之一：System.gc() 或Runtime.getRuntime().gc() ，但JVM可以屏蔽掉显示的垃圾回收调用。<br>垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低优先级的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。在Java诞生初期，垃圾回收是Java最大的亮点之一，因为服务器端的编程需要有效的防止内存泄露问题，然而时过境迁，如今Java的垃圾回收机制已经成为被诟病的东西。移动智能终端用户通常觉得iOS的系统比Android系统有更好的用户体验，其中一个深层次的原因就在于Android系统中垃圾回收的不可预知性。</p>
+<p>补充：垃圾回收机制有很多种，包括：分代复制垃圾回收、标记垃圾回收、增量垃圾回收等方式。标准的Java进程既有栈又有堆。栈保存了原始型局部变量，堆保存了要创建的对象。Java平台对堆内存回收和再利用的基本算法被称为标记和清除，但是Java对其进行了改进，采用“分代式垃圾收集”。这种方法会跟Java对象的生命周期将堆内存划分为不同的区域，在垃圾收集过程中，可能会将对象移动到不同区域： </p>
+<ul>
+<li>伊甸园（Eden）：这是对象最初诞生的区域，并且对大多数对象来说，这里是它们唯一存在过的区域。 </li>
+<li>幸存者乐园（Survivor）：从伊甸园幸存下来的对象会被挪到这里。 </li>
+<li>终身颐养园（Tenured）：这是足够老的幸存对象的归宿。年轻代收集（Minor-GC）过程是不会触及这个地方的。当年轻代收集不能把对象放进终身颐养园时，就会触发一次完全收集（Major-GC），这里可能还会牵扯到压缩，以便为大对象腾出足够的空间。</li>
+</ul>
+<h3 id="30-String-s-new-String-“xyz”-创建了几个字符串对象？"><a href="#30-String-s-new-String-“xyz”-创建了几个字符串对象？" class="headerlink" title="30.String s = new String(“xyz”);创建了几个字符串对象？"></a>30.String s = new String(“xyz”);创建了几个字符串对象？</h3><p>答：两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。</p>
+<h3 id="32、接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete-class）？"><a href="#32、接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete-class）？" class="headerlink" title="32、接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete class）？"></a>32、接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete class）？</h3><p>答：接口可以继承接口，而且支持多重继承。抽象类可以实现(implements)接口，抽象类可继承具体类也可以继承抽象类。</p>
+<h3 id="33、一个”-java”源文件中是否可以包含多个类（不是内部类）？有什么限制？"><a href="#33、一个”-java”源文件中是否可以包含多个类（不是内部类）？有什么限制？" class="headerlink" title="33、一个”.java”源文件中是否可以包含多个类（不是内部类）？有什么限制？"></a>33、一个”.java”源文件中是否可以包含多个类（不是内部类）？有什么限制？</h3><p>答：可以，但一个源文件中最多只能有一个公开类（public class）而且文件名必须和公开类的类<br>名完全保持一致。</p>
+<h3 id="34、Anonymous-Inner-Class-匿名内部类-是否可以继承其它类？是否可以实现接口？"><a href="#34、Anonymous-Inner-Class-匿名内部类-是否可以继承其它类？是否可以实现接口？" class="headerlink" title="34、Anonymous Inner Class(匿名内部类)是否可以继承其它类？是否可以实现接口？"></a>34、Anonymous Inner Class(匿名内部类)是否可以继承其它类？是否可以实现接口？</h3><p>答：可以继承其他类或实现其他接口，在Swing编程和Android开发中常用此方式来实现事件监听和回调。</p>
+<h3 id="35、内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？"><a href="#35、内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？" class="headerlink" title="35、内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？"></a>35、内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？</h3><p>答：一个内部类对象可以访问创建它的外部类对象的成员，包括私有成员。</p>
+<h3 id="36、Java-中的final关键字有哪些用法？"><a href="#36、Java-中的final关键字有哪些用法？" class="headerlink" title="36、Java 中的final关键字有哪些用法？"></a>36、Java 中的final关键字有哪些用法？</h3><p>答：(1)修饰类：表示该类不能被继承；(2)修饰方法：表示方法不能被重写；(3)修饰变量：表示变量只能一次赋值以后值不能被修改（常量）。</p>
+<h3 id="37、数据类型之间的转换："><a href="#37、数据类型之间的转换：" class="headerlink" title="37、数据类型之间的转换："></a>37、数据类型之间的转换：</h3><ul>
+<li>如何将字符串转换为基本数据类型？ </li>
+<li>如何将基本数据类型转换为字符串？<br>答： </li>
+<li>调用基本数据类型对应的包装类中的方法parseXXX(String)或valueOf(String)即可返回相应基本类型； </li>
+<li>一种方法是将基本数据类型与空字符串（””）连接（+）即可获得其所对应的字符串；另一种方法是调用String 类中的valueOf()方法返回相应字符串。</li>
+</ul>
+<h3 id="38、什么时候用断言"><a href="#38、什么时候用断言" class="headerlink" title="38、什么时候用断言"></a>38、什么时候用断言</h3><p>断言在软件开发中是一种常用的调试方式，很多开发语言中都支持这种机制。一般来说，断言用于保证程序最基本、关键的正确性。断言检查通常在开发和测试时开启。为了保证程序的执行效率，在软件发布后断言检查通常是关闭的。断言是一个包含布尔表达式的语句，在执行这个语句时假定该表达式为true；如果表达式的值为false，那么系统会报告一个AssertionError。断言的使用如下面的代码所示：</p>
+<h3 id="39、Error和Exception有什么区别？"><a href="#39、Error和Exception有什么区别？" class="headerlink" title="39、Error和Exception有什么区别？"></a>39、Error和Exception有什么区别？</h3><p>答：Error表示系统级的错误和程序不必处理的异常，是恢复不是不可能但很困难的情况下的一种严重问题；比如内存溢出，不可能指望程序能处理这样的情况；Exception表示需要捕捉或者需要程序进行处理的异常，是一种设计或实现问题；也就是说，它表示如果程序运行正常，从不会发生的情况。</p>
+<h3 id="40、try-里有一个return语句，那么紧跟在这个try后的finally-里的代码会不会被执行，什么时候被执行，在return前还是后"><a href="#40、try-里有一个return语句，那么紧跟在这个try后的finally-里的代码会不会被执行，什么时候被执行，在return前还是后" class="headerlink" title="40、try{}里有一个return语句，那么紧跟在这个try后的finally{}里的代码会不会被执行，什么时候被执行，在return前还是后?"></a>40、try{}里有一个return语句，那么紧跟在这个try后的finally{}里的代码会不会被执行，什么时候被执行，在return前还是后?</h3><p>答：会执行，在方法返回调用者前执行。</p>
+<h3 id="41、Java语言如何进行异常处理，关键字：throws、throw、try、catch、finally分别如何使用？"><a href="#41、Java语言如何进行异常处理，关键字：throws、throw、try、catch、finally分别如何使用？" class="headerlink" title="41、Java语言如何进行异常处理，关键字：throws、throw、try、catch、finally分别如何使用？"></a>41、Java语言如何进行异常处理，关键字：throws、throw、try、catch、finally分别如何使用？</h3><p>答：Java通过面向对象的方法进行异常处理，把各种不同的异常进行分类，并提供了良好的接口。在Java中，每个异常都是一个对象，它是Throwable类或其子类的实例。当一个方法出现异常后便抛出一个异常对象，该对象中包含有异常信息，调用这个对象的方法可以捕获到这个异常并可以对其进行处理。Java的异常处理是通过5个关键词来实现的：try、catch、throw、throws和finally。一般情况下是用try来执行一段程序，如果系统会抛出（throw）一个异常对象，可以通过它的类型来捕获（catch）它，或通过总是执行代码块（finally）来处理；try用来指定一块预防所有异常的程序；catch子句紧跟在try块后面，用来指定你想要捕获的异常的类型；throw语句用来明确地抛出一个异常；throws用来声明一个方法可能抛出的各种异常（当然声明异常时允许无病呻吟）；finally为确保一段代码不管发生什么异常状况都要被执行；try语句可以嵌套，每当遇到一个try语句，异常的结构就会被放入异常栈中，直到所有的try语句都完成。如果下一级的try语句没有对某种异常进行处理，异常栈就会执行出栈操作，直到遇到有处理这种异常的try语句或者最终将异常抛给JVM。</p>
+<h3 id="42、阐述final、finally、finalize的区别。"><a href="#42、阐述final、finally、finalize的区别。" class="headerlink" title="42、阐述final、finally、finalize的区别。"></a>42、阐述final、finally、finalize的区别。</h3><p>答：<br>final：修饰符（关键字）有三种用法：如果一个类被声明为final，意味着它不能再派生出新的子类，即不能被继承，因此它和abstract是反义词。将变量声明为final，可以保证它们在使用中不被改变，被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取不可修改。被声明为final的方法也同样只能使用，不能在子类中被重写。 </p>
+<p>finally：通常放在try…catch…的后面构造总是执行代码块，这就意味着程序无论正常执行还是发生异常，这里的代码只要JVM不关闭都能执行，可以将释放外部资源的代码写在finally块中。 </p>
+<p>finalize：Object类中定义的方法，Java中允许使用finalize()方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在销毁对象时调用的，通过重写finalize()方法可以整理系统资源或者执行其他清理工作。</p>
+<h3 id="43、List、Set、Map是否继承自Collection接口？"><a href="#43、List、Set、Map是否继承自Collection接口？" class="headerlink" title="43、List、Set、Map是否继承自Collection接口？"></a>43、List、Set、Map是否继承自Collection接口？</h3><p>答：List、Set 是，Map 不是。Map是键值对映射容器，与List和Set有明显的区别，而Set存储的零散的元素且不允许有重复元素（数学中的集合也是如此），List是线性结构的容器，适用于按数值索引访问元素的情形。</p>
+<h3 id="44、阐述ArrayList、Vector、LinkedList的存储性能和特性。"><a href="#44、阐述ArrayList、Vector、LinkedList的存储性能和特性。" class="headerlink" title="44、阐述ArrayList、Vector、LinkedList的存储性能和特性。"></a>44、阐述ArrayList、Vector、LinkedList的存储性能和特性。</h3><p>答：<br>ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，<br>它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector中的方法由于添加了synchronized修饰，因此Vector是线程安全的容器，但性能上较ArrayList差，因此已经是Java中的遗留容器。LinkedList使用双向链表实现存储（将内存中零散的内存单元通过附加的引用关联起来，形成一个可以按序号索引的线性结构，这种链式存储方式与数组的连续存储方式相比，内存的利用率更高），按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。Vector属于遗留容器（Java早期的版本中提供的容器，除此之外，Hashtable、Dictionary、BitSet、Stack、Properties都是遗留容器），已经不推荐使用，但是由于ArrayList和LinkedListed都是非线程安全的，如果遇到多个线程操作同一个容器的场景，则可以通过工具类Collections中的synchronizedList方法将其转换成线程安全的容器后再使用（这是对装潢模式的应用，将已有对象传入另一个类的构造器中创建新的对象来增强实现）。</p>
+<p>补充：遗留容器中的Properties类和Stack类在设计上有严重的问题，Properties是一个键和值都是字符串的特殊的键值对映射，在设计上应该是关联一个Hashtable并将其两个泛型参数设置为String类型，但是Java API中的Properties直接继承了Hashtable，这很明显是对继承的滥用。这里复用代码的方式应该是Has-A关系而不是Is-A关系，另一方面容器都属于工具类，继承工具类本身就是一个错误的做法，使用工具类最好的方式是Has-A关系（关联）或Use-A关系（依赖）。同理，Stack类继承Vector也是不正确的。Sun公司的工程师们也会犯这种低级错误，让人唏嘘不已。</p>
+<h3 id="45、Collection和Collections的区别？"><a href="#45、Collection和Collections的区别？" class="headerlink" title="45、Collection和Collections的区别？"></a>45、Collection和Collections的区别？</h3><p>答：Collection是一个接口，它是Set、List等容器的父接口；Collections是个一个工具类，提供了一系列的静态方法来辅助容器操作，这些方法包括对容器的搜索、排序、线程安全化等等。</p>
+<h3 id="46、List、Map、Set三个接口存取元素时，各有什么特点？"><a href="#46、List、Map、Set三个接口存取元素时，各有什么特点？" class="headerlink" title="46、List、Map、Set三个接口存取元素时，各有什么特点？"></a>46、List、Map、Set三个接口存取元素时，各有什么特点？</h3><p>答：List以特定索引来存取元素，可以有重复元素。Set不能存放重复元素（用对象的equals()方法来区分元素是否重复）。<br>Map保存键值对（key-value pair）映射，映射关系可以是一对一或多对一。Set和Map容器都有基于哈希存储<br>和排序树的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。</p>
+<h3 id="47、线程的sleep-方法和yield-方法有什么区别？"><a href="#47、线程的sleep-方法和yield-方法有什么区别？" class="headerlink" title="47、线程的sleep()方法和yield()方法有什么区别？"></a>47、线程的sleep()方法和yield()方法有什么区别？</h3><p>（1）sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会；<br>（2）线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；<br>（3）sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；<br>（4）sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。</p>
+<h3 id="48、什么是线程池（thread-pool）？"><a href="#48、什么是线程池（thread-pool）？" class="headerlink" title="48、什么是线程池（thread pool）？"></a>48、什么是线程池（thread pool）？</h3><p>答：在面向对象编程中，创建和销毁对象是很费时间的，因为创建一个对象要获取内存资源或者其它更多资源。在Java中更是如此，虚拟机将试图跟踪每一个对象，以便能够在对象销毁后进行垃圾回收。所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是”池化资源”技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池（容器）中，需要的时候从池中获取线程不用自行创建，使用完毕不需要销毁线程而是放回池中，从而减少创建和销毁线程对象的开销。 </p>
+<h3 id="到-75"><a href="#到-75" class="headerlink" title="到 75"></a>到 75</h3>
       
     </div>
     
@@ -275,11 +311,11 @@
 
 
   
-    <article id="post-windows安装配置python-pip-pyinstaller-pyqt4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-面试题-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/16/windows安装配置python-pip-pyinstaller-pyqt4/" class="article-date">
-  	<time datetime="2017-01-16T13:11:38.000Z" itemprop="datePublished">2017-01-16</time>
+      <a href="/2017/03/09/java-面试题-1/" class="article-date">
+  	<time datetime="2017-03-09T11:55:03.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
     </div>
   
@@ -292,7 +328,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/16/windows安装配置python-pip-pyinstaller-pyqt4/">windows安装配置python-pip-pyinstaller-pyqt4</a>
+      <a class="article-title" href="/2017/03/09/java-面试题-1/">java-面试题-1</a>
     </h1>
   
 
@@ -301,31 +337,284 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><p><a href="https://www.python.org/downloads/" target="_blank" rel="external">Python的官方主页</a><br>下载相应的Python安装包。</p>
-<p>安装到自定义的目录（比如D:\python2），并将python的安装目录（D:\python2）添加到系统的环境变量 Path<br>中。</p>
-<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p><a href="https://pypi.python.org/pypi/pip#downloads" target="_blank" rel="external">pip下载地址</a><br>下载pip安装压缩包。</p>
-<p>将压缩包解压到相应目录，cmd进入该目录，安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p>
-<p>将相应目录（D:\python2\Scripts）添加到Path中。</p>
-<h3 id="安装pyinstaller"><a href="#安装pyinstaller" class="headerlink" title="安装pyinstaller"></a>安装pyinstaller</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
-<h3 id="安装PyQt4"><a href="#安装PyQt4" class="headerlink" title="安装PyQt4"></a>安装PyQt4</h3><p>对于Windows来说，只需要下载exe格式的文件即可。在这个exe文件中，已经包含了如下模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PyQt</span><br><span class="line">Qt</span><br><span class="line">Qt Designer/li&gt;</span><br><span class="line">Qt Linguist（Qt语言家）</span><br><span class="line">Qt Assistant</span><br><span class="line">pyuic4（转换由Qt Designer生成的.ui文件到.py）</span><br><span class="line">pylupdate4</span><br><span class="line">lrelease</span><br><span class="line">pyrcc4</span><br><span class="line">QScintilla（C++编辑器类Scintilla在QT环境下的移植版本）</span><br></pre></td></tr></table></figure></p>
-<p>需要注意的是，目前，安装PyQt4并不需要一些文章中提到的先安装sip和Qt的过程，因为在安装文件中已经包<br>括。</p>
-<p><a href="http://www.riverbankcomputing.co.uk/software/pyqt/download" target="_blank" rel="external">下载地址</a></p>
-<p>下载稍微早一点的版本，比如 PyQt-4.11.4 ，这些早一点的版本有对应的 exe 版本，直接点击安装即可，<br>无须自己编译，最新的版本可能没有 exe 版本。</p>
-<h3 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">from PyQt4 import QtGui</span><br><span class="line"> </span><br><span class="line">app = QtGui.QApplication(sys.argv)</span><br><span class="line">widget = QtGui.QWidget()</span><br><span class="line">widget.resize(250, 150)</span><br><span class="line">widget.setWindowTitle(<span class="string">'PyQt'</span>)</span><br><span class="line">widget.show()</span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
-<p>第2行引入的QtGui是PyQt中最基本的模块，包含了PyQt的绘图组件及其相关类。</p>
-<p>第4行使用QApplication创建了一个application。每个PyQt程序中均要包含一个application对象。</p>
-<p>第5行使用QWidget创建了一个widget，并在第6行中使用resize设置了它的大小。第7行的setWindowsTitle设置了窗口标题的文字。第8行的show使这个widget显示出来。</p>
-<p>最后一行是这个程序的主循环，事件处理从本行语句开始。至于为什么是exec_而不是exec呢？是因为exec<br>是Python的关键字。</p>
-<p><img src="/img/pyqt_demo.png" alt=""></p>
-<h3 id="pyinstaller-的常用操作"><a href="#pyinstaller-的常用操作" class="headerlink" title="pyinstaller 的常用操作"></a>pyinstaller 的常用操作</h3><p>PyInstaller可以用来打包python应用程序，打包完的程序就可以在没有安装Python解释器的机器上运行了。<br>PyInstaller支持Python 2.7和Python 3.3+。可以在Windows、Mac OS X和Linux上使用，但是并不是跨平台<br>的，而是说你要是希望打包成.exe文件，需要在Windows系统上运行PyInstaller进行打包工作；打包成mac<br>app，需要在Mac OS上使用。</p>
-<p>PyInstaller分析你的python程序，找到所有的依赖项。然后将依赖文件和python解释器放到一个文件夹下或者<br>一个可执行文件中。</p>
-<h4 id="打包成一个文件夹"><a href="#打包成一个文件夹" class="headerlink" title="打包成一个文件夹"></a>打包成一个文件夹</h4><p>当使用PyInstaller打包的时候，默认生成一个文件夹，文件夹中包含所有依赖项，以及可执行文件。打包成文<br>件夹的好处就是debug的时候可以清楚的看到依赖项有没有包含。另一个好处是更新的时候，只需要更新可执行<br>文件就可以了。当然缺点也很明显，不方便，不易管理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller script.py</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">pyinstaller -F -w --icon=<span class="string">"output.ico"</span>  script.py</span><br></pre></td></tr></table></figure></p>
-<p>参数解释：<br>-F<br>注意指令区分大小写。这里是大写。使用-F指令可以把应用打包成一个独立的exe文件，否则是一个带各种dll<br>和依赖文件的文件夹<br>-w  屏蔽带命令行的调试窗口(黑窗口)  使用窗口，无控制台<br>–icon 应用程序图标路径<br>-i    改变生成程序的icon图标<br>-D    –onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）<br>-c    –console, –nowindowed 使用控制台，无界面(默认)<br>-p    添加搜索路径，让其找到对应的库。</p>
-<p>执行完毕之后会发现多出来两个文件夹，其中单文件exe就存放在dist目录下</p>
-<p>那么它是如何工作的呢？PyInstaller的引导程序是一个二进制可执行程序。当用户启动你的程序的时候，PyIn<br>staller的引导程序开始运行，首先创建一个临时的Python环境，然后通过Python解释器导入程序的依赖，当然<br>他们都在同一个文件夹下。</p>
-<h4 id="打包成一个文件"><a href="#打包成一个文件" class="headerlink" title="打包成一个文件"></a>打包成一个文件</h4><p>我们可以用onefile参数将所有文件打包到一个可执行文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --onefile script.py</span><br></pre></td></tr></table></figure></p>
-<p>打包成一个文件相对于文件夹更容易管理。坏处运行相对比较慢。这个文件中包含了压缩的依赖文件拷贝（.so<br>文件）。</p>
-<p>当程序运行时，PyInstaller的引导程序会新建一个临时文件夹。然后解压程序的第三方依赖文件到临时文件夹<br>中。这也是为什么一个可执行文件比文件夹中执行的时间要长的原因。剩下的就和上面的一样了。</p>
+        <h2 id="java必须知道的300个问题-读书总结"><a href="#java必须知道的300个问题-读书总结" class="headerlink" title="java必须知道的300个问题  读书总结"></a>java必须知道的300个问题  读书总结</h2><p>1.表达式3-2.6==0.4的值？</p>
+<p>答：false。 这是有基本数据类型浮点数计算的不精确性造成的。</p>
+<p>3-2.6=0.39999999999999999999..</p>
+<p>可以用BigDecimal进行浮点数精确计算。</p>
+<p>2.&amp;和&amp;&amp;两个运算符的区别？</p>
+<p>答：&amp; 位与，&amp;&amp; 逻辑与。</p>
+<p>3.不适用循环和条件语句如何求1+2+3+…+n？</p>
+<p>答：函数递归调用。</p>
+<p>4.能正确编译”short s=1;s=s+1;”吗？</p>
+<p>答：不能。类型不匹配。可：s+=1；</p>
+<ol>
+<li>+= 计算结果一定正确吗？</li>
+</ol>
+<p>答：不。可能溢出。</p>
+<p>6.两个整数相乘结果一定正确吗？</p>
+<p>不。</p>
+<p>long num=2147483648.超出int范围，编译错误。</p>
+<p>long num=214748364*10 结果为-10.int溢出。</p>
+<p>long num=2147483648L*10 正确。</p>
+<p>7.如何跳出多重嵌套循环？</p>
+<p>label:<br>fori(){<br>break label;<br>}<br>8.存储相同数据量的一维数组和二维数组所占内存是否相同？</p>
+<p>二维数组远远大于一维数组。</p>
+<p>9.只能通过构造方法构造对象吗？</p>
+<p>不是。</p>
+<p>Calendar c=Clalendar.getInstance();</p>
+<p>10.接口和抽象类的区别？</p>
+<p>（1）抽象类可以提供成员的实现细节，而接口不能。数级抽象时如果要求提供成员的实现细节，可选抽象类。</p>
+<p>（2）如果涉及抽象时选择抽象类，在以后的版本中可以随意为抽象类添加新成员。而接口只有修改现有代码才能添加新成员。</p>
+<p>（3）一个类可以实现多个接口，但是能继承一个抽象类。如果要实现类似多重继承的效果，选接口。</p>
+<p>两者相似，某些功能可以互换。但理念不同，抽象类用于继承，表示is-a；接口用于实现，表示like-a。</p>
+<p>11.clone()方法的使用？</p>
+<p>1.浅克隆</p>
+<p>被克隆的对象各个属性都是基本类型，而不是引用类型，如果存在引用类型的属性，则需要进行深克隆。</p>
+<p>2.深克隆</p>
+<p>如果需要克隆的对象的域包含引用类型，则需要使用深克隆；<br>繁殖，可以直接使用Object类的clone()方法进行浅克隆。</p>
+<p>12.两种方式可以实现深克隆，效率如何？</p>
+<p>1.序列化，效率很差。</p>
+<p>2.榆次克隆各个可变的引用类型域的方式。</p>
+<p>13.在内部类中调用外部类同名的成员？</p>
+<p>在内部类中调用内容类的x： this.x=…</p>
+<p>在内部类调用外部类的X: TheSamName.this.x=…</p>
+<p>15.自动装包、拆包？</p>
+<p>基本数据类型自动转换成类.集合中不能存储基本数据类型。</p>
+<p>int a=3;</p>
+<p>arraylist.add(a);</p>
+<p>16.String可以被继承么？</p>
+<p>不可以。final修饰的类不能被继承。</p>
+<p>17.各种进制的转换</p>
+<p>Integer.parseInt(“101001010”,2);二进制转int<br>Integer.toBinaryString(int i);<br>…</p>
+<p>Java集合类框架</p>
+<p>18.数组 和 集合的转换</p>
+<p>List list=new Arrays.asList(1,2,3,4,5);</p>
+<p>Interger[] array=list.toArray(new Integer[]{});</p>
+<p>19.Collection 和 Collections 的区别？</p>
+<p>Collection是集合类的派生接口。是Java集合类的基础。</p>
+<p>Collections是为集合类定义的工具类，包含了一些查找排序的方法，非常实用。</p>
+<p>20.获得Map中的全部键？</p>
+<p>Map接口中的keySet()方法</p>
+<p>Set keySet()</p>
+<p>Set keySet=map.keySet();</p>
+<p>然后通过键获得值。</p>
+<p>21.获得Map中的全部值？</p>
+<p>values()</p>
+<p>Collection values()</p>
+<p>Collection values=map.values();</p>
+<p>22.获得Map中的全部键值对？</p>
+<p>Set</p>
+<p>异常处理</p>
+<p>23.throw和throws区别</p>
+<p>throws是方法里的声明要抛出什么异常</p>
+<p>throw是抛出具体异常</p>
+<p>I/O</p>
+<p>24.对象流？</p>
+<p>DataInput DataOutput 可以吧对象写入到磁盘中</p>
+<p>但是读写的对象必须实现了Serializable接口。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java-基本类型以及数组列表常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/27/java-基本类型以及数组列表常用操作/" class="article-date">
+  	<time datetime="2017-02-27T01:48:12.000Z" itemprop="datePublished">2017-02-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/java-基本类型以及数组列表常用操作/">java-基本类型以及数组列表常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><pre><code class="bash"><span class="comment"># 取字符串特定索引的字符</span>
+String <span class="built_in">test</span>_str = <span class="string">"hello world"</span>;
+char a = <span class="built_in">test</span>_str.charAt(0);
+<span class="comment">#字符串转字符数组</span>
+char a[] = <span class="built_in">test</span>_str.toCharArray();
+<span class="comment">#取得字符串中某字符的索引，没有该字符时返回 -1</span>
+int c_index = <span class="built_in">test</span>_str.indexOf(e);
+</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java常用排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/27/java常用排序算法/" class="article-date">
+  	<time datetime="2017-02-27T01:19:11.000Z" itemprop="datePublished">2017-02-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/java常用排序算法/">java常用排序算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="基本排序算法分类："><a href="#基本排序算法分类：" class="headerlink" title="基本排序算法分类："></a>基本排序算法分类：</h3><p>1）插入排序（直接插入排序、希尔排序）<br>2）交换排序（冒泡排序、快速排序）<br>3）选择排序（直接选择排序、堆排序）<br>4）归并排序<br>5）分配排序（基数排序）<br>所需辅助空间最多：归并排序<br>所需辅助空间最少：堆排序<br>平均速度最快：快速排序<br>不稳定：快速排序，希尔排序，堆排序</p>
+<h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##思想：假设数组 a  前 j (j=i-1) 个是有序的，将第 i 个与前 j 个比较，当a[i]&lt;a[j]时，将a[j]</span></span><br><span class="line"><span class="comment">##后移，将a[i]插入</span></span><br><span class="line">public class InsertSort&#123;</span><br><span class="line">  public void insertSort(int[] arry)&#123;</span><br><span class="line">    int temp = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1;i&lt;arry.length;i++)&#123;</span><br><span class="line">      temp =arry[i];</span><br><span class="line">      j = i - 1;</span><br><span class="line">      <span class="keyword">for</span>(;j&gt;=0&amp;&amp;temp&lt;arry[j];j--)&#123;</span><br><span class="line">        arry[j+1] = arry[j];</span><br><span class="line">      &#125;</span><br><span class="line">      arry[j+1] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int k=0;k&lt;arry.length;k++)&#123;</span><br><span class="line">      System.out.println(a[k]);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 希尔排序</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">##将数组按增量 d 分为 多组，每组进行插入排序，直到 d=1</span></span><br><span class="line"></span><br><span class="line">public class ShellSort &#123;</span><br><span class="line"></span><br><span class="line">    public static int[] shellSort(int a[]) &#123;</span><br><span class="line">        double d1 = a.length;</span><br><span class="line">        int temp = 0;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            //增量取数组的长度的  1/2，将数组分为多组，分别用 插入排序进行排序</span><br><span class="line">            d1 = Math.ceil(d1 / 2);</span><br><span class="line">            int d = (int) d1;</span><br><span class="line">            <span class="keyword">for</span> (int x = 0; x &lt; d; x++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (int i = x + d; i &lt; a.length; i += d) &#123;</span><br><span class="line">                    int j = i - d;</span><br><span class="line">                    temp = a[i];</span><br><span class="line">                    <span class="keyword">for</span> (; j &gt;= 0 &amp;&amp; temp &lt; a[j]; j -= d) &#123;</span><br><span class="line">                        a[j + d] = a[j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    a[j + d] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (d == 1) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int a[] = &#123;1, 7,5&#125;;</span><br><span class="line">        int b[] = ShellSort.shellSort(a);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; b.length; i++) &#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">    public static int[] selectSort(int a[])&#123;</span><br><span class="line">        int position =0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            int temp = a[i];</span><br><span class="line">            position = i;</span><br><span class="line">            int j = i+1;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;a.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&lt;temp)&#123;</span><br><span class="line">                    temp = a[j];</span><br><span class="line">                    position =j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[position] = a[i];</span><br><span class="line">            a[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= SelectSort.selectSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class BubbleSort &#123;</span><br><span class="line">    public static int[] bubbleSort(int[] a)&#123;</span><br><span class="line">        int temp = 0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=0;j&lt;a.length-i-1;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&gt;a[j+1])&#123;</span><br><span class="line">                    temp =a[j+1];</span><br><span class="line">                    a[j+1]=a[j];</span><br><span class="line">                    a[j]=temp;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= BubbleSort.bubbleSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class QuickSort &#123;</span><br><span class="line">    public static int[] quickSort(int[] arr)&#123;</span><br><span class="line">        qsort(arr,0,arr.length-1);</span><br><span class="line">        <span class="built_in">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void qsort(int[] arr,int low,int high)&#123;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)&#123;</span><br><span class="line">            int piv = partition(arr,low,high);</span><br><span class="line">            qsort(arr,low,piv-1);</span><br><span class="line">            qsort(arr,piv+1,high);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static int partition(int[] arr,int low,int high)&#123;</span><br><span class="line">        int pivot = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">            <span class="keyword">while</span>(low&lt;high &amp;&amp; arr[high]&gt;=pivot)&#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[low] = arr[high];</span><br><span class="line">            <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot)&#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[high] = arr[low];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[low] = pivot;</span><br><span class="line">        <span class="built_in">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b = QuickSort.quickSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tornado-简介与基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/tornado-简介与基本使用/" class="article-date">
+  	<time datetime="2017-02-23T08:04:04.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/tornado-简介与基本使用/">tornado-简介与基本使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，<br>处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。</p>
+<p>Tornado 大体上可以被分为4个主要的部分:</p>
+<h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><p>包括创建web应用的 RequestHandler 类，还有很多其他支持的类。</p>
+<h3 id="HTTP的客户端和服务端实现"><a href="#HTTP的客户端和服务端实现" class="headerlink" title="HTTP的客户端和服务端实现"></a>HTTP的客户端和服务端实现</h3><p>HTTPServer and AsyncHTTPClient.</p>
+<h3 id="异步网络库-IOLoop-and-IOStream"><a href="#异步网络库-IOLoop-and-IOStream" class="headerlink" title="异步网络库 (IOLoop and IOStream)"></a>异步网络库 (IOLoop and IOStream)</h3><p>为HTTP组件提供构建模块，也可以用来实现其他协议。</p>
+<h3 id="协程库-tornado-gen"><a href="#协程库-tornado-gen" class="headerlink" title="协程库 (tornado.gen)"></a>协程库 (tornado.gen)</h3><p>允许异步代码写的更直接而不用链式回调的方式。</p>
+<p>Tornado web 框架和HTTP server 一起为 WSGI 提供了一个全栈式的选择。<br>在WSGI容器在WSGI容器 (WSGIAdapter) 中使用Tornado web框架或者使用Tornado HTTP server<br>作为一个其他WSGI框架(WSGIContainer)的容器,这样的组合方式都是有局限性的。<br>为了充分利用Tornado的特性，你需要一起使用Tornado的web框架和HTTP server。</p>
+<h2 id="Tornado-web应用的结构"><a href="#Tornado-web应用的结构" class="headerlink" title="Tornado web应用的结构"></a>Tornado web应用的结构</h2><p>通常一个Tornado web应用包括一个或者多个 RequestHandler 子类，<br>一个可以将收到的请求路由到对应handler的 Application 对象，和 一个启动服务的 main() 函数。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import tornado.ioloop</span><br><span class="line">import tornado.web</span><br><span class="line"></span><br><span class="line">class MainHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">"Hello, world"</span>)</span><br><span class="line"></span><br><span class="line">def make_app():</span><br><span class="line">    <span class="built_in">return</span> tornado.web.Application([</span><br><span class="line">        (r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = make_app()</span><br><span class="line">    app.listen(8888)</span><br><span class="line">    tornado.ioloop.IOLoop.current().start()</span><br></pre></td></tr></table></figure>
+<h3 id="Application-对象"><a href="#Application-对象" class="headerlink" title="Application 对象"></a>Application 对象</h3><p>Application 对象是负责全局配置的，包括映射请求转发给处理程序的路由表。</p>
+<p>路由表是 URLSpec 对象(或元组)的列表，其中每个都包含(至少)一个正则表达式和一个处理类。顺序问题;<br>第一个匹配的规则会被使用。如果正则表达式包含捕获组，这些组会被作为路径参数传递给处理函数的<br>HTTP方法。如果一个字典作为URLSpec 的第三个参数被传递，它会作为初始参数传递给<br>RequestHandler.initialize。最后URLSpec可能有一个名字，这将允许它被 RequestHandler.reverse_url<br>使用。</p>
+<p>例如，在这个片段中根URL / 映射到了MainHandler，像 /story/ 后跟着一个数字这种形式的URL被映射到了<br>StoryHandler。这个数字被传递(作为字符串)给 StoryHandler.get。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class MainHandler(RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;a href="%s"&gt;link to story 1&lt;/a&gt;'</span> %</span><br><span class="line">                   self.reverse_url(<span class="string">"story"</span>, <span class="string">"1"</span>))</span><br><span class="line"></span><br><span class="line">class StoryHandler(RequestHandler):</span><br><span class="line">    def initialize(self, db):</span><br><span class="line">        self.db = db</span><br><span class="line"></span><br><span class="line">    def get(self, story_id):</span><br><span class="line">        self.write(<span class="string">"this is story %s"</span> % story_id)</span><br><span class="line"></span><br><span class="line">app = Application([</span><br><span class="line">    url(r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    url(r<span class="string">"/story/([0-9]+)"</span>, StoryHandler, dict(db=db), name=<span class="string">"story"</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure></p>
+<p>Application 构造函数有很多关键字参数可以用于自定义应用程序的行为和使用某些特性(或者功能);<br>完整列表请查看 Application.settings。</p>
+<h3 id="RequestHandler子类"><a href="#RequestHandler子类" class="headerlink" title="RequestHandler子类"></a>RequestHandler子类</h3><p>Tornado web 应用程序的大部分工作是在 RequestHandler子类下完成的。<br>处理子类的主入口点是一个命名为处理HTTP方法的函数: get(), post(), 等等.<br>每个处理程序可以定义一个或者多个这种方法来处理不同 的HTTP动作， 如上所述，<br>这些方法将被匹配路由规则的捕获组对应的参数调用。</p>
+<p>在处理程序中, 调用方法如 RequestHandler.render 或者 RequestHandler.write 产生一个响应。 render()<br>通过名字加载一个 Template 并使用给定的参数渲染它。write()被用于非模板基础的输出; 它接受字符串,<br>字节, 和字典(字典会被编码成JSON).</p>
+<p>在 RequestHandler 中的很多方法的设计是为了在子类中复写和在整个应用中使用。常用的方法是定义一个<br>BaseHandler类， 复写一些方法例如 write_error 和 get_current_user 然后子类继承使用你自己的<br>BaseHandler 而不是 RequestHandler 在你所有具体的处理程序中。</p>
+<h3 id="处理输入请求"><a href="#处理输入请求" class="headerlink" title="处理输入请求"></a>处理输入请求</h3><p>处理请求的程序(request handler)可以使用 self.request 访问代表当前请求的对象。通过<br>HTTPServerRequest 的类定义查看完整的属性列表.</p>
+<p>使用HTML表单格式请求的数据会被解析并且可以在一些方法中使用，例如 get_query_argument 和<br>get_body_argument。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MyFormHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;html&gt;&lt;body&gt;&lt;form action="/myform" method="POST"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="text" name="message"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="submit" value="Submit"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;'</span>)</span><br><span class="line"></span><br><span class="line">    def post(self):</span><br><span class="line">        self.set_header(<span class="string">"Content-Type"</span>, <span class="string">"text/plain"</span>)</span><br><span class="line">        self.write(<span class="string">"You wrote "</span> + self.get_body_argument(<span class="string">"message"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>由于HTLM表单编码不确定一个标签的参数是单一值还是一个列表，RequestHandler<br>有明确的方法来允许应用程序表明是否它期望接收一个列表。 对于列表，使用 get_query_arguments 和<br>get_body_arguments 而不是它们的单数形式。</p>
+<p>通过一个表单上传的文件可以使用 self.request.files, 它遍历名字(HTML 标签 <input type="file"> 的name)到一个文件列表. 每个文件都是一个字典的形式 {“filename”:…, “content_type”:…, “body”:…}. files 对象是当前唯一的如果文件上传是通过一个表单包装 (i.e. a multipart/form-data Content-Type); 如果没用这种格式, 原生上传的数据可以调用 self.request.body 使用. 默认上传的文件是完全缓存在内存中的; 如果你需要处理占用内存太大的文件 可以看看 stream_request_body 类装饰器.</p>
+<p>由于HTML表单编码格式的怪异 (e.g. 在单数和复数参数的含糊不清), Tornado 不会试图统一表单参数和其他输入类型的参数. 特别是, 我们不解析JSON请求体. 应用程序希望使用JSON代替表单编码可以复写 prepare 来解析它们的请求:</p>
+<p>def prepare(self):<br>    if self.request.headers[“Content-Type”].startswith(“application/json”):<br>        self.json_args = json.loads(self.request.body)<br>    else:<br>        self.json_args = None</p>
 
       
     </div>
@@ -356,149 +645,9 @@
 
 
   
-    <article id="post-java-数字操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/15/java-数字操作/" class="article-date">
-  	<time datetime="2017-01-15T09:13:48.000Z" itemprop="datePublished">2017-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/java-数字操作/">java-数字操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Math类中的所有方法都不需要实例变量值，因为这些方法是静态的，所以无须Math的实例，用类本身就好。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = Math.round(36.2)</span><br><span class="line">int y = Math.min(56,12)</span><br><span class="line">int z = Math.abs(-35)</span><br></pre></td></tr></table></figure></p>
-<p>以类的名称调用静态方法，以实例的名称调用非静态方法。</p>
-<h4 id="获取实例的方法"><a href="#获取实例的方法" class="headerlink" title="获取实例的方法"></a>获取实例的方法</h4><p>（1）new()<br>（2）序列化<br>（3）java reflection API</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>（1）静态方法不能调用非静态变量；因为静态方法是通过类的名称来调用的，无须实例，因此无法引用任何实<br>例变量。</p>
-<h3 id="Math类中常用的一些方法"><a href="#Math类中常用的一些方法" class="headerlink" title="Math类中常用的一些方法"></a>Math类中常用的一些方法</h3><h4 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h4><p>返回介于 0.0~1.0之间的双精度浮点数</p>
-<h3 id="Math-abs"><a href="#Math-abs" class="headerlink" title="Math.abs()"></a>Math.abs()</h3><p>返回双精度浮点数类型参数的绝对值，这个方法有覆盖的版本，传入整型会返回整型，传入双精度浮点会返回<br>双精度浮点。</p>
-<h3 id="Math-round"><a href="#Math-round" class="headerlink" title="Math.round()"></a>Math.round()</h3><p>根据参数是浮点数或双精度浮点数返回四舍五入后的整型或长整型。</p>
-<h3 id="Math-min"><a href="#Math-min" class="headerlink" title="Math.min()"></a>Math.min()</h3><p>返回两参数中较小的那个，有int、long、float、double的覆盖版本。</p>
-<h3 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h3><p>同上</p>
-<h3 id="主数据类型都有对应的包装类"><a href="#主数据类型都有对应的包装类" class="headerlink" title="主数据类型都有对应的包装类"></a>主数据类型都有对应的包装类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">boolean     Boolean</span><br><span class="line">char        Character</span><br><span class="line">byte        Byte</span><br><span class="line">short       Short</span><br><span class="line">int         Integer</span><br><span class="line">long        Long</span><br><span class="line"><span class="built_in">float</span>       Float</span><br><span class="line">double      Double</span><br></pre></td></tr></table></figure>
-<p>主数据类型和对应的包装类可以自动相互转换</p>
-<h3 id="字符串转主数据类型"><a href="#字符串转主数据类型" class="headerlink" title="字符串转主数据类型"></a>字符串转主数据类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s1=<span class="string">"4"</span></span><br><span class="line"></span><br><span class="line">String s2=<span class="string">"3.6"</span></span><br><span class="line"></span><br><span class="line">String s3=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line">Integer.parseInt(s1)</span><br><span class="line"></span><br><span class="line">Double.parseDouble(s2)</span><br><span class="line"></span><br><span class="line">boolean b=new Boolean(s3).booleanValue</span><br></pre></td></tr></table></figure>
-<h3 id="主数据类型转字符串"><a href="#主数据类型转字符串" class="headerlink" title="主数据类型转字符串"></a>主数据类型转字符串</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">double d=36.6</span><br><span class="line"></span><br><span class="line">String doublestring=<span class="string">""</span>+d</span><br><span class="line"></span><br><span class="line"><span class="string">"+"</span> 这个运算符是java中唯一重载过的</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">String doublestring=Double.toString(d)</span><br></pre></td></tr></table></figure>
-<h3 id="格式化输出时间"><a href="#格式化输出时间" class="headerlink" title="格式化输出时间"></a>格式化输出时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Date today = new Date();</span><br><span class="line"><span class="comment">#完整的日期与时间</span></span><br><span class="line">String.format(<span class="string">"%tc"</span>,today);</span><br><span class="line"><span class="comment">#只有时间</span></span><br><span class="line">String.format(<span class="string">"%tr"</span>,today);</span><br><span class="line"><span class="comment">#周  月  日</span></span><br><span class="line">String.format(<span class="string">"%tA,%tB,%td"</span>,today,today,today);</span><br><span class="line"><span class="comment"># "&lt;" 这个符号是个特殊的指示，用来告诉格式化程序重复利用之前用过的参数</span></span><br><span class="line">String.format(<span class="string">"%tA,%&lt;tB,%&lt;td"</span>,today);</span><br></pre></td></tr></table></figure>
-<h3 id="Calendar-常用API"><a href="#Calendar-常用API" class="headerlink" title="Calendar 常用API"></a>Calendar 常用API</h3><h4 id="重要的方法"><a href="#重要的方法" class="headerlink" title="重要的方法"></a>重要的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#加减时间值</span></span><br><span class="line">add(int field,int amount)   </span><br><span class="line"><span class="comment">#取出指定字段的值</span></span><br><span class="line">get(int field)</span><br><span class="line"><span class="comment">#返回 Calendar 子类实例，可指定地区</span></span><br><span class="line">getinstance()</span><br><span class="line"><span class="comment">#以毫秒返回时间</span></span><br><span class="line">get TimeInMillis()</span><br><span class="line"><span class="comment">#加减时间值 不进位</span></span><br><span class="line">roll(int field,boolean up)</span><br><span class="line"><span class="comment">#设定指定字段的值</span></span><br><span class="line"><span class="built_in">set</span>(int field,int value)</span><br><span class="line"><span class="comment">#设定完整的时间</span></span><br><span class="line"><span class="built_in">set</span>(year,month,day,hour,minute)</span><br><span class="line"><span class="comment">#以毫秒指定时间</span></span><br><span class="line"><span class="built_in">set</span>TimeInMillis(long millis)</span><br><span class="line">``` </span><br><span class="line"><span class="comment">#### 关键字段</span></span><br><span class="line">``` bash</span><br><span class="line">Date / DAY_OF_MONTH  <span class="comment">#每月的几号</span></span><br><span class="line">HOUR / HOUR_OF_DAY   <span class="comment">#小时</span></span><br><span class="line">MILLISECOND  <span class="comment">#毫秒</span></span><br><span class="line">MINUTE  <span class="comment">#分钟</span></span><br><span class="line">MONTH   <span class="comment">#月份</span></span><br><span class="line">YEAR    <span class="comment">#年份</span></span><br><span class="line">ZONE_OFFSET   <span class="comment">#时间位移</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
-  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
-<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
-<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
-<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
-<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
-<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
-<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
-<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
-<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
-<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
-<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
-<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
-<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

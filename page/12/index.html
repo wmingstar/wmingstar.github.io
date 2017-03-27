@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-mysql-index" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-经典算法—-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/02/mysql-index/" class="article-date">
-  	<time datetime="2016-08-02T12:39:24.000Z" itemprop="datePublished">2016-08-02</time>
+      <a href="/2016/09/06/经典算法—-1/" class="article-date">
+  	<time datetime="2016-09-06T14:34:42.000Z" itemprop="datePublished">2016-09-06</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/mysql-index/">MySQL进阶——索引</a>
+      <a class="article-title" href="/2016/09/06/经典算法—-1/">互联网笔试常考经典算法</a>
     </h1>
   
 
@@ -182,26 +182,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="索引的作用"><a href="#索引的作用" class="headerlink" title="索引的作用"></a>索引的作用</h2><p>数据库索引的主要作用是能够大大提高查询效率，特别是当数据量非常大，查询涉及多个表时，使用索引往往能使查询速度加快成千上万倍。</p>
-<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h2><p>有3个未索引的表t1、t2、t3，分别只包含列c1、c2、c3，每个表分别含有1000行数据组成，值为1～1000的数值，查找对应值相等行的查询语句如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT c1,c2,c3 FROM t1,t2,t3 WHERE c1=c2 AND c1=c3</span><br></pre></td></tr></table></figure></p>
-<p>此查询结果应该为1000行，每行包含3个相等的值。在无索引的情况下处理此查询，必须寻找3个表所有的组合，以便得出与WHERE子句相配的那些行。而可能的组合数目为1000×1000×1000（十亿），显然查询将会非常慢。</p>
-<p>如果对每个表进行索引，就能极大地提高查询效率，利用索引的查询处理如下。</p>
-<p>（1）从表t1中选择第一行，查看此行所包含的数据。</p>
-<p>（2）使用表t2上的索引，直接定位t2中与t1的值匹配的行。类似，利用表t3上的索引，直接定位t3中与来自t1的值匹配的行。</p>
-<p>（3）扫描表t1的下一行并重复前面的过程，直到遍历t1中所有的行。<br>在此情形下，仍然对表t1执行了一个完全扫描，但能够在表t2和t3上进行索引查找直接取出这些表中的行，比未用索引时要快一百万倍。利用索引，MySQL加速了WHERE子句满足条件行的搜索，而在多表连接查询时，在执行连接时加快了与其他表中的行匹配的速度。</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>INDEX 普通索引<br>PRIMARY KEY  主键（PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。）<br>UNIQUE 不包含重复值的索引</p>
-<p>在创建索引时，可以规定索引能否包含重复值。如果不包含，则索引应该创建为PRIMARY KEY或UNIQUE索引。对于单列惟一性索引，<br>这保证单列不包含重复的值。对于多列惟一性索引，保证多个值的组合不重复。</p>
-<p>PRIMARY KEY索引和UNIQUE索引非常类似，事实上，PRIMARY KEY索引仅是一个具有名称PRIMARY的UNIQUE索引。<br>这表示一个表只能包含一个PRIMARY KEY，因为一个表中不可能具有两个同名的索引。</p>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p>ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD UNIQUE (column_list)</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name ADD PRIMARY KEY (column_list)</span><br></pre></td></tr></table></figure></p>
-<p>其中table_name是要增加索引的表名，column_list指出对哪些列进行索引，多列时各列之间用逗号分隔。索引名index_name可选，缺省时，MySQL将根据第一个索引列赋一个名称。另外，ALTER TABLE允许在单个语句中更改多个表，因此可以在同时创建多个索引。</p>
-<h3 id="CREATE-INDEX"><a href="#CREATE-INDEX" class="headerlink" title="CREATE INDEX"></a>CREATE INDEX</h3><p>CREATE INDEX可对表增加普通索引或UNIQUE索引。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX index_name ON table_name (column_list)</span><br><span class="line"></span><br><span class="line">CREATE UNIQUE INDEX index_name ON table_name (column_list)</span><br></pre></td></tr></table></figure></p>
-<p>table_name、index_name和column_list具有与ALTER TABLE语句中相同的含义，索引名不可选。另外，不能用CREATE INDEX语句创建PRIMARY KEY索引。</p>
-<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>可利用ALTER TABLE或DROP INDEX语句来删除索引。类似于CREATE INDEX语句，DROP INDEX可以在ALTERTABLE内部作为一条语<br>句处理，语法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX index_name ON talbe_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP INDEX index_name</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name DROP PRIMARY KEY</span><br></pre></td></tr></table></figure></p>
-<p>其中，前两条语句是等价的，删除掉table_name中的索引index_name。</p>
-<p>第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引，因此不需要指定索引名。<br>如果没有创建PRIMARY KEY索引，但表具有一个或多个UNIQUE索引，则MySQL将删除第一个UNIQUE索引。<br>如果从表中删除了某列，则索引会受到影响。对于多列组合的索引，如果删除其中的某列，则该列也会从索引中删除。如果删除组成索引的所有列，则整个索引将被删除。</p>
-<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show index from tblname;</span><br><span class="line"></span><br><span class="line">mysql&gt; show keys from tblname;</span><br></pre></td></tr></table></figure>
-<p>Table           表的名称。<br>Non_unique      如果索引不能包括重复词，则为0。如果可以，则为1。<br>Key_name        索引的名称。<br>Seq_in_index    索引中的列序列号，从1开始。<br>Column_name     列名称。<br>Collation       列以什么方式存储在索引中。在MySQL中，有值‘A’（升序）或NULL（无分类）。<br>Cardinality     索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。</p>
-<p>Sub_part        如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL。<br>Packed          指示关键字如何被压缩。如果没有被压缩，则为NULL。<br>Null            如果列含有NULL，则含有YES。如果没有，则该列含有NO。<br>Index_type      用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。<br>Comment</p>
+        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的，所以，这种多阶<br>段最优化决策解决问题的过程就称为动态规划。</p>
+<h3 id="思想与策略"><a href="#思想与策略" class="headerlink" title="思想与策略"></a>思想与策略</h3><p>基本思想与分治法类似，在分析时将待求解的问题分解为若干个子问题（阶段），按顺序求解各个子问题，前一子问题的解，为后一子<br>问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃<br>其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
+<p>要用动态规划解决的问题多数有个特点：某些子问题重叠，为减少重复计算，对每一个子问题只解一次，可将其不同阶段的不同状态<br>保存在一个二维数组中。</p>
+<p>与分治法最大的区别：动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上）</p>
+<h3 id="适用情景"><a href="#适用情景" class="headerlink" title="适用情景"></a>适用情景</h3><p>动态规划求解的问题一般具有以下特征：<br>（1）最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>（2）无后效性：某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与<br>当前状态有关。<br>（3）有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的<br>必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
+<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>（1）问题划分：按照问题的时间或空间特征，把问题分为若干个阶段。在划分阶段时，注意划分后的阶段一定要是有序的或者是可排序的，否则问题就无法求解。<br>（2）确定状态和状态变量：将问题在各个阶段所处的各种客观情况用不同的状态表示出来。当然，状态的选择要满足无后效性。<br>（3）确定决策并写出状态转移方程：因为决策和状态转移有着天然的联系，状态转移就是根据上一阶段的状态和决策来导出本阶段的状态。所以如果确定了决策，状态转移方程也就可写出。但事实上常常是反过来做，根据相邻两个阶段的状态之间的关系来确定决策方法和状态转移方程。<br>（4）寻找边界条件：给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件。</p>
+<h4 id="简化的步骤设计"><a href="#简化的步骤设计" class="headerlink" title="简化的步骤设计"></a>简化的步骤设计</h4><p>（1）分析最优解的性质，并刻画其结构特征。<br>（2）递归的定义最优解。<br>（3）以自底向上或自顶向下的记忆化方式（备忘录法）计算出最优值。<br>（4）根据计算最优值时得到的信息，构造问题的最优解。</p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>使用动态规划求解问题，最重要的就是确定动态规划的三要素：<br>（1）将问题划分为多个子阶段 （2）确定各子阶段的状态  （3）从前一个阶段转化到后一个阶段的之间的递推关系。</p>
+<p>确定了动态规划的这三要素，整个求解过程就可以用一个最优决策表来描述。最优决策表是一个二维表，其中行表示决策的阶段，列<br>表示问题状态，表格需要填写的数据一般对应此问题的在某个阶段某个状态下的最优值（如最短路径，最长公共子序列，最大价值等<br>），填表的过程就是根据递推关系，从1行1列开始，以行或者列优先的顺序，依次填写表格，最后根据整个表格的数据通过简单的取<br>舍或者运算求得问题的最优解。</p>
+<h3 id="动态规划算法基本框架"><a href="#动态规划算法基本框架" class="headerlink" title="动态规划算法基本框架"></a>动态规划算法基本框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"><span class="keyword">for</span>(j=1; j&lt;=m; j=j+1) // 第一个阶段</span><br><span class="line">   xn[j] = 初始值;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(i=n-1; i&gt;=1; i=i-1)// 其他n-1个阶段</span><br><span class="line">   <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)//f(i)与i有关的表达式</span><br><span class="line">     xi[j]=j=max（或min）&#123;g(xi-1[j1:j2]), ......, g(xi-1[jk:jk+1])&#125;;</span><br><span class="line"></span><br><span class="line">t = g(x1[j1:j2]); // 由子问题的最优解求解整个问题的最优解的方案</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1[j1]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=2; i&lt;=n-1; i=i+1）</span><br><span class="line">&#123;  </span><br><span class="line">     t = t-xi-1[ji];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)</span><br><span class="line">        <span class="keyword">if</span>(t=xi[ji])</span><br><span class="line">             <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html" target="_blank" rel="external">参考自博客园</a></p>
 
       
     </div>
@@ -210,7 +201,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -232,11 +223,11 @@
 
 
   
-    <article id="post-python-subprocess" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/28/python-subprocess/" class="article-date">
-  	<time datetime="2016-07-28T06:30:05.000Z" itemprop="datePublished">2016-07-28</time>
+      <a href="/2016/09/05/linux-command1/" class="article-date">
+  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
 </a>
     </div>
   
@@ -249,7 +240,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/28/python-subprocess/">python subprocess 小结</a>
+      <a class="article-title" href="/2016/09/05/linux-command1/">linux常用命令——1</a>
     </h1>
   
 
@@ -258,21 +249,95 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>subprocess常用来调用shell命令,当然也可以调用程序,并可以通过stdout,stdin和stderr进行交互。</p>
-<h2 id="subprocess主类"><a href="#subprocess主类" class="headerlink" title="subprocess主类"></a>subprocess主类</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">subprocess.Popen(</span><br><span class="line">      args, </span><br><span class="line">      bufsize=0, </span><br><span class="line">      executable=None ,</span><br><span class="line">      stdin=None,</span><br><span class="line">      stdout=None, </span><br><span class="line">      stderr=None, </span><br><span class="line">      preexec_fn=None, </span><br><span class="line">      close_fds=False, </span><br><span class="line">      shell=False, </span><br><span class="line">      cwd=None, </span><br><span class="line">      env=None, </span><br><span class="line">      universal_newlines=False, </span><br><span class="line">      startupinfo=None, </span><br><span class="line">      creationflags=0)</span><br></pre></td></tr></table></figure>
-<h2 id="参数释义"><a href="#参数释义" class="headerlink" title="参数释义"></a>参数释义</h2><p>（1）args可以是字符串或者序列类型（如：list，元组），用于指定进程的可执行文件及其参数。如果是序列类型，第一个元素通<br>常是可执行文件的路径。我们也可以显式的使用executeable参数来指定可执行文件的路径。<br>（2）bufsize：指定缓冲。0 无缓冲,1 行缓冲,其他 缓冲区大小,负值 系统缓冲(全缓冲)<br>（3）stdin,stdout,stderr分别表示程序的标准输入、输出、错误句柄。他们可以是PIPE，文件描述符或文件对象，也可以设置为<br>None，表示从父进程继承。<br>（4）preexec_fn只在Unix平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用。<br>（5）Close_sfs：在windows平台下，如果close_fds被设置为True，则新创建的子进程将不会继承父进程的输入、输出、错误管道。<br>我们不能将close_fds设置为True同时重定向子进程的标准输入、输出与错误(stdin, stdout, stderr)。<br>（6）shell设为true，程序将通过shell来执行。<br>（7）cwd用于设置子进程的当前目录<br>（8）env是字典类型，用于指定子进程的环境变量。如果env = None，子进程的环境变量将从父进程中继承。<br>（9）Universal_newlines:不同操作系统下，文本的换行符是不一样的。如：windows下用’/r/n’表示换，而Linux下用’/n’。如果将此参数设置为True，Python统一把这些换行符当作’/n’来处理。startupinfo与createionflags只在windows下用效，它们将被传递给底层的CreateProcess()函数，用于设置子进程的一些属性，如：主窗口的外观，进程的优先级等等。<br>（10）startupinfo与createionflags只在windows下有效，它们将被传递给底层的CreateProcess()函数，用于设置子进程的一些属性，如：主窗口的外观，进程的优先级等等。</p>
-<h2 id="Popen对象所具有的方法"><a href="#Popen对象所具有的方法" class="headerlink" title="Popen对象所具有的方法"></a>Popen对象所具有的方法</h2><p>（1）Popen.poll()：用于检查子进程是否已经结束。设置并返回returncode属性。<br>（2）Popen.wait()：等待子进程结束。设置并返回returncode属性。<br>（3）Popen.communicate(input=None)：与子进程进行交互。向stdin发送数据，或从stdout和stderr中读取数据。可选参数input指<br>定发送到子进程的参数。Communicate()返回一个元组：(stdoutdata,stderrdata)。注意：如果希望通过进程的stdin向其发送数据<br>，在创建Popen对象的时候，参数stdin必须被设置为PIPE。同样，如果希望从stdout和stderr获取数据，必须将stdout和stderr设置<br>为PIPE。<br>（4）Popen.send_signal(signal)：向子进程发送信号。<br>（5）Popen.terminate()：停止(stop)子进程。在windows平台下，该方法将调用Windows TerminateProcess（）来结束子进程。<br>（6）Popen.kill()：杀死子进程。<br>（7）Popen.stdin：如果在创建Popen对象时，参数stdin被设置为PIPE，Popen.stdin将返回一个文件对象用于向子进程发送指令。<br>否则返回None。<br>（8）Popen.stdout：如果在创建Popen对象是，参数stdout被设置为PIPE，Popen.stdout将返回一个文件对象，记录输出，否则返回<br>None。<br>（9）Popen.stderr：如果在创建Popen对象是，参数stdout被设置为PIPE，Popen.stderr将返回一个文件对象，否则返回None。<br>（10）Popen.pid：获取子进程的进程ID。<br>（11）Popen.returncode：获取进程的返回值。如果进程还没有结束，返回None。</p>
-<p>subprocess.call(<em>popenargs,**kwargs)：运行命令。该函数将一直等待到子进程运行结束，并返回进程的returncode。如果子进程不需要进行交互,就可以使用该函数来创建。<br>subprocess.check_call(</em>popenargs,<strong>kwargs)：与subprocess.call(*popenargs,</strong>kwargs)功能一样，只是如果子进程返回的retu<br>rncode不为0的话，将触发CalledProcessError异常。在异常对象中，包括进程的returncode信息。</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>（1）在程序中运行其他程序或shell<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#无阻塞,会和主程序并行运行</span></span><br><span class="line">subprocess.Popen(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line"><span class="comment">#阻塞，必须等待命令执行完毕</span></span><br><span class="line">subprocess.call(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">s = subprocess.Popen(<span class="string">'脚本/shell'</span>, shell=True)</span><br><span class="line">s.wait()</span><br></pre></td></tr></table></figure></p>
-<p>（2）程序返回运行结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#返回stdoutdata</span></span><br><span class="line">s = subprocess.Popen(<span class="string">'python test.py'</span>, shell=True, stdout=subprocess.PIPE) </span><br><span class="line">s.stdout</span><br></pre></td></tr></table></figure></p>
-<p>（3）给子进程输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">child = subprocess.Popen([<span class="string">"cd"</span>], stdin=subprocess.PIPE)</span><br><span class="line">child.communicate(<span class="string">"/home"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>（4）subprocess.PIPE<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line">import subprocess</span><br><span class="line">child1 = subprocess.Popen([<span class="string">"cmd"</span>,<span class="string">"args"</span>], stdout=subprocess.PIPE)</span><br><span class="line">child2 = subprocess.Popen([<span class="string">"cmd"</span>], stdin=child1.stdout,stdout=subprocess.PIPE)</span><br><span class="line">out = child2.communicate()</span><br><span class="line"><span class="built_in">print</span> out</span><br></pre></td></tr></table></figure></p>
-<p>实际上是这样的过程</p>
-<p>child1.stdout–&gt;subprocess.PIPE</p>
-<p>child2.stdin&lt;–subprocess.PIPE</p>
-<p>child2.stdout–&gt;subprocess.PIPE</p>
-<p>注意：<br>subprocess.PIPE实际上为文本流提供一个缓存区，直到communicate()方法从PIPE中读取出PIPE中的文本.要注意的是，communicate<br>()是Popen对象的一个方法，该方法会阻塞父进程，直到子进程完成。</p>
-<p>参考：<a href="http://hackerxu.com/" target="_blank" rel="external">http://hackerxu.com/</a></p>
+        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
+</code></pre>
+<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
+</code></pre>
+<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
+<span class="comment"># date +%Y/%m/%d</span>
+<span class="comment"># date +%H:%M</span>
+</code></pre>
+<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
+<span class="comment"># cal 2016</span>
+<span class="comment"># cal 8 2016</span>
+</code></pre>
+<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
+<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
+
+<span class="comment">#[Ctrl]+c 终止命令</span>
+<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
+</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-subprocess-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/07/python-subprocess-1/" class="article-date">
+  	<time datetime="2016-08-07T02:01:28.000Z" itemprop="datePublished">2016-08-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/07/python-subprocess-1/">python子进程模块subprocess详解与应用实例</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="subprocess–子进程管理器"><a href="#subprocess–子进程管理器" class="headerlink" title="subprocess–子进程管理器"></a>subprocess–子进程管理器</h2><p>subprocess模块用来生成子进程，并可以通过管道连接它们的输入/输出/错误，以及获得它们的返回值。<br>它用来代替多个旧模块和函数:<br>os.system<br>os.spawn<em><br>os.popen</em><br>popen2.<em><br>commands.</em></p>
+<h2 id="subprocess模块中常用的函数"><a href="#subprocess模块中常用的函数" class="headerlink" title="subprocess模块中常用的函数"></a>subprocess模块中常用的函数</h2><p>启动子进程的推荐方式是使用下面的便利功能。<br>当这些还不能满足需求时，就需要使用底层的Popen接口。</p>
+<h3 id="subprocess-call"><a href="#subprocess-call" class="headerlink" title="subprocess.call"></a>subprocess.call</h3><p>语法:<br>     subprocess.call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令结束后，返回 返回码的属性值。<br>返回值：<br>     退出信息(returncode，相当于exit code，见Linux进程基础)</p>
+<p>上面的参数是最常见的方式，下面是示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; subprocess.call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>WARNING: 使用 shell=True 是一种安全保护机制。<br>NOTE: 在使用这个函数时，不要使用 stdout=PIPE 或 stderr=PIPE 参数，<br>      不然会导致子进程输出的死锁。<br>      如果要使用管道，可以在 communicate()方法中使用Popen<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">rc = subprocess.call([<span class="string">"ls"</span>,<span class="string">"-l"</span>])</span><br></pre></td></tr></table></figure></p>
+<p>可以通过一个shell来解释一整个字符串:<br>使用了shell=True这个参数。<br>这个时候，我们使用一整个字符串，而不是一个列表来运行子进程。<br>Python将先运行一个shell，再用这个shell来解释这整个字符串。</p>
+<p>shell命令中有一些是shell的内建命令，这些命令必须通过shell运行，$cd。<br>shell=True允许我们运行这样一些命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">out = subprocess.call(<span class="string">"ls -l"</span>, shell=True)</span><br><span class="line">out = subprocess.call(<span class="string">"cd .."</span>, shell=True)</span><br></pre></td></tr></table></figure></p>
+<h3 id="subprocess-check-call"><a href="#subprocess-check-call" class="headerlink" title="subprocess.check_call"></a>subprocess.check_call</h3><p>这个函数在python 2.5版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>     subprocess.check_call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令执行完成。<br>     如果返回码为零，则返回。否则，抛出 CalledProcessError异常。<br>     CalledProcessError对象包含有返回码的属性值。<br>返回值：<br>      正常返回 0</p>
+<p>上面显示的参数仅仅是最常见的，下面是用户更常用的参数。<br>示例代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.check_call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
+<h3 id="subprocess-check-output"><a href="#subprocess-check-output" class="headerlink" title="subprocess.check_output"></a>subprocess.check_output</h3><p>这个函数在python 2.7版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>      subprocess.check_output(args, *, stdin=None, stderr=None, shell=False, universal_newlines=False)<br>语义:<br>     运行args定义的命令，并返回一个字符串表示的输出值。<br>     如果返回码为非零，则抛出 CalledProcessError异常。<br>返回值：<br>     返回子进程向标准输出的输出结果<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output([<span class="string">"echo"</span>, <span class="string">"Hello World!"</span>])</span><br><span class="line"><span class="string">'Hello World!\n'</span></span><br><span class="line">&gt;&gt;&gt; subprocess.check_output(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
+<p>如果要捕捉结果中的标准错误，使用 stderr=subprocess.STDOUT参数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output(</span><br><span class="line">...     <span class="string">"ls non_existent_file; exit 0"</span>,</span><br><span class="line">...     stderr=subprocess.STDOUT,</span><br><span class="line">...     shell=True)</span><br><span class="line"><span class="string">'ls: non_existent_file: No such file or directory\n'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="subprocess-PIPE"><a href="#subprocess-PIPE" class="headerlink" title="subprocess.PIPE"></a>subprocess.PIPE</h3><p>使用Popen时，用于 stdin, stdout和stderr参数的特殊值，表示打开连接标准流的管道。</p>
+<h3 id="subprocess-STDOUT"><a href="#subprocess-STDOUT" class="headerlink" title="subprocess.STDOUT"></a>subprocess.STDOUT</h3><p>使用Popen时，用于 stderr 参数的特殊值，表示将标准错误重定向到标准输出的同一个句柄。</p>
+<h3 id="异常-subprocess-CalledProcessError"><a href="#异常-subprocess-CalledProcessError" class="headerlink" title="异常 subprocess.CalledProcessError"></a>异常 subprocess.CalledProcessError</h3><p>当由 check_call()或 check_output()运行的进程返回非零状态值时抛出的异常。</p>
+<h3 id="returncode"><a href="#returncode" class="headerlink" title="returncode"></a>returncode</h3><p>子进程的退出状态。</p>
 
       
     </div>
@@ -303,11 +368,11 @@
 
 
   
-    <article id="post-leetcode-237-Delete-Node" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mysql-engine" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/13/leetcode-237-Delete-Node/" class="article-date">
-  	<time datetime="2016-07-13T00:42:34.000Z" itemprop="datePublished">2016-07-13</time>
+      <a href="/2016/08/05/mysql-engine/" class="article-date">
+  	<time datetime="2016-08-05T01:26:15.000Z" itemprop="datePublished">2016-08-05</time>
 </a>
     </div>
   
@@ -320,7 +385,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/leetcode-237-Delete-Node/">leetcode-237-Delete-Node</a>
+      <a class="article-title" href="/2016/08/05/mysql-engine/">MySQL进阶——存储引擎</a>
     </h1>
   
 
@@ -329,10 +394,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
-<p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should<br>become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void deleteNode(ListNode node) &#123;</span><br><span class="line">        <span class="keyword">if</span>(node!=null)&#123;</span><br><span class="line">            node.val=node.next.val;</span><br><span class="line">            node.next=node.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先把题意搞懂，自己刚开始做的没把题意读明白就写代码，然后就懵了，感觉不对，甚至以为题目有问题。今早写博客，重新看提<br>时，恍然大悟，是自己太菜了。<br>题意：删除单项链表中的一个节点，所给的是要删除的节点。<br>写一个可以删除单项链表中特定节点的方法，该方法的参数是要删除的节点。预先声明了 listnode类，该类有两个属性，val和<br>next。也就是说通过一个节点的值和它所连接的下一个节点便可确定该节点，因此要删除一个节点将这两个属性的值更改为其下个节<br>点的对应的值就可以了。</p>
+        <h2 id="MySQL-支持的搜索引擎"><a href="#MySQL-支持的搜索引擎" class="headerlink" title="MySQL 支持的搜索引擎"></a>MySQL 支持的搜索引擎</h2><p>可以通过以下命令查看mysql支持的存储引擎：<br>mysql&gt;show engines</p>
+<p>MySQL有多种存储引擎，每种存储引擎有各自的优缺点，可以择优选择使用：MyISAM、InnoDB、MERGE、MEMORY(HEAP)、BDB(BerkeleyDB)、EXAMPLE、FEDERATED、ARCHIVE、CSV、BLACKHOLE。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>MySQL支持数个存储引擎作为对不同表的类型的处理器，MySQL存储引擎包括处理事务安全表（TST）的引擎和处理非事务安全表(NTST)的引擎。</p>
+<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>管理非事务表。它提供高速存储和检索，以及全文搜索能力。MyISAM在所有MySQL配置里被支持，它是默认的存储引擎，除非你配置MySQL默认使用另外一个引擎。</p>
+<h3 id="InnoDB和BDB"><a href="#InnoDB和BDB" class="headerlink" title="InnoDB和BDB"></a>InnoDB和BDB</h3><p>支持事务安全表，BDB被包含在为支持它的操作系统发布的MySQL-Max二进制分发版里。InnoDB也默认被包括在所有MySQL5.1二进制分发版里，你可以按照喜好通过配置MySQL来允许或禁止任一引擎。</p>
+<h3 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h3><p>存储引擎提供“内存中”表。MERGE存储引擎允许集合将被处理同样的MyISAM表作为一个单独的表。就像MyISAM一样，MEMORY和MERGE存储引擎处理非事务表，这两个引擎也都被默认包含在MySQL中。</p>
+<h3 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h3><p>是一个“存根”引擎，它不做什么。你可以用这个引擎创建表，但没有数据被存储于其中或从其中检索。这个引擎的目的是服务，在 MySQL源代码中的一个例子，它演示说明如何开始编写新存储引擎。同样，它的主要兴趣是对开发者。</p>
+<h3 id="NDB-Cluster"><a href="#NDB-Cluster" class="headerlink" title="NDB Cluster"></a>NDB Cluster</h3><p>用来实现分割到多台计算机上的表的存储引擎。它在MySQL-Max 5.1二进制分发版里提供。这个存储引擎当前只被Linux, Solaris, 和Mac OS X 支持。在未来的MySQL分发版中，我们想要添加其它平台对这个引擎的支持，包括Windows。</p>
+<h3 id="ARCHIVE"><a href="#ARCHIVE" class="headerlink" title="ARCHIVE"></a>ARCHIVE</h3><p>用来无索引地，非常小地覆盖存储的大量数据。</p>
+<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>把数据以逗号分隔的格式存储在文本文件中。</p>
+<h3 id="BLACKHOLE"><a href="#BLACKHOLE" class="headerlink" title="BLACKHOLE"></a>BLACKHOLE</h3><p>接受但不存储数据，并且检索总是返回一个空集。</p>
+<h3 id="FEDERATED"><a href="#FEDERATED" class="headerlink" title="FEDERATED"></a>FEDERATED</h3><p>把数据存在远程数据库中。在MySQL 5.1中，它只和MySQL一起工作，使用MySQL C Client API。在未来的分发版中，<br>我们想要让它使用其它驱动器或客户端连接方法连接到另外的数据源。</p>
+<h2 id="MyISAM与InnoBD的区别"><a href="#MyISAM与InnoBD的区别" class="headerlink" title="MyISAM与InnoBD的区别"></a>MyISAM与InnoBD的区别</h2><p>在mysql存储中，比较常用的是MyISAM和InnoBD。</p>
+<h3 id="构成上的区别"><a href="#构成上的区别" class="headerlink" title="构成上的区别"></a>构成上的区别</h3><p>MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。frm文件存储表定义。数据文件的扩展<br>名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</p>
+<p>InnoBD：基于磁盘的资源是InnoDB表空间数据文件和它的日志文件，InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB.</p>
+<h3 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h3><p>MyISAM：MyISAM类型的表强调的是性能，其执行速度比InnoDB类型更快，但是不提供事务支持。</p>
+<p>InnoBD: InnoDB提供事务支持事务，外部键（foreign key）等高级数据库功能。</p>
+<h3 id="SELECT-UPDATE-INSERT，Delete操作"><a href="#SELECT-UPDATE-INSERT，Delete操作" class="headerlink" title="SELECT UPDATE,INSERT，Delete操作"></a>SELECT UPDATE,INSERT，Delete操作</h3><p>MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。</p>
+<p>InnoBD：如果执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；<br>DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br>LOAD  TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的<br>额外的InnoDB特性（例如外键）的表不适用。</p>
+<h2 id="如何在MyISAM与InnoBD之间选择"><a href="#如何在MyISAM与InnoBD之间选择" class="headerlink" title="如何在MyISAM与InnoBD之间选择"></a>如何在MyISAM与InnoBD之间选择</h2><p>（1）InnoDB支持事务，MyISAM不支持，这一点是非常之重要。事务是一种高级的处理方式，如在一些列增删改中只要哪个出错还可以回滚还原，而MyISAM就不可以了。<br>（2）MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用<br>（3）InnoDB支持外键，MyISAM不支持<br>（4）MyISAM是默认引擎，InnoDB需要指定<br>（5）InnoDB不支持FULLTEXT类型的索引<br>（6）InnoDB中不保存表的行数，如select count(<em>) fromtable时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存<br>好的行数即可。注意的是，当count(</em>)语句包含where条件时MyISAM也需要扫描整个表<br>（7）对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引<br>（8）清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表<br>（9）InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’</p>
+<h2 id="MyISAM-1"><a href="#MyISAM-1" class="headerlink" title="MyISAM"></a>MyISAM</h2><p>每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名<br>为.MYD (MYData)。<br>MyISAM表格可以被压缩，而且它们支持全文搜索。不支持事务，而且也不支持外键。如果事物回滚将造成不完全回滚，不具有原子性。在进<br>行updata时进行表锁，并发量相对较小。如果执行大量的SELECT，MyISAM是更好的选择。<br>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，<br>没有使用压缩从而会造成Innodb比MyISAM体积庞大不小<br>MyISAM缓存在内存的是索引，不是数据。而InnoDB缓存在内存的是数据，相对来说，服务器内存越大，InnoDB发挥的优势越大。</p>
+<p>优点：查询数据相对较快，适合大量的select，可以全文索引。</p>
+<p>缺点：不支持事务，不支持外键，并发量较小，不适合大量update</p>
+<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>这种类型是事务安全的。.它与BDB类型具有相同的特性,它们还支持外键。InnoDB表格速度很快。具有比BDB还丰富的特性,因此如果需要一个事务安全的存储引擎，建议使用它。在update时表进行行锁，并发量相对较大。如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。</p>
+<p>优点：支持事务，支持外键，并发量较大，适合大量update</p>
+<p>缺点：查询数据相对较快，不适合大量的select</p>
+<p>对于支持事物的InnoDB类型的表，影响速度的主要原因是AUTOCOMMIT默认设置是打开的，而且程序没有显式调用BEGIN 开始事务，导致每插入一条都自动Commit，严重影响了速度。可以在执行sql前调用begin，多条sql形成一个事物（即使autocommit打开也可以），将大大提高性能。</p>
+<p>基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。</p>
+<p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</p>
 
       
     </div>
@@ -341,7 +431,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
 	</div>
 
       
@@ -363,11 +453,11 @@
 
 
   
-    <article id="post-leetcode-349-intersection-two-arrays" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mysql-tst-ntst" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/12/leetcode-349-intersection-two-arrays/" class="article-date">
-  	<time datetime="2016-07-12T00:41:46.000Z" itemprop="datePublished">2016-07-12</time>
+      <a href="/2016/08/04/mysql-tst-ntst/" class="article-date">
+  	<time datetime="2016-08-04T06:13:21.000Z" itemprop="datePublished">2016-08-04</time>
 </a>
     </div>
   
@@ -380,7 +470,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/12/leetcode-349-intersection-two-arrays/">leetcode-349-intersection-two-arrays</a>
+      <a class="article-title" href="/2016/08/04/mysql-tst-ntst/">MySQL进阶——事务表与非事务表</a>
     </h1>
   
 
@@ -389,13 +479,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
-<p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
-<p>Note:<br>1.Each element in the result must be unique.<br>2.The result can be in any order.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><p>``` bash<br>(code=java)<br>public class Solution {<br>    public int[] intersection(int[] nums1, int[] nums2) {<br>        Set<integer> set1=new HashSet<integer>();<br>        Set<integer> result=new HashSet<integer>();<br>        for(int i:nums1){<br>            set1.add(i);<br>        }<br>        for(int j:nums2){<br>            if(set1.contains(j)) result.add(j);<br>        }<br>        int length=result.size();<br>        int[] nums=new int[length];<br>        for(int k:result){<br>            nums[–length]=k;<br>          }<br>        return nums;</integer></integer></integer></integer></p>
-<pre><code>}
-</code></pre><p>}</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>通过题意，我们可以知道，本题要做的是写一个方法找出两个数组中的相同元素，将这些元素以数组的形式返回，并保证这个返回的<br>数组中的元素是唯一的，不要求顺序。<br>难点：<br>1.找出两个数组的相同元素<br>2.把数组中的重复元素去除<br>对于此题，比较好的方法是用 Set，下面介绍下 Set 的用法。<br>Set 不保存重复的元素，如果试图将多个重复的元素添加到 Set ，那么它会阻止这种重复现象。Set中最常被使用的是测试贵属性，<br>可以很容易的查询某个对象是否在 某个Set 中，因此 查找就成为了 Set 中最重要的操作，通常会选择一个HashSet实现，因为它<br>专门对快速查找进行了优化。<br>本题先将 nums1中的对象存入set1,再判断nums2中的对象是否存在于nums1，若存在则放入 result中，result也是 一个Set对象，在<br>存入的过程中会自动把重复的元忽略，最后再将result的元素存入一个数组返回。</p>
+        <h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>在谈事务表与非事务表之前先把必要的背景知识熟悉一下，首先谈一下什么是事务？</p>
+<h3 id="什么是事务？"><a href="#什么是事务？" class="headerlink" title="什么是事务？"></a>什么是事务？</h3><p>在MySQL环境中，一个事务由作为一个单独单元的一个或者多个sql语句组成。这个单元中的每个sql语句是互相依赖的， 而且单元作为一个整体是不<br>可分割的。如果单元中的一个语句不能成功完成，整个单元都会回滚，所有影响到的数据将返回到 事务开始之前的状态。因而，只有事务中的所有<br>语句都被成功的执行才能说这个事务被成功执行。</p>
+<h3 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h3><p>原子性，每个事务都必须被认为是一个不可分割的单元。<br>一致性，不管事务是完全成功还是中途失败，当事务使系统处于一致的状态时存在一致性。<br>孤立性，每个事务在它自己的空间发生，和其他发生在系统中的事务隔离，而且事务的结果只有在它完全被执行时才能看到。<br>持久性，即使系统崩溃，一个提交的事务扔在坚持。</p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>为了初始化一个事务，并告诉MySQL所有随后的sql语句需要被认为是一个单元，MySQL提供了start transaction命令来标记 一个事务的开始。也可以使用begin或者begin work命令来初始化一个事务。通常情况下，start transction命令后跟随的是组成事务的sql语句。<br>一旦sql语句被执行，就可使用commit命令来把整个事务保存在磁盘上，或者使用rollback命令来撤销所有的变化。 如果事务包括事务表和非事务<br>表的变化，非事务表的事务处理部分是不能使用rollback命令撤销的。在这种情况下， MySQL将会返回一个错误，通知出现一个不完全撤销，<br>commit命令标记了事务块的结束。</p>
+<h2 id="事务表与非事务表的区别及各自优势"><a href="#事务表与非事务表的区别及各自优势" class="headerlink" title="事务表与非事务表的区别及各自优势"></a>事务表与非事务表的区别及各自优势</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>（1）MySQL事务表支持将批处理当做一个完整的任务统一提交或回滚，即对包含在事务中的多条语句要么全执行，要么全部不执行。非事务表则不支持此种操作，批处理中的语句如果遇到错误，在错误前的语句执行成功，之后的则不执行。<br>（2）MySQL事务表有表锁与行锁 非事务表则只有表锁</p>
+<h3 id="事务表的优势"><a href="#事务表的优势" class="headerlink" title="事务表的优势"></a>事务表的优势</h3><p>（1）更安全。即使MySQL崩溃或遇到硬件问题，要么自动恢复，要么从备份加事务日志恢复，可以取回数据。</p>
+<p>（2）可以合并许多语句，并用COMMIT语句同时接受它们全部（如果autocommit被禁止掉）。</p>
+<p>（3）可以执行ROLLBACK来忽略你的改变（如果autocommit被禁止掉）。</p>
+<p>（4）如果更新失败，你的所有改变都变回原来。（用非事务表，所有发生的改变都是永久的）。</p>
+<p>（5）事务安全存储引擎可以给那些当前用读得到许多更新的表提供更好的部署。</p>
+<h3 id="非事务表的优势"><a href="#非事务表的优势" class="headerlink" title="非事务表的优势"></a>非事务表的优势</h3><p>（1）更快</p>
+<p>（2）需要更少的磁盘空间</p>
+<p>（3）执行更新需要更少的内存</p>
 
       
     </div>
@@ -404,71 +500,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-283-movezeros" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/11/leetcode-283-movezeros/" class="article-date">
-  	<time datetime="2016-07-11T05:45:05.000Z" itemprop="datePublished">2016-07-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/11/leetcode-283-movezeros/">leetcode-283-movezeros</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
-<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
-<p>Note:<br>You must do this in-place without making a copy of the array.<br>Minimize the total number of operations.</p>
-<h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void moveZeroes(int[] nums) &#123;</span><br><span class="line">       int flag=0;</span><br><span class="line">       <span class="keyword">for</span>(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]!=0) nums[flag++]=nums[i];</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">for</span>(;flag&lt;nums.length;flag++)&#123;</span><br><span class="line">        nums[flag]=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public void moveZeroes(int[] nums) &#123;</span><br><span class="line">       int length=nums.length;</span><br><span class="line">       int flag=0;</span><br><span class="line">       int[] intergers=new int[length];</span><br><span class="line">       <span class="keyword">for</span>(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]!=0) </span><br><span class="line">           &#123;</span><br><span class="line">               intergers[flag]=nums[i];</span><br><span class="line">               flag++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(j&lt;flag) nums[j]=intergers[j];</span><br><span class="line">           <span class="keyword">else</span> nums[j]=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>本题不难，分析后，我们要做的就是将一个数组中的零元素放到数组后面，而将非零元素放在数组前面，并不改变原数组中非零元素<br>的相对位置。</p>
-<p>第一种方法，相对简单一点，就是按顺序遍历整个数组，碰到非零元素就将非零元素放到原数组中，非零元素先不管，被覆盖也无所<br>谓，并用标识符flag记录非零元素的数量，将所有数组元素遍历一遍后，便把所有的非零元素置于数组前面了，然后从数组中下标为flag的位开始为数组赋值 0，直到将数组填满。</p>
-<p>第二种方法，代码量相对较多，单比较容易理解，思想就是遍历数组，将所有的非零元素放到另一个数组暂存，然后再将暂存非零元<br>素的数组的值逐一赋给原数组，再将原数组的剩余位用零填满。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
 	</div>
 
       
@@ -492,7 +524,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
     </nav>
   
 </div>

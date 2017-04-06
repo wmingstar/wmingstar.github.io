@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,146 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-面试-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/21/面试-操作系统/" class="article-date">
+  	<time datetime="2016-11-21T08:26:37.000Z" itemprop="datePublished">2016-11-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/21/面试-操作系统/">面试-操作系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-进程和线程的概念以及它们的区别"><a href="#1-进程和线程的概念以及它们的区别" class="headerlink" title="1.进程和线程的概念以及它们的区别"></a>1.进程和线程的概念以及它们的区别</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是具有一定功能的程序关于某个数据集合上的一次运行活动，进程是系统调度和分配资源的一个独立实体。</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>线程是进程的实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>一个进程可以有多个线程，多个线程可以并发执行。</p>
+<h3 id="2-线程同步的方式有哪些？"><a href="#2-线程同步的方式有哪些？" class="headerlink" title="2.线程同步的方式有哪些？"></a>2.线程同步的方式有哪些？</h3><h4 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h4><p>采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多<br>个线程同时访问。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数。</p>
+<h4 id="事件（信号）"><a href="#事件（信号）" class="headerlink" title="事件（信号）"></a>事件（信号）</h4><p>通过通知操作的方式来保持多线程的同步，还可以方便的实现多线程优先级的比较操作。</p>
+<h3 id="3-进程通信的方式有哪些？"><a href="#3-进程通信的方式有哪些？" class="headerlink" title="3.进程通信的方式有哪些？"></a>3.进程通信的方式有哪些？</h3><p>管道、系统IPC(包括消息队列，信号量、共享存储)、SOCKET<br>管道主要分为：普通管道PIPE、流管道（S_pipe）、命名管道（name_pipe）</p>
+<h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4><p>管道（PIPE）是一种半双工的通信方式，数据只能单项流动，并且只能在具有亲缘关系的进程间流动，进程的亲缘关系通常是父子<br>进程。<br>命名管道（name_pipe）也是半双工的通信方式，它允许无亲缘关系的进程间进行通信。</p>
+<h4 id="系统IPC"><a href="#系统IPC" class="headerlink" title="系统IPC"></a>系统IPC</h4><p>消息队列是消息的链表，存放在内核中并由消息队列标识符标识。<br>信号量是一个计数器，用来控制多个进程对资源的访问，它通常作为一种锁机制。<br>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。<br>共享内存就是映射一段能被其它进程访问的内存，这段共享内存由一个进程创建，但是多个进程可以访问。</p>
+<h3 id="4-什么是缓冲区溢出？有什么危害？其原因是什么？"><a href="#4-什么是缓冲区溢出？有什么危害？其原因是什么？" class="headerlink" title="4.什么是缓冲区溢出？有什么危害？其原因是什么？"></a>4.什么是缓冲区溢出？有什么危害？其原因是什么？</h3><p>缓冲区溢出是指当计算机向缓冲区填充数据时超出了缓冲区本身的容量，溢出的数据覆盖在合法数据上。</p>
+<h4 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h4><p>程序崩溃，导致拒绝服务；<br>跳转并且执行一段恶意代码；</p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>造成缓冲区溢出的主要原因是程序中没有仔细检查用户输入。 </p>
+<h3 id="5-什么是死锁？死锁产生的条件？"><a href="#5-什么是死锁？死锁产生的条件？" class="headerlink" title="5.什么是死锁？死锁产生的条件？"></a>5.什么是死锁？死锁产生的条件？</h3><p>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之<br>前都不能向前推进，称这一组进程产生了死锁。通俗的讲就是两个或多个进程无限期的阻塞、相互等待的一种状态。</p>
+<h4 id="产生的条件"><a href="#产生的条件" class="headerlink" title="产生的条件"></a>产生的条件</h4><p>(1)互斥条件：一个资源一次只能被一个进程使用;<br>(2)请求与保持条件：一个进程因请求资源而阻塞时，对已获得资源保持不放;<br>(3)不剥夺条件：进程获得的资源，在未完全使用完之前，不能强行剥夺;<br>(4)循环等待条件：若干进程之间形成一种头尾相接的环形等待资源关系 ;<br>（有一个条件不成立，则不会产生死锁）</p>
+<h3 id="6-进程有哪几种状态？"><a href="#6-进程有哪几种状态？" class="headerlink" title="6.进程有哪几种状态？"></a>6.进程有哪几种状态？</h3><p>就绪状态：进程已获得除处理机以外的所需资源，等待分配处理机资源;<br>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数;<br>阻塞状态： 进程等待某种条件，在条件满足之前无法执行;</p>
+<h3 id="7-分页和分段有什么区别？"><a href="#7-分页和分段有什么区别？" class="headerlink" title="7.分页和分段有什么区别？"></a>7.分页和分段有什么区别？</h3><p>(1)段是信息的逻辑单位，它是根据用户的需要划分的，因此段对用户是可见的；页是信息的物理单位，是为了管理主存的方便而划<br>分的，对用户是透明的。<br>(2)段的大小不固定，有它所完成的功能决定；页大大小固定，由系统决定。<br>(3)段向用户提供二维地址空间；页向用户提供的是一维地址空间。<br>(4)段是信息的逻辑单位，便于存储保护和信息的共享，页的保护和共享受到限制。</p>
+<h3 id="8-操作系统中进程调度策略有哪几种？"><a href="#8-操作系统中进程调度策略有哪几种？" class="headerlink" title="8. 操作系统中进程调度策略有哪几种？"></a>8. 操作系统中进程调度策略有哪几种？</h3><p>FCFS(先来先服务)，优先级，时间片轮转，多级反馈</p>
+<h3 id="9-进程同步有哪几种机制？"><a href="#9-进程同步有哪几种机制？" class="headerlink" title="9.进程同步有哪几种机制？"></a>9.进程同步有哪几种机制？</h3><p>原子操作、信号量机制、自旋锁管程、会合、分布式系统</p>
+<h3 id="10-死锁的处理基本策略和常用方法？"><a href="#10-死锁的处理基本策略和常用方法？" class="headerlink" title="10.死锁的处理基本策略和常用方法？"></a>10.死锁的处理基本策略和常用方法？</h3><h4 id="解决死锁的基本方法"><a href="#解决死锁的基本方法" class="headerlink" title="解决死锁的基本方法"></a>解决死锁的基本方法</h4><p>预防死锁、避免死锁、检测死锁、解除死锁 </p>
+<h4 id="解决死锁的常用策略"><a href="#解决死锁的常用策略" class="headerlink" title="解决死锁的常用策略"></a>解决死锁的常用策略</h4><p>鸵鸟策略、预防策略、避免策略、检测与解除死锁 </p>
+<p>参考：<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
+<p>作者：路人甲<br>链接：<a href="https://zhuanlan.zhihu.com/p/23755202" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23755202</a><br>来源：知乎</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-217-Contains-Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/18/leetcode-217-Contains-Duplicate/" class="article-date">
+  	<time datetime="2016-11-18T06:09:10.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/leetcode-217-Contains-Duplicate/">leetcode-217-Contains-Duplicate</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean containsDuplicate(int[] nums) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums.length&lt;=1)&#123;</span><br><span class="line">             <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         Arrays.sort(nums);</span><br><span class="line">         <span class="keyword">for</span>(int i=0;i&lt;nums.length-1;i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(nums[i]==nums[i+1])&#123;</span><br><span class="line">                 <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def containsDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        nums_<span class="built_in">set</span>=<span class="built_in">set</span>(nums)</span><br><span class="line">        <span class="built_in">return</span> True <span class="keyword">if</span> len(nums_<span class="built_in">set</span>)&lt;len(nums) <span class="keyword">else</span> False</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题很简单，就是判断输入数组中是否有重复的数字。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>Arrays类中sort()方法，对数组进行排序。</p>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>python很简洁，用set()便可将list()转换为set容器，而set容器中的元素均为唯一的。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-leetcode-409-Longest-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -347,133 +487,9 @@
 
 
   
-    <article id="post-leetcode-387-first-unique-character" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/11/leetcode-387-first-unique-character/" class="article-date">
-  	<time datetime="2016-11-11T06:33:48.000Z" itemprop="datePublished">2016-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/leetcode-387-first-unique-character/">leetcode-387-first-unique character</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"leetcode"</span></span><br><span class="line"><span class="built_in">return</span> 0.</span><br><span class="line"></span><br><span class="line">s = <span class="string">"loveleetcode"</span>,</span><br><span class="line"><span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>得到字符串中unique字符的序号</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def firstUniqChar(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        letters=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">        char_index=[s.index(char) <span class="keyword">for</span> char <span class="keyword">in</span> letters <span class="keyword">if</span> s.count(char)==1]</span><br><span class="line">        <span class="built_in">return</span> min(char_index) <span class="keyword">if</span> char_index <span class="keyword">else</span> -1</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>开始时考虑用for循环遍历字符串判断字符串是否unique并返回其序号；这种方法忽略了两个问题：效率（运行时间）；当字符串特别大时会有内存溢出问题，所以不能用for遍历。</p>
-<h3 id="新学到的方法"><a href="#新学到的方法" class="headerlink" title="新学到的方法"></a>新学到的方法</h3><p>str.index(char)  获取字符串中某个字符的索引<br>str.count(char)  获取字符串中某个字符出现的次数</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-171-column-number" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/11/leetcode-171-column-number/" class="article-date">
-  	<time datetime="2016-11-11T05:26:52.000Z" itemprop="datePublished">2016-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/leetcode-171-column-number/">leetcode-171-column-number</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a column title as appear in an Excel sheet, return its corresponding column number<br>For Example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A -&gt; 1</span><br><span class="line">B -&gt; 2</span><br><span class="line">C -&gt; 3</span><br><span class="line">...</span><br><span class="line">Z -&gt; 26</span><br><span class="line">AA -&gt; 27</span><br><span class="line">AB -&gt; 28</span><br></pre></td></tr></table></figure></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>忽略杂音（Excel sheet），与Excel没关系，本质是将字母字符串转换为十进制数，再进一步分析，每一个字母（A——Z）对应一个数字<br>（1——26），此题的本质是进制转换，将26进制转换为十进制。</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def titleToNumber(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num = 0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            num = num*26+ord(char)-64</span><br><span class="line">        <span class="built_in">return</span> num</span><br></pre></td></tr></table></figure>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><p>10进制转16进制:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex(16)  ==&gt;  0x10</span><br></pre></td></tr></table></figure></p>
-<p>16进制转10进制：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'0x10'</span>, 16)  ==&gt;  16</span><br></pre></td></tr></table></figure></p>
-<p>类似的还有八进制oct()， 二进制bin()</p>
-<h4 id="数字与ascii字符互转"><a href="#数字与ascii字符互转" class="headerlink" title="数字与ascii字符互转"></a>数字与ascii字符互转</h4><p>chr() 数字转换为对应的ascii字符 （0~255）<br>ord() ascii字符转为对应的数字</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 </div>

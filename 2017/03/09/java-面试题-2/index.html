@@ -18,7 +18,7 @@
 
 抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。 
 继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息的类被称为子类（派生类）。继承让变化中的软件系统有了一定的延续性，同时继承">
-<meta property="og:updated_time" content="2017-03-12T13:49:05.708Z">
+<meta property="og:updated_time" content="2017-04-06T06:58:23.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java-面试题-2">
 <meta name="twitter:description" content="1.面向对象的特征有哪些方面？答：面向对象的特征主要有以下几个方面： 
@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -300,7 +300,7 @@
 <h3 id="46、List、Map、Set三个接口存取元素时，各有什么特点？"><a href="#46、List、Map、Set三个接口存取元素时，各有什么特点？" class="headerlink" title="46、List、Map、Set三个接口存取元素时，各有什么特点？"></a>46、List、Map、Set三个接口存取元素时，各有什么特点？</h3><p>答：List以特定索引来存取元素，可以有重复元素。Set不能存放重复元素（用对象的equals()方法来区分元素是否重复）。<br>Map保存键值对（key-value pair）映射，映射关系可以是一对一或多对一。Set和Map容器都有基于哈希存储<br>和排序树的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。</p>
 <h3 id="47、线程的sleep-方法和yield-方法有什么区别？"><a href="#47、线程的sleep-方法和yield-方法有什么区别？" class="headerlink" title="47、线程的sleep()方法和yield()方法有什么区别？"></a>47、线程的sleep()方法和yield()方法有什么区别？</h3><p>（1）sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会；<br>（2）线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；<br>（3）sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；<br>（4）sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。</p>
 <h3 id="48、什么是线程池（thread-pool）？"><a href="#48、什么是线程池（thread-pool）？" class="headerlink" title="48、什么是线程池（thread pool）？"></a>48、什么是线程池（thread pool）？</h3><p>答：在面向对象编程中，创建和销毁对象是很费时间的，因为创建一个对象要获取内存资源或者其它更多资源。在Java中更是如此，虚拟机将试图跟踪每一个对象，以便能够在对象销毁后进行垃圾回收。所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是”池化资源”技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池（容器）中，需要的时候从池中获取线程不用自行创建，使用完毕不需要销毁线程而是放回池中，从而减少创建和销毁线程对象的开销。 </p>
-<h3 id="到-75"><a href="#到-75" class="headerlink" title="到 75"></a>到 75</h3>
+
       
     </div>
     

@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,213 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java-GC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/java-GC/" class="article-date">
+  	<time datetime="2017-03-11T07:00:34.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/java-GC/">java-GC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、为什么需要GC"><a href="#一、为什么需要GC" class="headerlink" title="一、为什么需要GC"></a>一、为什么需要GC</h3><h4 id="应用程序对资源操作，通常简单分为以下几个步骤："><a href="#应用程序对资源操作，通常简单分为以下几个步骤：" class="headerlink" title="应用程序对资源操作，通常简单分为以下几个步骤："></a>应用程序对资源操作，通常简单分为以下几个步骤：</h4><p>1、为对应的资源分配内存</p>
+<p>2、初始化内存</p>
+<p>3、使用资源</p>
+<p>4、清理资源</p>
+<p>5、释放内存</p>
+<h4 id="应用程序对资源（内存使用）管理的方式，常见的一般有如下几种："><a href="#应用程序对资源（内存使用）管理的方式，常见的一般有如下几种：" class="headerlink" title="应用程序对资源（内存使用）管理的方式，常见的一般有如下几种："></a>应用程序对资源（内存使用）管理的方式，常见的一般有如下几种：</h4><p>1、手动管理：C,C++</p>
+<p>2、计数管理：COM</p>
+<p>3、自动管理：.NET,Java,PHP,GO…</p>
+<h4 id="手动管理和计数管理的复杂性很容易产生以下典型问题："><a href="#手动管理和计数管理的复杂性很容易产生以下典型问题：" class="headerlink" title="手动管理和计数管理的复杂性很容易产生以下典型问题："></a>手动管理和计数管理的复杂性很容易产生以下典型问题：</h4><p>1.程序员忘记去释放内存</p>
+<p>2.应用程序访问已经释放的内存</p>
+<p>产生的后果很严重，常见的如内存泄露、数据内容乱码，而且大部分时候，程序的行为会变得怪异而不可预测，还有Access Violation等。</p>
+<p>.NET、Java等给出的解决方案，就是通过自动垃圾回收机制GC进行内存管理。这样，问题1自然得到解决，问题2也没有存在的基础。</p>
+<p>总结：无法自动化的内存管理方式极容易产生bug，影响系统稳定性，尤其是线上多服务器的集群环境，程序出现执行时bug必须定位到某台服务器然后dump内存再分析bug所在。</p>
+<p>安全性考虑；– for security.<br>减少内存泄露；– erase memory leak in some degree.<br>减少程序员工作量。– Programmers don’t worry about memory releasing.</p>
+<h3 id="二、GC如何工作"><a href="#二、GC如何工作" class="headerlink" title="二、GC如何工作"></a>二、GC如何工作</h3><h4 id="GC的工作流程主要分为如下几个步骤："><a href="#GC的工作流程主要分为如下几个步骤：" class="headerlink" title="GC的工作流程主要分为如下几个步骤："></a>GC的工作流程主要分为如下几个步骤：</h4><p>1、标记(Mark)</p>
+<p>2、计划(Plan)</p>
+<p>3、清理(Sweep)</p>
+<p>4、引用更新(Relocate)</p>
+<p>5、压缩(Compact)<br><img src="/img/gc.png" alt=""></p>
+<h4 id="1-标记"><a href="#1-标记" class="headerlink" title="1.标记"></a>1.标记</h4><p>目标：找出所有引用不为0(live)的实例</p>
+<p>方法：找到所有的GC的根结点(GC Root), 将他们放到队列里，然后依次递归地遍历所有的根结点以及引用<br>的所有子节点和子子节点，将所有被遍历到的结点标记成live。弱引用不会被考虑在内</p>
+<h4 id="2-计划和清理"><a href="#2-计划和清理" class="headerlink" title="2.计划和清理"></a>2.计划和清理</h4><p>(1)计划</p>
+<p>目标：判断是否需要压缩</p>
+<p>方法：遍历当前所有的generation上所有的标记(Live),根据特定算法作出决策。</p>
+<p>(2)清理</p>
+<p>目标：回收所有的free空间</p>
+<p>方法：遍历当前所有的generation上所有的标记(Live or Dead),把所有处在Live实例中间的内存块加入到可<br>用内存链表中去。</p>
+<h4 id="3-引用更新和压缩"><a href="#3-引用更新和压缩" class="headerlink" title="3.引用更新和压缩"></a>3.引用更新和压缩</h4><p>（1）引用更新</p>
+<p>目标： 将所有引用的地址进行更新</p>
+<p>方法：计算出压缩后每个实例对应的新地址，找到所有的GC的根结点(GC Root), 将他们放到队列里，<br>然后依次递归地遍历所有的根结点以及引用的所有子节点和子子节点，将所有被遍历到的结点中引用的地址进行更新，包括弱引用。</p>
+<p>（2）压缩</p>
+<p>目标：减少内存碎片</p>
+<p>方法：根据计算出来的新地址，把实例移动到相应的位置。</p>
+<h3 id="三、GC的根节点"><a href="#三、GC的根节点" class="headerlink" title="三、GC的根节点"></a>三、GC的根节点</h3><p>每个应用程序都包含一组根（root），每个根都是一个存储位置，其中包含指向引用类型对象的一个指针。该指针要么引用托管堆中的一个对象，要么为null。</p>
+<p>在应用程序中，只要某对象变得不可达，也就是没有根（root）引用该对象，这个对象就会成为垃圾回收器的目标。</p>
+<p>用一句简洁的英文描述就是:GC roots are not objects in themselves but are instead references to objects.而且，Any object referenced by a GC root will automatically survive the next garbage collection. </p>
+<p>注意，只有引用类型的变量才被认为是根，值类型的变量永远不被认为是根。只有深刻理解引用类型和值类型的内存分配和管理的不同，才能知道为什么root只能是引用类型。</p>
+<p>在Java中，可以当做GC Root的对象有以下几种：</p>
+<p>1、虚拟机（JVM）栈中的引用的对象</p>
+<p>2、方法区中的类静态属性引用的对象</p>
+<p>3、方法区中的常量引用的对象（主要指声明为final的常量值）</p>
+<p>4、本地方法栈中JNI的引用的对象</p>
+<h3 id="什么时候发生GC"><a href="#什么时候发生GC" class="headerlink" title="什么时候发生GC"></a>什么时候发生GC</h3><p>1、当应用程序分配新的对象，GC的代的预算大小已经达到阈值，比如GC的第0代已满</p>
+<p>2、代码主动显式调用System.GC.Collect()</p>
+<p>3、其他特殊情况，比如，windows报告内存不足、CLR卸载AppDomain、CLR关闭，甚至某些极端情况下系统参数设置改变也可能导致GC回收</p>
+<h3 id="五、GC中的代"><a href="#五、GC中的代" class="headerlink" title="五、GC中的代"></a>五、GC中的代</h3><p>代（Generation)引入的原因主要是为了提高性能（Performance),以避免收集整个堆（Heap）。一个基于代的垃圾回收器做出了如下几点假设：</p>
+<p>1、对象越新，生存期越短</p>
+<p>2、对象越老，生存期越长</p>
+<p>3、回收堆的一部分，速度快于回收整个堆</p>
+<p>.NET的垃圾收集器将对象分为三代（Generation0,Generation1,Generation2）。不同的代里面的内容如下：</p>
+<p>1、G0 小对象(Size&lt;85000Byte)</p>
+<p>2、G1:在GC中幸存下来的G0对象</p>
+<p>3、G2:大对象(Size&gt;=85000Byte);在GC中幸存下来的G1对象</p>
+<p>ps，这里必须知道，CLR要求所有的资源都从托管堆（managed heap）分配，CLR会管理两种类型的堆，<br>小对象堆（small object heap，SOH）和大对象堆（large object heap，LOH），<br>其中所有大于85000byte的内存分配都会在LOH上进行。</p>
+<p>一个有趣的问题是为什么是85000字节？</p>
+<p>代收集规则：当一个代N被收集以后，在这个代里的幸存下来的对象会被标记为N+1代的对象。GC对不同代的对象执行不同的检查策略以优化性能。每个GC周期都会检查第0代对象。大约1/10的GC周期检查第0代和第1代对象。大约1/100的GC周期检查所有的对象。</p>
+<h3 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h3><p>内存运行时JVM会有一个运行时数据区来管理内存。它主要包括5大部分：<br>程序计数器(Program Counter Register)、虚拟机栈(VM Stack)、本地方法栈(Native Method Stack)、方法区(Method Area)、堆(Heap).</p>
+<p>而其中程序计数器、虚拟机栈、本地方法栈是每个线程私有的内存空间，随线程而生，随线程而亡。例如栈中每一个栈帧中分配多少内存基本上在类结构去诶是哪个下来时就已知了，因此这3个区域的内存分配和回收都是确定的，无需考虑内存回收的问题。</p>
+<p>但方法区和堆就不同了，一个接口的多个实现类需要的内存可能不一样，我们只有在程序运行期间才会知道会创建哪些对象，这部分内存的分配和回收都是动态的，GC主要关注的是这部分内存。</p>
+<h3 id="When-–-什么时候回收？"><a href="#When-–-什么时候回收？" class="headerlink" title="When? – 什么时候回收？"></a>When? – 什么时候回收？</h3><h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>在面试中经常会碰到这样一个问题：如何判断一个对象已经死去？</p>
+<p>很容易想到的一个答案是：对一个对象添加引用计数器。每当有地方引用它时，计数器值加1；当引用失效时，计数器值减1.而当计数器的值为0时这个对象就不会再被使用，判断为已死。是不是简单又直观。然而，很遗憾。这种做法是错误的！（面试时可千万别这样回答哦，我就是不假思索这样回答，然后就。。）为什么是错的呢？事实上，用引用计数法确实在大部分情况下是一个不错的解决方案，而在实际的应用中也有不少案例，但它却无法解决对象之间的循环引用问题。比如对象A中有一个字段指向了对象B，而对象B中也有一个字段指向了对象A，而事实上他们俩都不再使用，但计数器的值永远都不可能为0，也就不会被回收，然后就发生了内存泄露。。</p>
+<p>所以，正确的做法应该是怎样呢？<br>在Java，C#等语言中，比较主流的判定一个对象已死的方法是：<br>可达性分析(Reachability Analysis).所有生成的对象都是一个称为”GC Roots”的根的子树。从GC Roots开始向下搜索，搜索所经过的路径称为引用链(Reference Chain)，当一个对象到GC Roots没有任何引用链可以到达时，就称这个对象是不可达的（不可引用的），也就是可以被GC回收了。</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>当内存空间还够时，能够保存在内存中；如果进行了垃圾回收之后内存空间仍旧非常紧张，则可以抛弃这些对象。所以根据不同的需求，给出如下四种引用，根据引用类型的不同，GC回收时也会有不同的操作：</p>
+<h4 id="强引用-Strong-Reference"><a href="#强引用-Strong-Reference" class="headerlink" title="强引用(Strong Reference):"></a>强引用(Strong Reference):</h4><p>Object obj = new Object();只要强引用还存在，GC永远不会回收掉被引用的对象。</p>
+<h4 id="软引用-SoftReference-："><a href="#软引用-SoftReference-：" class="headerlink" title="软引用(SoftReference)："></a>软引用(SoftReference)：</h4><p>描述一些还有用但非必需的对象。在系统将会发生内存溢出之前，会把这些对象列入回收范围进行二次回收（即系统将会发生内存溢出了，才会对他们进行回收。）</p>
+<h4 id="弱引用-Weak-Reference"><a href="#弱引用-Weak-Reference" class="headerlink" title="弱引用(Weak Reference):"></a>弱引用(Weak Reference):</h4><p>程度比软引用还要弱一些。这些对象只能生存到下次GC之前。当GC工作时，无论内存是否足够都会将其回收（即只要进行GC，就会对他们进行回收。）</p>
+<h4 id="虚引用-Phantom-Reference"><a href="#虚引用-Phantom-Reference" class="headerlink" title="虚引用(Phantom Reference):"></a>虚引用(Phantom Reference):</h4><p>一个对象是否存在虚引用，完全不会对其生存时间构成影响。</p>
+<h4 id="方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。"><a href="#方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。" class="headerlink" title="方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。"></a>方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。</h4><p>（1）废弃的常量的回收。这里看引用计数就可以了。没有对象引用该常量就可以放心的回收了。<br>（2）无用的类的回收。什么是无用的类呢？<br>     该类所有的实例都已经被回收。也就是Java堆中不存在该类的任何实例；<br>     加载该类的ClassLoader已经被回收；<br>     该类对应的java.lang.Class对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>对于堆中的对象，主要用可达性分析判断一个对象是否还存在引用，如果该对象没有任何引用就应该被回收。而根据我们实际对引用的不同需求，又分成了4中引用，每种引用的回收机制也是不同的。</p>
+<p>对于方法区中的常量和类，当一个常量没有任何对象引用它，它就可以被回收了。而对于类，如果可以判定它为无用类，就可以被回收了。</p>
+<h3 id="How-–-如何回收？"><a href="#How-–-如何回收？" class="headerlink" title="How? – 如何回收？"></a>How? – 如何回收？</h3><h4 id="标记-清除-Mark-Sweep-算法"><a href="#标记-清除-Mark-Sweep-算法" class="headerlink" title="标记-清除(Mark-Sweep)算法"></a>标记-清除(Mark-Sweep)算法</h4><p>分为两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象。<br>缺点：效率问题，标记和清除两个过程的效率都不高；空间问题，会产生很多碎片。</p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>将可用内存按容量划分为大小相等的两块，每次只用其中一块。当这一块用完了，就将还存活的对象复制到另外一块上面，然后把原始空间全部回收。高效、简单。<br>缺点：将内存缩小为原来的一半。</p>
+<h4 id="标记-整理-Mark-Compat-算法"><a href="#标记-整理-Mark-Compat-算法" class="headerlink" title="标记-整理(Mark-Compat)算法"></a>标记-整理(Mark-Compat)算法</h4><p>标记过程与标记-清除算法过程一样，但后面不是简单的清除，而是让所有存活的对象都向一端移动，然后直接清除掉端边界以外的内存。</p>
+<h4 id="分代收集-Generational-Collection-算法"><a href="#分代收集-Generational-Collection-算法" class="headerlink" title="分代收集(Generational Collection)算法"></a>分代收集(Generational Collection)算法</h4><p>新生代中，每次垃圾收集时都有大批对象死去，只有少量存活，就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集；<br>老年代中，其存活率较高、没有额外空间对它进行分配担保，就应该使用“标记-整理”或“标记-清理”算法进行回收。</p>
+<h3 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h3><p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化的解决2个问题：给对象分配内存以及回收分配给对象的内存。</p>
+<h4 id="对象优先在Eden分配"><a href="#对象优先在Eden分配" class="headerlink" title="对象优先在Eden分配"></a>对象优先在Eden分配</h4><p>大多数情况下，对象在新生代Eden区分配。当Eden区没有足够的内存时，虚拟机将发起一次Minor GC。</p>
+<p>Minor GC(新生代GC):指发生在新生代的垃圾收集动作，因为Java对象大多都具备朝生夕灭的特性，所以Minor GC发生的非常频繁。</p>
+<p>Full GC/Major GC(老年代GC):指发生在老年代的GC，出现了Major GC，经常会伴随至少一次的Minor GC。</p>
+<h4 id="大对象直接进老年代"><a href="#大对象直接进老年代" class="headerlink" title="大对象直接进老年代"></a>大对象直接进老年代</h4><p>大对象是指需要大量连续内存空间的Java对象（例如很长的字符串以及数组）。</p>
+<h4 id="长期存活的对象将进入老年代"><a href="#长期存活的对象将进入老年代" class="headerlink" title="长期存活的对象将进入老年代"></a>长期存活的对象将进入老年代</h4><p>JVM为每个对象定义一个对象年龄计数器。</p>
+<p>如果对象在Eden出生并经历过第一次MinorGC后仍然存活，并且能够被Survivor容纳，则应该被移动到<br>Survivor空间中，并且年龄对象设置为1；</p>
+<p>对象在Survivor区中每熬过一次Minor GC，年龄就会增加1岁，当它的年龄增加到一定程度(默认为15岁，<br>可通过参数-XX:MaxTenuringThreshold设置)，就会被晋升到老年代中。</p>
+<p>要注意的是：JVM并不是永远的要求对象的年龄必须达到MaxTenuringThreshold才能晋升老年代，如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代，无需等到MaxTenuringThreshold中要求的年龄。</p>
+<h4 id="空间分配担保"><a href="#空间分配担保" class="headerlink" title="空间分配担保"></a>空间分配担保</h4><p>在发生Minor GC之前，虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，<br>如果这个条件成立，则进行Minor GC是安全的；</p>
+<p>如果不成立，则虚拟机会查看HandlePromotionFailure设置值是否允许担保失败。<br>如果允许，则急促检查老年代最大可用连续空间是否大于历次晋升到老年代对象的平均大小，<br>如果大于，将尝试着进行一次Minor GC，尽管它是有风险的；<br>如果小于或者HandePromotionFailure设置为不允许冒险，则这时要改为进行一次Full GC.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-腾讯面经" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/10/腾讯面经/" class="article-date">
+  	<time datetime="2017-03-10T11:22:32.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/10/腾讯面经/">腾讯面经</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h2><p>面试部门：OMG(网络媒体事业群)<br>1.自我介绍<br>2.介绍项目<br>3.项目架构<br>4.项目中的难点  如何解决<br>5.算法题   两个链表存储两个多位数字，一个节点<br>存储一位，左边高位，右边低位，计算两数的和。<br>考点：链表遍历，逆序输出。<br>思路：<br>将链表中的数存储到栈中，高位在栈底，低位在栈顶，再从栈中取出来，分别计算出两个数的大小，再相加。</p>
+<p>6.TCP三次握手<br>7.进程，线程，协程</p>
+<p>进程：<br>进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位.</p>
+<p>线程；<br>线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源.<br>一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.</p>
+<p>区别：<br>进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。 </p>
+<p>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.<br>2) 线程的划分尺度小于进程，使得多线程程序的并发性高。<br>3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。<br>4) 线程在执行过程中与进程还是有区别的。<br>每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。<br>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。<br>但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
+<p>协程：<br>线程和进程的操作是由程序触发系统接口，最后的执行者是系统；协程的操作则是程序员。</p>
+<p>协程存在的意义：对于多线程应用，CPU通过切片的方式来切换线程间的执行，线程切换时需要耗时<br>（保存状态，下次继续）。协程，则只使用一个线程，在一个线程中规定某个代码块执行顺序。</p>
+<p>协程的适用场景：当程序中存在大量不需要CPU的操作时（IO），适用于协程；</p>
+<p>8.内存管理<br>9.JVM</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java-面试题-2" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -281,7 +488,7 @@
 <h3 id="46、List、Map、Set三个接口存取元素时，各有什么特点？"><a href="#46、List、Map、Set三个接口存取元素时，各有什么特点？" class="headerlink" title="46、List、Map、Set三个接口存取元素时，各有什么特点？"></a>46、List、Map、Set三个接口存取元素时，各有什么特点？</h3><p>答：List以特定索引来存取元素，可以有重复元素。Set不能存放重复元素（用对象的equals()方法来区分元素是否重复）。<br>Map保存键值对（key-value pair）映射，映射关系可以是一对一或多对一。Set和Map容器都有基于哈希存储<br>和排序树的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。</p>
 <h3 id="47、线程的sleep-方法和yield-方法有什么区别？"><a href="#47、线程的sleep-方法和yield-方法有什么区别？" class="headerlink" title="47、线程的sleep()方法和yield()方法有什么区别？"></a>47、线程的sleep()方法和yield()方法有什么区别？</h3><p>（1）sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会；<br>（2）线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；<br>（3）sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；<br>（4）sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。</p>
 <h3 id="48、什么是线程池（thread-pool）？"><a href="#48、什么是线程池（thread-pool）？" class="headerlink" title="48、什么是线程池（thread pool）？"></a>48、什么是线程池（thread pool）？</h3><p>答：在面向对象编程中，创建和销毁对象是很费时间的，因为创建一个对象要获取内存资源或者其它更多资源。在Java中更是如此，虚拟机将试图跟踪每一个对象，以便能够在对象销毁后进行垃圾回收。所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是”池化资源”技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池（容器）中，需要的时候从池中获取线程不用自行创建，使用完毕不需要销毁线程而是放回池中，从而减少创建和销毁线程对象的开销。 </p>
-<h3 id="到-75"><a href="#到-75" class="headerlink" title="到 75"></a>到 75</h3>
+
       
     </div>
     
@@ -506,148 +713,9 @@ int c_index = <span class="built_in">test</span>_str.indexOf(e);
 
 
   
-    <article id="post-java常用排序算法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/27/java常用排序算法/" class="article-date">
-  	<time datetime="2017-02-27T01:19:11.000Z" itemprop="datePublished">2017-02-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/java常用排序算法/">java常用排序算法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="基本排序算法分类："><a href="#基本排序算法分类：" class="headerlink" title="基本排序算法分类："></a>基本排序算法分类：</h3><p>1）插入排序（直接插入排序、希尔排序）<br>2）交换排序（冒泡排序、快速排序）<br>3）选择排序（直接选择排序、堆排序）<br>4）归并排序<br>5）分配排序（基数排序）<br>所需辅助空间最多：归并排序<br>所需辅助空间最少：堆排序<br>平均速度最快：快速排序<br>不稳定：快速排序，希尔排序，堆排序</p>
-<h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##思想：假设数组 a  前 j (j=i-1) 个是有序的，将第 i 个与前 j 个比较，当a[i]&lt;a[j]时，将a[j]</span></span><br><span class="line"><span class="comment">##后移，将a[i]插入</span></span><br><span class="line">public class InsertSort&#123;</span><br><span class="line">  public void insertSort(int[] arry)&#123;</span><br><span class="line">    int temp = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1;i&lt;arry.length;i++)&#123;</span><br><span class="line">      temp =arry[i];</span><br><span class="line">      j = i - 1;</span><br><span class="line">      <span class="keyword">for</span>(;j&gt;=0&amp;&amp;temp&lt;arry[j];j--)&#123;</span><br><span class="line">        arry[j+1] = arry[j];</span><br><span class="line">      &#125;</span><br><span class="line">      arry[j+1] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int k=0;k&lt;arry.length;k++)&#123;</span><br><span class="line">      System.out.println(a[k]);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 希尔排序</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">##将数组按增量 d 分为 多组，每组进行插入排序，直到 d=1</span></span><br><span class="line"></span><br><span class="line">public class ShellSort &#123;</span><br><span class="line"></span><br><span class="line">    public static int[] shellSort(int a[]) &#123;</span><br><span class="line">        double d1 = a.length;</span><br><span class="line">        int temp = 0;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            //增量取数组的长度的  1/2，将数组分为多组，分别用 插入排序进行排序</span><br><span class="line">            d1 = Math.ceil(d1 / 2);</span><br><span class="line">            int d = (int) d1;</span><br><span class="line">            <span class="keyword">for</span> (int x = 0; x &lt; d; x++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (int i = x + d; i &lt; a.length; i += d) &#123;</span><br><span class="line">                    int j = i - d;</span><br><span class="line">                    temp = a[i];</span><br><span class="line">                    <span class="keyword">for</span> (; j &gt;= 0 &amp;&amp; temp &lt; a[j]; j -= d) &#123;</span><br><span class="line">                        a[j + d] = a[j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    a[j + d] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (d == 1) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int a[] = &#123;1, 7,5&#125;;</span><br><span class="line">        int b[] = ShellSort.shellSort(a);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; b.length; i++) &#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">    public static int[] selectSort(int a[])&#123;</span><br><span class="line">        int position =0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            int temp = a[i];</span><br><span class="line">            position = i;</span><br><span class="line">            int j = i+1;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;a.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&lt;temp)&#123;</span><br><span class="line">                    temp = a[j];</span><br><span class="line">                    position =j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[position] = a[i];</span><br><span class="line">            a[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= SelectSort.selectSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class BubbleSort &#123;</span><br><span class="line">    public static int[] bubbleSort(int[] a)&#123;</span><br><span class="line">        int temp = 0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=0;j&lt;a.length-i-1;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&gt;a[j+1])&#123;</span><br><span class="line">                    temp =a[j+1];</span><br><span class="line">                    a[j+1]=a[j];</span><br><span class="line">                    a[j]=temp;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b= BubbleSort.bubbleSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class QuickSort &#123;</span><br><span class="line">    public static int[] quickSort(int[] arr)&#123;</span><br><span class="line">        qsort(arr,0,arr.length-1);</span><br><span class="line">        <span class="built_in">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void qsort(int[] arr,int low,int high)&#123;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)&#123;</span><br><span class="line">            int piv = partition(arr,low,high);</span><br><span class="line">            qsort(arr,low,piv-1);</span><br><span class="line">            qsort(arr,piv+1,high);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static int partition(int[] arr,int low,int high)&#123;</span><br><span class="line">        int pivot = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (low&lt;high)&#123;</span><br><span class="line">            <span class="keyword">while</span>(low&lt;high &amp;&amp; arr[high]&gt;=pivot)&#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[low] = arr[high];</span><br><span class="line">            <span class="keyword">while</span> (low&lt;high &amp;&amp; arr[low]&lt;=pivot)&#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[high] = arr[low];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[low] = pivot;</span><br><span class="line">        <span class="built_in">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        int[] a = &#123;1,3,8,2,9,10,5,36,21&#125;;</span><br><span class="line">        int[] b = QuickSort.quickSort(a);</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;b.length;i++)&#123;</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tornado-简介与基本使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/23/tornado-简介与基本使用/" class="article-date">
-  	<time datetime="2017-02-23T08:04:04.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/tornado-简介与基本使用/">tornado-简介与基本使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tornado 是一个Python web框架和异步网络库，通过使用非阻塞网络I/O，Tornado 可以支持上万级的连接，<br>处理 长连接， WebSockets， 和其他需要与每个用户保持长久连接的应用。</p>
-<p>Tornado 大体上可以被分为4个主要的部分:</p>
-<h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><p>包括创建web应用的 RequestHandler 类，还有很多其他支持的类。</p>
-<h3 id="HTTP的客户端和服务端实现"><a href="#HTTP的客户端和服务端实现" class="headerlink" title="HTTP的客户端和服务端实现"></a>HTTP的客户端和服务端实现</h3><p>HTTPServer and AsyncHTTPClient.</p>
-<h3 id="异步网络库-IOLoop-and-IOStream"><a href="#异步网络库-IOLoop-and-IOStream" class="headerlink" title="异步网络库 (IOLoop and IOStream)"></a>异步网络库 (IOLoop and IOStream)</h3><p>为HTTP组件提供构建模块，也可以用来实现其他协议。</p>
-<h3 id="协程库-tornado-gen"><a href="#协程库-tornado-gen" class="headerlink" title="协程库 (tornado.gen)"></a>协程库 (tornado.gen)</h3><p>允许异步代码写的更直接而不用链式回调的方式。</p>
-<p>Tornado web 框架和HTTP server 一起为 WSGI 提供了一个全栈式的选择。<br>在WSGI容器在WSGI容器 (WSGIAdapter) 中使用Tornado web框架或者使用Tornado HTTP server<br>作为一个其他WSGI框架(WSGIContainer)的容器,这样的组合方式都是有局限性的。<br>为了充分利用Tornado的特性，你需要一起使用Tornado的web框架和HTTP server。</p>
-<h2 id="Tornado-web应用的结构"><a href="#Tornado-web应用的结构" class="headerlink" title="Tornado web应用的结构"></a>Tornado web应用的结构</h2><p>通常一个Tornado web应用包括一个或者多个 RequestHandler 子类，<br>一个可以将收到的请求路由到对应handler的 Application 对象，和 一个启动服务的 main() 函数。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import tornado.ioloop</span><br><span class="line">import tornado.web</span><br><span class="line"></span><br><span class="line">class MainHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">"Hello, world"</span>)</span><br><span class="line"></span><br><span class="line">def make_app():</span><br><span class="line">    <span class="built_in">return</span> tornado.web.Application([</span><br><span class="line">        (r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = make_app()</span><br><span class="line">    app.listen(8888)</span><br><span class="line">    tornado.ioloop.IOLoop.current().start()</span><br></pre></td></tr></table></figure>
-<h3 id="Application-对象"><a href="#Application-对象" class="headerlink" title="Application 对象"></a>Application 对象</h3><p>Application 对象是负责全局配置的，包括映射请求转发给处理程序的路由表。</p>
-<p>路由表是 URLSpec 对象(或元组)的列表，其中每个都包含(至少)一个正则表达式和一个处理类。顺序问题;<br>第一个匹配的规则会被使用。如果正则表达式包含捕获组，这些组会被作为路径参数传递给处理函数的<br>HTTP方法。如果一个字典作为URLSpec 的第三个参数被传递，它会作为初始参数传递给<br>RequestHandler.initialize。最后URLSpec可能有一个名字，这将允许它被 RequestHandler.reverse_url<br>使用。</p>
-<p>例如，在这个片段中根URL / 映射到了MainHandler，像 /story/ 后跟着一个数字这种形式的URL被映射到了<br>StoryHandler。这个数字被传递(作为字符串)给 StoryHandler.get。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class MainHandler(RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;a href="%s"&gt;link to story 1&lt;/a&gt;'</span> %</span><br><span class="line">                   self.reverse_url(<span class="string">"story"</span>, <span class="string">"1"</span>))</span><br><span class="line"></span><br><span class="line">class StoryHandler(RequestHandler):</span><br><span class="line">    def initialize(self, db):</span><br><span class="line">        self.db = db</span><br><span class="line"></span><br><span class="line">    def get(self, story_id):</span><br><span class="line">        self.write(<span class="string">"this is story %s"</span> % story_id)</span><br><span class="line"></span><br><span class="line">app = Application([</span><br><span class="line">    url(r<span class="string">"/"</span>, MainHandler),</span><br><span class="line">    url(r<span class="string">"/story/([0-9]+)"</span>, StoryHandler, dict(db=db), name=<span class="string">"story"</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure></p>
-<p>Application 构造函数有很多关键字参数可以用于自定义应用程序的行为和使用某些特性(或者功能);<br>完整列表请查看 Application.settings。</p>
-<h3 id="RequestHandler子类"><a href="#RequestHandler子类" class="headerlink" title="RequestHandler子类"></a>RequestHandler子类</h3><p>Tornado web 应用程序的大部分工作是在 RequestHandler子类下完成的。<br>处理子类的主入口点是一个命名为处理HTTP方法的函数: get(), post(), 等等.<br>每个处理程序可以定义一个或者多个这种方法来处理不同 的HTTP动作， 如上所述，<br>这些方法将被匹配路由规则的捕获组对应的参数调用。</p>
-<p>在处理程序中, 调用方法如 RequestHandler.render 或者 RequestHandler.write 产生一个响应。 render()<br>通过名字加载一个 Template 并使用给定的参数渲染它。write()被用于非模板基础的输出; 它接受字符串,<br>字节, 和字典(字典会被编码成JSON).</p>
-<p>在 RequestHandler 中的很多方法的设计是为了在子类中复写和在整个应用中使用。常用的方法是定义一个<br>BaseHandler类， 复写一些方法例如 write_error 和 get_current_user 然后子类继承使用你自己的<br>BaseHandler 而不是 RequestHandler 在你所有具体的处理程序中。</p>
-<h3 id="处理输入请求"><a href="#处理输入请求" class="headerlink" title="处理输入请求"></a>处理输入请求</h3><p>处理请求的程序(request handler)可以使用 self.request 访问代表当前请求的对象。通过<br>HTTPServerRequest 的类定义查看完整的属性列表.</p>
-<p>使用HTML表单格式请求的数据会被解析并且可以在一些方法中使用，例如 get_query_argument 和<br>get_body_argument。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MyFormHandler(tornado.web.RequestHandler):</span><br><span class="line">    def get(self):</span><br><span class="line">        self.write(<span class="string">'&lt;html&gt;&lt;body&gt;&lt;form action="/myform" method="POST"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="text" name="message"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;input type="submit" value="Submit"&gt;'</span></span><br><span class="line">                   <span class="string">'&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;'</span>)</span><br><span class="line"></span><br><span class="line">    def post(self):</span><br><span class="line">        self.set_header(<span class="string">"Content-Type"</span>, <span class="string">"text/plain"</span>)</span><br><span class="line">        self.write(<span class="string">"You wrote "</span> + self.get_body_argument(<span class="string">"message"</span>))</span><br></pre></td></tr></table></figure></p>
-<p>由于HTLM表单编码不确定一个标签的参数是单一值还是一个列表，RequestHandler<br>有明确的方法来允许应用程序表明是否它期望接收一个列表。 对于列表，使用 get_query_arguments 和<br>get_body_arguments 而不是它们的单数形式。</p>
-<p>通过一个表单上传的文件可以使用 self.request.files, 它遍历名字(HTML 标签 <input type="file"> 的name)到一个文件列表. 每个文件都是一个字典的形式 {“filename”:…, “content_type”:…, “body”:…}. files 对象是当前唯一的如果文件上传是通过一个表单包装 (i.e. a multipart/form-data Content-Type); 如果没用这种格式, 原生上传的数据可以调用 self.request.body 使用. 默认上传的文件是完全缓存在内存中的; 如果你需要处理占用内存太大的文件 可以看看 stream_request_body 类装饰器.</p>
-<p>由于HTML表单编码格式的怪异 (e.g. 在单数和复数参数的含糊不清), Tornado 不会试图统一表单参数和其他输入类型的参数. 特别是, 我们不解析JSON请求体. 应用程序希望使用JSON代替表单编码可以复写 prepare 来解析它们的请求:</p>
-<p>def prepare(self):<br>    if self.request.headers[“Content-Type”].startswith(“application/json”):<br>        self.json_args = json.loads(self.request.body)<br>    else:<br>        self.json_args = None</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

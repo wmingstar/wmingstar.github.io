@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,153 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java中的异常和错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/23/java中的异常和错误/" class="article-date">
+  	<time datetime="2017-03-23T00:22:49.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/java中的异常和错误/">java种Throwable、Error、Exception、RuntimeException 区别 联系</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception。</p>
+<h3 id="Exception："><a href="#Exception：" class="headerlink" title="Exception："></a>Exception：</h3><p>1．可以是可被控制(checked) 或不可控制的(unchecked) </p>
+<p>2．表示一个由程序员导致的错误 </p>
+<p>3．应该在应用程序级被处理</p>
+<h3 id="Error："><a href="#Error：" class="headerlink" title="Error："></a>Error：</h3><p>1．总是不可控制的(unchecked) </p>
+<p>2．经常用来用于表示系统错误或低层资源的错误 </p>
+<p>3．如何可能的话，应该在系统级被捕捉</p>
+<h3 id="Checked-exception-与-Unchecked-exception"><a href="#Checked-exception-与-Unchecked-exception" class="headerlink" title="Checked exception 与 Unchecked exception"></a>Checked exception 与 Unchecked exception</h3><h4 id="Checked-exception"><a href="#Checked-exception" class="headerlink" title="Checked exception"></a>Checked exception</h4><p>这类异常都是Exception的子类，用异常的向上抛出机制进行处理，假如子类可能<br>产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。</p>
+<h4 id="Unchecked-exception"><a href="#Unchecked-exception" class="headerlink" title="Unchecked exception"></a>Unchecked exception</h4><p>这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们<br>是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。</p>
+<h4 id="Checked-Exception与Runtime-Exception-的区别"><a href="#Checked-Exception与Runtime-Exception-的区别" class="headerlink" title="Checked Exception与Runtime Exception 的区别"></a>Checked Exception与Runtime Exception 的区别</h4><p>Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，<br>另外一种则是受控制的Exception (Checked Exception)。</p>
+<p>所有的Checked Exception 均从java.lang.Exception 继承而来，而Runtime Exception<br>则继承java.lang.RuntimeException 或java.lang.Error (实际上java.lang.RuntimeException<br>的上一层也是java.lang.Exception)。</p>
+<p>写代码时很可能会对选择某种形式的Exception 感到困扰，到底应该选择Runtime Exception<br>还是Checked Exception ？</p>
+<p>其实，在运作上，可以通过Class 的Method 如何产生某个Exception以及某个程序如何<br>处理这个被产生来的Exception 来了解它们之间的差异，先建立一个Exception：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class CException extends Exception &#123;  </span><br><span class="line">    </span><br><span class="line">    public <span class="function"><span class="title">CException</span></span>() &#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public CException(String message) &#123;  </span><br><span class="line">        super(message);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class TestException &#123;  </span><br><span class="line">    public void method1() throws CException &#123;  </span><br><span class="line">        throw new CException(<span class="string">"Test Exception"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method2(String msg) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (msg == null) &#123;  </span><br><span class="line">            throw new NullPointerException(<span class="string">"Message is null"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method3() throws CException &#123;  </span><br><span class="line">        method1();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    // 以下省略  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>method1 和 method2 的程序代码内都会产生 Exception，<br>但method3 的程序代码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个 method<br>可能产生CException。</p>
+<p>调用 method1() 的程序，由于 method1 会抛出异常 必须将method1() 包含在try 与catch 中，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest &#123;  </span><br><span class="line">    // ....  </span><br><span class="line">    public static void main(String argv[]) &#123;  </span><br><span class="line">        TestException te = new TestException();  </span><br><span class="line">        try &#123;  </span><br><span class="line">            te.method1();  </span><br><span class="line">        &#125; catch (CException ce) &#123;  </span><br><span class="line">            // ....  </span><br><span class="line">            ce.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，<br>但它的用意在于提醒调用者，执行这个method可能产生的意外，而使用者也必须要能针对这个意外做出相对应<br>的处理方式。</p>
+<p>当使用者呼叫 method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，<br>并没有throws 任何的Exception ，如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest  </span><br><span class="line">&#123;  </span><br><span class="line">// ....  </span><br><span class="line">public static void main(String argv[])  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">test</span>Exception te = new <span class="built_in">test</span>Exception();  </span><br><span class="line">  </span><br><span class="line">// 不会产生 Exception  </span><br><span class="line">te.method2(<span class="string">"Hello"</span>);  </span><br><span class="line">  </span><br><span class="line">// 会产生 Exception  </span><br><span class="line">te.method2(null);  </span><br><span class="line">&#125;  </span><br><span class="line">// ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若一个 method 内部抛出的是 RuntimeException，那定义这个 method 时，不需要明确 throws Exception</p>
+<p>调用 method 时，若 method 明确  throws Exception，则需要将这个 method 的调用放在 try catch<br>中，对抛出的异常情况进行处理。</p>
+<p>调用 method 时，若 method 没有 throws Exception，则不需要将这个 method 的调用放在 try catch<br>中。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-笔试题解析1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/18/笔试题解析1/" class="article-date">
+  	<time datetime="2017-03-18T02:55:17.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/笔试题解析1/">笔试题解析1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="美团"><a href="#美团" class="headerlink" title="美团"></a>美团</h2><h4 id="1-下述解决死锁的方法中，属于死锁预防策略的是？"><a href="#1-下述解决死锁的方法中，属于死锁预防策略的是？" class="headerlink" title="1.下述解决死锁的方法中，属于死锁预防策略的是？"></a>1.下述解决死锁的方法中，属于死锁预防策略的是？</h4><p>银行家算法：避免死锁<br>资源有序分配法：预防死锁<br>资源分配图化简法：检测死锁<br>撤销进程法：解决死锁</p>
+<p>死锁：是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们<br>都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等竺的进程称为死锁进程.</p>
+<p>产生死锁的原因主要是：<br>　　（1） 因为系统资源不足；<br>　　（2） 进程运行推进的顺序不合适；<br>　　（3） 资源分配不当等；</p>
+<p>产生死锁的四个必要条件：<br>　　（1） 互斥条件：一个资源每次只能被一个进程使用。<br>　　（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>　　（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。<br>　　（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。<br>　　这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之<br>　　一不满足，就不会发生死锁。</p>
+<h4 id="2-下面代码输出的结果是？"><a href="#2-下面代码输出的结果是？" class="headerlink" title="2.下面代码输出的结果是？"></a>2.下面代码输出的结果是？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class NULL &#123;</span><br><span class="line"></span><br><span class="line">public static void <span class="function"><span class="title">print</span></span>()&#123;</span><br><span class="line">System.out.println(“MTDP”);</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">try&#123;</span><br><span class="line">((NULL)null).print(); </span><br><span class="line">&#125;catch(NullPointerException e)&#123;</span><br><span class="line">System.out.println(<span class="string">"NullPointerException"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>null不是对象，它可以看成是指向不确定对象的引用。<br>赋值时，基本类型赋初值不能为null，换而言之，int也没有为空这一说法，如果非要勉强说有，那就是0。<br>而对象赋初值可以将其设为null。<br>null是java的关键字，故不用事先声明它，直接把null作为NULL对象的一个引用，将其实例化，故而有输出。</p>
+<h4 id="3-1024-末尾有多少个0"><a href="#3-1024-末尾有多少个0" class="headerlink" title="3.1024! 末尾有多少个0?"></a>3.1024! 末尾有多少个0?</h4><p>末尾0的个数取决于乘法中因子2和5的个数。显然乘法中因子2的个数大于5的个数，所以我们只需统计因子5的个数。<br>是5的倍数的数有： 1024 / 5 = 204个<br>是25的倍数的数有：1024 / 25 = 40个<br>是125的倍数的数有：1024 / 125 = 8个<br>是625的倍数的数有：1024 / 625 = 1个<br>所以1024! 中总共有204+40+8+1=253个因子5。<br>也就是说1024! 末尾有253个0。</p>
+<h4 id="4-从n个数中找出最小的k个数-n-gt-gt-k-，最优平均时间复杂度是？"><a href="#4-从n个数中找出最小的k个数-n-gt-gt-k-，最优平均时间复杂度是？" class="headerlink" title="4.从n个数中找出最小的k个数(n &gt;&gt; k)，最优平均时间复杂度是？"></a>4.从n个数中找出最小的k个数(n &gt;&gt; k)，最优平均时间复杂度是？</h4><p>1.先直接排序，再取排序后数据的前k个数。排序算法用最快的堆排序，复杂度也会达到O(N<em>logN)。当k接近于N时，可以用这种算法。<br>2.先排序前k个数，对于后面N-k个数，依次进行插入。时间复杂度为O(k</em>n)。当k很小时，可以用这种算法。<br>3.对前k个数，建立最大堆，对于后面N-k个数，依次和最大堆的最大数比较，如果小于最大数，则替换最大数，并重新建立最大堆。时间复杂度为O(N*logk)。当k和N都很大时，这种算法比前两种算法要快很多。</p>
+<h4 id="5-HTTP的会话有四个过程，请选出不是的一个？"><a href="#5-HTTP的会话有四个过程，请选出不是的一个？" class="headerlink" title="5.HTTP的会话有四个过程，请选出不是的一个？"></a>5.HTTP的会话有四个过程，请选出不是的一个？</h4><p>Http会话的四个过程:<br>建立连接，发送请求，返回响应，关闭连接。</p>
+<h4 id="6-进程间的通信机制"><a href="#6-进程间的通信机制" class="headerlink" title="6.进程间的通信机制"></a>6.进程间的通信机制</h4><p>管道( pipe )：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。<br>进程的亲缘关系通常是指父子进程关系。 </p>
+<p>有名管道 (named pipe) ： 有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。 </p>
+<p>信号量( semophore ) ： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。<br>消息队列( message queue ) ： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。<br>信号 ( signal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。<br>共享内存( shared memory ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。<br>套接字( socket ) ： 套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同及其间的进程通信。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java中的集合类" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -566,216 +713,9 @@
 
 
   
-    <article id="post-java-GC" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/11/java-GC/" class="article-date">
-  	<time datetime="2017-03-11T07:00:34.000Z" itemprop="datePublished">2017-03-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/java-GC/">java-GC</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、为什么需要GC"><a href="#一、为什么需要GC" class="headerlink" title="一、为什么需要GC"></a>一、为什么需要GC</h3><h4 id="应用程序对资源操作，通常简单分为以下几个步骤："><a href="#应用程序对资源操作，通常简单分为以下几个步骤：" class="headerlink" title="应用程序对资源操作，通常简单分为以下几个步骤："></a>应用程序对资源操作，通常简单分为以下几个步骤：</h4><p>1、为对应的资源分配内存</p>
-<p>2、初始化内存</p>
-<p>3、使用资源</p>
-<p>4、清理资源</p>
-<p>5、释放内存</p>
-<h4 id="应用程序对资源（内存使用）管理的方式，常见的一般有如下几种："><a href="#应用程序对资源（内存使用）管理的方式，常见的一般有如下几种：" class="headerlink" title="应用程序对资源（内存使用）管理的方式，常见的一般有如下几种："></a>应用程序对资源（内存使用）管理的方式，常见的一般有如下几种：</h4><p>1、手动管理：C,C++</p>
-<p>2、计数管理：COM</p>
-<p>3、自动管理：.NET,Java,PHP,GO…</p>
-<h4 id="手动管理和计数管理的复杂性很容易产生以下典型问题："><a href="#手动管理和计数管理的复杂性很容易产生以下典型问题：" class="headerlink" title="手动管理和计数管理的复杂性很容易产生以下典型问题："></a>手动管理和计数管理的复杂性很容易产生以下典型问题：</h4><p>1.程序员忘记去释放内存</p>
-<p>2.应用程序访问已经释放的内存</p>
-<p>产生的后果很严重，常见的如内存泄露、数据内容乱码，而且大部分时候，程序的行为会变得怪异而不可预测，还有Access Violation等。</p>
-<p>.NET、Java等给出的解决方案，就是通过自动垃圾回收机制GC进行内存管理。这样，问题1自然得到解决，问题2也没有存在的基础。</p>
-<p>总结：无法自动化的内存管理方式极容易产生bug，影响系统稳定性，尤其是线上多服务器的集群环境，程序出现执行时bug必须定位到某台服务器然后dump内存再分析bug所在。</p>
-<p>安全性考虑；– for security.<br>减少内存泄露；– erase memory leak in some degree.<br>减少程序员工作量。– Programmers don’t worry about memory releasing.</p>
-<h3 id="二、GC如何工作"><a href="#二、GC如何工作" class="headerlink" title="二、GC如何工作"></a>二、GC如何工作</h3><h4 id="GC的工作流程主要分为如下几个步骤："><a href="#GC的工作流程主要分为如下几个步骤：" class="headerlink" title="GC的工作流程主要分为如下几个步骤："></a>GC的工作流程主要分为如下几个步骤：</h4><p>1、标记(Mark)</p>
-<p>2、计划(Plan)</p>
-<p>3、清理(Sweep)</p>
-<p>4、引用更新(Relocate)</p>
-<p>5、压缩(Compact)<br><img src="/img/gc.png" alt=""></p>
-<h4 id="1-标记"><a href="#1-标记" class="headerlink" title="1.标记"></a>1.标记</h4><p>目标：找出所有引用不为0(live)的实例</p>
-<p>方法：找到所有的GC的根结点(GC Root), 将他们放到队列里，然后依次递归地遍历所有的根结点以及引用<br>的所有子节点和子子节点，将所有被遍历到的结点标记成live。弱引用不会被考虑在内</p>
-<h4 id="2-计划和清理"><a href="#2-计划和清理" class="headerlink" title="2.计划和清理"></a>2.计划和清理</h4><p>(1)计划</p>
-<p>目标：判断是否需要压缩</p>
-<p>方法：遍历当前所有的generation上所有的标记(Live),根据特定算法作出决策。</p>
-<p>(2)清理</p>
-<p>目标：回收所有的free空间</p>
-<p>方法：遍历当前所有的generation上所有的标记(Live or Dead),把所有处在Live实例中间的内存块加入到可<br>用内存链表中去。</p>
-<h4 id="3-引用更新和压缩"><a href="#3-引用更新和压缩" class="headerlink" title="3.引用更新和压缩"></a>3.引用更新和压缩</h4><p>（1）引用更新</p>
-<p>目标： 将所有引用的地址进行更新</p>
-<p>方法：计算出压缩后每个实例对应的新地址，找到所有的GC的根结点(GC Root), 将他们放到队列里，<br>然后依次递归地遍历所有的根结点以及引用的所有子节点和子子节点，将所有被遍历到的结点中引用的地址进行更新，包括弱引用。</p>
-<p>（2）压缩</p>
-<p>目标：减少内存碎片</p>
-<p>方法：根据计算出来的新地址，把实例移动到相应的位置。</p>
-<h3 id="三、GC的根节点"><a href="#三、GC的根节点" class="headerlink" title="三、GC的根节点"></a>三、GC的根节点</h3><p>每个应用程序都包含一组根（root），每个根都是一个存储位置，其中包含指向引用类型对象的一个指针。该指针要么引用托管堆中的一个对象，要么为null。</p>
-<p>在应用程序中，只要某对象变得不可达，也就是没有根（root）引用该对象，这个对象就会成为垃圾回收器的目标。</p>
-<p>用一句简洁的英文描述就是:GC roots are not objects in themselves but are instead references to objects.而且，Any object referenced by a GC root will automatically survive the next garbage collection. </p>
-<p>注意，只有引用类型的变量才被认为是根，值类型的变量永远不被认为是根。只有深刻理解引用类型和值类型的内存分配和管理的不同，才能知道为什么root只能是引用类型。</p>
-<p>在Java中，可以当做GC Root的对象有以下几种：</p>
-<p>1、虚拟机（JVM）栈中的引用的对象</p>
-<p>2、方法区中的类静态属性引用的对象</p>
-<p>3、方法区中的常量引用的对象（主要指声明为final的常量值）</p>
-<p>4、本地方法栈中JNI的引用的对象</p>
-<h3 id="什么时候发生GC"><a href="#什么时候发生GC" class="headerlink" title="什么时候发生GC"></a>什么时候发生GC</h3><p>1、当应用程序分配新的对象，GC的代的预算大小已经达到阈值，比如GC的第0代已满</p>
-<p>2、代码主动显式调用System.GC.Collect()</p>
-<p>3、其他特殊情况，比如，windows报告内存不足、CLR卸载AppDomain、CLR关闭，甚至某些极端情况下系统参数设置改变也可能导致GC回收</p>
-<h3 id="五、GC中的代"><a href="#五、GC中的代" class="headerlink" title="五、GC中的代"></a>五、GC中的代</h3><p>代（Generation)引入的原因主要是为了提高性能（Performance),以避免收集整个堆（Heap）。一个基于代的垃圾回收器做出了如下几点假设：</p>
-<p>1、对象越新，生存期越短</p>
-<p>2、对象越老，生存期越长</p>
-<p>3、回收堆的一部分，速度快于回收整个堆</p>
-<p>.NET的垃圾收集器将对象分为三代（Generation0,Generation1,Generation2）。不同的代里面的内容如下：</p>
-<p>1、G0 小对象(Size&lt;85000Byte)</p>
-<p>2、G1:在GC中幸存下来的G0对象</p>
-<p>3、G2:大对象(Size&gt;=85000Byte);在GC中幸存下来的G1对象</p>
-<p>ps，这里必须知道，CLR要求所有的资源都从托管堆（managed heap）分配，CLR会管理两种类型的堆，<br>小对象堆（small object heap，SOH）和大对象堆（large object heap，LOH），<br>其中所有大于85000byte的内存分配都会在LOH上进行。</p>
-<p>一个有趣的问题是为什么是85000字节？</p>
-<p>代收集规则：当一个代N被收集以后，在这个代里的幸存下来的对象会被标记为N+1代的对象。GC对不同代的对象执行不同的检查策略以优化性能。每个GC周期都会检查第0代对象。大约1/10的GC周期检查第0代和第1代对象。大约1/100的GC周期检查所有的对象。</p>
-<h3 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h3><p>内存运行时JVM会有一个运行时数据区来管理内存。它主要包括5大部分：<br>程序计数器(Program Counter Register)、虚拟机栈(VM Stack)、本地方法栈(Native Method Stack)、方法区(Method Area)、堆(Heap).</p>
-<p>而其中程序计数器、虚拟机栈、本地方法栈是每个线程私有的内存空间，随线程而生，随线程而亡。例如栈中每一个栈帧中分配多少内存基本上在类结构去诶是哪个下来时就已知了，因此这3个区域的内存分配和回收都是确定的，无需考虑内存回收的问题。</p>
-<p>但方法区和堆就不同了，一个接口的多个实现类需要的内存可能不一样，我们只有在程序运行期间才会知道会创建哪些对象，这部分内存的分配和回收都是动态的，GC主要关注的是这部分内存。</p>
-<h3 id="When-–-什么时候回收？"><a href="#When-–-什么时候回收？" class="headerlink" title="When? – 什么时候回收？"></a>When? – 什么时候回收？</h3><h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>在面试中经常会碰到这样一个问题：如何判断一个对象已经死去？</p>
-<p>很容易想到的一个答案是：对一个对象添加引用计数器。每当有地方引用它时，计数器值加1；当引用失效时，计数器值减1.而当计数器的值为0时这个对象就不会再被使用，判断为已死。是不是简单又直观。然而，很遗憾。这种做法是错误的！（面试时可千万别这样回答哦，我就是不假思索这样回答，然后就。。）为什么是错的呢？事实上，用引用计数法确实在大部分情况下是一个不错的解决方案，而在实际的应用中也有不少案例，但它却无法解决对象之间的循环引用问题。比如对象A中有一个字段指向了对象B，而对象B中也有一个字段指向了对象A，而事实上他们俩都不再使用，但计数器的值永远都不可能为0，也就不会被回收，然后就发生了内存泄露。。</p>
-<p>所以，正确的做法应该是怎样呢？<br>在Java，C#等语言中，比较主流的判定一个对象已死的方法是：<br>可达性分析(Reachability Analysis).所有生成的对象都是一个称为”GC Roots”的根的子树。从GC Roots开始向下搜索，搜索所经过的路径称为引用链(Reference Chain)，当一个对象到GC Roots没有任何引用链可以到达时，就称这个对象是不可达的（不可引用的），也就是可以被GC回收了。</p>
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>当内存空间还够时，能够保存在内存中；如果进行了垃圾回收之后内存空间仍旧非常紧张，则可以抛弃这些对象。所以根据不同的需求，给出如下四种引用，根据引用类型的不同，GC回收时也会有不同的操作：</p>
-<h4 id="强引用-Strong-Reference"><a href="#强引用-Strong-Reference" class="headerlink" title="强引用(Strong Reference):"></a>强引用(Strong Reference):</h4><p>Object obj = new Object();只要强引用还存在，GC永远不会回收掉被引用的对象。</p>
-<h4 id="软引用-SoftReference-："><a href="#软引用-SoftReference-：" class="headerlink" title="软引用(SoftReference)："></a>软引用(SoftReference)：</h4><p>描述一些还有用但非必需的对象。在系统将会发生内存溢出之前，会把这些对象列入回收范围进行二次回收（即系统将会发生内存溢出了，才会对他们进行回收。）</p>
-<h4 id="弱引用-Weak-Reference"><a href="#弱引用-Weak-Reference" class="headerlink" title="弱引用(Weak Reference):"></a>弱引用(Weak Reference):</h4><p>程度比软引用还要弱一些。这些对象只能生存到下次GC之前。当GC工作时，无论内存是否足够都会将其回收（即只要进行GC，就会对他们进行回收。）</p>
-<h4 id="虚引用-Phantom-Reference"><a href="#虚引用-Phantom-Reference" class="headerlink" title="虚引用(Phantom Reference):"></a>虚引用(Phantom Reference):</h4><p>一个对象是否存在虚引用，完全不会对其生存时间构成影响。</p>
-<h4 id="方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。"><a href="#方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。" class="headerlink" title="方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。"></a>方法区：关于方法区中需要回收的是一些废弃的常量和无用的类。</h4><p>（1）废弃的常量的回收。这里看引用计数就可以了。没有对象引用该常量就可以放心的回收了。<br>（2）无用的类的回收。什么是无用的类呢？<br>     该类所有的实例都已经被回收。也就是Java堆中不存在该类的任何实例；<br>     加载该类的ClassLoader已经被回收；<br>     该类对应的java.lang.Class对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>对于堆中的对象，主要用可达性分析判断一个对象是否还存在引用，如果该对象没有任何引用就应该被回收。而根据我们实际对引用的不同需求，又分成了4中引用，每种引用的回收机制也是不同的。</p>
-<p>对于方法区中的常量和类，当一个常量没有任何对象引用它，它就可以被回收了。而对于类，如果可以判定它为无用类，就可以被回收了。</p>
-<h3 id="How-–-如何回收？"><a href="#How-–-如何回收？" class="headerlink" title="How? – 如何回收？"></a>How? – 如何回收？</h3><h4 id="标记-清除-Mark-Sweep-算法"><a href="#标记-清除-Mark-Sweep-算法" class="headerlink" title="标记-清除(Mark-Sweep)算法"></a>标记-清除(Mark-Sweep)算法</h4><p>分为两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象。<br>缺点：效率问题，标记和清除两个过程的效率都不高；空间问题，会产生很多碎片。</p>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>将可用内存按容量划分为大小相等的两块，每次只用其中一块。当这一块用完了，就将还存活的对象复制到另外一块上面，然后把原始空间全部回收。高效、简单。<br>缺点：将内存缩小为原来的一半。</p>
-<h4 id="标记-整理-Mark-Compat-算法"><a href="#标记-整理-Mark-Compat-算法" class="headerlink" title="标记-整理(Mark-Compat)算法"></a>标记-整理(Mark-Compat)算法</h4><p>标记过程与标记-清除算法过程一样，但后面不是简单的清除，而是让所有存活的对象都向一端移动，然后直接清除掉端边界以外的内存。</p>
-<h4 id="分代收集-Generational-Collection-算法"><a href="#分代收集-Generational-Collection-算法" class="headerlink" title="分代收集(Generational Collection)算法"></a>分代收集(Generational Collection)算法</h4><p>新生代中，每次垃圾收集时都有大批对象死去，只有少量存活，就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集；<br>老年代中，其存活率较高、没有额外空间对它进行分配担保，就应该使用“标记-整理”或“标记-清理”算法进行回收。</p>
-<h3 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h3><p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化的解决2个问题：给对象分配内存以及回收分配给对象的内存。</p>
-<h4 id="对象优先在Eden分配"><a href="#对象优先在Eden分配" class="headerlink" title="对象优先在Eden分配"></a>对象优先在Eden分配</h4><p>大多数情况下，对象在新生代Eden区分配。当Eden区没有足够的内存时，虚拟机将发起一次Minor GC。</p>
-<p>Minor GC(新生代GC):指发生在新生代的垃圾收集动作，因为Java对象大多都具备朝生夕灭的特性，所以Minor GC发生的非常频繁。</p>
-<p>Full GC/Major GC(老年代GC):指发生在老年代的GC，出现了Major GC，经常会伴随至少一次的Minor GC。</p>
-<h4 id="大对象直接进老年代"><a href="#大对象直接进老年代" class="headerlink" title="大对象直接进老年代"></a>大对象直接进老年代</h4><p>大对象是指需要大量连续内存空间的Java对象（例如很长的字符串以及数组）。</p>
-<h4 id="长期存活的对象将进入老年代"><a href="#长期存活的对象将进入老年代" class="headerlink" title="长期存活的对象将进入老年代"></a>长期存活的对象将进入老年代</h4><p>JVM为每个对象定义一个对象年龄计数器。</p>
-<p>如果对象在Eden出生并经历过第一次MinorGC后仍然存活，并且能够被Survivor容纳，则应该被移动到<br>Survivor空间中，并且年龄对象设置为1；</p>
-<p>对象在Survivor区中每熬过一次Minor GC，年龄就会增加1岁，当它的年龄增加到一定程度(默认为15岁，<br>可通过参数-XX:MaxTenuringThreshold设置)，就会被晋升到老年代中。</p>
-<p>要注意的是：JVM并不是永远的要求对象的年龄必须达到MaxTenuringThreshold才能晋升老年代，如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代，无需等到MaxTenuringThreshold中要求的年龄。</p>
-<h4 id="空间分配担保"><a href="#空间分配担保" class="headerlink" title="空间分配担保"></a>空间分配担保</h4><p>在发生Minor GC之前，虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，<br>如果这个条件成立，则进行Minor GC是安全的；</p>
-<p>如果不成立，则虚拟机会查看HandlePromotionFailure设置值是否允许担保失败。<br>如果允许，则急促检查老年代最大可用连续空间是否大于历次晋升到老年代对象的平均大小，<br>如果大于，将尝试着进行一次Minor GC，尽管它是有风险的；<br>如果小于或者HandePromotionFailure设置为不允许冒险，则这时要改为进行一次Full GC.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-腾讯面经" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/10/腾讯面经/" class="article-date">
-  	<time datetime="2017-03-10T11:22:32.000Z" itemprop="datePublished">2017-03-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/10/腾讯面经/">腾讯面经</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h2><p>面试部门：OMG(网络媒体事业群)<br>1.自我介绍<br>2.介绍项目<br>3.项目架构<br>4.项目中的难点  如何解决<br>5.算法题   两个链表存储两个多位数字，一个节点<br>存储一位，左边高位，右边低位，计算两数的和。<br>考点：链表遍历，逆序输出。<br>思路：<br>将链表中的数存储到栈中，高位在栈底，低位在栈顶，再从栈中取出来，分别计算出两个数的大小，再相加。</p>
-<p>6.TCP三次握手<br>7.进程，线程，协程</p>
-<p>进程：<br>进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位.</p>
-<p>线程；<br>线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源.<br>一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.</p>
-<p>区别：<br>进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。 </p>
-<p>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.<br>2) 线程的划分尺度小于进程，使得多线程程序的并发性高。<br>3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。<br>4) 线程在执行过程中与进程还是有区别的。<br>每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。<br>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。<br>但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
-<p>协程：<br>线程和进程的操作是由程序触发系统接口，最后的执行者是系统；协程的操作则是程序员。</p>
-<p>协程存在的意义：对于多线程应用，CPU通过切片的方式来切换线程间的执行，线程切换时需要耗时<br>（保存状态，下次继续）。协程，则只使用一个线程，在一个线程中规定某个代码块执行顺序。</p>
-<p>协程的适用场景：当程序中存在大量不需要CPU的操作时（IO），适用于协程；</p>
-<p>8.内存管理<br>9.JVM</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

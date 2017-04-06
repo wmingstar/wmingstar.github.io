@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/spark/" style="font-size: 12.86px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.86px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 14.29px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.57px;">算法</a> <a href="/tags/面试/" style="font-size: 12.86px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,146 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-java-数字操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/java-数字操作/" class="article-date">
+  	<time datetime="2017-01-15T09:13:48.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/java-数字操作/">java-数字操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Math类中的所有方法都不需要实例变量值，因为这些方法是静态的，所以无须Math的实例，用类本身就好。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = Math.round(36.2)</span><br><span class="line">int y = Math.min(56,12)</span><br><span class="line">int z = Math.abs(-35)</span><br></pre></td></tr></table></figure></p>
+<p>以类的名称调用静态方法，以实例的名称调用非静态方法。</p>
+<h4 id="获取实例的方法"><a href="#获取实例的方法" class="headerlink" title="获取实例的方法"></a>获取实例的方法</h4><p>（1）new()<br>（2）序列化<br>（3）java reflection API</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>（1）静态方法不能调用非静态变量；因为静态方法是通过类的名称来调用的，无须实例，因此无法引用任何实<br>例变量。</p>
+<h3 id="Math类中常用的一些方法"><a href="#Math类中常用的一些方法" class="headerlink" title="Math类中常用的一些方法"></a>Math类中常用的一些方法</h3><h4 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h4><p>返回介于 0.0~1.0之间的双精度浮点数</p>
+<h3 id="Math-abs"><a href="#Math-abs" class="headerlink" title="Math.abs()"></a>Math.abs()</h3><p>返回双精度浮点数类型参数的绝对值，这个方法有覆盖的版本，传入整型会返回整型，传入双精度浮点会返回<br>双精度浮点。</p>
+<h3 id="Math-round"><a href="#Math-round" class="headerlink" title="Math.round()"></a>Math.round()</h3><p>根据参数是浮点数或双精度浮点数返回四舍五入后的整型或长整型。</p>
+<h3 id="Math-min"><a href="#Math-min" class="headerlink" title="Math.min()"></a>Math.min()</h3><p>返回两参数中较小的那个，有int、long、float、double的覆盖版本。</p>
+<h3 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h3><p>同上</p>
+<h3 id="主数据类型都有对应的包装类"><a href="#主数据类型都有对应的包装类" class="headerlink" title="主数据类型都有对应的包装类"></a>主数据类型都有对应的包装类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">boolean     Boolean</span><br><span class="line">char        Character</span><br><span class="line">byte        Byte</span><br><span class="line">short       Short</span><br><span class="line">int         Integer</span><br><span class="line">long        Long</span><br><span class="line"><span class="built_in">float</span>       Float</span><br><span class="line">double      Double</span><br></pre></td></tr></table></figure>
+<p>主数据类型和对应的包装类可以自动相互转换</p>
+<h3 id="字符串转主数据类型"><a href="#字符串转主数据类型" class="headerlink" title="字符串转主数据类型"></a>字符串转主数据类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s1=<span class="string">"4"</span></span><br><span class="line"></span><br><span class="line">String s2=<span class="string">"3.6"</span></span><br><span class="line"></span><br><span class="line">String s3=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line">Integer.parseInt(s1)</span><br><span class="line"></span><br><span class="line">Double.parseDouble(s2)</span><br><span class="line"></span><br><span class="line">boolean b=new Boolean(s3).booleanValue</span><br></pre></td></tr></table></figure>
+<h3 id="主数据类型转字符串"><a href="#主数据类型转字符串" class="headerlink" title="主数据类型转字符串"></a>主数据类型转字符串</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">double d=36.6</span><br><span class="line"></span><br><span class="line">String doublestring=<span class="string">""</span>+d</span><br><span class="line"></span><br><span class="line"><span class="string">"+"</span> 这个运算符是java中唯一重载过的</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">String doublestring=Double.toString(d)</span><br></pre></td></tr></table></figure>
+<h3 id="格式化输出时间"><a href="#格式化输出时间" class="headerlink" title="格式化输出时间"></a>格式化输出时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Date today = new Date();</span><br><span class="line"><span class="comment">#完整的日期与时间</span></span><br><span class="line">String.format(<span class="string">"%tc"</span>,today);</span><br><span class="line"><span class="comment">#只有时间</span></span><br><span class="line">String.format(<span class="string">"%tr"</span>,today);</span><br><span class="line"><span class="comment">#周  月  日</span></span><br><span class="line">String.format(<span class="string">"%tA,%tB,%td"</span>,today,today,today);</span><br><span class="line"><span class="comment"># "&lt;" 这个符号是个特殊的指示，用来告诉格式化程序重复利用之前用过的参数</span></span><br><span class="line">String.format(<span class="string">"%tA,%&lt;tB,%&lt;td"</span>,today);</span><br></pre></td></tr></table></figure>
+<h3 id="Calendar-常用API"><a href="#Calendar-常用API" class="headerlink" title="Calendar 常用API"></a>Calendar 常用API</h3><h4 id="重要的方法"><a href="#重要的方法" class="headerlink" title="重要的方法"></a>重要的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#加减时间值</span></span><br><span class="line">add(int field,int amount)   </span><br><span class="line"><span class="comment">#取出指定字段的值</span></span><br><span class="line">get(int field)</span><br><span class="line"><span class="comment">#返回 Calendar 子类实例，可指定地区</span></span><br><span class="line">getinstance()</span><br><span class="line"><span class="comment">#以毫秒返回时间</span></span><br><span class="line">get TimeInMillis()</span><br><span class="line"><span class="comment">#加减时间值 不进位</span></span><br><span class="line">roll(int field,boolean up)</span><br><span class="line"><span class="comment">#设定指定字段的值</span></span><br><span class="line"><span class="built_in">set</span>(int field,int value)</span><br><span class="line"><span class="comment">#设定完整的时间</span></span><br><span class="line"><span class="built_in">set</span>(year,month,day,hour,minute)</span><br><span class="line"><span class="comment">#以毫秒指定时间</span></span><br><span class="line"><span class="built_in">set</span>TimeInMillis(long millis)</span><br><span class="line">``` </span><br><span class="line"><span class="comment">#### 关键字段</span></span><br><span class="line">``` bash</span><br><span class="line">Date / DAY_OF_MONTH  <span class="comment">#每月的几号</span></span><br><span class="line">HOUR / HOUR_OF_DAY   <span class="comment">#小时</span></span><br><span class="line">MILLISECOND  <span class="comment">#毫秒</span></span><br><span class="line">MINUTE  <span class="comment">#分钟</span></span><br><span class="line">MONTH   <span class="comment">#月份</span></span><br><span class="line">YEAR    <span class="comment">#年份</span></span><br><span class="line">ZONE_OFFSET   <span class="comment">#时间位移</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
+  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
+<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
+<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
+<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
+<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
+<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
+<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
+<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
+<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
+<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
+<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
+<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
+<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -346,178 +486,9 @@
 
 
   
-    <article id="post-redis基本操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/05/redis基本操作/" class="article-date">
-  	<time datetime="2017-01-05T13:00:51.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/redis基本操作/">redis基本操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="移除给定的一个或多个key"><a href="#移除给定的一个或多个key" class="headerlink" title="移除给定的一个或多个key"></a>移除给定的一个或多个key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEL key [key ...]</span><br></pre></td></tr></table></figure>
-<h3 id="查找符合给定模式的key"><a href="#查找符合给定模式的key" class="headerlink" title="查找符合给定模式的key"></a>查找符合给定模式的key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYS pattern</span><br><span class="line"></span><br><span class="line">KEYS *  <span class="comment">#命中数据库中所有key</span></span><br><span class="line">KEYS h?llo  <span class="comment">#命中hello， hallo and hxllo等</span></span><br><span class="line">KEYS h*llo  <span class="comment">#命中hllo和heeeeello等。</span></span><br><span class="line">KEYS h[ae]llo <span class="comment">#命中hello和hallo，但不命中hillo。</span></span><br></pre></td></tr></table></figure>
-<h3 id="返回给定key的剩余生存时间-time-to-live-以秒为单位"><a href="#返回给定key的剩余生存时间-time-to-live-以秒为单位" class="headerlink" title="返回给定key的剩余生存时间(time to live)(以秒为单位)"></a>返回给定key的剩余生存时间(time to live)(以秒为单位)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TTL</span><br><span class="line">TTL key</span><br></pre></td></tr></table></figure>
-<h3 id="检查给定key是否存在"><a href="#检查给定key是否存在" class="headerlink" title="检查给定key是否存在"></a>检查给定key是否存在</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXISTS</span><br><span class="line">EXISTS key</span><br></pre></td></tr></table></figure>
-<h3 id="将key改名为newkey"><a href="#将key改名为newkey" class="headerlink" title="将key改名为newkey"></a>将key改名为newkey</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RENAME key newkey</span><br><span class="line"><span class="comment">#当key和newkey相同或者key不存在时，返回一个错误。</span></span><br><span class="line"><span class="comment">#当newkey已经存在时，RENAME命令将覆盖旧值。</span></span><br></pre></td></tr></table></figure>
-<h3 id="为给定key设置生存时间"><a href="#为给定key设置生存时间" class="headerlink" title="为给定key设置生存时间"></a>为给定key设置生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EXPIRE key seconds</span><br><span class="line"><span class="comment">#当key过期时，它会被自动删除。</span></span><br><span class="line"><span class="comment">#在Redis中，带有生存时间的key被称作“易失的”(volatile)。</span></span><br></pre></td></tr></table></figure>
-<h3 id="移除给定key的生存时间"><a href="#移除给定key的生存时间" class="headerlink" title="移除给定key的生存时间"></a>移除给定key的生存时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PERSIST key</span><br></pre></td></tr></table></figure>
-<h3 id="对key中的元素进行排序"><a href="#对key中的元素进行排序" class="headerlink" title="对key中的元素进行排序"></a>对key中的元素进行排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SORT</span><br><span class="line">SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC | DESC] [ALPHA] [STORE destination]</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回或保存给定列表、集合、有序集合key中经过排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#排序默认以数字作为对象，值被解释为双精度浮点数，然后进行比较。</span></span><br></pre></td></tr></table></figure>
-<h3 id="SETNX-key-value"><a href="#SETNX-key-value" class="headerlink" title="SETNX key value"></a>SETNX key value</h3><p>将key的值设为value，当且仅当key不存在。<br>若给定的key已经存在，则SETNX不做任何动作。<br>SETNX是”SET if Not eXists”(如果不存在，则SET)的简写。</p>
-<h3 id="SETEX"><a href="#SETEX" class="headerlink" title="SETEX"></a>SETEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SETEX key seconds value</span><br></pre></td></tr></table></figure>
-<p>将值value关联到key，并将key的生存时间设为seconds(以秒为单位)。<br>如果key 已经存在，SETEX命令将覆写旧值。<br>这个命令类似于以下两个命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET key value</span><br><span class="line">EXPIRE key seconds  <span class="comment"># 设置生存时间</span></span><br></pre></td></tr></table></figure>
-<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET key<br>返回key所关联的字符串值。<br>如果key不存在则返回特殊值nil。</p>
-<h3 id="HSET-key-field-value"><a href="#HSET-key-field-value" class="headerlink" title="HSET key field value"></a>HSET key field value</h3><p>将哈希表key中的域field的值设为value。<br>如果key不存在，一个新的哈希表被创建并进行HSET操作。<br>如果域field已经存在于哈希表中，旧值将被覆盖。</p>
-<h3 id="HSETNX-key-field-value"><a href="#HSETNX-key-field-value" class="headerlink" title="HSETNX key field value"></a>HSETNX key field value</h3><p>将哈希表key中的域field的值设置为value，当且仅当域field不存在。<br>若域field已经存在，该操作无效。<br>如果key不存在，一个新哈希表被创建并执行HSETNX命令。</p>
-<h3 id="HGET-key-field"><a href="#HGET-key-field" class="headerlink" title="HGET key field"></a>HGET key field</h3><p>返回哈希表key中给定域field的值。</p>
-<h3 id="HGETALL-key"><a href="#HGETALL-key" class="headerlink" title="HGETALL key"></a>HGETALL key</h3><p>返回哈希表key中，所有的域和值。<br>在返回值里，紧跟每个域名(field name)之后是域的值(value)，所以返回值的长度是哈希表大小的两倍。</p>
-<h3 id="HDEL-key-field-field-…"><a href="#HDEL-key-field-field-…" class="headerlink" title="HDEL key field [field …]"></a>HDEL key field [field …]</h3><p>删除哈希表key中的一个或多个指定域，不存在的域将被忽略。</p>
-<h3 id="HLEN-key"><a href="#HLEN-key" class="headerlink" title="HLEN key"></a>HLEN key</h3><p>返回哈希表key中域的数量。</p>
-<h3 id="HKEYS"><a href="#HKEYS" class="headerlink" title="HKEYS"></a>HKEYS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEYS key</span><br><span class="line"><span class="comment">#返回哈希表key中的所有域。</span></span><br></pre></td></tr></table></figure>
-<h3 id="HVALS"><a href="#HVALS" class="headerlink" title="HVALS"></a>HVALS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HVALS key</span><br><span class="line">返回哈希表key中的所有值。</span><br></pre></td></tr></table></figure>
-<h3 id="LPUSH"><a href="#LPUSH" class="headerlink" title="LPUSH"></a>LPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
-<p>将一个或多个值value插入到列表key的表头。<br>如果有多个value值，那么各个value值按从左到右的顺序依次插入到表头：比如对一个空列表(mylist)执行<br>LPUSH mylist a b c，则结果列表为c b a，等同于执行执行命令LPUSH mylist a、LPUSH mylist b、<br>LPUSH mylist c。</p>
-<p>如果key不存在，一个空列表会被创建并执行LPUSH操作。</p>
-<p>当key存在但不是列表类型时，返回一个错误。</p>
-<h3 id="LPUSHX"><a href="#LPUSHX" class="headerlink" title="LPUSHX"></a>LPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LPUSHX key value</span><br></pre></td></tr></table></figure>
-<p>将值value插入到列表key的表头，当且仅当key存在并且是一个列表。<br>和LPUSH命令相反，当key不存在时，LPUSHX命令什么也不做。</p>
-<h3 id="RPUSH"><a href="#RPUSH" class="headerlink" title="RPUSH"></a>RPUSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSH key value [value ...]</span><br></pre></td></tr></table></figure>
-<p>将一个或多个值value插入到列表key的表尾。</p>
-<h3 id="RPUSHX"><a href="#RPUSHX" class="headerlink" title="RPUSHX"></a>RPUSHX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RPUSHX key value</span><br></pre></td></tr></table></figure>
-<p>将值value插入到列表key的表尾，当且仅当key存在并且是一个列表。<br>和RPUSH命令相反，当key不存在时，RPUSHX命令什么也不做。</p>
-<h3 id="LPOP"><a href="#LPOP" class="headerlink" title="LPOP"></a>LPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的头元素。</span></span><br></pre></td></tr></table></figure>
-<h3 id="RPOP"><a href="#RPOP" class="headerlink" title="RPOP"></a>RPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPOP key</span><br><span class="line"><span class="comment">#移除并返回列表key的尾元素。</span></span><br></pre></td></tr></table></figure>
-<h3 id="BLPOP"><a href="#BLPOP" class="headerlink" title="BLPOP"></a>BLPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BLPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
-<p>BLPOP是列表的阻塞式(blocking)弹出原语。<br>它是LPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BLPOP命令阻塞，直到等待超<br>时或发现可弹出元素为止。<br>超时参数timeout接受一个以秒为单位的数字作为值。超时参数设为0表示阻塞时间可以无限期延长(block<br>indefinitely) 。</p>
-<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的头元素。</p>
-<p>当BLPOP被调用时，如果给定key内至少有一个非空列表，那么弹出遇到的第一个非空列表的头元素，并和被弹<br>出元素所属的列表的名字一起，组成结果返回给调用者。</p>
-<p>当存在多个给定key时，BLPOP按给定key参数排列的先后顺序，依次检查各个列表。</p>
-<p>假设现在有job、<br>command和request三个列表，其中job不存在，command和request都持有非空列表。考虑以下命令：</p>
-<p>BLPOP job command request 0</p>
-<p>BLPOP保证返回的元素来自command，因为它是按”查找job -&gt; 查找command -&gt;<br>查找request“这样的顺序，第一个找到的非空列表。</p>
-<h3 id="BRPOP"><a href="#BRPOP" class="headerlink" title="BRPOP"></a>BRPOP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BRPOP key [key ...] timeout</span><br></pre></td></tr></table></figure>
-<p>BRPOP是列表的阻塞式(blocking)弹出原语。</p>
-<p>它是RPOP命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被BRPOP命令阻塞，直到等待超时或发现可弹出元素为止。</p>
-<p>当给定多个key参数时，按参数key的先后顺序依次检查各个列表，弹出第一个非空列表的尾部元素。</p>
-<p>关于阻塞操作的更多信息，请查看BLPOP命令，BRPOP除了弹出元素的位置和BLPOP不同之外，其他表现一致。</p>
-<h3 id="LLEN"><a href="#LLEN" class="headerlink" title="LLEN"></a>LLEN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LLEN key</span><br><span class="line"><span class="comment">#返回列表key的长度。</span></span><br><span class="line"><span class="comment">#如果key不存在，则key被解释为一个空列表，返回0.</span></span><br><span class="line"><span class="comment">#如果key不是列表类型，返回一个错误。</span></span><br></pre></td></tr></table></figure>
-<h3 id="LRANGE"><a href="#LRANGE" class="headerlink" title="LRANGE"></a>LRANGE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LRANGE key start stop</span><br></pre></td></tr></table></figure>
-<p>返回列表key中指定区间内的元素，区间以偏移量start和stop指定。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。</p>
-<p>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。</p>
-<h3 id="LREM"><a href="#LREM" class="headerlink" title="LREM"></a>LREM</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LREM key count value</span><br></pre></td></tr></table></figure>
-<p>根据参数count的值，移除列表中与参数value相等的元素。</p>
-<p>count的值可以是以下几种：<br>count &gt; 0: 从表头开始向表尾搜索，移除与value相等的元素，数量为count。<br>count &lt; 0: 从表尾开始向表头搜索，移除与value相等的元素，数量为count的绝对值。<br>count = 0: 移除表中所有与value相等的值。</p>
-<h3 id="LSET"><a href="#LSET" class="headerlink" title="LSET"></a>LSET</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LSET key index value</span><br></pre></td></tr></table></figure>
-<p>将列表key下标为index的元素的值设至为value。<br>更多信息请参考LINDEX操作。<br>当index参数超出范围，或对一个空列表(key不存在)进行LSET时，返回一个错误。</p>
-<h3 id="LINDEX"><a href="#LINDEX" class="headerlink" title="LINDEX"></a>LINDEX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LINDEX key index</span><br></pre></td></tr></table></figure>
-<p>返回列表key中，下标为index的元素。<br>下标(index)参数start和stop都以0为底，也就是说，以0表示列表的第一个元素，以1表示列表的第二个元素，<br>以此类推。<br>你也可以使用负数下标，以-1表示列表的最后一个元素，-2表示列表的倒数第二个元素，以此类推。<br>如果key不是列表类型，返回一个错误。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-KMP算法详解及java实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/04/KMP算法详解及java实现/" class="article-date">
-  	<time datetime="2017-01-04T12:47:56.000Z" itemprop="datePublished">2017-01-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/04/KMP算法详解及java实现/">KMP算法详解及java实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 </div>

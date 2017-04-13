@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/剑指Offer/" style="font-size: 11.25px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,272 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mysql-数据的导入于导出" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/01/mysql-数据的导入于导出/" class="article-date">
+  	<time datetime="2016-12-01T09:01:50.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/mysql-数据的导入于导出/">mysql-数据的导入于导出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><h3 id="导出整个数据库-包括结构和数据"><a href="#导出整个数据库-包括结构和数据" class="headerlink" title="导出整个数据库(包括结构和数据)"></a>导出整个数据库(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name &gt; db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库中的某些表-包括结构和数据"><a href="#导出数据库中的某些表-包括结构和数据" class="headerlink" title="导出数据库中的某些表(包括结构和数据)"></a>导出数据库中的某些表(包括结构和数据)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p db_name table_name1 table_name2 &gt;data.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出数据库结构"><a href="#导出数据库结构" class="headerlink" title="导出数据库结构"></a>导出数据库结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name&gt;db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出一个表结构"><a href="#导出一个表结构" class="headerlink" title="导出一个表结构"></a>导出一个表结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p <span class="_">-d</span> db_name  table_name &gt;tb.sql</span><br></pre></td></tr></table></figure>
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p sms &lt; /home/star/mysql/sms.sql </span><br><span class="line"><span class="comment">##或者</span></span><br><span class="line">MariaDB [sms]&gt;<span class="built_in">source</span> /home/tb.sql</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-206-Reverse-Linked-List" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/23/leetcode-206-Reverse-Linked-List/" class="article-date">
+  	<time datetime="2016-11-23T08:25:49.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/leetcode-206-Reverse-Linked-List/">leetcode-206-Reverse-Linked-List</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Reverse a singly linked list.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def reverseList(self, head):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type head: ListNode</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="keyword">if</span> not head or not head.next:</span><br><span class="line">            <span class="built_in">return</span> head</span><br><span class="line">        h0=None</span><br><span class="line">        h1,h2=head,head.next</span><br><span class="line">        <span class="keyword">while</span> h2:</span><br><span class="line">            h1.next=h0</span><br><span class="line">            h0=h2.next</span><br><span class="line">            h2.next=h1</span><br><span class="line">            h0,h1,h2=h1,h2,h0</span><br><span class="line">        <span class="built_in">return</span> h1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head==null || head.next==null)&#123;</span><br><span class="line">            <span class="built_in">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode node0=null;</span><br><span class="line">        ListNode node;</span><br><span class="line">        ListNode node1 = head;</span><br><span class="line">        ListNode node2 = head.next;</span><br><span class="line">        <span class="keyword">while</span>(node2!=null)&#123;</span><br><span class="line">            node1.next = node0;</span><br><span class="line">            node0 = node2.next;</span><br><span class="line">            node2.next = node1;</span><br><span class="line">            node = node1;</span><br><span class="line">            node1 = node2;</span><br><span class="line">            node2 = node0;</span><br><span class="line">            node0 = node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> node1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题题意很清晰，就是将链表反转，然后返回反转之后的链表。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>python 中用 None  java中用 null,java中注意对象的初始化。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-350-Intersection-of-Two-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/" class="article-date">
+  	<time datetime="2016-11-22T09:14:49.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/leetcode-350-Intersection-of-Two-Arrays/">leetcode-350-Intersection-of-Two-Arrays</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two arrays, write a function to compute their intersection.</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        result=[]</span><br><span class="line">        <span class="keyword">if</span> nums1==[] or nums2==[]:</span><br><span class="line">            <span class="built_in">return</span> result</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums1:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> nums2:</span><br><span class="line">                result.append(i)</span><br><span class="line">                nums2.remove(i)</span><br><span class="line">        <span class="built_in">return</span> result</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def intersect(self, nums1, nums2):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums1: List[int]</span><br><span class="line">        :type nums2: List[int]</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> num, count <span class="keyword">in</span> (collections.Counter(nums1) &amp; collections.Counter(nums2)).items():</span><br><span class="line">            res += [num] * count</span><br><span class="line">        <span class="built_in">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line">        </span><br><span class="line">        int i = 0;</span><br><span class="line">        int iL = nums1.length;</span><br><span class="line">        </span><br><span class="line">        int j = 0;</span><br><span class="line">        int jL = nums2.length;</span><br><span class="line">        </span><br><span class="line">        int counter = 0;</span><br><span class="line">        int[] results = new int [iL &lt; jL ? iL : jL];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt; iL &amp;&amp; j &lt; jL) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] == nums2[j]) &#123;</span><br><span class="line">                results[counter++] = nums1[i];</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  Arrays.copyOf(results, counter);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题，本质是求两个数组的交集。最直接的思路是遍历其中一个数组，判断其中的元素是否也存在于另一个数组，将同时存在于两个<br>数组的元素存储起来。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>remove(i)将list中最前面的元素i删除，而不是将所有的i删除。<br>collections模块的运用，</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/python-装饰器/" class="article-date">
+  	<time datetime="2016-11-22T02:22:38.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/python-装饰器/">python-装饰器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在代码运行期间，动态增加功能的方式，称之为“装饰器”（Decorator）。<br>本质上，decorator就是一个返回函数的高阶函数。</p>
+<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span></span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>call now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>把@log放到now()函数的定义处，相当于执行了语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(now)</span><br></pre></td></tr></table></figure></p>
+<p>由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用<br>now()将执行新函数，即在log()函数中返回的wrapper()函数。</p>
+<p>wrapper()函数的参数定义是(<em>args,*</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，<br>再紧接着调用原始函数。</p>
+<h3 id="用法2"><a href="#用法2" class="headerlink" title="用法2"></a>用法2</h3><p>decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span>(<span class="string">'execute'</span>)</span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>execute now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure></p>
+<p>首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变<br>成了’wrapper’。</p>
+<p>因为返回的那个wrapper()函数名字就是’wrapper’，所以，需要把原始函数的<strong>name</strong>等属性复制到wrapper()函数中，否则，有些<br>依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写wrapper.<strong>name</strong> = func.<strong>name</strong>这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的<br>decorator的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    @functools.wraps(func)</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        @functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-面试-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -234,262 +500,9 @@
 
 
   
-    <article id="post-leetcode-217-Contains-Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/18/leetcode-217-Contains-Duplicate/" class="article-date">
-  	<time datetime="2016-11-18T06:09:10.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/leetcode-217-Contains-Duplicate/">leetcode-217-Contains-Duplicate</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean containsDuplicate(int[] nums) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums.length&lt;=1)&#123;</span><br><span class="line">             <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         Arrays.sort(nums);</span><br><span class="line">         <span class="keyword">for</span>(int i=0;i&lt;nums.length-1;i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(nums[i]==nums[i+1])&#123;</span><br><span class="line">                 <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def containsDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        nums_<span class="built_in">set</span>=<span class="built_in">set</span>(nums)</span><br><span class="line">        <span class="built_in">return</span> True <span class="keyword">if</span> len(nums_<span class="built_in">set</span>)&lt;len(nums) <span class="keyword">else</span> False</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>此题很简单，就是判断输入数组中是否有重复的数字。</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>Arrays类中sort()方法，对数组进行排序。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>python很简洁，用set()便可将list()转换为set容器，而set容器中的元素均为唯一的。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-409-Longest-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/17/leetcode-409-Longest-Palindrome/" class="article-date">
-  	<time datetime="2016-11-17T14:00:56.000Z" itemprop="datePublished">2016-11-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/leetcode-409-Longest-Palindrome/">leetcode-409-Longest-Palindrome</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
-<p>This is case sensitive, for example “Aa” is not considered a palindrome here</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">import collections</span><br><span class="line">class Solution(object):</span><br><span class="line">    def longestPalindrome(self, s):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        char_dic=collections.Counter(s)</span><br><span class="line">        lenth=0</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> char_dic:</span><br><span class="line">            lenth += char_dic[char]-char_dic[char]%2</span><br><span class="line">        <span class="built_in">return</span> lenth <span class="keyword">if</span> len(s)==lenth <span class="keyword">else</span> (lenth+1)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int longestPalindrome(String s) &#123;</span><br><span class="line">        int nums[] = new int[52];</span><br><span class="line">        int temp_ord=0;</span><br><span class="line">        int lenth=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">'a'</span> &amp;&amp; s.charAt(i)&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                temp_ord=s.charAt(i)-<span class="string">'A'</span>+26;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[temp_ord]+=1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;nums.length;j++)&#123;</span><br><span class="line">            lenth += nums[j]-nums[j]%2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lenth==s.length())&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">return</span> lenth+1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>回文字符串：正读和倒着读都一样的字符串。<br>最初读此题有疑惑：比如，输入为”aaabbbcc”，’a’和’b’的个数均为奇数，以为此时最长为5，其实此时最长为7，可以余下一个’a’或者’b’不用。</p>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><h4 id="一维数组的声明方式："><a href="#一维数组的声明方式：" class="headerlink" title="一维数组的声明方式："></a>一维数组的声明方式：</h4><p>type var[]; 或type[] var;<br>声明数组时不能指定其长度（数组中元素的个数），<br>Java中使用关键字new创建数组对象，格式为：<br>数组名 = new 数组元素的类型 [数组元素的个数]</p>
-<h4 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h4><p>1.动态初始化：数组定义与为数组分配空间和赋值的操作分开进行；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestD  </span><br><span class="line">&#123;  </span><br><span class="line">     public static void main(String args[]) &#123;  </span><br><span class="line">         int a[] ;  </span><br><span class="line">         a = new int[3] ;  </span><br><span class="line">         a[0] = 0 ;  </span><br><span class="line">         a[1] = 1 ;  </span><br><span class="line">         a[2] = 2 ;  </span><br><span class="line">         Date days[] ;  </span><br><span class="line">         days = new Date[3] ;  </span><br><span class="line">         days[0] = new Date(2008,4,5) ;  </span><br><span class="line">         days[1] = new Date(2008,2,31) ;  </span><br><span class="line">         days[2] = new Date(2008,4,4) ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"> </span><br><span class="line">class Date  </span><br><span class="line">&#123;  </span><br><span class="line">     int year,month,day ;  </span><br><span class="line">     Date(int year ,int month ,int day) &#123;  </span><br><span class="line">         this.year = year ;  </span><br><span class="line">         this.month = month ;  </span><br><span class="line">         this.day = day ;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.静态初始化：在定义数字的同时就为数组元素分配空间并赋值；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class TestS     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a[] = &#123;0,1,2&#125; ;     </span><br><span class="line">         Time <span class="built_in">times</span> [] = &#123;new Time(19,42,42),new Time(1,23,54),new Time(5,3,2)&#125; ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;     </span><br><span class="line"> </span><br><span class="line">class Time     </span><br><span class="line">&#123;     </span><br><span class="line">     int hour,min,sec ;     </span><br><span class="line">     Time(int hour ,int min ,int sec) &#123;     </span><br><span class="line">         this.hour = hour ;     </span><br><span class="line">         this.min = min ;     </span><br><span class="line">         this.sec = sec ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.默认初始化：数组是引用类型，它的元素相当于类的成员变量，因此数组分配空间后，每个元素也被按照成员变量的规则<br>被隐士初始化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestDefault     </span><br><span class="line">&#123;     </span><br><span class="line">     public static void main(String args[]) &#123;     </span><br><span class="line">         int a [] = new int [5] ;     </span><br><span class="line">         System.out.println(<span class="string">""</span> + a[3]) ;     </span><br><span class="line">     &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-169-Majority-Element" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/16/leetcode-169-Majority-Element/" class="article-date">
-  	<time datetime="2016-11-16T13:49:20.000Z" itemprop="datePublished">2016-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/16/leetcode-169-Majority-Element/">leetcode-169-Majority-Element</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def majorityElement(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: int</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        num_dic=collections.Counter(nums)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> num_dic:</span><br><span class="line">            <span class="keyword">if</span> num_dic[item]&gt;(len(nums)/2):</span><br><span class="line">                <span class="built_in">return</span> item</span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">(code=java)</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="built_in">return</span> nums[nums.length/2];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.分别统计数组中的元素个数，将个数大于length/2的元素返回<br>2.将数组排序，将排序后的下标为length/2的元素返回</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>1.用collections.Counter()统计各元素的个数，返回字典。<br>2.sort()是容器的函数，可将容器中的元素排序；sorted()为内置函数，可对可迭代类型排序。<br>3.nums.count(x)也可得到nums中某元素的个数。</p>
-<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><p>1.array.length属性得到数组长度。<br>2.Arrays类的sort()方法可以对数组进行排序。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode-242-Valid-Anagram" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/16/leetcode-242-Valid-Anagram/" class="article-date">
-  	<time datetime="2016-11-16T07:53:45.000Z" itemprop="datePublished">2016-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/16/leetcode-242-Valid-Anagram/">leetcode-242-Valid-Anagram</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
-<p>For example,<br>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(code=python)</span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        s=sorted(s)</span><br><span class="line">        t=sorted(t)</span><br><span class="line">        <span class="keyword">if</span> s==t:</span><br><span class="line">            <span class="built_in">return</span> True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">return</span> False</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> sorted(s)==sorted(t)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def isAnagram(self, s, t):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span><br><span class="line">        :type s: str</span><br><span class="line">        :type t: str</span><br><span class="line">        :rtype: bool</span><br><span class="line">        "</span><span class="string">""</span></span><br><span class="line">        <span class="built_in">return</span> Counter(s)==Countert)</span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>重要的是读题，明白题目什么意思。题目的意思，输入两个字符串，来比较两个字符串是否是 anagram 关系。<br>(anagram 关系：两个字符串由相同字符且字符数相同的字符构成，只是字符的顺序不同。)<br>思路：将两个字符串中的字符进行排序，然后比较排序后的字符串是否相同就可以。</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>sort()函数是容器对象的函数，在容器内排序，无返回值，字符串对象没有该函数。<br>sorted()函数是内置函数，可对可迭代类型进行排序，并返回排好序的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sorted(...)</span><br><span class="line">    sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list</span><br><span class="line"></span><br><span class="line">iterable：待排序的可迭代类型的容器;</span><br><span class="line">cmp：用于比较的函数，比较什么由key决定,有默认值，迭代集合中的一项;</span><br><span class="line">key：用列表元素的某个已命名的属性或函数（只有一个参数并且返回一个用于排序的值）作为关键字，有默认值，迭代集合中的一项;</span><br><span class="line">reverse：排序规则. reverse = True 或者 reverse = False，有默认值。</span><br><span class="line">返回值：是一个经过排序的可迭代类型，与iterable一样。</span><br></pre></td></tr></table></figure></p>
-<p>Counter是collections模块中的计数器类，可以用来计数，输入是字典，其他 iterable 的数据类型，还有命名的参数对。<br>输出是字典，其中元素作为key，其计数作为value。 </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 </div>

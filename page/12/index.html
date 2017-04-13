@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/剑指Offer/" style="font-size: 11.25px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,294 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-spark安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/09/spark安装教程/" class="article-date">
+  	<time datetime="2016-10-09T01:43:30.000Z" itemprop="datePublished">2016-10-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/09/spark安装教程/">spark安装教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(注：本教程基于Cenos7)</p>
+<h3 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h3><p>Centos7若不是最小化安装，则会自动安装jdk-8。<br>之所以需要安装JDK是因为scala依赖java运行环境。</p>
+<p>(1)从oracle网站下载JDK 安装包，解压安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf jdk-8u65-linux-x64.tar.gz</span><br><span class="line">mv jdk1.8.0_65 java</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置Java 环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">JAVA_HOME=/opt/jdk1.8.0</span><br><span class="line"><span class="built_in">export</span> JRE_HOME = <span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><p>(1)从官网下载安装包，解压安装<br><a href="http://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="external">官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf scala-2.11.8.tgz</span><br></pre></td></tr></table></figure></p>
+<p>(2)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SCALA_HOME=/opt/scala-2.11.8</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(3)验证scala<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br><span class="line">Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-安装spark"><a href="#3-安装spark" class="headerlink" title="3.安装spark"></a>3.安装spark</h3><p>(1)官网下载spark 包  spark-2.0.1-bin-hadoop2.7.tgz<br>(2)解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安到/usr/local 下</span></span><br><span class="line">tar  zxvf spark-2.0.1-bin-hadoop2.7.tgz</span><br><span class="line">mv  spark-2.0.1-bin-hadoop2.7   spark</span><br></pre></td></tr></table></figure></p>
+<p>(3)设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment">#具体设置如下:</span></span><br><span class="line">SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME SPARK_HOME PATH</span><br></pre></td></tr></table></figure></p>
+<p>(4)验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure></p>
+<p>若成功<br><img src="/img/spark.png" alt=""></p>
+<h3 id="4-自动安装sbt"><a href="#4-自动安装sbt" class="headerlink" title="4.自动安装sbt"></a>4.自动安装sbt</h3><p><a href="http://www.scala-sbt.org/release/tutorial/zh-cn/index.html" target="_blank" rel="external">参考</a><br>(1)添加sbt镜像源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl   https://bintray.com/sbt/rpm/rpm  &gt;   bintray-sbt-rpm.repo</span><br><span class="line">mv bintray-sbt-rpm.repo  /etc/yum.repos.d/</span><br></pre></td></tr></table></figure></p>
+<p>(2)安装sbt<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sbt</span><br></pre></td></tr></table></figure></p>
+<p>(3)hello world<br>一个合法的 sbt 项目可以是一个包含单个源码文件的目录。 尝试创建一个 hello 目录，包含内容如下的源码文件 hw.scala：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Hi &#123;</span><br><span class="line">  def main(args: Array[String]) = println(<span class="string">"Hi!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-手动安装sbt"><a href="#5-手动安装sbt" class="headerlink" title="5.手动安装sbt"></a>5.手动安装sbt</h3><p>(1)下载sbt通用平台压缩包：sbt-0.13.12.tgz<br><a href="http://www.scala-sbt.org/download.html" target="_blank" rel="external">网址</a><br>(2)建立目录，解压文件到所建立目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar zxvf sbt-0.13.5.tgz -C /opt/scala/</span><br></pre></td></tr></table></figure></p>
+<p>(3)建立启动sbt的脚本文件<br>选定一个位置，建立启动sbt的脚本文本文件，如/opt/scala/sbt/ 目录下面新建文件名为sbt的文本文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/scala/sbt/</span><br><span class="line">$ vim sbt</span><br></pre></td></tr></table></figure></p>
+<p>在sbt文本文件中添加一下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SBT_OPTS=<span class="string">"-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"</span></span><br><span class="line">java <span class="variable">$SBT_OPTS</span> -jar /opt/scala/sbt/bin/sbt-launch.jar <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的路径是定位到解压的sbt文件包中的sbt-launch.jar文件的绝对路径*/</p>
+<p>/×修改sbt文件权限×/<br>$ chmod u+x sbt<br>(4)配置PATH环境变量，保证在控制台中可以使用sbt命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br><span class="line"><span class="comment">#在文件尾部添加如下代码后，保存退出</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/scala/sbt/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>使配置文件立刻生效</em>/<br>$ source /etc/profile</p>
+<p>(5)测试sbt是否安装成功<br>第一次执行时，会下载一些文件包，然后才能正常使用，要确保联网了，安装成功后显示如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbt sbt-version</span><br><span class="line"></span><br><span class="line">[info] Set current project to sbt (<span class="keyword">in</span> build file:/opt/scala/sbt/)</span><br><span class="line">[info] 0.13.5</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux硬盘分区与挂载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/08/linux硬盘分区与挂载/" class="article-date">
+  	<time datetime="2016-10-08T01:51:26.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/08/linux硬盘分区与挂载/">linux硬盘分区与挂载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MBR的基本概念"><a href="#MBR的基本概念" class="headerlink" title="MBR的基本概念"></a>MBR的基本概念</h3><p>硬盘的第一个扇区也就是第0扇区是用来存放主引导记录(MBR)的，因此也称MBR扇区。一个扇区是512字节，因此MBR的大小也是512字<br>节，其具体数据结构是：446个字节的引导代码、64个字节的分区表及2个字节的签名值”55AA”。由于MBR的分区表只有64个字节<br>，这决定了它只能存储4个分区记录。这就是为什么一块硬盘最多只能有4个“主分区”的原因。记住，“主分区”就是指记录在主引导记<br>录MBR分区表中的分区，除此之外主分区并无特别之处，但是过去的一些老操作系统往往不能安装在主分区之外的分区上，所以，主<br>分区也贴上“专门用来安装操作系统”的标签。</p>
+<p>我们已经知道了MBR中的分表区只能存放4个分区（即4个主分区），那系统是如何划分出4个以上的分区的呢？一种直白而简单的思路<br>就是把其中一个主分区再进行细分，衍生出一个二级分区表。对的，这个被用来二次分区的主分区就是“扩展分区”，它下面的二级分<br>区就是“逻辑分区”。</p>
+<p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机开机后访问硬盘时所必须要读取的首个扇区，<br>它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
+<p>MBR是由分区程序（如Fdisk，Parted）所产生的，它不依赖任何操作系统，而且硬盘引导程序也是可以改变的，从而能够实现多系统引导。</p>
+<p>从主引导记录的结构可以知道，它仅仅包含一个64个字节的硬盘分区表。由于每个分区信息需要16个字节，所以对于采用MBR型分区<br>结构的硬盘(其磁盘卷标类型为MS-DOS)，最多只能识别4个主要分区。所以对于一个采用此种分区结构的硬盘来说，想要得到4个以上<br>的主要分区是不可能的。这里就需要引出扩展分区了。扩展分区也是主分区(Primary partition）的一种，但它与主分区的不同在于<br>理论上可以划分为无数个逻辑分区，每一个逻辑分区都有一个和MBR结构类似的扩展引导记录(EBR)。<br>在MBR分区表中最多4个主分区或者3个主分区＋1个扩展分区，也就是说扩展分区只能有一个，然后可以再细分为多个逻辑分区。<br>在Linux系统中，硬盘分区命名为sda1－sda4或者hda1－hda4（其中a表示硬盘编号可能是a、b、c等等）。在MBR硬盘中，分区号1－4是主分区（或者扩展分区），逻辑分区号只能从5开始。<br>在MBR分区表中，一个分区最大的容量为2T，且每个分区的起始柱面必须在这个disk的前2T内。你有一个3T的硬盘，根据要求你至少要把它划分为2个分区，且最后一个分区的起始扇区要位于硬盘的前2T空间内。如果硬盘太大则必须改用GPT。</p>
+<h3 id="GPT是什么"><a href="#GPT是什么" class="headerlink" title="GPT是什么"></a>GPT是什么</h3><p>全局唯一标识分区表（GUID Partition Table，缩写：GPT）是一个实体硬盘的分区结构。它是EFI(可扩展固件接口标准)的一部分，<br>用来替代BIOS中的主引导记录分区表。但因为MBR分区表不支持容量大于2.2TB（2.2 × 1012字节）的分区，所以也有一些BIOS系统<br>为了支持大容量硬盘而用GPT分区表取代MBR分区表。</p>
+<p>在MBR硬盘中，分区信息直接存储于主引导记录(MBR)中（主引导记录中还存储着系统的引导程序）。但在GPT硬盘中，分区表的位置信息储存在GPT头中。但出于兼容性考虑，硬盘的第一个扇区仍然用作MBR，之后才是GPT头。</p>
+<p>与支持最大卷为2 TB（Terabytes）并且每个磁盘最多有4个主分区（或3个主分区，1个扩展分区和无限制的逻辑驱动器）<br>的MBR磁盘分区的样式相比，GPT磁盘分区样式支持最大卷为18 EB（Exabytes）并且每磁盘的分区数没有上限，只受到操作系统限制<br>（由于分区表本身需要占用一定空间，最初规划硬盘分区时，留给分区表的空间决定了最多可以有多少个分区，IA-64版Windows<br>限制最多有128个分区，这也是EFI标准规定的分区表的最小尺寸）。与MBR分区的磁盘不同，至关重要的平台操作数据位于分区，<br>而不是位于非分区或隐藏扇区。另外，GPT分区磁盘有备份分区表来提高分区数据结构的完整性。</p>
+<h3 id="EFI"><a href="#EFI" class="headerlink" title="EFI"></a>EFI</h3><p>可扩展固件接口（英文名Extensible Firmware Interface 或EFI）是一种个人电脑系统规格，用来定义操作系统与系统韧体之<br>间的软件界面，为替代BIOS的升级方案。可扩展固件接口负责加电自检（POST）、连系操作系统以及提供连接操作系统与硬件的接<br>口。EFI最初由英特尔开发，现时由UEFI论坛来推广与发展。</p>
+<h3 id="使用fdisk创建分区-小于2TB"><a href="#使用fdisk创建分区-小于2TB" class="headerlink" title="使用fdisk创建分区(小于2TB)"></a>使用fdisk创建分区(小于2TB)</h3><h4 id="1-使用fdisk-l命令查看机器上的硬盘信息"><a href="#1-使用fdisk-l命令查看机器上的硬盘信息" class="headerlink" title="1. 使用fdisk -l命令查看机器上的硬盘信息"></a>1. 使用fdisk -l命令查看机器上的硬盘信息</h4><p><img src="/img/fdisk1.jpg" alt=""><br>上面的信息告诉我们这台机器拥有3块硬盘，其中只有第一块硬盘进行了分区，剩余的两块尚未分区。</p>
+<h4 id="2-使用fdisk对某个硬盘进行分区"><a href="#2-使用fdisk对某个硬盘进行分区" class="headerlink" title="2.使用fdisk对某个硬盘进行分区"></a>2.使用fdisk对某个硬盘进行分区</h4><p>这里我们展示的是对硬盘/dev/xvdc的分区操作，首先键入“fdisk /dev/xvdc”进入分区的向导模式：</p>
+<ol>
+<li>输入n，表示要建立一个新的分区</li>
+<li>输入p, 表示我们想要创建一个主分区</li>
+<li>直接回车，使用默认的起始柱面，也就是柱面1</li>
+<li>直接回车，使用默认的截止柱面，也就是柱面4894， 也就是说对于这块硬盘，我们就建立一个分区，大小是整个磁盘。</li>
+<li>输入w, 保存分区表并退出<br><img src="/img/fdisk2.jpg" alt=""><h4 id="3-格式化新创建的分区"><a href="#3-格式化新创建的分区" class="headerlink" title="3. 格式化新创建的分区"></a>3. 格式化新创建的分区</h4>对新建的分区进行格式化，这里我们选择ext4文件系统。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/xvdc</span><br><span class="line"><span class="comment">#格式化时指定的是“分区”而不是硬盘！这里的xvdc1显然是硬盘xvdc的第一个分区，如果错写成xvdc就意味着要格式化整个硬盘</span></span><br><span class="line"><span class="comment">#mkfs + Tab Tab 查看支持的文件系统</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="使用parted-创建分区"><a href="#使用parted-创建分区" class="headerlink" title="使用parted 创建分区"></a>使用parted 创建分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line"></span><br><span class="line"><span class="comment">#GNU Parted 1.8.1</span></span><br><span class="line"><span class="comment">#Using /dev/sdb</span></span><br><span class="line"><span class="comment">#Welcome to GNU Parted! Type ‘help’ to view a list of commands.</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#将MBR磁盘格式化为GPT</span></span><br><span class="line">(parted) mklabel gpt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#划分所有空间到一个分区</span></span><br><span class="line">(parted) mkpart primary 0 -1</span><br><span class="line"> </span><br><span class="line"><span class="comment">#这一步也可以这样设置：</span></span><br><span class="line"><span class="comment">#unit TB           (设置单位为TB)</span></span><br><span class="line"><span class="comment">#mkpart primary 0 3 (设置为一个主分区,大小为3TB，开始是0，结束是3）</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#显示设置的分区大小</span></span><br><span class="line">(parted) <span class="built_in">print</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#退出parted程序</span></span><br><span class="line">(parted) quit</span><br><span class="line"> </span><br><span class="line"><span class="comment">#用parted将分区做好后，进行格式化操作,完成后即可挂载使用</span></span><br><span class="line">mkfs.ext3 -F /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/bluishglc/article/details/9189437" target="_blank" rel="external">参考http://blog.csdn.net/bluishglc</a><br><a href="http://www.centoscn.com/CentOS/Intermediate/2015/0712/5841.html" target="_blank" rel="external">参考http://www.centoscn.com/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-random" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/22/python-random/" class="article-date">
+  	<time datetime="2016-09-22T09:25:22.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/python-random/">python random 模块常用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="random-random"><a href="#random-random" class="headerlink" title="random.random()"></a>random.random()</h3><p>返回[0.0,1)之间的浮点数</p>
+<h3 id="random-uniform-a-b"><a href="#random-uniform-a-b" class="headerlink" title="random.uniform(a, b)"></a>random.uniform(a, b)</h3><p>返回[a,b]之间的浮点数</p>
+<h3 id="random-randint-a-b"><a href="#random-randint-a-b" class="headerlink" title="random.randint(a, b)"></a>random.randint(a, b)</h3><p>返回[a,b]之间的整数<br>范围 a &lt;= n &lt;= b  （注意：下限必须小于上限） </p>
+<h3 id="random-randrange-start-stop-step-，"><a href="#random-randrange-start-stop-step-，" class="headerlink" title="random.randrange(start, stop, step)，"></a>random.randrange(start, stop, step)，</h3><p>从指定范围内，按指定步长 step递增的集合中获取一个随机数。<br>如：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
+<p>random.randrange(10, 100, 2)在结果上与 random.choice(range(10, 100, 2) 等效。</p>
+<h3 id="random-choice-sequence"><a href="#random-choice-sequence" class="headerlink" title="random.choice(sequence)"></a>random.choice(sequence)</h3><p>参数sequence表示一个序列类型。这里要说明一下：sequence在python不是一种特定的类型，而是泛指一系列的类型。list, tuple, 字符串都属于sequence。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> random.choice(<span class="string">"学习Python"</span>)    </span><br><span class="line"><span class="built_in">print</span> random.choice([<span class="string">"JGood"</span>, <span class="string">"is"</span>, <span class="string">"a"</span>, <span class="string">"handsome"</span>, <span class="string">"boy"</span>])   </span><br><span class="line"><span class="built_in">print</span> random.choice((<span class="string">"Tuple"</span>, <span class="string">"List"</span>, <span class="string">"Dict"</span>))</span><br></pre></td></tr></table></figure></p>
+<h3 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random.shuffle()"></a>random.shuffle()</h3><p>用于将一个列表中的元素打乱<br>例如： </p>
+<pre><code class="bash">p = [<span class="string">"Python"</span>, <span class="string">"is"</span>, <span class="string">"powerful"</span>, <span class="string">"simple"</span>, <span class="string">"and so on..."</span>]   
+random.shuffle(p)   
+<span class="built_in">print</span> p   
+<span class="comment">#---- 结果（不同机器上的结果可能不一样。）   </span>
+<span class="comment">#['powerful', 'simple', 'is', 'Python', 'and so on...']</span>
+</code></pre>
+<h3 id="random-sample-sequence-k"><a href="#random-sample-sequence-k" class="headerlink" title="random.sample(sequence, k)"></a>random.sample(sequence, k)</h3><p>从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。<br>例如：</p>
+<pre><code class="bash">list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]   
+slice = random.sample(list, 5) <span class="comment">#从list中随机获取5个元素，作为一个片断返回  </span>
+<span class="built_in">print</span> slice  
+<span class="built_in">print</span> list <span class="comment">#原有序列并没有改变。 </span>
+<span class="comment">#[3,2,6,7,1]</span>
+<span class="comment">#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre>
+<p><a href="http://wangwei007.blog.51cto.com/68019/1102838" target="_blank" rel="external">参考</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spark技术概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/21/spark技术概述/" class="article-date">
+  	<time datetime="2016-09-21T12:51:50.000Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/spark技术概述/">spark技术概述</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-command2" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -213,290 +501,9 @@
 
 
   
-    <article id="post-引用与指针" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/11/引用与指针/" class="article-date">
-  	<time datetime="2016-09-11T14:53:10.000Z" itemprop="datePublished">2016-09-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/11/引用与指针/">引用与指针</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对C、C++并未系统学习过，在学习其他语言和看技术博客的时候不止一次碰到引用这个概念，自己对指针有一<br>定认识，但对引用一直有些疑惑，今天详细的查了下资料，总结一下。</p>
-<h4 id="借用书中的两行代码"><a href="#借用书中的两行代码" class="headerlink" title="借用书中的两行代码"></a>借用书中的两行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int m; </span><br><span class="line">int &amp;n = m;</span><br></pre></td></tr></table></figure>
-<p>在上面程序中，n是m的一个引用，m是被引用物。n相当于m的别名（与人的外号一样），n既不是m的拷贝也不是指向m的指针，n其实就是m，对n的操作就是对m的操作。</p>
-<h3 id="引用的规则"><a href="#引用的规则" class="headerlink" title="引用的规则"></a>引用的规则</h3><p>（1）引用被创建的同时必须被初始化（即赋值，指针则可以在任何时候被初始化）。<br>（2）不能有NULL引用，引用必须与合法的存储单元关联（就像外号一样，必须存在这样一个人，才可以给这个人起外号；指针则可以<br>是NULL）。<br>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 </p>
-<h3 id="引用的主要功能是传递函数的参数和返回值。"><a href="#引用的主要功能是传递函数的参数和返回值。" class="headerlink" title="引用的主要功能是传递函数的参数和返回值。"></a>引用的主要功能是传递函数的参数和返回值。</h3><p>在C++语言中，参数和返回值的传递主要有三种方式：值传递、指针传递、引用传递。下面用三个简单的程序来说明下三者的不同。</p>
-<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func1(int x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Func1(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 0</span><br></pre></td></tr></table></figure>
-<p>在上面的程序中，x是n的一个拷贝，在Func()函数中改变x的值并不会对n造成影响，最后输出n的值仍是0.</p>
-<h3 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0; </span><br><span class="line">void Func2(int *x) </span><br><span class="line">&#123; </span><br><span class="line">(* x) = (* x) + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func2(&amp;n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面代码中，Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
-<h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n = 0;</span><br><span class="line">void Func3(int &amp;x) </span><br><span class="line">&#123; </span><br><span class="line">x = x + 10; </span><br><span class="line">&#125; </span><br><span class="line">... </span><br><span class="line">Func3(n); </span><br><span class="line">cout &lt;&lt; <span class="string">"n = "</span> &lt;&lt; n &lt;&lt; endl; // n = 10</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中，Func3函数体内的x是外部变量n的引用，x和n是同一个对象，改变x等于改变n，所以n的值成为10。</p>
-<p>通过对比上述三个示例程序，发现”引用传递”的性质与”指针传递”很像，但函数内部实现的书写方式与”值传递”一样。<br>讲道理，实际上”引用”可以做的任何事情”指针”也都能够做，那为什么还要”引用”？<br>答案是”用适当的工具做恰如其分的工作”。 </p>
-<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。<br>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-经典算法—-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/06/经典算法—-1/" class="article-date">
-  	<time datetime="2016-09-06T14:34:42.000Z" itemprop="datePublished">2016-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/06/经典算法—-1/">互联网笔试常考经典算法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的，所以，这种多阶<br>段最优化决策解决问题的过程就称为动态规划。</p>
-<h3 id="思想与策略"><a href="#思想与策略" class="headerlink" title="思想与策略"></a>思想与策略</h3><p>基本思想与分治法类似，在分析时将待求解的问题分解为若干个子问题（阶段），按顺序求解各个子问题，前一子问题的解，为后一子<br>问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃<br>其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
-<p>要用动态规划解决的问题多数有个特点：某些子问题重叠，为减少重复计算，对每一个子问题只解一次，可将其不同阶段的不同状态<br>保存在一个二维数组中。</p>
-<p>与分治法最大的区别：动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上）</p>
-<h3 id="适用情景"><a href="#适用情景" class="headerlink" title="适用情景"></a>适用情景</h3><p>动态规划求解的问题一般具有以下特征：<br>（1）最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>（2）无后效性：某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与<br>当前状态有关。<br>（3）有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的<br>必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
-<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>（1）问题划分：按照问题的时间或空间特征，把问题分为若干个阶段。在划分阶段时，注意划分后的阶段一定要是有序的或者是可排序的，否则问题就无法求解。<br>（2）确定状态和状态变量：将问题在各个阶段所处的各种客观情况用不同的状态表示出来。当然，状态的选择要满足无后效性。<br>（3）确定决策并写出状态转移方程：因为决策和状态转移有着天然的联系，状态转移就是根据上一阶段的状态和决策来导出本阶段的状态。所以如果确定了决策，状态转移方程也就可写出。但事实上常常是反过来做，根据相邻两个阶段的状态之间的关系来确定决策方法和状态转移方程。<br>（4）寻找边界条件：给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件。</p>
-<h4 id="简化的步骤设计"><a href="#简化的步骤设计" class="headerlink" title="简化的步骤设计"></a>简化的步骤设计</h4><p>（1）分析最优解的性质，并刻画其结构特征。<br>（2）递归的定义最优解。<br>（3）以自底向上或自顶向下的记忆化方式（备忘录法）计算出最优值。<br>（4）根据计算最优值时得到的信息，构造问题的最优解。</p>
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>使用动态规划求解问题，最重要的就是确定动态规划的三要素：<br>（1）将问题划分为多个子阶段 （2）确定各子阶段的状态  （3）从前一个阶段转化到后一个阶段的之间的递推关系。</p>
-<p>确定了动态规划的这三要素，整个求解过程就可以用一个最优决策表来描述。最优决策表是一个二维表，其中行表示决策的阶段，列<br>表示问题状态，表格需要填写的数据一般对应此问题的在某个阶段某个状态下的最优值（如最短路径，最长公共子序列，最大价值等<br>），填表的过程就是根据递推关系，从1行1列开始，以行或者列优先的顺序，依次填写表格，最后根据整个表格的数据通过简单的取<br>舍或者运算求得问题的最优解。</p>
-<h3 id="动态规划算法基本框架"><a href="#动态规划算法基本框架" class="headerlink" title="动态规划算法基本框架"></a>动态规划算法基本框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"><span class="keyword">for</span>(j=1; j&lt;=m; j=j+1) // 第一个阶段</span><br><span class="line">   xn[j] = 初始值;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(i=n-1; i&gt;=1; i=i-1)// 其他n-1个阶段</span><br><span class="line">   <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)//f(i)与i有关的表达式</span><br><span class="line">     xi[j]=j=max（或min）&#123;g(xi-1[j1:j2]), ......, g(xi-1[jk:jk+1])&#125;;</span><br><span class="line"></span><br><span class="line">t = g(x1[j1:j2]); // 由子问题的最优解求解整个问题的最优解的方案</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1[j1]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=2; i&lt;=n-1; i=i+1）</span><br><span class="line">&#123;  </span><br><span class="line">     t = t-xi-1[ji];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(j=1; j&gt;=f(i); j=j+1)</span><br><span class="line">        <span class="keyword">if</span>(t=xi[ji])</span><br><span class="line">             <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html" target="_blank" rel="external">参考自博客园</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-command1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/linux-command1/" class="article-date">
-  	<time datetime="2016-09-05T12:19:05.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/linux-command1/">linux常用命令——1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="显示系统当前支持的语言"><a href="#显示系统当前支持的语言" class="headerlink" title="显示系统当前支持的语言"></a>显示系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># echo $LANG</span>
-</code></pre>
-<h3 id="修改系统当前支持的语言"><a href="#修改系统当前支持的语言" class="headerlink" title="修改系统当前支持的语言"></a>修改系统当前支持的语言</h3><pre><code class="bash"><span class="comment"># LANG=en_US</span>
-</code></pre>
-<h3 id="显示日期"><a href="#显示日期" class="headerlink" title="显示日期"></a>显示日期</h3><pre><code class="bash"><span class="comment"># date</span>
-<span class="comment"># date +%Y/%m/%d</span>
-<span class="comment"># date +%H:%M</span>
-</code></pre>
-<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><pre><code class="bash"><span class="comment"># cal</span>
-<span class="comment"># cal 2016</span>
-<span class="comment"># cal 8 2016</span>
-</code></pre>
-<h3 id="常用的热键"><a href="#常用的热键" class="headerlink" title="常用的热键"></a>常用的热键</h3><pre><code class="bash"><span class="comment"># [Tab] 接在一串命令的第一个命令后面，则为命令补齐</span>
-<span class="comment"># [Tab] 接在一串命令的第二个命令后面，则为文件补齐</span>
-
-<span class="comment">#[Ctrl]+c 终止命令</span>
-<span class="comment">#[Ctrl]+d 键盘输入结束符，也可以替代exit的输入。</span>
-</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-subprocess-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/07/python-subprocess-1/" class="article-date">
-  	<time datetime="2016-08-07T02:01:28.000Z" itemprop="datePublished">2016-08-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/07/python-subprocess-1/">python子进程模块subprocess详解与应用实例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="subprocess–子进程管理器"><a href="#subprocess–子进程管理器" class="headerlink" title="subprocess–子进程管理器"></a>subprocess–子进程管理器</h2><p>subprocess模块用来生成子进程，并可以通过管道连接它们的输入/输出/错误，以及获得它们的返回值。<br>它用来代替多个旧模块和函数:<br>os.system<br>os.spawn<em><br>os.popen</em><br>popen2.<em><br>commands.</em></p>
-<h2 id="subprocess模块中常用的函数"><a href="#subprocess模块中常用的函数" class="headerlink" title="subprocess模块中常用的函数"></a>subprocess模块中常用的函数</h2><p>启动子进程的推荐方式是使用下面的便利功能。<br>当这些还不能满足需求时，就需要使用底层的Popen接口。</p>
-<h3 id="subprocess-call"><a href="#subprocess-call" class="headerlink" title="subprocess.call"></a>subprocess.call</h3><p>语法:<br>     subprocess.call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令结束后，返回 返回码的属性值。<br>返回值：<br>     退出信息(returncode，相当于exit code，见Linux进程基础)</p>
-<p>上面的参数是最常见的方式，下面是示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; subprocess.call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
-<p>WARNING: 使用 shell=True 是一种安全保护机制。<br>NOTE: 在使用这个函数时，不要使用 stdout=PIPE 或 stderr=PIPE 参数，<br>      不然会导致子进程输出的死锁。<br>      如果要使用管道，可以在 communicate()方法中使用Popen<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">rc = subprocess.call([<span class="string">"ls"</span>,<span class="string">"-l"</span>])</span><br></pre></td></tr></table></figure></p>
-<p>可以通过一个shell来解释一整个字符串:<br>使用了shell=True这个参数。<br>这个时候，我们使用一整个字符串，而不是一个列表来运行子进程。<br>Python将先运行一个shell，再用这个shell来解释这整个字符串。</p>
-<p>shell命令中有一些是shell的内建命令，这些命令必须通过shell运行，$cd。<br>shell=True允许我们运行这样一些命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">out = subprocess.call(<span class="string">"ls -l"</span>, shell=True)</span><br><span class="line">out = subprocess.call(<span class="string">"cd .."</span>, shell=True)</span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-check-call"><a href="#subprocess-check-call" class="headerlink" title="subprocess.check_call"></a>subprocess.check_call</h3><p>这个函数在python 2.5版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>     subprocess.check_call(args, *, stdin=None, stdout=None, stderr=None, shell=False)<br>语义:<br>     运行由args指定的命令，直到命令执行完成。<br>     如果返回码为零，则返回。否则，抛出 CalledProcessError异常。<br>     CalledProcessError对象包含有返回码的属性值。<br>返回值：<br>      正常返回 0</p>
-<p>上面显示的参数仅仅是最常见的，下面是用户更常用的参数。<br>示例代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_call([<span class="string">"ls"</span>, <span class="string">"-l"</span>])</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; subprocess.check_call(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-check-output"><a href="#subprocess-check-output" class="headerlink" title="subprocess.check_output"></a>subprocess.check_output</h3><p>这个函数在python 2.7版本中引入。<br>WARNING: 使用 shell=True 是一种安全机制。<br>NOTE: 不要在这个函数中使用 stdout=PIPE 或 stderr=PIPE, 否则会造成子进程死锁。<br>      如果需要使用管道，可以在 communicate()方法中使用Popen.<br>语法:<br>      subprocess.check_output(args, *, stdin=None, stderr=None, shell=False, universal_newlines=False)<br>语义:<br>     运行args定义的命令，并返回一个字符串表示的输出值。<br>     如果返回码为非零，则抛出 CalledProcessError异常。<br>返回值：<br>     返回子进程向标准输出的输出结果<br>示例代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output([<span class="string">"echo"</span>, <span class="string">"Hello World!"</span>])</span><br><span class="line"><span class="string">'Hello World!\n'</span></span><br><span class="line">&gt;&gt;&gt; subprocess.check_output(<span class="string">"exit 1"</span>, shell=True)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">   ...</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">'exit 1'</span> returned non-zero <span class="built_in">exit</span> status 1</span><br></pre></td></tr></table></figure></p>
-<p>如果要捕捉结果中的标准错误，使用 stderr=subprocess.STDOUT参数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; subprocess.check_output(</span><br><span class="line">...     <span class="string">"ls non_existent_file; exit 0"</span>,</span><br><span class="line">...     stderr=subprocess.STDOUT,</span><br><span class="line">...     shell=True)</span><br><span class="line"><span class="string">'ls: non_existent_file: No such file or directory\n'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="subprocess-PIPE"><a href="#subprocess-PIPE" class="headerlink" title="subprocess.PIPE"></a>subprocess.PIPE</h3><p>使用Popen时，用于 stdin, stdout和stderr参数的特殊值，表示打开连接标准流的管道。</p>
-<h3 id="subprocess-STDOUT"><a href="#subprocess-STDOUT" class="headerlink" title="subprocess.STDOUT"></a>subprocess.STDOUT</h3><p>使用Popen时，用于 stderr 参数的特殊值，表示将标准错误重定向到标准输出的同一个句柄。</p>
-<h3 id="异常-subprocess-CalledProcessError"><a href="#异常-subprocess-CalledProcessError" class="headerlink" title="异常 subprocess.CalledProcessError"></a>异常 subprocess.CalledProcessError</h3><p>当由 check_call()或 check_output()运行的进程返回非零状态值时抛出的异常。</p>
-<h3 id="returncode"><a href="#returncode" class="headerlink" title="returncode"></a>returncode</h3><p>子进程的退出状态。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
     </nav>
   
 </div>

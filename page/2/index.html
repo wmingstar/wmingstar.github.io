@@ -156,6 +156,150 @@
 
       <div class="body-wrap">
   
+    <article id="post-offer-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/10/offer-3/" class="article-date">
+  	<time datetime="2017-04-10T00:42:20.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/offer-3/">剑指Offer-3</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。<br>请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p>输入：二维数组  正数<br>输出：boolean</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public boolean findNum(int[][] nums,int key)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums==null || nums.length&lt;1 || nums[0].length&lt;1)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        boolean result = <span class="literal">false</span>;</span><br><span class="line">        int i = 0;</span><br><span class="line">        int j = nums[0].length-1;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;nums.length &amp;&amp; j&gt;=0)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i][j]==key)&#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[i][j]&gt;key)&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int[][] data = &#123;&#123;1,2,3&#125;,&#123;4,7,8&#125;,&#123;5,8,9&#125;&#125;;</span><br><span class="line">        int num = 2;</span><br><span class="line">        Test <span class="built_in">test</span> = new Test();</span><br><span class="line">        boolean result = test.findNum(data,num);</span><br><span class="line">        System.out.print(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java-访问权限控制符" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/31/java-访问权限控制符/" class="article-date">
+  	<time datetime="2017-03-31T03:04:02.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/java-访问权限控制符/">java-访问权限控制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java提供了public, private, protected 三个访问权限修饰词，提供了以下四种访问权限控制机制：</p>
+<p>1、包访问权限 （无访问控制符）；</p>
+<p>2、Public访问权限；</p>
+<p>3、Private访问权限；</p>
+<p>4、Protected访问权限；</p>
+<h3 id="包访问权限"><a href="#包访问权限" class="headerlink" title="包访问权限"></a>包访问权限</h3><p>包访问权限是Java为了便于程序员开发而给定的一种权限选择。</p>
+<p>当 成员方法 或 成员属性 未给定访问权限限制符时，其默认具有该权限。具有该权限的方法 和 成员属性，<br>在包内是完全可见的（注意要与其对象依附在一起），而包外则不可见。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Package accesscontrol</span><br><span class="line"></span><br><span class="line"><span class="comment"># Animal.java</span></span><br><span class="line"></span><br><span class="line">public class Animal</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">　　void bark();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Package accesscontrol</span><br><span class="line"><span class="comment"># Test.java</span></span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="title">main</span></span>()</span><br><span class="line"></span><br><span class="line">　　&#123;</span><br><span class="line"></span><br><span class="line">　　 Animal a= new Animal();</span><br><span class="line"></span><br><span class="line">     a.bark();//此处直接访问了Animal类中的bark（）方法</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于Animal类和Test类都被打包在了同一个Package下，Animal中的bark（）方法为包访问权限，<br>故对类Test可见。</p>
+<p>对java文件中的类也是如此，若未指定限制符，其默认为包访问权限，只能在包内被使用,包外是无法利用其生<br>成对象的（不可见）。</p>
+<p>注意：当决定一个类对包外可见的时候，除了要将类的访问限定符改为public以外，自定义的构造器限定符也<br>必须修改为public，不然将导致外部不可见。</p>
+<h3 id="public-权限"><a href="#public-权限" class="headerlink" title="public 权限"></a>public 权限</h3><p>当在方法或域前面显式的给定public限定符的时候，其具有该权限控制。</p>
+<p>public权限是最为宽松的一种权限控制，对包的内、外部都是完全可见的。</p>
+<p> java最多只允许一个java文件中出现一个public类（该类向外提供接口，并与该java文件的名称完全一致）。</p>
+<p>当一个java文件中无一个Public类时，表明其仅供包内使用，对外界不可见！</p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>类只有包访问权限和public访问权限两类,同时注意 包访问权限和public访问权限<br>这两类不同的类中的 属性和方法的访问。</p>
+<p>接口里的变量都隐式声明为public static final，而接口里的方法默认情况下访问权限为public。</p>
+<h3 id="Private访问权限"><a href="#Private访问权限" class="headerlink" title="Private访问权限"></a>Private访问权限</h3><p>Private是访问限定最为严格一种权限。</p>
+<p>当方法或域为private权限时，表明其只针对该类的内部可见，类的外部（包括同一包内的其它类）<br>是不可见的,并且类和接口不能声明为private。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Animal.java</span></span><br><span class="line"></span><br><span class="line">public class Animal</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　private void bark()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Package accesscontrol</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test.java</span></span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="title">main</span></span>()</span><br><span class="line"></span><br><span class="line">　　&#123;</span><br><span class="line"></span><br><span class="line">　　Animal a= new Animal();</span><br><span class="line">    <span class="comment"># 此处将造成编译错误，bark（）方法为private方法，仅对Animal类 内部可见，现在在Test类内部。</span></span><br><span class="line">    a.bark();</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="protected访问权限"><a href="#protected访问权限" class="headerlink" title="protected访问权限"></a>protected访问权限</h3><p>protected权限是一种严格程度介于public和private之间的权限，具有prtoected权限的 成员属性 和 方法<br>能被同一个包中的任何其他类访问，也能够被不同包中的子类访问。</p>
+<p>protected访问修饰符不能修饰类和接口，方法和成员变量能够声明为protected，但是接口的成员变量和成员<br>方法不能声明为protected，接口的成员变量和成员方法默认为 public。</p>
+<p>在面向对象的设计当中，最常用的为public和private访问权限两种。</p>
+<p>一般情况下将成员属性定义为private，将方法定义为public。外界使用该类时，通过public方法使用其接口，<br>而具体的成员属性则对外部屏蔽，只能通过类提供的接口间接访问。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Dog&#123;</span><br><span class="line"></span><br><span class="line">　private int age=0;</span><br><span class="line"></span><br><span class="line">  public <span class="built_in">set</span>Age(int num)</span><br><span class="line">  &#123;</span><br><span class="line"></span><br><span class="line">　　age=num+1;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此处，age域对外部不可见，要想对其进行操作，必须使用Dog类提供的接口setAge（int num）。</p>
+<p>注意到setAge的方法体age=num+1;对用户给出的年龄加1了以后再修改了age属性，这种修改对使用者是不可<br>见的，有时又是非常的必要的！</p>
+<p>Java中的访问修饰符（访问控制符）包括：public，protected，default，private。分别代表了不同的访问权限。如果省略，则被视为使用了默认的default作为访问修饰符。<br>　　<br>从字面含义上面理解，很显然，这几个访问控制符（public -&gt; protected -&gt; default -&gt;private）<br>所代表的访问权限是依次递减的。那么，所谓的访问权限是相对什么来说的呢？这个问题的答案就是，这里的<br>权限是针对是不是同一个类、是不是属于同一个包、是不是存在父类子类关系。</p>
+<p>public：权限最大，不受类、包等的限制，都可以访问。<br>protected：次于public，限制之处在于如果不再同一个包中，只有和它存在继承关系的子类才可以访问它。<br>default：进一步受限，必须是同一个包才能访问。<br>private：这个就将权限限制在了类中，只有同一个类中的成员才能访问。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-百度面经" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -458,157 +602,9 @@
 
 
   
-    <article id="post-http请求方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/25/http请求方法/" class="article-date">
-  	<time datetime="2017-03-25T08:02:16.000Z" itemprop="datePublished">2017-03-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/http请求方法/">http请求方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HTTP/1.1协议中共定义了8种HTTP请求方法，HTTP请求方法也被叫做“请求动作”，不同的方法规定了不同的操作指定的资源方式。服务端也会根据不同的请求方法做不同的响应。</p>
-<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET请求会显示请求指定的资源。一般来说GET方法应该只用于数据的读取，而不应当用于会产生副作用的非幂等的操作中。<br>GET会方法请求指定的页面信息，并返回响应主体，GET被认为是不安全的方法，因为GET方法会被网络蜘蛛等任意的访问。</p>
-<h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p>HEAD方法与GET方法一样，都是向服务器发出指定资源的请求。但是，服务器在响应HEAD请求时不会回传资源的内容部分，即：响应主体。这样，我们可以不传输全部内容的情况下，就可以获取服务器的响应头信息。HEAD方法常被用于客户端查看服务器的性能。</p>
-<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>POST请求会向指定资源提交数据，请求服务器进行处理，如：表单数据提交、文件上传等，<br>请求数据会被包含在请求体中。POST方法是非幂等的方法，因为这个请求可能会创建新的资源或/和修改现有资<br>源。</p>
-<h3 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h3><p>PUT请求会身向指定资源位置上传其最新内容，PUT方法是幂等的方法。通过该方法客户端可以将指定资源的最新数据传送给服务器取代指定的资源的内容。</p>
-<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>DELETE请求用于请求服务器删除所请求URI（统一资源标识符，Uniform Resource Identifier）所标识的资源。DELETE请求后指定资源会被删除，DELETE方法也是幂等的。</p>
-<h3 id="CONNECT"><a href="#CONNECT" class="headerlink" title="CONNECT"></a>CONNECT</h3><p>CONNECT方法是HTTP/1.1协议预留的，能够将连接改为管道方式的代理服务器。通常用于SSL加密服务器的链接与非加密的HTTP代理服务器的通信。</p>
-<h3 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h3><p>OPTIONS请求与HEAD类似，一般也是用于客户端查看服务器的性能。 这个方法会请求服务器返回该资<br>源所支持的所有HTTP请求方法，该方法会用’*’来代替资源名称，向服务器发送OPTIONS请求，可以测试服务器<br>功能是否正常。JavaScript的XMLHttpRequest对象进行CORS跨域资源共享时，就是使用OPTIONS方法发送嗅探请<br>求，以判断是否有对指定资源的访问权限。 允许</p>
-<h3 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h3><p>TRACE请求服务器回显其收到的请求信息，该方法主要用于HTTP请求的测试或诊断。</p>
-<h3 id="HTTP-1-1之后增加的方法"><a href="#HTTP-1-1之后增加的方法" class="headerlink" title="HTTP/1.1之后增加的方法"></a>HTTP/1.1之后增加的方法</h3><p>在HTTP/1.1标准制定之后，又陆续扩展了一些方法。其中使用中较多的是——PATCH 方法：</p>
-<p>PATCH方法出现的较晚，它在2010年的RFC 5789标准中被定义。PATCH请求与PUT请求类似，<br>同样用于资源的更新。二者有以下两点不同：</p>
-<p>但PATCH一般用于资源的部分更新，而PUT一般用于资源的整体更新。</p>
-<p>当资源不存在时，PATCH会创建一个新的资源，而PUT只会对已在资源进行更新。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java中的异常和错误" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/23/java中的异常和错误/" class="article-date">
-  	<time datetime="2017-03-23T00:22:49.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/java中的异常和错误/">java种Throwable、Error、Exception、RuntimeException 区别 联系</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception。</p>
-<h3 id="Exception："><a href="#Exception：" class="headerlink" title="Exception："></a>Exception：</h3><p>1．可以是可被控制(checked) 或不可控制的(unchecked) </p>
-<p>2．表示一个由程序员导致的错误 </p>
-<p>3．应该在应用程序级被处理</p>
-<h3 id="Error："><a href="#Error：" class="headerlink" title="Error："></a>Error：</h3><p>1．总是不可控制的(unchecked) </p>
-<p>2．经常用来用于表示系统错误或低层资源的错误 </p>
-<p>3．如何可能的话，应该在系统级被捕捉</p>
-<h3 id="Checked-exception-与-Unchecked-exception"><a href="#Checked-exception-与-Unchecked-exception" class="headerlink" title="Checked exception 与 Unchecked exception"></a>Checked exception 与 Unchecked exception</h3><h4 id="Checked-exception"><a href="#Checked-exception" class="headerlink" title="Checked exception"></a>Checked exception</h4><p>这类异常都是Exception的子类，用异常的向上抛出机制进行处理，假如子类可能<br>产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。</p>
-<h4 id="Unchecked-exception"><a href="#Unchecked-exception" class="headerlink" title="Unchecked exception"></a>Unchecked exception</h4><p>这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们<br>是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。</p>
-<h4 id="Checked-Exception与Runtime-Exception-的区别"><a href="#Checked-Exception与Runtime-Exception-的区别" class="headerlink" title="Checked Exception与Runtime Exception 的区别"></a>Checked Exception与Runtime Exception 的区别</h4><p>Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，<br>另外一种则是受控制的Exception (Checked Exception)。</p>
-<p>所有的Checked Exception 均从java.lang.Exception 继承而来，而Runtime Exception<br>则继承java.lang.RuntimeException 或java.lang.Error (实际上java.lang.RuntimeException<br>的上一层也是java.lang.Exception)。</p>
-<p>写代码时很可能会对选择某种形式的Exception 感到困扰，到底应该选择Runtime Exception<br>还是Checked Exception ？</p>
-<p>其实，在运作上，可以通过Class 的Method 如何产生某个Exception以及某个程序如何<br>处理这个被产生来的Exception 来了解它们之间的差异，先建立一个Exception：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class CException extends Exception &#123;  </span><br><span class="line">    </span><br><span class="line">    public <span class="function"><span class="title">CException</span></span>() &#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public CException(String message) &#123;  </span><br><span class="line">        super(message);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>测试程序</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class TestException &#123;  </span><br><span class="line">    public void method1() throws CException &#123;  </span><br><span class="line">        throw new CException(<span class="string">"Test Exception"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method2(String msg) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (msg == null) &#123;  </span><br><span class="line">            throw new NullPointerException(<span class="string">"Message is null"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method3() throws CException &#123;  </span><br><span class="line">        method1();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    // 以下省略  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>method1 和 method2 的程序代码内都会产生 Exception，<br>但method3 的程序代码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个 method<br>可能产生CException。</p>
-<p>调用 method1() 的程序，由于 method1 会抛出异常 必须将method1() 包含在try 与catch 中，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest &#123;  </span><br><span class="line">    // ....  </span><br><span class="line">    public static void main(String argv[]) &#123;  </span><br><span class="line">        TestException te = new TestException();  </span><br><span class="line">        try &#123;  </span><br><span class="line">            te.method1();  </span><br><span class="line">        &#125; catch (CException ce) &#123;  </span><br><span class="line">            // ....  </span><br><span class="line">            ce.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，<br>但它的用意在于提醒调用者，执行这个method可能产生的意外，而使用者也必须要能针对这个意外做出相对应<br>的处理方式。</p>
-<p>当使用者呼叫 method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，<br>并没有throws 任何的Exception ，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest  </span><br><span class="line">&#123;  </span><br><span class="line">// ....  </span><br><span class="line">public static void main(String argv[])  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">test</span>Exception te = new <span class="built_in">test</span>Exception();  </span><br><span class="line">  </span><br><span class="line">// 不会产生 Exception  </span><br><span class="line">te.method2(<span class="string">"Hello"</span>);  </span><br><span class="line">  </span><br><span class="line">// 会产生 Exception  </span><br><span class="line">te.method2(null);  </span><br><span class="line">&#125;  </span><br><span class="line">// ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>若一个 method 内部抛出的是 RuntimeException，那定义这个 method 时，不需要明确 throws Exception</p>
-<p>调用 method 时，若 method 明确  throws Exception，则需要将这个 method 的调用放在 try catch<br>中，对抛出的异常情况进行处理。</p>
-<p>调用 method 时，若 method 没有 throws Exception，则不需要将这个 method 的调用放在 try catch<br>中。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

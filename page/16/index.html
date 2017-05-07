@@ -156,6 +156,133 @@
 
       <div class="body-wrap">
   
+    <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/pip源/" class="article-date">
+  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/pip源/">制作pip源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。<br>这里介绍两种方法：</p>
+<h2 id="一、同步官方pip源到本地"><a href="#一、同步官方pip源到本地" class="headerlink" title="一、同步官方pip源到本地"></a>一、同步官方pip源到本地</h2><p>用脚本安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip pip.master.zip</span><br><span class="line"><span class="built_in">cd</span> pip.master</span><br><span class="line">python setup.py  install</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip distribute-0.7.3.zip</span><br><span class="line"><span class="built_in">cd</span> distribute-0.7.3</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip virtualenv.zip</span><br><span class="line"><span class="built_in">cd</span> virtualenv</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtualenv-2.7 bandersnatch</span><br><span class="line"><span class="built_in">cd</span> bandersnatch</span><br><span class="line">bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span><br></pre></td></tr></table></figure>
+<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Run （- it will create an empty configuration file for you in /etc/bandersnatch.conf.）根据自己的需求更改配置文件 </span><br><span class="line">#/etc/bandersnatch.conf</span><br><span class="line"></span><br><span class="line">bandersnatch mirror </span><br><span class="line"></span><br><span class="line">#Run again.</span><br><span class="line">#It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect </span><br><span class="line">#this to grow substantially over time.Run bandersnatch mirror regularly to update your mirror with any #intermediate changes.</span><br><span class="line">bandersnatch mirror</span><br></pre></td></tr></table></figure>
+<p>用这个方法可以将官方pip源同步到本地，但是速度比较慢，我同步的时候用了一种，共220G左右，随着时间的推移，这个源是在不<br>断变化的。单自己同步完之后并不会用啊，太伤了，所以又换了中方法。</p>
+<h2 id="二、制作自定义pip源"><a href="#二、制作自定义pip源" class="headerlink" title="二、制作自定义pip源"></a>二、制作自定义pip源</h2><p>需要什么就在可以上网的电脑上提前下载好，然后复制到部署环境的电脑上就可以。</p>
+<h3 id="1-将需要的pip包下载到本地"><a href="#1-将需要的pip包下载到本地" class="headerlink" title="1.将需要的pip包下载到本地"></a>1.将需要的pip包下载到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="_">-d</span> /path/to/save/   packagesname</span><br></pre></td></tr></table></figure>
+<h3 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=file:///path_to/packages/   packagesname</span><br></pre></td></tr></table></figure>
+<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/26/python-1/" class="article-date">
+  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
+<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
+<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-linux目录详解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -361,131 +488,9 @@
 
 
   
-    <article id="post-java6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/java6/" class="article-date">
-  	<time datetime="2016-06-07T09:34:24.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/java6/">JAVA进阶-万年历</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>此程序可以计算某一日期是这一年的第多少天以及第几周和这一天是星期几，并可以输出当年的日历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package project1;</span><br><span class="line">import java.util.Scanner;;</span><br><span class="line">public class MyCalendar &#123;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	//计算这一天是今年的第多少天</span><br><span class="line">	private static int count_day(int year,int month,int day) &#123;</span><br><span class="line">		int month_day[]=&#123;31,28,31,30,31,30,31,31,30,31,30,31&#125;;</span><br><span class="line">		int day_count=0;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;month-1;i++)&#123;</span><br><span class="line">			day_count+=month_day[i];</span><br><span class="line">		&#125;</span><br><span class="line">		day_count+=day;</span><br><span class="line">		<span class="keyword">if</span>(month&gt;2)&#123;</span><br><span class="line">			<span class="built_in">return</span> isLeap(year)?day_count+1:day_count;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> day_count;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//判断是否是闰年</span><br><span class="line">	private static Boolean isLeap(int year) &#123;</span><br><span class="line">		<span class="keyword">if</span>((year%400==0) ||(( year%4==0) &amp;&amp; (year%100!=0))) <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static int weekcount(int year,int month,int day) &#123;</span><br><span class="line">		int count_week=0;</span><br><span class="line">		int dayCnt = count_day(year,month,day);</span><br><span class="line">		int weekminus = getWeek(year,month,day)-getWeek(year,1,1);</span><br><span class="line">		<span class="keyword">if</span>(dayCnt%7==0) count_week = dayCnt/7+((weekminus&gt;0)?1:0);</span><br><span class="line">		<span class="keyword">else</span> count_week = dayCnt/7+((weekminus&gt;0)?2:1);</span><br><span class="line">		<span class="built_in">return</span> count_week;	</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//计算输入日期是星期几</span><br><span class="line">	//采用了基姆拉尔森计算公式 </span><br><span class="line">	//W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400) mod 7 </span><br><span class="line">	//在公式中d表示日期中的日数，m表示月份数，y表示年数。</span><br><span class="line">	//注意：在公式中有个与其他公式不同的地方： </span><br><span class="line">	//把一月和二月看成是上一年的十三月和十四月，例：如果是2004-1-10则换算成：2003-13-10来代入公式计算。</span><br><span class="line">	//计算结果是  (星期几-1) </span><br><span class="line">	public static int getWeek(int year,int month,int day)&#123;</span><br><span class="line">		<span class="keyword">if</span>(month&lt;3)&#123;</span><br><span class="line">			month+=12; year--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> (day+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void <span class="built_in">print</span>Cal(int year)&#123;</span><br><span class="line">		byte dayadd[]=&#123;0,1,-2,1,0,1,0,1,1,0,1,0,1&#125;; //同样的，每月天数和30的差值，注意，dayadd[0]的0并没用到</span><br><span class="line">		int wkpoint = getWeek(year,1,1);			//wkpoint用来指出当前日期的星期数		</span><br><span class="line">		int t = 0;									//t用来作为一个标记器，解决闰年2月有29天的问题</span><br><span class="line">		int bk = 0;									//bk用来记录需输空白的数目</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;13;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			t = 0;</span><br><span class="line">			bk = 0;</span><br><span class="line">			<span class="keyword">if</span>((i==2)&amp;&amp;(isLeap(year))) </span><br><span class="line">				t = 1;								//当且仅当闰年的2月份才将其置为1</span><br><span class="line">			System.out.println(<span class="string">"\n\t\t"</span>+year+<span class="string">" 年 "</span>+i+<span class="string">" 月\n"</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;7;j++)</span><br><span class="line">				System.out.print(week[j]+<span class="string">"\t"</span>);</span><br><span class="line">			System.out.println();</span><br><span class="line">			<span class="keyword">while</span>(bk++&lt;wkpoint)</span><br><span class="line">				System.out.print(<span class="string">'\t'</span>);</span><br><span class="line">			<span class="keyword">for</span>(int j=1;j&lt;=(30+dayadd[i]+t);j++)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.print(j+<span class="string">"\t"</span>);			//循环输出每月日期</span><br><span class="line">				<span class="keyword">if</span>(wkpoint==6) </span><br><span class="line">					&#123; wkpoint = 0; System.out.print(<span class="string">'\n'</span>);&#125;  //当wkpoint计数器为6时将其置为0，并换行</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					wkpoint++;												</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		String week[]=&#123;<span class="string">"星期一"</span>,<span class="string">"星期二"</span>,<span class="string">"星期三"</span>,<span class="string">"星期四"</span>,<span class="string">"星期五"</span>,<span class="string">"星期六"</span>,<span class="string">"星期日"</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">"请输入日期（格式：****,**,**）："</span>);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		String get_date=input.nextLine();</span><br><span class="line">		String date[]=get_date.split(<span class="string">","</span>);</span><br><span class="line">		int year=Integer.parseInt(date[0]);</span><br><span class="line">		int month=Integer.parseInt(date[1]);</span><br><span class="line">		int day=Integer.parseInt(date[2]);</span><br><span class="line">		System.out.println(month+<span class="string">"月"</span>+day+<span class="string">"日"</span>+<span class="string">"是"</span>+year+<span class="string">"的第"</span>+count_day(year,month,day)+<span class="string">"天"</span>);</span><br><span class="line">		System.out.println(<span class="string">"这一天是这一年的第"</span>+weekcount(year,month,day)+<span class="string">"周"</span>+<span class="string">"  "</span>+week[getWeek(year, month, day)]);</span><br><span class="line">		System.out.println(<span class="string">"日期:"</span>+year+<span class="string">" "</span>+month+<span class="string">" "</span>+day);</span><br><span class="line">		//<span class="built_in">print</span>Cal(year);</span><br><span class="line">		input.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/05/github2/" class="article-date">
-  	<time datetime="2016-06-05T11:24:53.403Z" itemprop="datePublished">2016-06-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/github2/">Hexo 简单教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a><br><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo API</a><br><a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Hexo Troubleshooting</a> </p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="写新文章，先创建-Post"><a href="#写新文章，先创建-Post" class="headerlink" title="写新文章，先创建 Post"></a>写新文章，先创建 Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>这时，在本地目录 hexo/source/  下会出现一个 My New Post.md 文件，这便是刚刚创建的post，用Notepad++打开，就可以写文章啦！<br>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="开启本地Hexo服务，查看效果"><a href="#开启本地Hexo服务，查看效果" class="headerlink" title="开启本地Hexo服务，查看效果"></a>开启本地Hexo服务，查看效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>此时，本地Hexo服务启动，打开浏览器 输入：localhost:4000 查看<br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="上传到远端主机（Github）"><a href="#上传到远端主机（Github）" class="headerlink" title="上传到远端主机（Github）"></a>上传到远端主机（Github）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
     </nav>
   
 </div>

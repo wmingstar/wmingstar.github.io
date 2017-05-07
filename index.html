@@ -156,6 +156,123 @@
 
       <div class="body-wrap">
   
+    <article id="post-offer-5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/26/offer-5/" class="article-date">
+  	<time datetime="2017-04-26T01:46:28.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/26/offer-5/">offer-5</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/18/mysql-面试题/" class="article-date">
+  	<time datetime="2017-04-18T08:37:51.000Z" itemprop="datePublished">2017-04-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/18/mysql-面试题/">mysql-面试题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-sql语句应该考虑哪些安全性？"><a href="#1-sql语句应该考虑哪些安全性？" class="headerlink" title="1.sql语句应该考虑哪些安全性？"></a>1.sql语句应该考虑哪些安全性？</h3><p>（1）防止sql注入，对特殊字符进行转义，过滤或者使用预编译的sql语句绑定变量。<br>（2）最小权限原则，特别是不要用root账户，为不同类型的动作使用不同的账户。<br>（3）当sql运行出错时，不要把数据库返回的错误信息全部显示给用户，以防止泄漏服务器和数据库相关信息。</p>
+<h3 id="2-简单描述MySQL中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响。"><a href="#2-简单描述MySQL中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响。" class="headerlink" title="2.简单描述MySQL中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响。"></a>2.简单描述MySQL中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响。</h3><p>（1）索引是一种特殊的文件（InnoDB数据表上的索引是表空间的一个组成部分），它们包含着对数据表里<br>所有记录的引用指针。<br>（2）普通索引（由关键字KEY或INDEX定义的索引）的唯一任务是加快对数据的访问速度；<br>     普通索引允许被索引的数据列包含重复的值；<br>     如果能确定某个数据列的值彼此各不相同，在为这个数据索引创建索引的时候就应该用关键字<br>     UNIQE把它定义为一个唯一索引，唯一索引可以保证数据记录的唯一性。<br>（3）主键，一种特殊的唯一索引，在一张表中只能定义一个主键索引，用于唯一标识一条记录，是用关键字<br>PRIMARY KEY来创建。<br>（5）索引可以覆盖多个数据列，如像INDEX索引，这就是联合索引。<br>（6）索引可以极大的提高数据的查询速度，但是会降低插入删除更新表的速度，因为在执行这些写操作时，还<br>要操作索引文件。</p>
+<h3 id="3-一张表-里面有ID自增主键-当insert了17条记录之后-删除了第15-16-17条记录"><a href="#3-一张表-里面有ID自增主键-当insert了17条记录之后-删除了第15-16-17条记录" class="headerlink" title="3.一张表,里面有ID自增主键,当insert了17条记录之后,删除了第15,16,17条记录,"></a>3.一张表,里面有ID自增主键,当insert了17条记录之后,删除了第15,16,17条记录,</h3><h3 id="再把Mysql重启-再insert一条记录-这条记录的ID是18还是15-？"><a href="#再把Mysql重启-再insert一条记录-这条记录的ID是18还是15-？" class="headerlink" title="再把Mysql重启,再insert一条记录,这条记录的ID是18还是15 ？"></a>再把Mysql重启,再insert一条记录,这条记录的ID是18还是15 ？</h3><p>（1）如果表的类型是MyISAM，那么是18。<br>因为MyISAM表会把自增主键的最大ID记录到数据文件里，重启MySQL自增主键的最大ID也不会丢失。<br>（2）如果表的类型是InnoDB，那么是15。InnoDB表只是把自增主键的最大ID记录到内存中，所以重启数据<br>库或者是对表进行OPTIMIZE操作，都会导致最大ID丢失。</p>
+<h3 id="4-请简述项目中优化sql语句执行效率的方法，从哪些方面。sql语句性能如何分析？"><a href="#4-请简述项目中优化sql语句执行效率的方法，从哪些方面。sql语句性能如何分析？" class="headerlink" title="4.请简述项目中优化sql语句执行效率的方法，从哪些方面。sql语句性能如何分析？"></a>4.请简述项目中优化sql语句执行效率的方法，从哪些方面。sql语句性能如何分析？</h3><p>（1）尽量选择较小的列<br>（2）将where中用的比较频繁的字段建立索引<br>（3）select子句中避免使用‘*’<br>（4）避免在索引列上使用计算，not，in和&lt; &gt;等操作<br>（5）当只需要一行数据的时候使用limit 1<br>（6）保证表单数据不超过200w，适时分割表<br>（7）针对查询较慢的语句，可以使用explain来分析该语句具体的执行情况</p>
+<h3 id="5-什么是存储过程？有哪些优缺点？"><a href="#5-什么是存储过程？有哪些优缺点？" class="headerlink" title="5.什么是存储过程？有哪些优缺点？"></a>5.什么是存储过程？有哪些优缺点？</h3><p>存储过程是一些预编译的SQL语句。</p>
+<p>更加直白的理解：存储过程可以说是一个记录集，它是由一些T-SQL语句组成的代码块，这些T-SQL语句代码像一个方法一样实现一些功能（对单表或多表的增删改查），然后再给这个代码块取一个名字，在用到这个功能的时候调用他就行了。</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>（1）由于数据库执行动作时，是先编译后执行的，然而存储过程是一个编译过的代码块，<br>所以执行效率要比T-SQL语句高。</p>
+<p>（2）一个存储过程在程序与网络交互时可以替代大堆的T-SQL语句，所以也能降低网络的通信量，<br>提高通信速率。</p>
+<p>（3）通过存储过程能够使没有权限的用户在控制之下间接地存取数据库，从而确保数据的安全。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-elasticsearch-head" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -378,153 +495,9 @@
 
 
   
-    <article id="post-offer-3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/10/offer-3/" class="article-date">
-  	<time datetime="2017-04-10T00:42:20.000Z" itemprop="datePublished">2017-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/offer-3/">剑指Offer-3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。<br>请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p>输入：二维数组  正数<br>输出：boolean</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public boolean findNum(int[][] nums,int key)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums==null || nums.length&lt;1 || nums[0].length&lt;1)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        boolean result = <span class="literal">false</span>;</span><br><span class="line">        int i = 0;</span><br><span class="line">        int j = nums[0].length-1;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;nums.length &amp;&amp; j&gt;=0)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i][j]==key)&#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[i][j]&gt;key)&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int[][] data = &#123;&#123;1,2,3&#125;,&#123;4,7,8&#125;,&#123;5,8,9&#125;&#125;;</span><br><span class="line">        int num = 2;</span><br><span class="line">        Test <span class="built_in">test</span> = new Test();</span><br><span class="line">        boolean result = test.findNum(data,num);</span><br><span class="line">        System.out.print(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java-访问权限控制符" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/31/java-访问权限控制符/" class="article-date">
-  	<time datetime="2017-03-31T03:04:02.000Z" itemprop="datePublished">2017-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/java-访问权限控制符/">java-访问权限控制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java提供了public, private, protected 三个访问权限修饰词，提供了以下四种访问权限控制机制：</p>
-<p>1、包访问权限 （无访问控制符）；</p>
-<p>2、Public访问权限；</p>
-<p>3、Private访问权限；</p>
-<p>4、Protected访问权限；</p>
-<h3 id="包访问权限"><a href="#包访问权限" class="headerlink" title="包访问权限"></a>包访问权限</h3><p>包访问权限是Java为了便于程序员开发而给定的一种权限选择。</p>
-<p>当 成员方法 或 成员属性 未给定访问权限限制符时，其默认具有该权限。具有该权限的方法 和 成员属性，<br>在包内是完全可见的（注意要与其对象依附在一起），而包外则不可见。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Package accesscontrol</span><br><span class="line"></span><br><span class="line"><span class="comment"># Animal.java</span></span><br><span class="line"></span><br><span class="line">public class Animal</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　void bark();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Package accesscontrol</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test.java</span></span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="title">main</span></span>()</span><br><span class="line"></span><br><span class="line">　　&#123;</span><br><span class="line"></span><br><span class="line">　　 Animal a= new Animal();</span><br><span class="line"></span><br><span class="line">     a.bark();//此处直接访问了Animal类中的bark（）方法</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于Animal类和Test类都被打包在了同一个Package下，Animal中的bark（）方法为包访问权限，<br>故对类Test可见。</p>
-<p>对java文件中的类也是如此，若未指定限制符，其默认为包访问权限，只能在包内被使用,包外是无法利用其生<br>成对象的（不可见）。</p>
-<p>注意：当决定一个类对包外可见的时候，除了要将类的访问限定符改为public以外，自定义的构造器限定符也<br>必须修改为public，不然将导致外部不可见。</p>
-<h3 id="public-权限"><a href="#public-权限" class="headerlink" title="public 权限"></a>public 权限</h3><p>当在方法或域前面显式的给定public限定符的时候，其具有该权限控制。</p>
-<p>public权限是最为宽松的一种权限控制，对包的内、外部都是完全可见的。</p>
-<p> java最多只允许一个java文件中出现一个public类（该类向外提供接口，并与该java文件的名称完全一致）。</p>
-<p>当一个java文件中无一个Public类时，表明其仅供包内使用，对外界不可见！</p>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>类只有包访问权限和public访问权限两类,同时注意 包访问权限和public访问权限<br>这两类不同的类中的 属性和方法的访问。</p>
-<p>接口里的变量都隐式声明为public static final，而接口里的方法默认情况下访问权限为public。</p>
-<h3 id="Private访问权限"><a href="#Private访问权限" class="headerlink" title="Private访问权限"></a>Private访问权限</h3><p>Private是访问限定最为严格一种权限。</p>
-<p>当方法或域为private权限时，表明其只针对该类的内部可见，类的外部（包括同一包内的其它类）<br>是不可见的,并且类和接口不能声明为private。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Animal.java</span></span><br><span class="line"></span><br><span class="line">public class Animal</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　private void bark()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Package accesscontrol</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test.java</span></span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="title">main</span></span>()</span><br><span class="line"></span><br><span class="line">　　&#123;</span><br><span class="line"></span><br><span class="line">　　Animal a= new Animal();</span><br><span class="line">    <span class="comment"># 此处将造成编译错误，bark（）方法为private方法，仅对Animal类 内部可见，现在在Test类内部。</span></span><br><span class="line">    a.bark();</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="protected访问权限"><a href="#protected访问权限" class="headerlink" title="protected访问权限"></a>protected访问权限</h3><p>protected权限是一种严格程度介于public和private之间的权限，具有prtoected权限的 成员属性 和 方法<br>能被同一个包中的任何其他类访问，也能够被不同包中的子类访问。</p>
-<p>protected访问修饰符不能修饰类和接口，方法和成员变量能够声明为protected，但是接口的成员变量和成员<br>方法不能声明为protected，接口的成员变量和成员方法默认为 public。</p>
-<p>在面向对象的设计当中，最常用的为public和private访问权限两种。</p>
-<p>一般情况下将成员属性定义为private，将方法定义为public。外界使用该类时，通过public方法使用其接口，<br>而具体的成员属性则对外部屏蔽，只能通过类提供的接口间接访问。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Dog&#123;</span><br><span class="line"></span><br><span class="line">　private int age=0;</span><br><span class="line"></span><br><span class="line">  public <span class="built_in">set</span>Age(int num)</span><br><span class="line">  &#123;</span><br><span class="line"></span><br><span class="line">　　age=num+1;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此处，age域对外部不可见，要想对其进行操作，必须使用Dog类提供的接口setAge（int num）。</p>
-<p>注意到setAge的方法体age=num+1;对用户给出的年龄加1了以后再修改了age属性，这种修改对使用者是不可<br>见的，有时又是非常的必要的！</p>
-<p>Java中的访问修饰符（访问控制符）包括：public，protected，default，private。分别代表了不同的访问权限。如果省略，则被视为使用了默认的default作为访问修饰符。<br>　　<br>从字面含义上面理解，很显然，这几个访问控制符（public -&gt; protected -&gt; default -&gt;private）<br>所代表的访问权限是依次递减的。那么，所谓的访问权限是相对什么来说的呢？这个问题的答案就是，这里的<br>权限是针对是不是同一个类、是不是属于同一个包、是不是存在父类子类关系。</p>
-<p>public：权限最大，不受类、包等的限制，都可以访问。<br>protected：次于public，限制之处在于如果不再同一个包中，只有和它存在继承关系的子类才可以访问它。<br>default：进一步受限，必须是同一个包才能访问。<br>private：这个就将权限限制在了类中，只有同一个类中的成员才能访问。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

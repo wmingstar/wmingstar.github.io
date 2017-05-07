@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/剑指Offer/" style="font-size: 11.25px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
+						<a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/spark/" style="font-size: 15px;">spark</a> <a href="/tags/剑指Offer/" style="font-size: 10px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-http请求方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-字典排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/25/http请求方法/" class="article-date">
-  	<time datetime="2017-03-25T08:02:16.000Z" itemprop="datePublished">2017-03-25</time>
+      <a href="/2016/12/27/字典排序/" class="article-date">
+  	<time datetime="2016-12-27T05:49:36.000Z" itemprop="datePublished">2016-12-27</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/http请求方法/">http请求方法</a>
+      <a class="article-title" href="/2016/12/27/字典排序/">字典排序</a>
     </h1>
   
 
@@ -182,19 +182,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>HTTP/1.1协议中共定义了8种HTTP请求方法，HTTP请求方法也被叫做“请求动作”，不同的方法规定了不同的操作指定的资源方式。服务端也会根据不同的请求方法做不同的响应。</p>
-<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>GET请求会显示请求指定的资源。一般来说GET方法应该只用于数据的读取，而不应当用于会产生副作用的非幂等的操作中。<br>GET会方法请求指定的页面信息，并返回响应主体，GET被认为是不安全的方法，因为GET方法会被网络蜘蛛等任意的访问。</p>
-<h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p>HEAD方法与GET方法一样，都是向服务器发出指定资源的请求。但是，服务器在响应HEAD请求时不会回传资源的内容部分，即：响应主体。这样，我们可以不传输全部内容的情况下，就可以获取服务器的响应头信息。HEAD方法常被用于客户端查看服务器的性能。</p>
-<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>POST请求会向指定资源提交数据，请求服务器进行处理，如：表单数据提交、文件上传等，<br>请求数据会被包含在请求体中。POST方法是非幂等的方法，因为这个请求可能会创建新的资源或/和修改现有资<br>源。</p>
-<h3 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h3><p>PUT请求会身向指定资源位置上传其最新内容，PUT方法是幂等的方法。通过该方法客户端可以将指定资源的最新数据传送给服务器取代指定的资源的内容。</p>
-<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>DELETE请求用于请求服务器删除所请求URI（统一资源标识符，Uniform Resource Identifier）所标识的资源。DELETE请求后指定资源会被删除，DELETE方法也是幂等的。</p>
-<h3 id="CONNECT"><a href="#CONNECT" class="headerlink" title="CONNECT"></a>CONNECT</h3><p>CONNECT方法是HTTP/1.1协议预留的，能够将连接改为管道方式的代理服务器。通常用于SSL加密服务器的链接与非加密的HTTP代理服务器的通信。</p>
-<h3 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h3><p>OPTIONS请求与HEAD类似，一般也是用于客户端查看服务器的性能。 这个方法会请求服务器返回该资<br>源所支持的所有HTTP请求方法，该方法会用’*’来代替资源名称，向服务器发送OPTIONS请求，可以测试服务器<br>功能是否正常。JavaScript的XMLHttpRequest对象进行CORS跨域资源共享时，就是使用OPTIONS方法发送嗅探请<br>求，以判断是否有对指定资源的访问权限。 允许</p>
-<h3 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h3><p>TRACE请求服务器回显其收到的请求信息，该方法主要用于HTTP请求的测试或诊断。</p>
-<h3 id="HTTP-1-1之后增加的方法"><a href="#HTTP-1-1之后增加的方法" class="headerlink" title="HTTP/1.1之后增加的方法"></a>HTTP/1.1之后增加的方法</h3><p>在HTTP/1.1标准制定之后，又陆续扩展了一些方法。其中使用中较多的是——PATCH 方法：</p>
-<p>PATCH方法出现的较晚，它在2010年的RFC 5789标准中被定义。PATCH请求与PUT请求类似，<br>同样用于资源的更新。二者有以下两点不同：</p>
-<p>但PATCH一般用于资源的部分更新，而PUT一般用于资源的整体更新。</p>
-<p>当资源不存在时，PATCH会创建一个新的资源，而PUT只会对已在资源进行更新。</p>
+        <p>python字典（dict）无序的,可以用下列方法对字典进行排序。</p>
+<h3 id="按字典的值（value）排序"><a href="#按字典的值（value）排序" class="headerlink" title="按字典的值（value）排序"></a>按字典的值（value）排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"> </span><br><span class="line"><span class="comment">#输出结果：</span></span><br><span class="line">[(<span class="string">'aa'</span>, 74), (<span class="string">'a'</span>, 31), (<span class="string">'bc'</span>, 5), (<span class="string">'asd'</span>, 4), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
+<p>dic.iteritems()方法，得到[(键，值)]的列表。<br>sorted方法，用key这个参数，指定按照字典的value进行排序，也就是第一个元素d[1]的值。reverse = True,表示是需要翻转的，默认是从小到大，翻转的话，那就是从大到小。</p>
+<h4 id="按字典键（key）排序："><a href="#按字典键（key）排序：" class="headerlink" title="按字典键（key）排序："></a>按字典键（key）排序：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'a'</span>:31, <span class="string">'bc'</span>:5, <span class="string">'c'</span>:3, <span class="string">'asd'</span>:4, <span class="string">'aa'</span>:74, <span class="string">'d'</span>:0&#125;</span><br><span class="line"></span><br><span class="line">dict= sorted(dic.iteritems(), key=lambda d:d[0])    <span class="comment">#d[0]表示字典的键</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[(<span class="string">'a'</span>, 31), (<span class="string">'aa'</span>, 74), (<span class="string">'asd'</span>, 4), (<span class="string">'bc'</span>, 5), (<span class="string">'c'</span>, 3), (<span class="string">'d'</span>, 0)]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -203,7 +194,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
       
@@ -225,11 +216,11 @@
 
 
   
-    <article id="post-java中的异常和错误" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-大话数据结构目录结构" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/23/java中的异常和错误/" class="article-date">
-  	<time datetime="2017-03-23T00:22:49.000Z" itemprop="datePublished">2017-03-23</time>
+      <a href="/2016/12/25/大话数据结构目录结构/" class="article-date">
+  	<time datetime="2016-12-25T12:12:45.000Z" itemprop="datePublished">2016-12-25</time>
 </a>
     </div>
   
@@ -242,7 +233,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/java中的异常和错误/">java种Throwable、Error、Exception、RuntimeException 区别 联系</a>
+      <a class="article-title" href="/2016/12/25/大话数据结构目录结构/">大话数据结构目录结构</a>
     </h1>
   
 
@@ -251,29 +242,87 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception。</p>
-<h3 id="Exception："><a href="#Exception：" class="headerlink" title="Exception："></a>Exception：</h3><p>1．可以是可被控制(checked) 或不可控制的(unchecked) </p>
-<p>2．表示一个由程序员导致的错误 </p>
-<p>3．应该在应用程序级被处理</p>
-<h3 id="Error："><a href="#Error：" class="headerlink" title="Error："></a>Error：</h3><p>1．总是不可控制的(unchecked) </p>
-<p>2．经常用来用于表示系统错误或低层资源的错误 </p>
-<p>3．如何可能的话，应该在系统级被捕捉</p>
-<h3 id="Checked-exception-与-Unchecked-exception"><a href="#Checked-exception-与-Unchecked-exception" class="headerlink" title="Checked exception 与 Unchecked exception"></a>Checked exception 与 Unchecked exception</h3><h4 id="Checked-exception"><a href="#Checked-exception" class="headerlink" title="Checked exception"></a>Checked exception</h4><p>这类异常都是Exception的子类，用异常的向上抛出机制进行处理，假如子类可能<br>产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。</p>
-<h4 id="Unchecked-exception"><a href="#Unchecked-exception" class="headerlink" title="Unchecked exception"></a>Unchecked exception</h4><p>这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们<br>是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。</p>
-<h4 id="Checked-Exception与Runtime-Exception-的区别"><a href="#Checked-Exception与Runtime-Exception-的区别" class="headerlink" title="Checked Exception与Runtime Exception 的区别"></a>Checked Exception与Runtime Exception 的区别</h4><p>Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，<br>另外一种则是受控制的Exception (Checked Exception)。</p>
-<p>所有的Checked Exception 均从java.lang.Exception 继承而来，而Runtime Exception<br>则继承java.lang.RuntimeException 或java.lang.Error (实际上java.lang.RuntimeException<br>的上一层也是java.lang.Exception)。</p>
-<p>写代码时很可能会对选择某种形式的Exception 感到困扰，到底应该选择Runtime Exception<br>还是Checked Exception ？</p>
-<p>其实，在运作上，可以通过Class 的Method 如何产生某个Exception以及某个程序如何<br>处理这个被产生来的Exception 来了解它们之间的差异，先建立一个Exception：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class CException extends Exception &#123;  </span><br><span class="line">    </span><br><span class="line">    public <span class="function"><span class="title">CException</span></span>() &#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public CException(String message) &#123;  </span><br><span class="line">        super(message);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>测试程序</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class TestException &#123;  </span><br><span class="line">    public void method1() throws CException &#123;  </span><br><span class="line">        throw new CException(<span class="string">"Test Exception"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method2(String msg) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (msg == null) &#123;  </span><br><span class="line">            throw new NullPointerException(<span class="string">"Message is null"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public void method3() throws CException &#123;  </span><br><span class="line">        method1();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    // 以下省略  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>method1 和 method2 的程序代码内都会产生 Exception，<br>但method3 的程序代码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个 method<br>可能产生CException。</p>
-<p>调用 method1() 的程序，由于 method1 会抛出异常 必须将method1() 包含在try 与catch 中，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest &#123;  </span><br><span class="line">    // ....  </span><br><span class="line">    public static void main(String argv[]) &#123;  </span><br><span class="line">        TestException te = new TestException();  </span><br><span class="line">        try &#123;  </span><br><span class="line">            te.method1();  </span><br><span class="line">        &#125; catch (CException ce) &#123;  </span><br><span class="line">            // ....  </span><br><span class="line">            ce.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    // ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，<br>但它的用意在于提醒调用者，执行这个method可能产生的意外，而使用者也必须要能针对这个意外做出相对应<br>的处理方式。</p>
-<p>当使用者呼叫 method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，<br>并没有throws 任何的Exception ，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Runtest  </span><br><span class="line">&#123;  </span><br><span class="line">// ....  </span><br><span class="line">public static void main(String argv[])  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">test</span>Exception te = new <span class="built_in">test</span>Exception();  </span><br><span class="line">  </span><br><span class="line">// 不会产生 Exception  </span><br><span class="line">te.method2(<span class="string">"Hello"</span>);  </span><br><span class="line">  </span><br><span class="line">// 会产生 Exception  </span><br><span class="line">te.method2(null);  </span><br><span class="line">&#125;  </span><br><span class="line">// ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>若一个 method 内部抛出的是 RuntimeException，那定义这个 method 时，不需要明确 throws Exception</p>
-<p>调用 method 时，若 method 明确  throws Exception，则需要将这个 method 的调用放在 try catch<br>中，对抛出的异常情况进行处理。</p>
-<p>调用 method 时，若 method 没有 throws Exception，则不需要将这个 method 的调用放在 try catch<br>中。</p>
+        <h2 id="第1章数据结构绪论"><a href="#第1章数据结构绪论" class="headerlink" title="第1章数据结构绪论"></a>第1章数据结构绪论</h2><h3 id="1-1开场白"><a href="#1-1开场白" class="headerlink" title="1.1开场白"></a>1.1开场白</h3><h3 id="1-2你数据结构怎么学的？"><a href="#1-2你数据结构怎么学的？" class="headerlink" title="1.2你数据结构怎么学的？"></a>1.2你数据结构怎么学的？</h3><h3 id="1-3数据结构起源"><a href="#1-3数据结构起源" class="headerlink" title="1.3数据结构起源"></a>1.3数据结构起源</h3><h3 id="1-4基本概念和术语"><a href="#1-4基本概念和术语" class="headerlink" title="1.4基本概念和术语"></a>1.4基本概念和术语</h3><h4 id="1-4-1数据"><a href="#1-4-1数据" class="headerlink" title="1.4.1数据"></a>1.4.1数据</h4><h4 id="1-4-2数据元素"><a href="#1-4-2数据元素" class="headerlink" title="1.4.2数据元素"></a>1.4.2数据元素</h4><h4 id="1-4-3数据项"><a href="#1-4-3数据项" class="headerlink" title="1.4.3数据项"></a>1.4.3数据项</h4><h4 id="1-4-4数据对象"><a href="#1-4-4数据对象" class="headerlink" title="1.4.4数据对象"></a>1.4.4数据对象</h4><h4 id="1-4-5数据结构"><a href="#1-4-5数据结构" class="headerlink" title="1.4.5数据结构"></a>1.4.5数据结构</h4><h3 id="1-5逻辑结构与物理结构"><a href="#1-5逻辑结构与物理结构" class="headerlink" title="1.5逻辑结构与物理结构"></a>1.5逻辑结构与物理结构</h3><h4 id="1-5-1逻辑结构"><a href="#1-5-1逻辑结构" class="headerlink" title="1.5.1逻辑结构"></a>1.5.1逻辑结构</h4><h4 id="1-5-2物理结构"><a href="#1-5-2物理结构" class="headerlink" title="1.5.2物理结构"></a>1.5.2物理结构</h4><h3 id="1-6抽象数据类型"><a href="#1-6抽象数据类型" class="headerlink" title="1.6抽象数据类型"></a>1.6抽象数据类型</h3><h4 id="1-6-1数据类型"><a href="#1-6-1数据类型" class="headerlink" title="1.6.1数据类型"></a>1.6.1数据类型</h4><h4 id="1-6-2抽象数据类型-12"><a href="#1-6-2抽象数据类型-12" class="headerlink" title="1.6.2抽象数据类型 12"></a>1.6.2抽象数据类型 12</h4><h3 id="1-7总结回顾"><a href="#1-7总结回顾" class="headerlink" title="1.7总结回顾"></a>1.7总结回顾</h3><h3 id="1-8结尾语"><a href="#1-8结尾语" class="headerlink" title="1.8结尾语"></a>1.8结尾语</h3><h2 id="第2章算法"><a href="#第2章算法" class="headerlink" title="第2章算法"></a>第2章算法</h2><h3 id="2-1开场白"><a href="#2-1开场白" class="headerlink" title="2.1开场白"></a>2.1开场白</h3><h3 id="2-2数据结构与算法关系"><a href="#2-2数据结构与算法关系" class="headerlink" title="2.2数据结构与算法关系"></a>2.2数据结构与算法关系</h3><h3 id="2-3两种算法的比较"><a href="#2-3两种算法的比较" class="headerlink" title="2.3两种算法的比较"></a>2.3两种算法的比较</h3><h3 id="2-4算法定义"><a href="#2-4算法定义" class="headerlink" title="2.4算法定义"></a>2.4算法定义</h3><h3 id="2-5算法的特性"><a href="#2-5算法的特性" class="headerlink" title="2.5算法的特性"></a>2.5算法的特性</h3><h4 id="2-5-1输入输出"><a href="#2-5-1输入输出" class="headerlink" title="2.5.1输入输出"></a>2.5.1输入输出</h4><h4 id="2-5-2有穷性"><a href="#2-5-2有穷性" class="headerlink" title="2.5.2有穷性"></a>2.5.2有穷性</h4><h4 id="2-5-3确定性"><a href="#2-5-3确定性" class="headerlink" title="2.5.3确定性"></a>2.5.3确定性</h4><h4 id="2-5-4可行性"><a href="#2-5-4可行性" class="headerlink" title="2.5.4可行性"></a>2.5.4可行性</h4><h3 id="2-6算法设计的要求"><a href="#2-6算法设计的要求" class="headerlink" title="2.6算法设计的要求"></a>2.6算法设计的要求</h3><h4 id="2-6-1正确性"><a href="#2-6-1正确性" class="headerlink" title="2.6.1正确性"></a>2.6.1正确性</h4><h4 id="2-6-2可读性"><a href="#2-6-2可读性" class="headerlink" title="2.6.2可读性"></a>2.6.2可读性</h4><h4 id="2-6-3健壮性"><a href="#2-6-3健壮性" class="headerlink" title="2.6.3健壮性"></a>2.6.3健壮性</h4><h4 id="2-6-4时间效率高和存储量低"><a href="#2-6-4时间效率高和存储量低" class="headerlink" title="2.6.4时间效率高和存储量低"></a>2.6.4时间效率高和存储量低</h4><h3 id="2-7算法效率的度量方法"><a href="#2-7算法效率的度量方法" class="headerlink" title="2.7算法效率的度量方法"></a>2.7算法效率的度量方法</h3><h4 id="2-7-1事后统计方法"><a href="#2-7-1事后统计方法" class="headerlink" title="2.7.1事后统计方法"></a>2.7.1事后统计方法</h4><h4 id="2-7-2事前分析估算方法"><a href="#2-7-2事前分析估算方法" class="headerlink" title="2.7.2事前分析估算方法"></a>2.7.2事前分析估算方法</h4><h3 id="2-8函数的渐近增长"><a href="#2-8函数的渐近增长" class="headerlink" title="2.8函数的渐近增长"></a>2.8函数的渐近增长</h3><h3 id="2-9算法时间复杂度"><a href="#2-9算法时间复杂度" class="headerlink" title="2.9算法时间复杂度"></a>2.9算法时间复杂度</h3><h4 id="2-9-1算法时间复杂度定义"><a href="#2-9-1算法时间复杂度定义" class="headerlink" title="2.9.1算法时间复杂度定义"></a>2.9.1算法时间复杂度定义</h4><h4 id="2-9-2推导大o阶方法"><a href="#2-9-2推导大o阶方法" class="headerlink" title="2.9.2推导大o阶方法"></a>2.9.2推导大o阶方法</h4><h4 id="2-9-3常数阶"><a href="#2-9-3常数阶" class="headerlink" title="2.9.3常数阶"></a>2.9.3常数阶</h4><h4 id="2-9-4线性阶"><a href="#2-9-4线性阶" class="headerlink" title="2.9.4线性阶"></a>2.9.4线性阶</h4><h4 id="2-9-5对数阶"><a href="#2-9-5对数阶" class="headerlink" title="2.9.5对数阶"></a>2.9.5对数阶</h4><h4 id="2-9-6平方阶"><a href="#2-9-6平方阶" class="headerlink" title="2.9.6平方阶"></a>2.9.6平方阶</h4><h3 id="2-10常见的时间复杂度"><a href="#2-10常见的时间复杂度" class="headerlink" title="2.10常见的时间复杂度"></a>2.10常见的时间复杂度</h3><h3 id="2-11最坏情况与平均情况"><a href="#2-11最坏情况与平均情况" class="headerlink" title="2.11最坏情况与平均情况"></a>2.11最坏情况与平均情况</h3><h3 id="2-12算法空间复杂度"><a href="#2-12算法空间复杂度" class="headerlink" title="2.12算法空间复杂度"></a>2.12算法空间复杂度</h3><h3 id="2-13总结回顾"><a href="#2-13总结回顾" class="headerlink" title="2.13总结回顾"></a>2.13总结回顾</h3><h3 id="2-14结尾语"><a href="#2-14结尾语" class="headerlink" title="2.14结尾语"></a>2.14结尾语</h3><h2 id="第3章线性表"><a href="#第3章线性表" class="headerlink" title="第3章线性表"></a>第3章线性表</h2><h3 id="3-1开场白"><a href="#3-1开场白" class="headerlink" title="3.1开场白"></a>3.1开场白</h3><h3 id="3-2线性表的定义"><a href="#3-2线性表的定义" class="headerlink" title="3.2线性表的定义"></a>3.2线性表的定义</h3><h3 id="3-3线性表的抽象数据类型"><a href="#3-3线性表的抽象数据类型" class="headerlink" title="3.3线性表的抽象数据类型"></a>3.3线性表的抽象数据类型</h3><h3 id="3-4线性表的顺序存储结构"><a href="#3-4线性表的顺序存储结构" class="headerlink" title="3.4线性表的顺序存储结构"></a>3.4线性表的顺序存储结构</h3><h4 id="3-4-1顺序存储定义"><a href="#3-4-1顺序存储定义" class="headerlink" title="3.4.1顺序存储定义"></a>3.4.1顺序存储定义</h4><h4 id="3-4-2顺序存储方式"><a href="#3-4-2顺序存储方式" class="headerlink" title="3.4.2顺序存储方式"></a>3.4.2顺序存储方式</h4><h4 id="3-4-3数据长度与线性表长度区别"><a href="#3-4-3数据长度与线性表长度区别" class="headerlink" title="3.4.3数据长度与线性表长度区别"></a>3.4.3数据长度与线性表长度区别</h4><h4 id="3-4-4地址计算方法"><a href="#3-4-4地址计算方法" class="headerlink" title="3.4.4地址计算方法"></a>3.4.4地址计算方法</h4><h3 id="3-5顺序存储结构的插入与删除"><a href="#3-5顺序存储结构的插入与删除" class="headerlink" title="3.5顺序存储结构的插入与删除"></a>3.5顺序存储结构的插入与删除</h3><h4 id="3-5-1获得元素操作"><a href="#3-5-1获得元素操作" class="headerlink" title="3.5.1获得元素操作"></a>3.5.1获得元素操作</h4><h4 id="3-5-2插入操作"><a href="#3-5-2插入操作" class="headerlink" title="3.5.2插入操作"></a>3.5.2插入操作</h4><p>####3.5.3删除操作</p>
+<h4 id="3-5-4线性表顺序存储结构的优缺点"><a href="#3-5-4线性表顺序存储结构的优缺点" class="headerlink" title="3.5.4线性表顺序存储结构的优缺点"></a>3.5.4线性表顺序存储结构的优缺点</h4><h3 id="3-6线性表的链式存储结构"><a href="#3-6线性表的链式存储结构" class="headerlink" title="3.6线性表的链式存储结构"></a>3.6线性表的链式存储结构</h3><h4 id="3-6-1顺序存储结构不足的解决办法"><a href="#3-6-1顺序存储结构不足的解决办法" class="headerlink" title="3.6.1顺序存储结构不足的解决办法"></a>3.6.1顺序存储结构不足的解决办法</h4><h4 id="3-6-2线性表链式存储结构定义"><a href="#3-6-2线性表链式存储结构定义" class="headerlink" title="3.6.2线性表链式存储结构定义"></a>3.6.2线性表链式存储结构定义</h4><h4 id="3-6-3头指针与头结点的异同"><a href="#3-6-3头指针与头结点的异同" class="headerlink" title="3.6.3头指针与头结点的异同"></a>3.6.3头指针与头结点的异同</h4><h4 id="3-6-4线性表链式存储结构代码描述"><a href="#3-6-4线性表链式存储结构代码描述" class="headerlink" title="3.6.4线性表链式存储结构代码描述"></a>3.6.4线性表链式存储结构代码描述</h4><h3 id="3-7单链表的读取"><a href="#3-7单链表的读取" class="headerlink" title="3.7单链表的读取"></a>3.7单链表的读取</h3><h3 id="3-8单链表的插入与删除"><a href="#3-8单链表的插入与删除" class="headerlink" title="3.8单链表的插入与删除"></a>3.8单链表的插入与删除</h3><h4 id="3-8-1单链表的插入"><a href="#3-8-1单链表的插入" class="headerlink" title="3.8.1单链表的插入"></a>3.8.1单链表的插入</h4><h4 id="3-8-2单链表的删除"><a href="#3-8-2单链表的删除" class="headerlink" title="3.8.2单链表的删除"></a>3.8.2单链表的删除</h4><h3 id="3-9单链表的整表创建"><a href="#3-9单链表的整表创建" class="headerlink" title="3.9单链表的整表创建"></a>3.9单链表的整表创建</h3><h3 id="3-10单链表的整表删除"><a href="#3-10单链表的整表删除" class="headerlink" title="3.10单链表的整表删除"></a>3.10单链表的整表删除</h3><h3 id="3-11单链表结构与顺序存储结构优缺点"><a href="#3-11单链表结构与顺序存储结构优缺点" class="headerlink" title="3.11单链表结构与顺序存储结构优缺点"></a>3.11单链表结构与顺序存储结构优缺点</h3><h3 id="3-12静态链表"><a href="#3-12静态链表" class="headerlink" title="3.12静态链表"></a>3.12静态链表</h3><h4 id="3-12-1静态链表的插入操作"><a href="#3-12-1静态链表的插入操作" class="headerlink" title="3.12.1静态链表的插入操作"></a>3.12.1静态链表的插入操作</h4><h4 id="3-12-2静态链表的删除操作"><a href="#3-12-2静态链表的删除操作" class="headerlink" title="3.12.2静态链表的删除操作"></a>3.12.2静态链表的删除操作</h4><h4 id="3-12-3静态链表优缺点"><a href="#3-12-3静态链表优缺点" class="headerlink" title="3.12.3静态链表优缺点"></a>3.12.3静态链表优缺点</h4><h3 id="3-13循环链表"><a href="#3-13循环链表" class="headerlink" title="3.13循环链表"></a>3.13循环链表</h3><h3 id="3-14双向链表"><a href="#3-14双向链表" class="headerlink" title="3.14双向链表"></a>3.14双向链表</h3><h3 id="3-15总结回顾"><a href="#3-15总结回顾" class="headerlink" title="3.15总结回顾"></a>3.15总结回顾</h3><h3 id="3-16结尾语"><a href="#3-16结尾语" class="headerlink" title="3.16结尾语"></a>3.16结尾语</h3><h2 id="第4章栈与队列"><a href="#第4章栈与队列" class="headerlink" title="第4章栈与队列"></a>第4章栈与队列</h2><h3 id="4-1开场白"><a href="#4-1开场白" class="headerlink" title="4.1开场白"></a>4.1开场白</h3><h3 id="4-2栈的定义"><a href="#4-2栈的定义" class="headerlink" title="4.2栈的定义"></a>4.2栈的定义</h3><h4 id="4-2-1栈的定义"><a href="#4-2-1栈的定义" class="headerlink" title="4.2.1栈的定义"></a>4.2.1栈的定义</h4><h4 id="4-2-2进栈出栈变化形式"><a href="#4-2-2进栈出栈变化形式" class="headerlink" title="4.2.2进栈出栈变化形式"></a>4.2.2进栈出栈变化形式</h4><h3 id="4-3栈的抽象数据类型"><a href="#4-3栈的抽象数据类型" class="headerlink" title="4.3栈的抽象数据类型"></a>4.3栈的抽象数据类型</h3><h3 id="4-4栈的顺序存储结构及实现"><a href="#4-4栈的顺序存储结构及实现" class="headerlink" title="4.4栈的顺序存储结构及实现"></a>4.4栈的顺序存储结构及实现</h3><h4 id="4-4-1栈的顺序存储结构"><a href="#4-4-1栈的顺序存储结构" class="headerlink" title="4.4.1栈的顺序存储结构"></a>4.4.1栈的顺序存储结构</h4><h4 id="4-4-2栈的顺序存储结构进栈操作"><a href="#4-4-2栈的顺序存储结构进栈操作" class="headerlink" title="4.4.2栈的顺序存储结构进栈操作"></a>4.4.2栈的顺序存储结构进栈操作</h4><h4 id="4-4-3栈的顺序存储结构出栈操作"><a href="#4-4-3栈的顺序存储结构出栈操作" class="headerlink" title="4.4.3栈的顺序存储结构出栈操作"></a>4.4.3栈的顺序存储结构出栈操作</h4><h3 id="4-5两栈共享空间"><a href="#4-5两栈共享空间" class="headerlink" title="4.5两栈共享空间"></a>4.5两栈共享空间</h3><h3 id="4-6栈的链式存储结构及实现"><a href="#4-6栈的链式存储结构及实现" class="headerlink" title="4.6栈的链式存储结构及实现"></a>4.6栈的链式存储结构及实现</h3><h4 id="4-6-1栈的链式存储结构"><a href="#4-6-1栈的链式存储结构" class="headerlink" title="4.6.1栈的链式存储结构"></a>4.6.1栈的链式存储结构</h4><h4 id="4-6-2栈的链式存储结构进栈操作"><a href="#4-6-2栈的链式存储结构进栈操作" class="headerlink" title="4.6.2栈的链式存储结构进栈操作"></a>4.6.2栈的链式存储结构进栈操作</h4><h4 id="4-6-3栈的链式存储结构出栈操作"><a href="#4-6-3栈的链式存储结构出栈操作" class="headerlink" title="4.6.3栈的链式存储结构出栈操作"></a>4.6.3栈的链式存储结构出栈操作</h4><h3 id="4-7栈的作用"><a href="#4-7栈的作用" class="headerlink" title="4.7栈的作用"></a>4.7栈的作用</h3><h3 id="4-8栈的应用——递归"><a href="#4-8栈的应用——递归" class="headerlink" title="4.8栈的应用——递归"></a>4.8栈的应用——递归</h3><h4 id="4-8-1斐波那契数列实现"><a href="#4-8-1斐波那契数列实现" class="headerlink" title="4.8.1斐波那契数列实现"></a>4.8.1斐波那契数列实现</h4><h4 id="4-8-2递归定义"><a href="#4-8-2递归定义" class="headerlink" title="4.8.2递归定义"></a>4.8.2递归定义</h4><h3 id="4-9栈的应用——四则运算表达式求值"><a href="#4-9栈的应用——四则运算表达式求值" class="headerlink" title="4.9栈的应用——四则运算表达式求值"></a>4.9栈的应用——四则运算表达式求值</h3><h4 id="4-9-1后缀（逆波兰）表示法定义"><a href="#4-9-1后缀（逆波兰）表示法定义" class="headerlink" title="4.9.1后缀（逆波兰）表示法定义"></a>4.9.1后缀（逆波兰）表示法定义</h4><h4 id="4-9-2后缀表达式计算结果"><a href="#4-9-2后缀表达式计算结果" class="headerlink" title="4.9.2后缀表达式计算结果"></a>4.9.2后缀表达式计算结果</h4><h4 id="4-9-3中缀表达式转后缀表达式"><a href="#4-9-3中缀表达式转后缀表达式" class="headerlink" title="4.9.3中缀表达式转后缀表达式"></a>4.9.3中缀表达式转后缀表达式</h4><h3 id="4-10队列的定义"><a href="#4-10队列的定义" class="headerlink" title="4.10队列的定义"></a>4.10队列的定义</h3><h3 id="4-11队列的抽象数据类型"><a href="#4-11队列的抽象数据类型" class="headerlink" title="4.11队列的抽象数据类型"></a>4.11队列的抽象数据类型</h3><h3 id="4-12循环队列"><a href="#4-12循环队列" class="headerlink" title="4.12循环队列"></a>4.12循环队列</h3><h4 id="4-12-1队列顺序存储的不足"><a href="#4-12-1队列顺序存储的不足" class="headerlink" title="4.12.1队列顺序存储的不足"></a>4.12.1队列顺序存储的不足</h4><h4 id="4-12-2循环队列定义"><a href="#4-12-2循环队列定义" class="headerlink" title="4.12.2循环队列定义"></a>4.12.2循环队列定义</h4><h4 id="4-13队列的链式存储结构及实现"><a href="#4-13队列的链式存储结构及实现" class="headerlink" title="4.13队列的链式存储结构及实现"></a>4.13队列的链式存储结构及实现</h4><h4 id="4-13-1队列链式存储结构入队操作"><a href="#4-13-1队列链式存储结构入队操作" class="headerlink" title="4.13.1队列链式存储结构入队操作"></a>4.13.1队列链式存储结构入队操作</h4><h4 id="4-13-2队列链式存储结构出队操作-119"><a href="#4-13-2队列链式存储结构出队操作-119" class="headerlink" title="4.13.2队列链式存储结构出队操作 119"></a>4.13.2队列链式存储结构出队操作 119</h4><h3 id="4-14总结回顾"><a href="#4-14总结回顾" class="headerlink" title="4.14总结回顾"></a>4.14总结回顾</h3><h3 id="4-15结尾语"><a href="#4-15结尾语" class="headerlink" title="4.15结尾语"></a>4.15结尾语</h3><h2 id="第5章串"><a href="#第5章串" class="headerlink" title="第5章串"></a>第5章串</h2><h3 id="5-1开场白"><a href="#5-1开场白" class="headerlink" title="5.1开场白"></a>5.1开场白</h3><h3 id="5-2串的定义"><a href="#5-2串的定义" class="headerlink" title="5.2串的定义"></a>5.2串的定义</h3><h3 id="5-3串的比较"><a href="#5-3串的比较" class="headerlink" title="5.3串的比较"></a>5.3串的比较</h3><h3 id="5-4串的抽象数据类型"><a href="#5-4串的抽象数据类型" class="headerlink" title="5.4串的抽象数据类型"></a>5.4串的抽象数据类型</h3><h3 id="5-5串的存储结构"><a href="#5-5串的存储结构" class="headerlink" title="5.5串的存储结构"></a>5.5串的存储结构</h3><h4 id="5-5-1串的顺序存储结构"><a href="#5-5-1串的顺序存储结构" class="headerlink" title="5.5.1串的顺序存储结构"></a>5.5.1串的顺序存储结构</h4><h4 id="5-5-2串的链式存储结构"><a href="#5-5-2串的链式存储结构" class="headerlink" title="5.5.2串的链式存储结构"></a>5.5.2串的链式存储结构</h4><h3 id="5-6朴素的模式匹配算法"><a href="#5-6朴素的模式匹配算法" class="headerlink" title="5.6朴素的模式匹配算法"></a>5.6朴素的模式匹配算法</h3><h3 id="5-7kmp模式匹配算法"><a href="#5-7kmp模式匹配算法" class="headerlink" title="5.7kmp模式匹配算法"></a>5.7kmp模式匹配算法</h3><h4 id="5-7-1kmp模式匹配算法原理"><a href="#5-7-1kmp模式匹配算法原理" class="headerlink" title="5.7.1kmp模式匹配算法原理"></a>5.7.1kmp模式匹配算法原理</h4><h4 id="5-7-2next数组值推导"><a href="#5-7-2next数组值推导" class="headerlink" title="5.7.2next数组值推导"></a>5.7.2next数组值推导</h4><h4 id="5-7-3kmp模式匹配算法实现"><a href="#5-7-3kmp模式匹配算法实现" class="headerlink" title="5.7.3kmp模式匹配算法实现"></a>5.7.3kmp模式匹配算法实现</h4><h4 id="5-7-4kmp模式匹配算法改进"><a href="#5-7-4kmp模式匹配算法改进" class="headerlink" title="5.7.4kmp模式匹配算法改进"></a>5.7.4kmp模式匹配算法改进</h4><h4 id="5-7-5nextval数组值推导"><a href="#5-7-5nextval数组值推导" class="headerlink" title="5.7.5nextval数组值推导"></a>5.7.5nextval数组值推导</h4><h3 id="5-8总结回顾"><a href="#5-8总结回顾" class="headerlink" title="5.8总结回顾"></a>5.8总结回顾</h3><h3 id="5-9结尾语"><a href="#5-9结尾语" class="headerlink" title="5.9结尾语"></a>5.9结尾语</h3><h2 id="第6章树"><a href="#第6章树" class="headerlink" title="第6章树"></a>第6章树</h2><h3 id="6-1开场白"><a href="#6-1开场白" class="headerlink" title="6.1开场白"></a>6.1开场白</h3><h3 id="6-2树的定义"><a href="#6-2树的定义" class="headerlink" title="6.2树的定义"></a>6.2树的定义</h3><h4 id="6-2-1结点分类"><a href="#6-2-1结点分类" class="headerlink" title="6.2.1结点分类"></a>6.2.1结点分类</h4><h4 id="6-2-2结点间关系"><a href="#6-2-2结点间关系" class="headerlink" title="6.2.2结点间关系"></a>6.2.2结点间关系</h4><h4 id="6-2-3树的其他相关概念"><a href="#6-2-3树的其他相关概念" class="headerlink" title="6.2.3树的其他相关概念"></a>6.2.3树的其他相关概念</h4><h3 id="6-3树的抽象数据类型"><a href="#6-3树的抽象数据类型" class="headerlink" title="6.3树的抽象数据类型"></a>6.3树的抽象数据类型</h3><h3 id="6-4树的存储结构"><a href="#6-4树的存储结构" class="headerlink" title="6.4树的存储结构"></a>6.4树的存储结构</h3><h4 id="6-4-1双亲表示法"><a href="#6-4-1双亲表示法" class="headerlink" title="6.4.1双亲表示法"></a>6.4.1双亲表示法</h4><h4 id="6-4-2孩子表示法"><a href="#6-4-2孩子表示法" class="headerlink" title="6.4.2孩子表示法"></a>6.4.2孩子表示法</h4><h4 id="6-4-3孩子兄弟表示法"><a href="#6-4-3孩子兄弟表示法" class="headerlink" title="6.4.3孩子兄弟表示法"></a>6.4.3孩子兄弟表示法</h4><h3 id="6-5二叉树的定义"><a href="#6-5二叉树的定义" class="headerlink" title="6.5二叉树的定义"></a>6.5二叉树的定义</h3><h4 id="6-5-1二叉树特点"><a href="#6-5-1二叉树特点" class="headerlink" title="6.5.1二叉树特点"></a>6.5.1二叉树特点</h4><h4 id="6-5-2特殊二叉树"><a href="#6-5-2特殊二叉树" class="headerlink" title="6.5.2特殊二叉树"></a>6.5.2特殊二叉树</h4><h3 id="6-6二叉树的性质"><a href="#6-6二叉树的性质" class="headerlink" title="6.6二叉树的性质"></a>6.6二叉树的性质</h3><h4 id="6-6-1二叉树性质"><a href="#6-6-1二叉树性质" class="headerlink" title="6.6.1二叉树性质"></a>6.6.1二叉树性质</h4><h4 id="6-6-2二叉树性质"><a href="#6-6-2二叉树性质" class="headerlink" title="6.6.2二叉树性质"></a>6.6.2二叉树性质</h4><h4 id="6-6-3二叉树性质"><a href="#6-6-3二叉树性质" class="headerlink" title="6.6.3二叉树性质"></a>6.6.3二叉树性质</h4><h4 id="6-6-4二叉树性质"><a href="#6-6-4二叉树性质" class="headerlink" title="6.6.4二叉树性质"></a>6.6.4二叉树性质</h4><h4 id="6-6-5二叉树性质"><a href="#6-6-5二叉树性质" class="headerlink" title="6.6.5二叉树性质"></a>6.6.5二叉树性质</h4><h3 id="6-7二叉树的存储结构"><a href="#6-7二叉树的存储结构" class="headerlink" title="6.7二叉树的存储结构"></a>6.7二叉树的存储结构</h3><h4 id="6-7-1二叉树顺序存储结构"><a href="#6-7-1二叉树顺序存储结构" class="headerlink" title="6.7.1二叉树顺序存储结构"></a>6.7.1二叉树顺序存储结构</h4><h4 id="6-7-2二叉链表"><a href="#6-7-2二叉链表" class="headerlink" title="6.7.2二叉链表"></a>6.7.2二叉链表</h4><h3 id="6-8遍历二叉树"><a href="#6-8遍历二叉树" class="headerlink" title="6.8遍历二叉树"></a>6.8遍历二叉树</h3><h4 id="6-8-1二叉树遍历原理"><a href="#6-8-1二叉树遍历原理" class="headerlink" title="6.8.1二叉树遍历原理"></a>6.8.1二叉树遍历原理</h4><h4 id="6-8-2二叉树遍历方法"><a href="#6-8-2二叉树遍历方法" class="headerlink" title="6.8.2二叉树遍历方法"></a>6.8.2二叉树遍历方法</h4><h4 id="6-8-3前序遍历算法"><a href="#6-8-3前序遍历算法" class="headerlink" title="6.8.3前序遍历算法"></a>6.8.3前序遍历算法</h4><h4 id="6-8-4中序遍历算法"><a href="#6-8-4中序遍历算法" class="headerlink" title="6.8.4中序遍历算法"></a>6.8.4中序遍历算法</h4><h4 id="6-8-5后序遍历算法"><a href="#6-8-5后序遍历算法" class="headerlink" title="6.8.5后序遍历算法"></a>6.8.5后序遍历算法</h4><h4 id="6-8-6推导遍历结果"><a href="#6-8-6推导遍历结果" class="headerlink" title="6.8.6推导遍历结果"></a>6.8.6推导遍历结果</h4><h3 id="6-9二叉树的建立"><a href="#6-9二叉树的建立" class="headerlink" title="6.9二叉树的建立"></a>6.9二叉树的建立</h3><h3 id="6-10线索二叉树"><a href="#6-10线索二叉树" class="headerlink" title="6.10线索二叉树"></a>6.10线索二叉树</h3><h4 id="6-10-1线索二叉树原理"><a href="#6-10-1线索二叉树原理" class="headerlink" title="6.10.1线索二叉树原理"></a>6.10.1线索二叉树原理</h4><h4 id="6-10-2线索二叉树结构实现"><a href="#6-10-2线索二叉树结构实现" class="headerlink" title="6.10.2线索二叉树结构实现"></a>6.10.2线索二叉树结构实现</h4><h3 id="6-11树、森林与二叉树的转换"><a href="#6-11树、森林与二叉树的转换" class="headerlink" title="6.11树、森林与二叉树的转换"></a>6.11树、森林与二叉树的转换</h3><h4 id="6-11-1树转换为二叉树"><a href="#6-11-1树转换为二叉树" class="headerlink" title="6.11.1树转换为二叉树"></a>6.11.1树转换为二叉树</h4><h4 id="6-11-2森林转换为二叉树"><a href="#6-11-2森林转换为二叉树" class="headerlink" title="6.11.2森林转换为二叉树"></a>6.11.2森林转换为二叉树</h4><h4 id="6-11-3二叉树转换为树"><a href="#6-11-3二叉树转换为树" class="headerlink" title="6.11.3二叉树转换为树"></a>6.11.3二叉树转换为树</h4><h4 id="6-11-4二叉树转换为森林"><a href="#6-11-4二叉树转换为森林" class="headerlink" title="6.11.4二叉树转换为森林"></a>6.11.4二叉树转换为森林</h4><h4 id="6-11-5树与森林的遍历"><a href="#6-11-5树与森林的遍历" class="headerlink" title="6.11.5树与森林的遍历"></a>6.11.5树与森林的遍历</h4><h3 id="6-12赫夫曼树及其应用"><a href="#6-12赫夫曼树及其应用" class="headerlink" title="6.12赫夫曼树及其应用"></a>6.12赫夫曼树及其应用</h3><h4 id="6-12-1赫夫曼树"><a href="#6-12-1赫夫曼树" class="headerlink" title="6.12.1赫夫曼树"></a>6.12.1赫夫曼树</h4><h4 id="6-12-2赫夫曼树定义与原理"><a href="#6-12-2赫夫曼树定义与原理" class="headerlink" title="6.12.2赫夫曼树定义与原理"></a>6.12.2赫夫曼树定义与原理</h4><h4 id="6-12-3赫夫曼编码"><a href="#6-12-3赫夫曼编码" class="headerlink" title="6.12.3赫夫曼编码"></a>6.12.3赫夫曼编码</h4><h3 id="6-13总结回顾"><a href="#6-13总结回顾" class="headerlink" title="6.13总结回顾"></a>6.13总结回顾</h3><h3 id="6-14结尾语"><a href="#6-14结尾语" class="headerlink" title="6.14结尾语"></a>6.14结尾语</h3><h2 id="第7章图"><a href="#第7章图" class="headerlink" title="第7章图"></a>第7章图</h2><h3 id="7-1开场白"><a href="#7-1开场白" class="headerlink" title="7.1开场白"></a>7.1开场白</h3><h3 id="7-2图的定义"><a href="#7-2图的定义" class="headerlink" title="7.2图的定义"></a>7.2图的定义</h3><h4 id="7-2-1各种图定义"><a href="#7-2-1各种图定义" class="headerlink" title="7.2.1各种图定义"></a>7.2.1各种图定义</h4><h4 id="7-2-2图的顶点与边间关系"><a href="#7-2-2图的顶点与边间关系" class="headerlink" title="7.2.2图的顶点与边间关系"></a>7.2.2图的顶点与边间关系</h4><h4 id="7-2-3连通图相关术语"><a href="#7-2-3连通图相关术语" class="headerlink" title="7.2.3连通图相关术语"></a>7.2.3连通图相关术语</h4><h4 id="7-2-4图的定义与术语总结"><a href="#7-2-4图的定义与术语总结" class="headerlink" title="7.2.4图的定义与术语总结"></a>7.2.4图的定义与术语总结</h4><h3 id="7-3图的抽象数据类型"><a href="#7-3图的抽象数据类型" class="headerlink" title="7.3图的抽象数据类型"></a>7.3图的抽象数据类型</h3><h3 id="7-4图的存储结构"><a href="#7-4图的存储结构" class="headerlink" title="7.4图的存储结构"></a>7.4图的存储结构</h3><h4 id="7-4-1邻接矩阵"><a href="#7-4-1邻接矩阵" class="headerlink" title="7.4.1邻接矩阵"></a>7.4.1邻接矩阵</h4><h4 id="7-4-2邻接表"><a href="#7-4-2邻接表" class="headerlink" title="7.4.2邻接表"></a>7.4.2邻接表</h4><h4 id="7-4-3十字链表"><a href="#7-4-3十字链表" class="headerlink" title="7.4.3十字链表"></a>7.4.3十字链表</h4><h4 id="7-4-4邻接多重表"><a href="#7-4-4邻接多重表" class="headerlink" title="7.4.4邻接多重表"></a>7.4.4邻接多重表</h4><h4 id="7-4-5边集数组"><a href="#7-4-5边集数组" class="headerlink" title="7.4.5边集数组"></a>7.4.5边集数组</h4><h3 id="7-5图的遍历"><a href="#7-5图的遍历" class="headerlink" title="7.5图的遍历"></a>7.5图的遍历</h3><h4 id="7-5-1深度优先遍历"><a href="#7-5-1深度优先遍历" class="headerlink" title="7.5.1深度优先遍历"></a>7.5.1深度优先遍历</h4><h4 id="7-5-2广度优先遍历"><a href="#7-5-2广度优先遍历" class="headerlink" title="7.5.2广度优先遍历"></a>7.5.2广度优先遍历</h4><h3 id="7-6最小生成树"><a href="#7-6最小生成树" class="headerlink" title="7.6最小生成树"></a>7.6最小生成树</h3><h4 id="7-6-1普里姆（prim）算法"><a href="#7-6-1普里姆（prim）算法" class="headerlink" title="7.6.1普里姆（prim）算法"></a>7.6.1普里姆（prim）算法</h4><h4 id="7-6-2克鲁斯卡尔（kruskal）算法"><a href="#7-6-2克鲁斯卡尔（kruskal）算法" class="headerlink" title="7.6.2克鲁斯卡尔（kruskal）算法"></a>7.6.2克鲁斯卡尔（kruskal）算法</h4><h3 id="7-7最短路径"><a href="#7-7最短路径" class="headerlink" title="7.7最短路径"></a>7.7最短路径</h3><h4 id="7-7-1迪杰斯特拉（dijkstra）算法"><a href="#7-7-1迪杰斯特拉（dijkstra）算法" class="headerlink" title="7.7.1迪杰斯特拉（dijkstra）算法"></a>7.7.1迪杰斯特拉（dijkstra）算法</h4><h4 id="7-7-3弗洛伊德（floyd）算法"><a href="#7-7-3弗洛伊德（floyd）算法" class="headerlink" title="7.7.3弗洛伊德（floyd）算法"></a>7.7.3弗洛伊德（floyd）算法</h4><h3 id="7-8拓扑排序"><a href="#7-8拓扑排序" class="headerlink" title="7.8拓扑排序"></a>7.8拓扑排序</h3><h4 id="7-8-1拓扑排序介绍"><a href="#7-8-1拓扑排序介绍" class="headerlink" title="7.8.1拓扑排序介绍"></a>7.8.1拓扑排序介绍</h4><h4 id="7-8-2拓扑排序算法"><a href="#7-8-2拓扑排序算法" class="headerlink" title="7.8.2拓扑排序算法"></a>7.8.2拓扑排序算法</h4><h3 id="7-9关键路径"><a href="#7-9关键路径" class="headerlink" title="7.9关键路径"></a>7.9关键路径</h3><h4 id="7-9-1关键路径算法原理-279"><a href="#7-9-1关键路径算法原理-279" class="headerlink" title="7.9.1关键路径算法原理 279"></a>7.9.1关键路径算法原理 279</h4><h4 id="7-9-2关键路径算法-280"><a href="#7-9-2关键路径算法-280" class="headerlink" title="7.9.2关键路径算法 280"></a>7.9.2关键路径算法 280</h4><h3 id="7-10总结回顾"><a href="#7-10总结回顾" class="headerlink" title="7.10总结回顾"></a>7.10总结回顾</h3><h3 id="7-11结尾语"><a href="#7-11结尾语" class="headerlink" title="7.11结尾语"></a>7.11结尾语</h3><h2 id="第8章查找"><a href="#第8章查找" class="headerlink" title="第8章查找"></a>第8章查找</h2><h3 id="8-1开场白"><a href="#8-1开场白" class="headerlink" title="8.1开场白"></a>8.1开场白</h3><h3 id="8-2查找概论"><a href="#8-2查找概论" class="headerlink" title="8.2查找概论"></a>8.2查找概论</h3><h3 id="8-3顺序表查找"><a href="#8-3顺序表查找" class="headerlink" title="8.3顺序表查找"></a>8.3顺序表查找</h3><h4 id="8-3-1顺序表查找算法"><a href="#8-3-1顺序表查找算法" class="headerlink" title="8.3.1顺序表查找算法"></a>8.3.1顺序表查找算法</h4><h4 id="8-3-2顺序表查找优化"><a href="#8-3-2顺序表查找优化" class="headerlink" title="8.3.2顺序表查找优化"></a>8.3.2顺序表查找优化</h4><h3 id="8-4有序表查找"><a href="#8-4有序表查找" class="headerlink" title="8.4有序表查找"></a>8.4有序表查找</h3><h4 id="8-4-1折半查找"><a href="#8-4-1折半查找" class="headerlink" title="8.4.1折半查找"></a>8.4.1折半查找</h4><h4 id="8-4-2插值查找"><a href="#8-4-2插值查找" class="headerlink" title="8.4.2插值查找"></a>8.4.2插值查找</h4><h4 id="8-4-3斐波那契查找"><a href="#8-4-3斐波那契查找" class="headerlink" title="8.4.3斐波那契查找"></a>8.4.3斐波那契查找</h4><h3 id="8-5线性索引查找"><a href="#8-5线性索引查找" class="headerlink" title="8.5线性索引查找"></a>8.5线性索引查找</h3><h4 id="8-5-1稠密索引"><a href="#8-5-1稠密索引" class="headerlink" title="8.5.1稠密索引"></a>8.5.1稠密索引</h4><h4 id="8-5-2分块索引"><a href="#8-5-2分块索引" class="headerlink" title="8.5.2分块索引"></a>8.5.2分块索引</h4><h4 id="8-5-3倒排索引"><a href="#8-5-3倒排索引" class="headerlink" title="8.5.3倒排索引"></a>8.5.3倒排索引</h4><h3 id="8-6二叉排序树"><a href="#8-6二叉排序树" class="headerlink" title="8.6二叉排序树"></a>8.6二叉排序树</h3><h4 id="8-6-1二叉排序树查找操作"><a href="#8-6-1二叉排序树查找操作" class="headerlink" title="8.6.1二叉排序树查找操作"></a>8.6.1二叉排序树查找操作</h4><h4 id="8-6-2二叉排序树插入操作"><a href="#8-6-2二叉排序树插入操作" class="headerlink" title="8.6.2二叉排序树插入操作"></a>8.6.2二叉排序树插入操作</h4><h4 id="8-6-3二叉排序树删除操作"><a href="#8-6-3二叉排序树删除操作" class="headerlink" title="8.6.3二叉排序树删除操作"></a>8.6.3二叉排序树删除操作</h4><h4 id="8-6-4二叉排序树总结"><a href="#8-6-4二叉排序树总结" class="headerlink" title="8.6.4二叉排序树总结"></a>8.6.4二叉排序树总结</h4><h3 id="8-7平衡二叉树（avl树）"><a href="#8-7平衡二叉树（avl树）" class="headerlink" title="8.7平衡二叉树（avl树）"></a>8.7平衡二叉树（avl树）</h3><h4 id="8-7-1平衡二叉树实现原理"><a href="#8-7-1平衡二叉树实现原理" class="headerlink" title="8.7.1平衡二叉树实现原理"></a>8.7.1平衡二叉树实现原理</h4><h4 id="8-7-2平衡二叉树实现算法"><a href="#8-7-2平衡二叉树实现算法" class="headerlink" title="8.7.2平衡二叉树实现算法"></a>8.7.2平衡二叉树实现算法</h4><h3 id="8-8多路查找树（b树）"><a href="#8-8多路查找树（b树）" class="headerlink" title="8.8多路查找树（b树）"></a>8.8多路查找树（b树）</h3><h4 id="8-8-12-3树"><a href="#8-8-12-3树" class="headerlink" title="8.8.12-3树"></a>8.8.12-3树</h4><h4 id="8-8-22-3-4树"><a href="#8-8-22-3-4树" class="headerlink" title="8.8.22-3-4树"></a>8.8.22-3-4树</h4><h4 id="8-8-3b树"><a href="#8-8-3b树" class="headerlink" title="8.8.3b树"></a>8.8.3b树</h4><h4 id="8-8-4b-树"><a href="#8-8-4b-树" class="headerlink" title="8.8.4b+树"></a>8.8.4b+树</h4><h3 id="8-9散列表查找（哈希表）概述"><a href="#8-9散列表查找（哈希表）概述" class="headerlink" title="8.9散列表查找（哈希表）概述"></a>8.9散列表查找（哈希表）概述</h3><h4 id="8-9-1散列表查找定义"><a href="#8-9-1散列表查找定义" class="headerlink" title="8.9.1散列表查找定义"></a>8.9.1散列表查找定义</h4><h4 id="8-9-2散列表查找步骤"><a href="#8-9-2散列表查找步骤" class="headerlink" title="8.9.2散列表查找步骤"></a>8.9.2散列表查找步骤</h4><h3 id="8-10散列函数的构造方法"><a href="#8-10散列函数的构造方法" class="headerlink" title="8.10散列函数的构造方法"></a>8.10散列函数的构造方法</h3><h4 id="8-10-1直接定址法"><a href="#8-10-1直接定址法" class="headerlink" title="8.10.1直接定址法"></a>8.10.1直接定址法</h4><h4 id="8-10-2数字分析法"><a href="#8-10-2数字分析法" class="headerlink" title="8.10.2数字分析法"></a>8.10.2数字分析法</h4><h4 id="8-10-3平方取中法"><a href="#8-10-3平方取中法" class="headerlink" title="8.10.3平方取中法"></a>8.10.3平方取中法</h4><h4 id="8-10-4折叠法"><a href="#8-10-4折叠法" class="headerlink" title="8.10.4折叠法"></a>8.10.4折叠法</h4><h4 id="8-10-5除留余数法"><a href="#8-10-5除留余数法" class="headerlink" title="8.10.5除留余数法"></a>8.10.5除留余数法</h4><h4 id="8-10-6随机数法"><a href="#8-10-6随机数法" class="headerlink" title="8.10.6随机数法"></a>8.10.6随机数法</h4><h3 id="8-11处理散列冲突的方法"><a href="#8-11处理散列冲突的方法" class="headerlink" title="8.11处理散列冲突的方法"></a>8.11处理散列冲突的方法</h3><h4 id="8-11-1开放定址法"><a href="#8-11-1开放定址法" class="headerlink" title="8.11.1开放定址法"></a>8.11.1开放定址法</h4><h4 id="8-11-2再散列函数法"><a href="#8-11-2再散列函数法" class="headerlink" title="8.11.2再散列函数法"></a>8.11.2再散列函数法</h4><h4 id="8-11-3链地址法"><a href="#8-11-3链地址法" class="headerlink" title="8.11.3链地址法"></a>8.11.3链地址法</h4><h4 id="8-11-4公共溢出区法"><a href="#8-11-4公共溢出区法" class="headerlink" title="8.11.4公共溢出区法"></a>8.11.4公共溢出区法</h4><h3 id="8-12散列表查找实现"><a href="#8-12散列表查找实现" class="headerlink" title="8.12散列表查找实现"></a>8.12散列表查找实现</h3><h4 id="8-12-1散列表查找算法实现"><a href="#8-12-1散列表查找算法实现" class="headerlink" title="8.12.1散列表查找算法实现"></a>8.12.1散列表查找算法实现</h4><h4 id="8-12-2散列表查找性能分析"><a href="#8-12-2散列表查找性能分析" class="headerlink" title="8.12.2散列表查找性能分析"></a>8.12.2散列表查找性能分析</h4><h3 id="8-13总结回顾"><a href="#8-13总结回顾" class="headerlink" title="8.13总结回顾"></a>8.13总结回顾</h3><h3 id="8-14结尾语"><a href="#8-14结尾语" class="headerlink" title="8.14结尾语"></a>8.14结尾语</h3><h2 id="第9章排序"><a href="#第9章排序" class="headerlink" title="第9章排序"></a>第9章排序</h2><h3 id="9-1开场白"><a href="#9-1开场白" class="headerlink" title="9.1开场白"></a>9.1开场白</h3><h3 id="9-2排序的基本概念与分类"><a href="#9-2排序的基本概念与分类" class="headerlink" title="9.2排序的基本概念与分类"></a>9.2排序的基本概念与分类</h3><h4 id="9-2-1排序的稳定性"><a href="#9-2-1排序的稳定性" class="headerlink" title="9.2.1排序的稳定性"></a>9.2.1排序的稳定性</h4><h4 id="9-2-2内排序与外排序"><a href="#9-2-2内排序与外排序" class="headerlink" title="9.2.2内排序与外排序"></a>9.2.2内排序与外排序</h4><h4 id="9-2-3排序用到的结构与函数"><a href="#9-2-3排序用到的结构与函数" class="headerlink" title="9.2.3排序用到的结构与函数"></a>9.2.3排序用到的结构与函数</h4><h3 id="9-3冒泡排序"><a href="#9-3冒泡排序" class="headerlink" title="9.3冒泡排序"></a>9.3冒泡排序</h3><h4 id="9-3-1最简单排序实现"><a href="#9-3-1最简单排序实现" class="headerlink" title="9.3.1最简单排序实现"></a>9.3.1最简单排序实现</h4><h4 id="9-3-2冒泡排序算法"><a href="#9-3-2冒泡排序算法" class="headerlink" title="9.3.2冒泡排序算法"></a>9.3.2冒泡排序算法</h4><h4 id="9-3-3冒泡排序优化"><a href="#9-3-3冒泡排序优化" class="headerlink" title="9.3.3冒泡排序优化"></a>9.3.3冒泡排序优化</h4><h4 id="9-3-4冒泡排序复杂度分析"><a href="#9-3-4冒泡排序复杂度分析" class="headerlink" title="9.3.4冒泡排序复杂度分析"></a>9.3.4冒泡排序复杂度分析</h4><h3 id="9-4简单选择排序"><a href="#9-4简单选择排序" class="headerlink" title="9.4简单选择排序"></a>9.4简单选择排序</h3><h4 id="9-4-1简单选择排序算法"><a href="#9-4-1简单选择排序算法" class="headerlink" title="9.4.1简单选择排序算法"></a>9.4.1简单选择排序算法</h4><h4 id="9-4-2简单选择排序复杂度分析"><a href="#9-4-2简单选择排序复杂度分析" class="headerlink" title="9.4.2简单选择排序复杂度分析"></a>9.4.2简单选择排序复杂度分析</h4><h3 id="9-5直接插入排序"><a href="#9-5直接插入排序" class="headerlink" title="9.5直接插入排序"></a>9.5直接插入排序</h3><h4 id="9-5-1直接插入排序算法"><a href="#9-5-1直接插入排序算法" class="headerlink" title="9.5.1直接插入排序算法"></a>9.5.1直接插入排序算法</h4><h4 id="9-5-2直接插入排序复杂度分析"><a href="#9-5-2直接插入排序复杂度分析" class="headerlink" title="9.5.2直接插入排序复杂度分析"></a>9.5.2直接插入排序复杂度分析</h4><h3 id="9-6希尔排序"><a href="#9-6希尔排序" class="headerlink" title="9.6希尔排序"></a>9.6希尔排序</h3><h4 id="9-6-1希尔排序原理"><a href="#9-6-1希尔排序原理" class="headerlink" title="9.6.1希尔排序原理"></a>9.6.1希尔排序原理</h4><h4 id="9-6-2希尔排序算法"><a href="#9-6-2希尔排序算法" class="headerlink" title="9.6.2希尔排序算法"></a>9.6.2希尔排序算法</h4><h4 id="9-6-3希尔排序复杂度分析"><a href="#9-6-3希尔排序复杂度分析" class="headerlink" title="9.6.3希尔排序复杂度分析"></a>9.6.3希尔排序复杂度分析</h4><h3 id="9-7堆排序"><a href="#9-7堆排序" class="headerlink" title="9.7堆排序"></a>9.7堆排序</h3><h4 id="9-7-1堆排序算法"><a href="#9-7-1堆排序算法" class="headerlink" title="9.7.1堆排序算法"></a>9.7.1堆排序算法</h4><h4 id="9-7-2堆排序复杂度分析"><a href="#9-7-2堆排序复杂度分析" class="headerlink" title="9.7.2堆排序复杂度分析"></a>9.7.2堆排序复杂度分析</h4><h3 id="9-8归并排序"><a href="#9-8归并排序" class="headerlink" title="9.8归并排序"></a>9.8归并排序</h3><h4 id="9-8-1归并排序算法"><a href="#9-8-1归并排序算法" class="headerlink" title="9.8.1归并排序算法"></a>9.8.1归并排序算法</h4><h4 id="9-8-2归并排序复杂度分析"><a href="#9-8-2归并排序复杂度分析" class="headerlink" title="9.8.2归并排序复杂度分析"></a>9.8.2归并排序复杂度分析</h4><h4 id="9-8-3非递归实现归并排序"><a href="#9-8-3非递归实现归并排序" class="headerlink" title="9.8.3非递归实现归并排序"></a>9.8.3非递归实现归并排序</h4><h3 id="9-9快速排序"><a href="#9-9快速排序" class="headerlink" title="9.9快速排序"></a>9.9快速排序</h3><h4 id="9-9-1快速排序算法"><a href="#9-9-1快速排序算法" class="headerlink" title="9.9.1快速排序算法"></a>9.9.1快速排序算法</h4><h4 id="9-9-2快速排序复杂度分析"><a href="#9-9-2快速排序复杂度分析" class="headerlink" title="9.9.2快速排序复杂度分析"></a>9.9.2快速排序复杂度分析</h4><h4 id="9-9-3快速排序优化"><a href="#9-9-3快速排序优化" class="headerlink" title="9.9.3快速排序优化"></a>9.9.3快速排序优化</h4><h3 id="9-10总结回顾"><a href="#9-10总结回顾" class="headerlink" title="9.10总结回顾"></a>9.10总结回顾</h3><h3 id="9-11结尾语"><a href="#9-11结尾语" class="headerlink" title="9.11结尾语"></a>9.11结尾语</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-设计模式-桥接模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/21/设计模式-桥接模式/" class="article-date">
+  	<time datetime="2016-12-21T02:20:01.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/21/设计模式-桥接模式/">设计模式-桥接模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="模式动机"><a href="#模式动机" class="headerlink" title="模式动机"></a>模式动机</h3><p>设想如果要绘制矩形、圆形、椭圆、正方形，我们至少需要4个形状类，但是如果绘制的图形需要具有不同的颜色，如红色、绿色、<br>蓝色等，此时至少有如下两种设计方案：</p>
+<p>第一种设计方案是为每一种形状都提供一套各种颜色的版本。<br>第二种设计方案是根据实际需要对形状和颜色进行组合<br>对于有两个变化维度（即两个变化的原因）的系统，采用方案二来进行设计系统中类的个数更少，且系统扩展更为方便。设计方案二即是桥接模式的应用。桥接模式将继承关系转换为关联关系，从而降低了类与类之间的耦合，减少了代码编写量。</p>
+<h3 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h3><p>桥接模式(Bridge Pattern)：将抽象部分与它的实现部分分离，使它们都可以独立地变化。它是一种对象结构型模式，又称为柄体<br>(Handle and Body)模式或接口(Interface)模式。</p>
+<h3 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h3><p>桥接模式包含如下角色：</p>
+<p>Abstraction：抽象类<br>RefinedAbstraction：扩充抽象类<br>Implementor：实现类接口<br>ConcreteImplementor：具体实现类</p>
+<p><img src="/img/Bridge.jpg" alt=""></p>
+<h3 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h3><p>理解桥接模式，重点需要理解如何将抽象化(Abstraction)与实现化(Implementation)脱耦，使得二者可以独立地变化。</p>
+<h4 id="抽象化"><a href="#抽象化" class="headerlink" title="抽象化"></a>抽象化</h4><p>抽象化就是忽略一些信息，把不同的实体当作同样的实体对待。在面向对象中，将对象的共同性质抽取出来形成类的过程<br>即为抽象化的过程。</p>
+<h4 id="实现化"><a href="#实现化" class="headerlink" title="实现化"></a>实现化</h4><p>针对抽象化给出的具体实现，就是实现化，抽象化与实现化是一对互逆的概念，实现化产生的对象比抽象化更具体，是对抽象化事<br>物的进一步具体化的产物。</p>
+<h4 id="脱耦"><a href="#脱耦" class="headerlink" title="脱耦"></a>脱耦</h4><p>脱耦就是将抽象化和实现化之间的耦合解脱开，或者说是将它们之间的强关联改换成弱关联，将两个角色之间的继承关系改<br>为关联关系。桥接模式中的所谓脱耦，就是指在一个软件系统的抽象化和实现化之间使用关联关系（组合或者聚合关系）而不是继<br>承关系，从而使两者可以相对独立地变化，这就是桥接模式的用意。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>如果需要开发一个跨平台视频播放器，可以在不同操作系统平台（如Windows、Linux、Unix等）上播放多种格式的视频文件，常见<br>的视频格式包括MPEG、RMVB、AVI、WMV等。现使用桥接模式设计该播放器。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>(1)分离抽象接口及其实现部分。<br>(2)桥接模式有时类似于多继承方案，但是多继承方案违背了类的单一职责原则（即一个类只有一个变化的原因），复用性比较差，<br>而且多继承结构中类的个数非常庞大，桥接模式是比多继承方案更好的解决方法。<br>(3)桥接模式提高了系统的可扩充性，在两个变化维度中任意扩展一个维度，都不需要修改原有系统。<br>实现细节对客户透明，可以对用户隐藏实现细节。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>(1)桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进<br>行设计与编程。<br>(2)桥接模式要求正确识别出系统中两个独立变化的维度，因此其使用范围具有一定的局限性。</p>
+<h3 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h3><p>(1)如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系，通过桥<br>接模式可以使它们在抽象层建立一个关联关系。<br>(2)抽象化角色和实现化角色可以以继承的方式独立扩展而互不影响，在程序运行时可以动态将一个抽象化子类的对象和一个实现化<br>子类的对象进行组合，即系统需要对抽象化角色和实现化角色进行动态耦合。<br>(3)一个类存在两个独立变化的维度，且这两个维度都需要进行扩展。<br>(4)虽然在系统中使用继承是没有问题的，但是由于抽象化角色和具体化角色需要独立变化，设计要求需要独立管理这两者。<br>(5)对于那些不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系统，桥接模式尤为适用。</p>
+<h3 id="模式应用"><a href="#模式应用" class="headerlink" title="模式应用"></a>模式应用</h3><p>一个Java桌面软件总是带有所在操作系统的视感(LookAndFeel)，如果一个Java软件是在Unix系统上开发的，那么开发人员看到的是<br>Motif用户界面的视感；在Windows上面使用这个系统的用户看到的是Windows用户界面的视感；而一个在Macintosh上面使用的用户<br>看到的则是Macintosh用户界面的视感，Java语言是通过所谓的Peer架构做到这一点的。Java为AWT中的每一个GUI构件都提供了一个<br>Peer构件，在AWT中的Peer架构就使用了桥接模式。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>桥接模式将抽象部分与它的实现部分分离，使它们都可以独立地变化。它是一种对象结构型模式，又称为柄体(Handle and<br>Body)模式或接口(Interface)模式。</p>
+<h4 id="桥接模式包含如下四个角色"><a href="#桥接模式包含如下四个角色" class="headerlink" title="桥接模式包含如下四个角色"></a>桥接模式包含如下四个角色</h4><p>(1)抽象类中定义了一个实现类接口类型的对象并可以维护该对象；</p>
+<p>(2)扩充抽象类扩充由抽象类定义的接口，它实现了在抽象类中定义的抽象业务方法，在扩充抽象类中可以调用在实现类接口中定义<br>的业务方法；</p>
+<p>(3)实现类接口定义了实现类的接口，实现类接口仅提供基本操作，而抽象类定义的接口可能会做更多更复杂的操作；</p>
+<p>(4)具体实现类实现了实现类接口并且具体实现它，在不同的具体实现类中提供基本操作的不同实现，在程序运行时，具体实现类对<br>象将替换其父类对象，提供给客户端具体的业务操作方法。</p>
+<p>在桥接模式中，抽象化(Abstraction)与实现化(Implementation)脱耦，它们可以沿着各自的维度独立变化。</p>
+<p>桥接模式的主要优点是分离抽象接口及其实现部分，是比多继承方案更好的解决方法，桥接模式还提高了系统的可扩充性，在两个<br>变化维度中任意扩展一个维度，都不需要修改原有系统，实现细节对客户透明，可以对用户隐藏实现细节；其主要缺点是增加系统<br>的理解与设计难度，且识别出系统中两个独立变化的维度并不是一件容易的事情。</p>
+<p>桥接模式适用情况包括：需要在构件的抽象化角色和具体化角色之间增加更多的灵活性，避免在两个层次之间建立静态的继承联系<br>；抽象化角色和实现化角色可以以继承的方式独立扩展而互不影响；一个类存在两个独立变化的维度，且这两个维度都需要进行扩<br>展；设计要求需要独立管理抽象化角色和具体化角色；不希望使用继承或因为多层次继承导致系统类的个数急剧增加的系</p>
+<p><a href="http://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/bridge.html" target="_blank" rel="external">参考 </a></p>
 
       
     </div>
@@ -304,11 +353,11 @@
 
 
   
-    <article id="post-笔试题解析1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-同步与异步，阻塞与非阻塞" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/18/笔试题解析1/" class="article-date">
-  	<time datetime="2017-03-18T02:55:17.000Z" itemprop="datePublished">2017-03-18</time>
+      <a href="/2016/12/19/同步与异步，阻塞与非阻塞/" class="article-date">
+  	<time datetime="2016-12-19T15:05:00.000Z" itemprop="datePublished">2016-12-19</time>
 </a>
     </div>
   
@@ -321,7 +370,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/笔试题解析1/">笔试题解析1</a>
+      <a class="article-title" href="/2016/12/19/同步与异步，阻塞与非阻塞/">同步与异步，阻塞与非阻塞</a>
     </h1>
   
 
@@ -330,18 +379,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="美团"><a href="#美团" class="headerlink" title="美团"></a>美团</h2><h4 id="1-下述解决死锁的方法中，属于死锁预防策略的是？"><a href="#1-下述解决死锁的方法中，属于死锁预防策略的是？" class="headerlink" title="1.下述解决死锁的方法中，属于死锁预防策略的是？"></a>1.下述解决死锁的方法中，属于死锁预防策略的是？</h4><p>银行家算法：避免死锁<br>资源有序分配法：预防死锁<br>资源分配图化简法：检测死锁<br>撤销进程法：解决死锁</p>
-<p>死锁：是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们<br>都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等竺的进程称为死锁进程.</p>
-<p>产生死锁的原因主要是：<br>　　（1） 因为系统资源不足；<br>　　（2） 进程运行推进的顺序不合适；<br>　　（3） 资源分配不当等；</p>
-<p>产生死锁的四个必要条件：<br>　　（1） 互斥条件：一个资源每次只能被一个进程使用。<br>　　（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>　　（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。<br>　　（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。<br>　　这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之<br>　　一不满足，就不会发生死锁。</p>
-<h4 id="2-下面代码输出的结果是？"><a href="#2-下面代码输出的结果是？" class="headerlink" title="2.下面代码输出的结果是？"></a>2.下面代码输出的结果是？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class NULL &#123;</span><br><span class="line"></span><br><span class="line">public static void <span class="function"><span class="title">print</span></span>()&#123;</span><br><span class="line">System.out.println(“MTDP”);</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">try&#123;</span><br><span class="line">((NULL)null).print(); </span><br><span class="line">&#125;catch(NullPointerException e)&#123;</span><br><span class="line">System.out.println(<span class="string">"NullPointerException"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>null不是对象，它可以看成是指向不确定对象的引用。<br>赋值时，基本类型赋初值不能为null，换而言之，int也没有为空这一说法，如果非要勉强说有，那就是0。<br>而对象赋初值可以将其设为null。<br>null是java的关键字，故不用事先声明它，直接把null作为NULL对象的一个引用，将其实例化，故而有输出。</p>
-<h4 id="3-1024-末尾有多少个0"><a href="#3-1024-末尾有多少个0" class="headerlink" title="3.1024! 末尾有多少个0?"></a>3.1024! 末尾有多少个0?</h4><p>末尾0的个数取决于乘法中因子2和5的个数。显然乘法中因子2的个数大于5的个数，所以我们只需统计因子5的个数。<br>是5的倍数的数有： 1024 / 5 = 204个<br>是25的倍数的数有：1024 / 25 = 40个<br>是125的倍数的数有：1024 / 125 = 8个<br>是625的倍数的数有：1024 / 625 = 1个<br>所以1024! 中总共有204+40+8+1=253个因子5。<br>也就是说1024! 末尾有253个0。</p>
-<h4 id="4-从n个数中找出最小的k个数-n-gt-gt-k-，最优平均时间复杂度是？"><a href="#4-从n个数中找出最小的k个数-n-gt-gt-k-，最优平均时间复杂度是？" class="headerlink" title="4.从n个数中找出最小的k个数(n &gt;&gt; k)，最优平均时间复杂度是？"></a>4.从n个数中找出最小的k个数(n &gt;&gt; k)，最优平均时间复杂度是？</h4><p>1.先直接排序，再取排序后数据的前k个数。排序算法用最快的堆排序，复杂度也会达到O(N<em>logN)。当k接近于N时，可以用这种算法。<br>2.先排序前k个数，对于后面N-k个数，依次进行插入。时间复杂度为O(k</em>n)。当k很小时，可以用这种算法。<br>3.对前k个数，建立最大堆，对于后面N-k个数，依次和最大堆的最大数比较，如果小于最大数，则替换最大数，并重新建立最大堆。时间复杂度为O(N*logk)。当k和N都很大时，这种算法比前两种算法要快很多。</p>
-<h4 id="5-HTTP的会话有四个过程，请选出不是的一个？"><a href="#5-HTTP的会话有四个过程，请选出不是的一个？" class="headerlink" title="5.HTTP的会话有四个过程，请选出不是的一个？"></a>5.HTTP的会话有四个过程，请选出不是的一个？</h4><p>Http会话的四个过程:<br>建立连接，发送请求，返回响应，关闭连接。</p>
-<h4 id="6-进程间的通信机制"><a href="#6-进程间的通信机制" class="headerlink" title="6.进程间的通信机制"></a>6.进程间的通信机制</h4><p>管道( pipe )：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。<br>进程的亲缘关系通常是指父子进程关系。 </p>
-<p>有名管道 (named pipe) ： 有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。 </p>
-<p>信号量( semophore ) ： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。<br>消息队列( message queue ) ： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。<br>信号 ( signal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。<br>共享内存( shared memory ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。<br>套接字( socket ) ： 套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同及其间的进程通信。</p>
+        <h2 id="同步与异步的差异"><a href="#同步与异步的差异" class="headerlink" title="同步与异步的差异"></a>同步与异步的差异</h2><p>同步和异步主要关注的是同步与异步通信机制。</p>
+<h4 id="同步通信机制"><a href="#同步通信机制" class="headerlink" title="同步通信机制"></a>同步通信机制</h4><p>同步通信机制是指发出一个调用请求时，在没有得到结果之前，该调用请求不会返回，只有得到结果，调用请求才会和结果一起返<br>回，调用者主动等待这个调用的结果。</p>
+<h4 id="异步通信机制"><a href="#异步通信机制" class="headerlink" title="异步通信机制"></a>异步通信机制</h4><p>而异步通信机制则是相反，在调用请求发出之后，这个调用请求就直接返回了，不等待返回结果。也就是说，当一个异步调用请求发出后，调用者不会立刻得到结果。而是在调用请求发出后，立即返回，被调用者得到结果后通过状态或通知来通知调用者，或通过回调函数响应这个调用请求。</p>
+<h2 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h2><p>你给运行商打电话查询业务，如果是同步通信机制，话务员说，“请您稍等，我查一下”，然后开始查，查好了立马告诉你结果（返<br>回结果）。<br>而异步通信机制，话务员会说，“先生您挂断电话就好，查好了我打电话给您”，然后直接挂电话了（不返回结果），然后查好了，<br>他会主动打电话给你。在这里话务员通过“回电”这种方式来回调。</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态。</p>
+<p>阻塞调用是指调用结果返回之前，当前线程会被挂起，调用线程只有在得到结果之后才会继续运行。<br>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程，线程正常运行。</p>
+<h4 id="例如：-1"><a href="#例如：-1" class="headerlink" title="例如："></a>例如：</h4><p>你给运行商打电话查询业务，如果是阻塞式调用，你会一直把自己“挂起”，不干其他事，就在着干等着，直到得到查询结果；<br>如果是非阻塞式调用，你不管话务员有没有告诉你查询结果，你自己先一边去玩了， 当然你也要偶尔隔一段时间check一下<br>老话务员有没有返回结果。<br>在这里阻塞与非阻塞与是否同步异步无关。跟话务员通过什么方式给你回复查询结果无关。</p>
 
       
     </div>
@@ -350,7 +394,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
 	</div>
 
       
@@ -372,11 +416,11 @@
 
 
   
-    <article id="post-java中的集合类" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/17/java中的集合类/" class="article-date">
-  	<time datetime="2017-03-17T07:22:39.000Z" itemprop="datePublished">2017-03-17</time>
+      <a href="/2016/11/22/python-装饰器/" class="article-date">
+  	<time datetime="2016-11-22T02:22:38.000Z" itemprop="datePublished">2016-11-22</time>
 </a>
     </div>
   
@@ -389,7 +433,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/17/java中的集合类/">java中的集合类</a>
+      <a class="article-title" href="/2016/11/22/python-装饰器/">python-装饰器</a>
     </h1>
   
 
@@ -398,44 +442,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="java框架中的基本接口-类层次关系"><a href="#java框架中的基本接口-类层次关系" class="headerlink" title="java框架中的基本接口 类层次关系"></a>java框架中的基本接口 类层次关系</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">java.util.Collection [I]</span><br><span class="line">+--java.util.List [I]</span><br><span class="line">   +--java.util.ArrayList [C]</span><br><span class="line">   +--java.util.LinkedList [C]</span><br><span class="line">   +--java.util.Vector [C]</span><br><span class="line">      +--java.util.Stack [C]</span><br><span class="line"></span><br><span class="line">+--java.util.Set [I]</span><br><span class="line">   +--java.util.HashSet [C]</span><br><span class="line">   +--java.util.SortedSet [I]</span><br><span class="line">      +--java.util.TreeSet [C]</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">java.util.Map [I]</span><br><span class="line">+--java.util.SortedMap [I]</span><br><span class="line">   +--java.util.TreeMap [C]</span><br><span class="line">+--java.util.Hashtable [C]</span><br><span class="line">+--java.util.HashMap [C]</span><br><span class="line">+--java.util.LinkedHashMap [C]</span><br><span class="line">+--java.util.WeakHashMap [C]</span><br></pre></td></tr></table></figure>
-<h2 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h2><p>Collection是最基本的集合接口，一个Collection代表一组Object的集合，这些Object被称作Collection的元<br>素。</p>
-<p>所有实现Collection接口的类都必须提供两个标准的构造函数：</p>
-<p>无参数的构造函数用于创建一个空的Collection;</p>
-<p>有一个Collection参数的构造函数用于创建一个新的Collection，这个新的Collection与传入的Collection<br>有相同的元素。后一个构造函数允许用户复制一个Collection。</p>
-<p>如何遍历Collection中的每一个元素？不论Collection的实际类型如何，它都支持一个iterator()的方法，该方法返回一个迭代子，使用该迭代子即可逐一访问Collection中每一个元素。典型的用法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator it = collection.iterator(); // 获得一个迭代子 </span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123; </span><br><span class="line">　　Object obj = it.next(); // 得到下一个元素 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="根据用途的不同，Collection又划分为List与Set。"><a href="#根据用途的不同，Collection又划分为List与Set。" class="headerlink" title="根据用途的不同，Collection又划分为List与Set。"></a>根据用途的不同，Collection又划分为List与Set。</h4><h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><p>   List继承自Collection接口。List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置。<br>用户能够使用索引（元素在List中的位置，类似于数组下标）来访问List中的元素，这类似于Java的数组。</p>
-<p>   跟Set集合不同的是，List允许有重复元素。对于满足e1.equals(e2)条件的e1与e2对象元素，<br>可以同时存在于List集合中。当然，也有List的实现类不允许重复元素的存在。</p>
-<p>   除了具有Collection接口必备的iterator()方法外，List还提供一个listIterator()方法，返回一个<br>ListIterator接口，和标准的Iterator接口相比，ListIterator多了一些add()之类的方法，允许添加，<br>删除，设定元素， 还能向前或向后遍历。</p>
-<p>   实现List接口的常用类有LinkedList，ArrayList，Vector和Stack。</p>
-<h3 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h3><pre><code>LinkedList实现了List接口，允许null元素。此外LinkedList提供额外的get，remove，insert方法在 
-</code></pre><p> LinkedList的首部或尾部。这些操作使LinkedList可被用作堆栈（stack），队列（queue）或双向队列<br>（deque）。</p>
-<p>   注意LinkedList没有同步方法。如果多个线程同时访问一个List，则必须自己实现访问同步。一种解决方法<br>是在创建List时构造一个同步的List：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Collections.synchronizedList(new LinkedList(...));</span><br></pre></td></tr></table></figure></p>
-<h3 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h3><p>ArrayList实现了可变大小的数组，它允许所有元素，包括null。<br>ArrayList没有同步，size，isEmpty，get，set方法运行时间为常数。<br>但是add方法开销为分摊的常数，添加n个元素需要O(n)的时间，其他的方法运行时间为线性。</p>
-<p>每个ArrayList实例都有一个容量（Capacity），即用于存储元素的数组的大小。<br>这个容量可随着不断添加新元素而自动增加，但是增长算法并 没有定义。<br>当需要插入大量元素时，在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率。<br>和LinkedList一样，ArrayList也是非同步的（unsynchronized）。</p>
-<h3 id="Vector类"><a href="#Vector类" class="headerlink" title="Vector类"></a>Vector类</h3><p>Vector非常类似ArrayList，但是Vector是同步的。由Vector创建的Iterator，虽然和ArrayList创建的<br>Iterator是同一接口，但是，因为Vector是同步的，当一个Iterator被创建而且正在被使用，另一个线程改变<br>了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出Concurrent<br>Modification Exception，因此必须捕获该异常。</p>
-<h3 id="Stack-类"><a href="#Stack-类" class="headerlink" title="Stack 类"></a>Stack 类</h3><p>Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得Vector得以被当作堆栈使用。<br>基本的push和pop方 法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，<br>search方法检测一个元素在堆栈中的位置，Stack刚创建后是空栈。</p>
-<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><p>Set继承自Collection接口，Set是一种不能包含有重复元素的集合，即对于满足e1.equals(e2)条件的e1与e2对<br>象元素，不能同时存在于同一个Set集合里，换句话说，Set集合里任意两个元素e1和e2都满足e1.equals(e2)==<br>false条件，Set最多有一个null元素。</p>
-<p>因为Set的这个制约，在使用Set集合的时候，应该注意：<br>1，为Set集合里的元素的实现类实现一个有效的equals(Object)方法。<br>2，对Set的构造函数，传入的Collection参数不能包含重复的元素。<br>请注意：必须小心操作可变对象（Mutable Object）。<br>如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。</p>
-<h3 id="HashSet类"><a href="#HashSet类" class="headerlink" title="HashSet类"></a>HashSet类</h3><p>此类实现 Set 接口，由哈希表（实际上是一个 HashMap 实例）支持。<br>它不保证集合的迭代顺序；特别是它不保证该顺序恒久不变，此类允许使用 null 元素。<br>HashSet不是同步的，需要用以下语句来进行S同步转换：<br>Set s = Collections.synchronizedSet(new HashSet(…))</p>
-<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><p>Map没有继承Collection接口。也就是说Map和Collection是2种不同的集合。<br>Collection可以看作是（value）的集合，而Map可以看作是（key，value）的集合。</p>
-<p>Map接口由Map的内容提供3种类型的集合视图，一组key集合，一组value集合，或者一组key-value映射关系的<br>集合。</p>
-<h3 id="Hashtable类"><a href="#Hashtable类" class="headerlink" title="Hashtable类"></a>Hashtable类</h3><p>  Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非空（non-null）的对象都可作为<br>key或者value。</p>
-<p>添加数据使用put(key, value)，取出数据使用get(key)，这两个基本操作的时间开销为常数。<br>Hashtable 通过initial capacity和load factor两个参数调整性能。<br>通常缺省的load factor 0.75较好地实现了时间和空间的均衡。<br>增大load factor可以节省空间但相应的查找时间将增大，这会影响像get和put这样的操作。<br>使用Hashtable的简单示例如下，将1，2，3放到Hashtable中，他们的key分别是”one”，”two”，”three”：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Hashtable numbers = new Hashtable(); </span><br><span class="line">numbers.put(<span class="string">"one"</span>, new Integer(1)); </span><br><span class="line">numbers.put(<span class="string">"two"</span>, new Integer(2)); </span><br><span class="line">numbers.put(<span class="string">"three"</span>, new Integer(3)); </span><br><span class="line"><span class="comment">#要取出一个数，比如2，用相应的key：</span></span><br><span class="line">Integer n = (Integer)numbers.get(<span class="string">"two"</span>); </span><br><span class="line">System.out.println(<span class="string">"two ="</span> + n);</span><br></pre></td></tr></table></figure></p>
-<p>由于作为key的对象将通过计算其散列函数来确定与之对应的value的位置，因此任何作为key的对象都必须实现<br>hashCode和equals方 法。</p>
-<p>hashCode和equals方法继承自根类Object，如果你用自定义的类当作key的话，要相当小心，按照散列函数<br>的定义，如果两个对象相同，即obj1.equals(obj2)=true，则它们的hashCode必须相同，</p>
-<p>但如果两个对象不同，则它们的hashCode不一定不同，<br>如 果两个不同对象的hashCode相同，这种现象称为冲突，冲突会导致操作哈希表的时间开销增大，<br>所以尽量定义好的hashCode()方法，能加快哈希 表的操作。</p>
-<p>如果相同的对象有不同的hashCode，对哈希表的操作会出现意想不到的结果（期待的get方法返回null），要避<br>免这种问题，只需要牢记一条：要同时复写equals方法和hashCode方法，而不要只写其中一个。<br>Hashtable是同步的。</p>
-<h3 id="HashMap类"><a href="#HashMap类" class="headerlink" title="HashMap类"></a>HashMap类</h3><p>HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允许null，即null value和null<br>key。，但是将HashMap视为Collection时（values()方法可返回Collection），其迭代子操作时间开销和<br>HashMap 的容量成比例。因此，如果迭代操作的性能相当重要的话，不要将HashMap的初始化容量设得过高，<br>或者load factor过低。</p>
-<h3 id="WeakHashMap类"><a href="#WeakHashMap类" class="headerlink" title="WeakHashMap类"></a>WeakHashMap类</h3><p>WeakHashMap是一种改进的HashMap，它对key实行“弱引用”，如果一个key不再被外部所引用，那么该key可以被<br>GC回收。</p>
-<h3 id="对集合操作的工具类"><a href="#对集合操作的工具类" class="headerlink" title="对集合操作的工具类"></a>对集合操作的工具类</h3><p>Java提供了java.util.Collections，以及java.util.Arrays类简化对集合的操作<br>java.util.Collections主要提供一些static方法用来操作或创建Collection，Map等集合。<br>java.util.Arrays主要提供static方法对数组进行操作。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果涉及到堆栈，队列等操作，应该考虑用List，对于需要快速插入，删除元素，应该使用LinkedList，如果<br>需要快速随机访问元素，应该使用ArrayList。</p>
-<p>如果程序在单线程环境中，或者访问仅仅在一个线程中进行，考虑非同步的类，其效率较高，如果多个线程可<br>能同时操作一个类，应该使用同步的类。</p>
-<p>在除需要排序时使用TreeSet,TreeMap外,都应使用HashSet,HashMap,因为他们的效率更高。<br>要特别注意对哈希表的操作，作为key的对象要正确复写equals和hashCode方法。</p>
-<p>容器类仅能持有对象引用（指向对象的指针），而不是将对象信息copy一份至数列某位置。一旦将对象置入容<br>器内，便损失了该对象的型别信息。</p>
-<p>尽量返回接口而非实际的类型，如返回List而非ArrayList，这样如果以后需要将ArrayList换成LinkedList时<br>，客户端代码不用改变。这就是针对抽象编程。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、Collection没有get()方法来取得某个元素。只能通过iterator()遍历元素。<br>2、Set和Collection拥有一模一样的接口。<br>3、List，可以通过get()方法来一次取出一个元素。使用数字来选择一堆对象中的一个，get(0)或(add/get)<br>4、一般使用ArrayList；用LinkedList构造堆栈stack、队列queue。<br>5、Map用 put(k,v) / get(k)，还可以使用containsKey()/containsValue()来检查其中是否含有某<br>个key/value。HashMap会利用对象的hashCode来快速找到key。</p>
-<p>6、Map中元素，可以将key序列、value序列单独抽取出来。<br>使用keySet()抽取key序列，将map中的所有keys生成一个Set。<br>使用values()抽取value序列，将map中的所有values生成一个Collection。<br>为什么一个生成Set，一个生成Collection？那是因为，key总是独一无二的，value允许重复。</p>
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在代码运行期间，动态增加功能的方式，称之为“装饰器”（Decorator）。<br>本质上，decorator就是一个返回函数的高阶函数。</p>
+<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span></span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>call now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>把@log放到now()函数的定义处，相当于执行了语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(now)</span><br></pre></td></tr></table></figure></p>
+<p>由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用<br>now()将执行新函数，即在log()函数中返回的wrapper()函数。</p>
+<p>wrapper()函数的参数定义是(<em>args,*</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，<br>再紧接着调用原始函数。</p>
+<h3 id="用法2"><a href="#用法2" class="headerlink" title="用法2"></a>用法2</h3><p>decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br><span class="line">    </span><br><span class="line">@<span class="built_in">log</span>(<span class="string">'execute'</span>)</span><br><span class="line">def now():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'2013-12-25'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><blockquote>
+<blockquote>
+<blockquote>
+<p>now()<br>execute now():<br>2013-12-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = <span class="built_in">log</span>(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure></p>
+<p>首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变<br>成了’wrapper’。</p>
+<p>因为返回的那个wrapper()函数名字就是’wrapper’，所以，需要把原始函数的<strong>name</strong>等属性复制到wrapper()函数中，否则，有些<br>依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写wrapper.<strong>name</strong> = func.<strong>name</strong>这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的<br>decorator的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(func):</span><br><span class="line">    @functools.wraps(func)</span><br><span class="line">    def wrapper(*args, **kw):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'call %s():'</span> % func.__name__</span><br><span class="line">        <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">    <span class="built_in">return</span> wrapper</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import functools</span><br><span class="line"></span><br><span class="line">def <span class="built_in">log</span>(text):</span><br><span class="line">    def decorator(func):</span><br><span class="line">        @functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            <span class="built_in">print</span> <span class="string">'%s %s():'</span> % (text, func.__name__)</span><br><span class="line">            <span class="built_in">return</span> func(*args, **kw)</span><br><span class="line">        <span class="built_in">return</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
 
       
     </div>
@@ -444,105 +477,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-elasticsearch-原理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/13/elasticsearch-原理/" class="article-date">
-  	<time datetime="2017-03-13T11:20:08.000Z" itemprop="datePublished">2017-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/13/elasticsearch-原理/">elasticsearch-原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ElasticSearch-原理"><a href="#ElasticSearch-原理" class="headerlink" title="ElasticSearch 原理"></a>ElasticSearch 原理</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ElasticSearch(以下简称ES)是一个基于Lucene构建的开源(open-source)，分布式(distributed)，RESTful，实时(real-time)的搜索与分析(analytics)引擎。它可以让你在浏览数据时具备非常快的速度和优秀的可扩展性。它用于全文索引、结构化数据索引、数据分析以及三者的结合。它可以运行在你的笔记本上，或者扩展至数百台的服务器节点上来处理PB级的数据。</p>
-<h3 id="与关系型数据库的名词对照"><a href="#与关系型数据库的名词对照" class="headerlink" title="与关系型数据库的名词对照"></a>与关系型数据库的名词对照</h3><p>Relational DB =&gt; Databases =&gt; Tables =&gt; Rows =&gt; Columns<br>Elasticsearch =&gt; Index =&gt; Types =&gt; Documents =&gt; Fields</p>
-<h3 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h3><p>ES面向文档，这就意味着你可以存储完整的对象或者文档。ES不仅存储它们，并且对它们的每一个文档的内容做了索引以便可以查询到它们。在ES中，你是对文档进行的建索引、查询、排序、过滤，而不是对关系型数据的一行数据。这就是ES处理数据的一个最基本的不同点，这也是ES为什么能处理全文索引的关键。</p>
-<h3 id="精确索引和全文索引"><a href="#精确索引和全文索引" class="headerlink" title="精确索引和全文索引"></a>精确索引和全文索引</h3><p>在ES中的数据可以分为两类：精确值(exact values)以及全文(full text)。 精确值：例如日期类型date，若date其有两个值:2014-09-15与2014，那么这两个值不相等。又例如字符串类型foo与Foo不相等。 全文：通常是人类语言写的文本，例如一段tweet信息、email的内容等。</p>
-<p>精确值很容易被索引：一个值要么相等要么不等。 索引全文值就需要很多功夫。例如我们不仅要想：这个文档符合我们的查询吗？还要想：这个文档有多符合我们的查询？换句话说就是：这个文档跟我们的查询关联大吗？我们很少精确的去匹配整个全文，我们最想要的是去匹配全文文本的内部信息。除此，我们还希望搜索能够理解我们的意图：例如</p>
-<p>如果你搜索UK，我们需要包含United Kingdom的文本也会被匹配。 如果你搜索jump，那么包含jumped,jumps,jumping,更甚者leap的文本会被匹配。</p>
-<p>为了更方便的进行全文索引，ES首先要先分析文本，然后使用分析过的文本去创建倒序索引。</p>
-<h3 id="倒序索引与文本分析"><a href="#倒序索引与文本分析" class="headerlink" title="倒序索引与文本分析"></a>倒序索引与文本分析</h3><p>ES使用倒序索引来加速全文索引。一个倒序索引由两部分组成：在文档中出现的所有不同的词；对每个词，它所出现的文档的列表。 例如：如果我们有两个文档，每一个文档有一个content字段，包含的内容如下：</p>
-<p>1.The quick brown fox jumped over the lazy dog<br>2.Quick brown foxes leap over lazy dogs in summer</p>
-<p>要创建一个倒序索引，首先要将content分割成单独的词(称为terms or tokens)，创建一个所有terms的列表，然后罗列每一个term出现的文档。此过程称为tokenization。如下图：<br><img src="/img/es倒序索引1.png" alt=""></p>
-<p>现在，如果我们想要搜索 quick brown，我们仅仅只需要找每一个term出现的文档即可。如下图：<br><img src="/img/es倒序索引2.png" alt=""></p>
-<p>每一个文档都匹配到了，但是第一个比第二个要匹配的多。如果我们使用一个简单的相似性算法仅仅只计算匹配的数量，那么我们可以称第一个文档要比第二个匹配的好(与我们的查询更有关联)。</p>
-<p>但是现在的倒序索引有一些问题：</p>
-<p>Quick与quick是两个不同的term，但是搜索的用户会认为它们应该是一样的term才是合理的。<br>fox和foxes，dog和dogs是一样的词根，应该列为同一个term。 jumped和leap虽然词根不一样，但是意义却相同。</p>
-<p>如果改善了上面的问题，那么倒序索引应该如下图：<br><img src="/img/es倒序索引3.png" alt=""></p>
-<h3 id="设计原理"><a href="#设计原理" class="headerlink" title="设计原理"></a>设计原理</h3><p><img src="/img/ES空集群.png" alt=""><br>如果我们启动了一个节点，没有索引没有数据，那么看起来就像上图一样。 一个节点Node运行着ES的实例，一个集群由一个或多个使用着同样名字(cluster.name)的节点组成，分享数据和负载。 当Node从集群中添加或删除时，集群会重组自己，使数据平摊的更均匀。</p>
-<p>集群中需要有一台master节点。master的作用是掌管集群的管理工作： 例如创建和删除索引。 从集群中添加或删除一台节点。 master节点无需掌管文档级的变更和索引。这也意味着在只有一台master的情况下，随着负载的增加master不会成为瓶颈。 所有的节点都可能变成master。</p>
-<p>作为user，我们可以与任何一台节点通信，包括master。每一台节点都知道每一个文档的位置并且可以将user的请求路由到文档所在的节点，并且这台节点负责接收它路由到的node or nodes的响应，并且将数据组织起来返回给用户。这些对用户都是透明的。</p>
-<h3 id="创建一个索引—index-shard-cluster"><a href="#创建一个索引—index-shard-cluster" class="headerlink" title="创建一个索引—index,shard,cluster"></a>创建一个索引—index,shard,cluster</h3><p>将数据添加到ES的前提是，我们需要一个索引(名词):index——一个存储与这个索引相对应数据的地方。实际上，index仅仅只是一个命名空间来指向一个或多个实际的物理分片(shard)。</p>
-<p>一个分片(shard)是一个比较低层的工作单元来处理这个索引(index)的所有数据的一个切片(slice)。一个shard实际上是一个Lucene实例，在它的能力范围内拥有完整的搜索功能(在处理它自己拥有的数据时有所有的功能)。我们所有文档的索引indexed(动词)和存储工作都是在shard上，但这是透明的，我们不需要直接和shard通信，而是和我们创建的index(名词)通信。</p>
-<p>shards是ES将数据分布式在你的集群的关键。想象下shards是数据的容器，文档存储在shards里，而shards被分配在集群的每一个节点Node里。当你的集群规模增长和降低时，ES会自动的在Nodes间迁移shards以保持集群的负载均衡。</p>
-<p>一个分片(shard)是一个比较低层的工作单元来处理这个索引(index)的所有数据的一个切片(slice)。一个shard实际上是一个Lucene实例，在它的能力范围内拥有完整的搜索功能(在处理它自己拥有的数据时有所有的功能)。我们所有文档的索引indexed(动词)和存储工作都是在shard上，但这是透明的，我们不需要直接和shard通信，而是和我们创建的index(名词)通信。</p>
-<p>shards是ES将数据分布式存储在你的集群的关键。想象下shards是数据的容器，文档存储在shards里，<br>而shards被分配在集群的每一个节点里。当你的集群规模增长和降低时，ES会自动的在Nodes间迁移shards以保持集群的负载均衡。</p>
-<p>shard可分为primary shard和replica shard。 在一个index里的每一个文档都属于一个单独的primary shard，所以primary shard的数量决定了最大存储容量(对应于一个index)。</p>
-<p>注意：shard是归属与index的，而不是cluster的。</p>
-<p>replica shard是primary shard的拷贝。replica有两个作用：<br>1.冗余备份       2.提供读请求服务，例如搜索或读取文档</p>
-<p>primary shard的数量在索引创建时确定后不能修改，replica可以在任何时候修改。</p>
-<p>例： 见Figure2，在2.1的集群上创建一个index，拥有3个primary shards以及1个replica shards。</p>
-<p><img src="/img/ES分片1.png" alt=""></p>
-<p>由于只有一台Node，而Primary shard的Replicas与其在同一台节点上毫无意义，所以集群没有初始化<br>replicas，这时添加另外一台Node。见Figure3，每一个primary shard初始化了一个replica。<br><img src="/img/ES分片2.png" alt=""></p>
-<h4 id="水平扩容"><a href="#水平扩容" class="headerlink" title="水平扩容"></a>水平扩容</h4><p>当我们继续添加一台节点时，Node1和Node2中的各取一个shard移动到了Node3.见Figure4<br><img src="/img/ES分片3.png" alt=""><br>这样，我们每一台Node上只有两个shard。这就意味着每一台Node的硬件资源(CPU,RAM,I/O)将会被更少的shards共享，提高了每一个shard的性能。在这个案例中，6个shards最多可使用6台Node，这样每个shard就可以使用100%的node硬件资源。</p>
-<h3 id="Shards文档路由"><a href="#Shards文档路由" class="headerlink" title="Shards文档路由"></a>Shards文档路由</h3><p>当你对一个文档建立索引时，它仅存储在一个primary shard上。<br>ES是怎么知道一个文档应该属于哪个shard？当你创建一个新的文档时，ES是怎么知道应该把它存储至shard1还是shard2？ 这个过程不能随机无规律的，因为以后我们还要将它取出来。它的路由算法是：</p>
-<p>shard = hash(routing) % numberofprimary_shards</p>
-<p>routing的值可以是文档的id，也可以是用户自己设置的一个值。hash将会根据routing算出一个数值然后%primaryshards的数量。这也是为什么primary_shards在index创建时就不能修改的原因。</p>
-<h3 id="Primary-Replica-Shards的交互"><a href="#Primary-Replica-Shards的交互" class="headerlink" title="Primary/Replica Shards的交互"></a>Primary/Replica Shards的交互</h3><p>假如我们有Figure8的集群。我们可以向这个集群的任何一台NODE发送请求，每一个NODE都有能力处理请求。每一个NODE都知道每一个文档所在的位置所以可以直接将请求路由过去。下面的例子，我们将所有的请求都发送到NODE1。<br><img src="/img/分片交互1.png" alt=""><br>注：最好的实践方式是轮询所有的NODE来发送请求，以达到请求负载均衡。</p>
-<h4 id="写操作"><a href="#写操作" class="headerlink" title="写操作"></a>写操作</h4><p>创建、索引、删除文档都是写操作，这些操作必须在primary shard完全成功后才能拷贝至其对应的replicas上,如下图。</p>
-<p><img src="/img/分片交互2.png" alt=""></p>
-<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><p>1.客户端向Node1发送写操作的请求。<br>2.Node1使用文档的_id来决定这个文档属于shard0，然后将请求路由至NODE3，P0所在的位置。<br>3.Node3在P0上执行了请求。如果请求成功，则将请求并行的路由至NODE1 NODE2的R0上。当所有的replicas报告成功后，NODE3向请求的node(NODE1)发送成功报告，NODE1再报告至Client。<br>当客户端收到执行成功后，操作已经在Primary shard和所有的replica shards上执行成功了。</p>
-<h4 id="读操作"><a href="#读操作" class="headerlink" title="读操作"></a>读操作</h4><p>一个文档可以在primary shard和所有的replica shard上读取。<br><img src="/img/分片交互3.png" alt=""></p>
-<h4 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h4><p>1.客户端发送Get请求到NODE1。<br>2.NODE1使用文档的_id决定文档属于shard 0.shard 0的所有拷贝存在于所有3个节点上。这次，它将请求路由至NODE2。<br>3.NODE2将文档返回给NODE1，NODE1将文档返回给客户端。 对于读请求，请求节点(NODE1)将在每次请求到来时都选择一个不同的replica。<br>shard来达到负载均衡。使用轮询策略轮询所有的replica shards。</p>
-<h4 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h4><p>更新操作，结合了以上的两个操作：读、写<br><img src="/img/分片交互4.png" alt=""></p>
-<p>1.客户端发送更新操作请求至NODE1<br>2.NODE1将请求路由至NODE3，Primary shard所在的位置<br>3.NODE3从P0读取文档，改变source字段的JSON内容，然后试图重新对修改后的数据在P0做索引。如果此时这个文档已经被其他的进程修改了，那么它将重新执行3步骤，这个过程如果超过了retryon_conflict设置的次数，就放弃。<br>4.如果NODE3成功更新了文档，它将并行的将新版本的文档同步到NODE1和NODE2的replica shards重新建立索引。一旦所有的replica<br>shards报告成功，NODE3向被请求的节点(NODE1)返回成功，然后NODE1向客户端返回成功。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
       
@@ -566,7 +501,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

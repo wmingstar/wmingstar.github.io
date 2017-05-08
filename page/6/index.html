@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/spark/" style="font-size: 15px;">spark</a> <a href="/tags/剑指Offer/" style="font-size: 10px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a>
+						<a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/github/" style="font-size: 11.25px;">github</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/spark/" style="font-size: 12.5px;">spark</a> <a href="/tags/分布式系统/" style="font-size: 10px;">分布式系统</a> <a href="/tags/剑指Offer/" style="font-size: 11.25px;">剑指Offer</a> <a href="/tags/操作系统/" style="font-size: 12.5px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 18.75px;">算法</a> <a href="/tags/面试/" style="font-size: 13.75px;">面试</a>
 					</div>
 				</section>
 				
@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-yum源" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows安装配置python-pip-pyinstaller-pyqt4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/26/yum源/" class="article-date">
-  	<time datetime="2016-06-26T09:39:06.000Z" itemprop="datePublished">2016-06-26</time>
+      <a href="/2017/01/16/windows安装配置python-pip-pyinstaller-pyqt4/" class="article-date">
+  	<time datetime="2017-01-16T13:11:38.000Z" itemprop="datePublished">2017-01-16</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/yum源/">制作yum源</a>
+      <a class="article-title" href="/2017/01/16/windows安装配置python-pip-pyinstaller-pyqt4/">windows安装配置python-pip-pyinstaller-pyqt4</a>
     </h1>
   
 
@@ -182,146 +182,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>先说下为什么要制作本地yum源，在实际工程中，很多国企或者公司的某些研发环境为了网络安全，避免网络攻击，不会连接外网，在这种情况下就需要离线部署环境，此时就需要本地yum源和pip源，本篇仅介绍本地yum源制作方法，下篇介绍pip源制作方法。</p>
-<h3 id="制作本地yum源有三种方法："><a href="#制作本地yum源有三种方法：" class="headerlink" title="制作本地yum源有三种方法："></a>制作本地yum源有三种方法：</h3><p>一、<br>直接使用CentOS安装镜像文件作为本地yum源，优点是简单便捷，缺点是镜像文件中的软件包不完整，(centos 7 Everything才7G<br>左右)；<br>二、<br>同步CentOS官方源到本地（相当于创建了一个公共镜像），优点是软件包很全，缺点是占空间费流量；<br>三、<br>创建完全自定义的本地源，优点是灵活性最大，缺点是只是作为其他源的补充。</p>
-<p>上面的三种方法，我自己试过第一种和第三种，第一种用centos 7 Everything的iso文件做本地yum源，安装scrapy时需要的依赖包<br>有些本地源中有，但有些并没有，因此第一种相对来说不太可靠。第三种很方便，需要什么软件就在能上网的电脑上提前下载好单不<br>安装，单独放在一个文件夹，把这个文件夹当作本地yum源。</p>
-<h3 id="第一种：-使用CentOS7-iso镜像文件作为本地yum源"><a href="#第一种：-使用CentOS7-iso镜像文件作为本地yum源" class="headerlink" title="第一种： 使用CentOS7 iso镜像文件作为本地yum源"></a>第一种： 使用CentOS7 iso镜像文件作为本地yum源</h3><h4 id="挂载ISO镜像文件"><a href="#挂载ISO镜像文件" class="headerlink" title="挂载ISO镜像文件"></a>挂载ISO镜像文件</h4><p>(1) 实体机上直接放入光盘<br>(2) VMware Workstation 虚拟机：虚拟机–&gt;可移动设备–&gt;连接<br>(此处我用的是移动硬盘，由于移动硬盘是ntfs文件系统，需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz，编译安装，需要先安装gcc 再挂载 ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建目录</span></span><br><span class="line">mkdir /mnt/ntfs   </span><br><span class="line"><span class="comment">#挂载  此处挂载移动硬盘，若是优盘则（mount  /dev/sdb1  /mnt/ntfs）</span></span><br><span class="line">mount -t ntfs-3g /dev/sdb1  /mnt/ntfs </span><br><span class="line"><span class="comment">#卸载</span></span><br><span class="line">umount /mnt/ntfs</span><br></pre></td></tr></table></figure></p>
-<p>若不想每次都要放光盘，那就复制iso文件到本地硬盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  -a：该选项保留链接、文件属性，并递归地复制目录将iso文件挂载</span></span><br><span class="line">cp -avf /mnt/ntfs/CentOS-7-x86_64-Everything-1511.iso  /home/star</span><br><span class="line">mkdir /media/cdrom/</span><br><span class="line">mount -t iso9660 /home/star/CentOS-7-x86_64-Everything-1511.iso /media/cdrom/</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建repo文件"><a href="#创建repo文件" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/yum.repos.d/CentOS-Local.repo </span><br><span class="line"> </span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///media/cdrom/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
-<p>并把/etc/yum.repos.d/目录下的其他repo文件暂时移走。</p>
-<h2 id="2-同步官方镜像到本地，CentOS创建公共镜像"><a href="#2-同步官方镜像到本地，CentOS创建公共镜像" class="headerlink" title="2.同步官方镜像到本地，CentOS创建公共镜像"></a>2.同步官方镜像到本地，CentOS创建公共镜像</h2><p>详细说明见官方中文文档：<a href="http://wiki.centos.org/zh/HowTos/CreatePublicMirrors" target="_blank" rel="external">http://wiki.centos.org/zh/HowTos/CreatePublicMirrors</a><br>提供一个SHELL脚本，然后cron自动运行~~</p>
-<p>脚本稍作修改，换成中科大的镜像源。可用镜像列表见：<a href="http://www.centos.org/download/mirrors/" target="_blank" rel="external">http://www.centos.org/download/mirrors/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">localpath=<span class="string">"/mirrors/CentOS"</span>  </span><br><span class="line">mirror=<span class="string">"mirrors.hustunique.com::centos"</span>  </span><br><span class="line">rsync=<span class="string">"rsync -avzH --delete"</span>  </span><br><span class="line"> </span><br><span class="line">verlist=<span class="string">"7"</span>  </span><br><span class="line">baselist=<span class="string">"centosplus extras fasttrack os updates"</span>  </span><br><span class="line">archlist=<span class="string">"x86_64"</span>  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> ver <span class="keyword">in</span> <span class="variable">$verlist</span>  </span><br><span class="line"><span class="keyword">do</span>  </span><br><span class="line">	<span class="keyword">for</span> base <span class="keyword">in</span> <span class="variable">$baselist</span>  </span><br><span class="line">	<span class="keyword">do</span>  </span><br><span class="line">		<span class="keyword">for</span> arch <span class="keyword">in</span> <span class="variable">$archlist</span>  </span><br><span class="line">		<span class="keyword">do</span>  </span><br><span class="line">			remote=<span class="variable">$mirror</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			mkdir -pv <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">			<span class="variable">$rsync</span> <span class="variable">$remote</span> <span class="variable">$localpath</span>/<span class="variable">$ver</span>/<span class="variable">$base</span>/<span class="variable">$arch</span>/  </span><br><span class="line">		<span class="keyword">done</span>  </span><br><span class="line">	<span class="keyword">done</span>  </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="三、创建完全自定义的本地源"><a href="#三、创建完全自定义的本地源" class="headerlink" title="三、创建完全自定义的本地源"></a>三、创建完全自定义的本地源</h2><p>在联网的电脑上把需要的软件包提前下载到一个目录中，或把平时收藏的一些RPM软件包放在一个目录里，就变成一个自定义源了，可以用YUM来管理，灵活性相当大。</p>
-<h3 id="创建本地yum仓库"><a href="#创建本地yum仓库" class="headerlink" title="创建本地yum仓库"></a>创建本地yum仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可以有N级目录 ，单感觉一级就好</span></span><br><span class="line">mkdir  /yum  </span><br><span class="line"><span class="comment">#复制RPM包到上述目录</span></span><br><span class="line">cp ...  </span><br><span class="line"><span class="comment">#或者将需要的包下载下来但不安装</span></span><br><span class="line">yum install --downloadonly --downloaddir=/yum   &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="创建repo文件-1"><a href="#创建repo文件-1" class="headerlink" title="创建repo文件"></a>创建repo文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim/etc/yum.repos.d/CentOS-Local.repo</span><br><span class="line"></span><br><span class="line">[Local]  </span><br><span class="line">name=Local Yum  </span><br><span class="line">baseurl=file:///yum/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  </span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### 安装createrepo，用以创建索引，centos7自带，其他版本自己测试下就好</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#使用yum安装createrepo </span></span><br><span class="line">yum install createrepo  </span><br><span class="line">rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/createrepo-0.9.9-23.el7.noarch.rpm</span><br><span class="line"><span class="comment">### 创建索引</span></span><br><span class="line">``` bash</span><br><span class="line">createrepo /yum   </span><br><span class="line">yum makecache <span class="comment">#更新缓存</span></span><br></pre></td></tr></table></figure>
-<p>好了，制作完毕，现在就可以用了，本人推荐这种方法，感觉这种方法比较便捷，并且可以满足大多数情况，可以结合第一种方法一<br>起使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install  package-name</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pip源" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/pip源/" class="article-date">
-  	<time datetime="2016-06-26T09:32:35.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/pip源/">制作pip源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>配置环境太坑了，离线配置环境更坑，在离线环境下部署环境时pip源是必备，好了，说正事。<br>这里介绍两种方法：</p>
-<h2 id="一、同步官方pip源到本地"><a href="#一、同步官方pip源到本地" class="headerlink" title="一、同步官方pip源到本地"></a>一、同步官方pip源到本地</h2><p>用脚本安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip pip.master.zip</span><br><span class="line"><span class="built_in">cd</span> pip.master</span><br><span class="line">python setup.py  install</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-安装distribute"><a href="#1-安装distribute" class="headerlink" title="1.安装distribute"></a>1.安装distribute</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip distribute-0.7.3.zip</span><br><span class="line"><span class="built_in">cd</span> distribute-0.7.3</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装virtualenv"><a href="#2-安装virtualenv" class="headerlink" title="2.安装virtualenv"></a>2.安装virtualenv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip virtualenv.zip</span><br><span class="line"><span class="built_in">cd</span> virtualenv</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h3 id="3-安装bandsnatch"><a href="#3-安装bandsnatch" class="headerlink" title="3.安装bandsnatch"></a>3.安装bandsnatch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtualenv-2.7 bandersnatch</span><br><span class="line"><span class="built_in">cd</span> bandersnatch</span><br><span class="line">bin/pip install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt</span><br></pre></td></tr></table></figure>
-<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Run （- it will create an empty configuration file for you in /etc/bandersnatch.conf.）根据自己的需求更改配置文件 </span><br><span class="line">#/etc/bandersnatch.conf</span><br><span class="line"></span><br><span class="line">bandersnatch mirror </span><br><span class="line"></span><br><span class="line">#Run again.</span><br><span class="line">#It will populate your mirror with the current status of all PyPI packages - roughly 120GiB (2014-10-23).） Expect </span><br><span class="line">#this to grow substantially over time.Run bandersnatch mirror regularly to update your mirror with any #intermediate changes.</span><br><span class="line">bandersnatch mirror</span><br></pre></td></tr></table></figure>
-<p>用这个方法可以将官方pip源同步到本地，但是速度比较慢，我同步的时候用了一种，共220G左右，随着时间的推移，这个源是在不<br>断变化的。单自己同步完之后并不会用啊，太伤了，所以又换了中方法。</p>
-<h2 id="二、制作自定义pip源"><a href="#二、制作自定义pip源" class="headerlink" title="二、制作自定义pip源"></a>二、制作自定义pip源</h2><p>需要什么就在可以上网的电脑上提前下载好，然后复制到部署环境的电脑上就可以。</p>
-<h3 id="1-将需要的pip包下载到本地"><a href="#1-将需要的pip包下载到本地" class="headerlink" title="1.将需要的pip包下载到本地"></a>1.将需要的pip包下载到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="_">-d</span> /path/to/save/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=file:///path_to/packages/   packagesname</span><br></pre></td></tr></table></figure>
-<h3 id="附赠："><a href="#附赠：" class="headerlink" title="附赠："></a>附赠：</h3><p>挂载移动硬盘（ntfs文件系统）<br>需安装插件ntfs-3g_ntfsprogs-2015.3.14.tgz（编译安装，需要先安装gcc）<br>再挂载<br>mount -t ntfs-3g /dev/sdb1  /mnt/ntfs</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://bitbucket.org/pypa/bandersnatch" target="_blank" rel="external">https://bitbucket.org/pypa/bandersnatch</a><br><a href="http://blog.chinaunix.net/uid-17015055-id-4362468.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-17015055-id-4362468.html</a><br><a href="http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml" target="_blank" rel="external">http://blog.chinaunix.net/zt/1043/centosbanha_1043925.shtml</a><br><a href="http://www.chenshake.com/centos-6-4-pypi-local-source-production/" target="_blank" rel="external">http://www.chenshake.com/centos-6-4-pypi-local-source-production/</a><br><a href="http://www.linuxde.net/2014/05/15576.html" target="_blank" rel="external">http://www.linuxde.net/2014/05/15576.html</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/26/python-1/" class="article-date">
-  	<time datetime="2016-06-26T09:21:37.000Z" itemprop="datePublished">2016-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/26/python-1/">python中 @classmethod 与 @staticmethod 的区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python语言很简洁，功能强大，由于项目需要，哥们在改学长写的代码，“看简洁的代码是一种享受”，我深深赞同，学到挺多东西，下面就说一下类方法与静态方法的区别。<br>通常，要使用某个类的方法，需要先实例化一个对象，再用对象调用方法。<br>而使用 @staticmethod或 @classmethod，则可以不需要实例化对象，直接用 类名.方法名() 的方式来调用。<br>这可以在一定程度上增加编写代码的效率，并可以使代码更加简洁。</p>
-<p>既然 @staticmethod和 @classmethod都可以直接 用类名.方法名()的方式来调用，那他们有什么区别呢？<br>下面说一下它们的区别，从使用上来说：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod  不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。</span><br><span class="line">@classmethod也 不需要self参数，但第一个参数需要是表示自身类的cls参数。</span><br></pre></td></tr></table></figure></p>
-<p>如果在 @staticmethod 中要调用到这个类的一些属性或方法，只能直接类名.属性名或类名.方法名。<br>而 @classmethod 因为有cls参数，可以用来调用类的属性和方法或实例化对象等，避免硬编码。<br>下面上代码更能直观的说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[python] view plain copy</span><br><span class="line">class A(object):  </span><br><span class="line">    num = 2016 </span><br><span class="line">    def func1(self):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'普通方法'</span>  </span><br><span class="line"> </span><br><span class="line">    @staticmethod  </span><br><span class="line">    def static_func():  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法 @staticmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> A.num  </span><br><span class="line"> </span><br><span class="line">    @classmethod  </span><br><span class="line">    def class_func(cls):  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">'方法:@classmethod'</span>  </span><br><span class="line">        <span class="built_in">print</span> cls.num  </span><br><span class="line">        cls().func1()  </span><br><span class="line">  </span><br><span class="line">A.static_func()  </span><br><span class="line">A.class_func()  </span><br><span class="line">``` </span><br><span class="line">``` bash</span><br><span class="line">输出:</span><br><span class="line">方法 @staticmethod</span><br><span class="line">2016</span><br><span class="line">方法:@classmethod</span><br><span class="line">2016</span><br><span class="line">普通方法</span><br></pre></td></tr></table></figure></p>
+        <h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><p><a href="https://www.python.org/downloads/" target="_blank" rel="external">Python的官方主页</a><br>下载相应的Python安装包。</p>
+<p>安装到自定义的目录（比如D:\python2），并将python的安装目录（D:\python2）添加到系统的环境变量 Path<br>中。</p>
+<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p><a href="https://pypi.python.org/pypi/pip#downloads" target="_blank" rel="external">pip下载地址</a><br>下载pip安装压缩包。</p>
+<p>将压缩包解压到相应目录，cmd进入该目录，安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p>
+<p>将相应目录（D:\python2\Scripts）添加到Path中。</p>
+<h3 id="安装pyinstaller"><a href="#安装pyinstaller" class="headerlink" title="安装pyinstaller"></a>安装pyinstaller</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
+<h3 id="安装PyQt4"><a href="#安装PyQt4" class="headerlink" title="安装PyQt4"></a>安装PyQt4</h3><p>对于Windows来说，只需要下载exe格式的文件即可。在这个exe文件中，已经包含了如下模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PyQt</span><br><span class="line">Qt</span><br><span class="line">Qt Designer/li&gt;</span><br><span class="line">Qt Linguist（Qt语言家）</span><br><span class="line">Qt Assistant</span><br><span class="line">pyuic4（转换由Qt Designer生成的.ui文件到.py）</span><br><span class="line">pylupdate4</span><br><span class="line">lrelease</span><br><span class="line">pyrcc4</span><br><span class="line">QScintilla（C++编辑器类Scintilla在QT环境下的移植版本）</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是，目前，安装PyQt4并不需要一些文章中提到的先安装sip和Qt的过程，因为在安装文件中已经包<br>括。</p>
+<p><a href="http://www.riverbankcomputing.co.uk/software/pyqt/download" target="_blank" rel="external">下载地址</a></p>
+<p>下载稍微早一点的版本，比如 PyQt-4.11.4 ，这些早一点的版本有对应的 exe 版本，直接点击安装即可，<br>无须自己编译，最新的版本可能没有 exe 版本。</p>
+<h3 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">from PyQt4 import QtGui</span><br><span class="line"> </span><br><span class="line">app = QtGui.QApplication(sys.argv)</span><br><span class="line">widget = QtGui.QWidget()</span><br><span class="line">widget.resize(250, 150)</span><br><span class="line">widget.setWindowTitle(<span class="string">'PyQt'</span>)</span><br><span class="line">widget.show()</span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<p>第2行引入的QtGui是PyQt中最基本的模块，包含了PyQt的绘图组件及其相关类。</p>
+<p>第4行使用QApplication创建了一个application。每个PyQt程序中均要包含一个application对象。</p>
+<p>第5行使用QWidget创建了一个widget，并在第6行中使用resize设置了它的大小。第7行的setWindowsTitle设置了窗口标题的文字。第8行的show使这个widget显示出来。</p>
+<p>最后一行是这个程序的主循环，事件处理从本行语句开始。至于为什么是exec_而不是exec呢？是因为exec<br>是Python的关键字。</p>
+<p><img src="/img/pyqt_demo.png" alt=""></p>
+<h3 id="pyinstaller-的常用操作"><a href="#pyinstaller-的常用操作" class="headerlink" title="pyinstaller 的常用操作"></a>pyinstaller 的常用操作</h3><p>PyInstaller可以用来打包python应用程序，打包完的程序就可以在没有安装Python解释器的机器上运行了。<br>PyInstaller支持Python 2.7和Python 3.3+。可以在Windows、Mac OS X和Linux上使用，但是并不是跨平台<br>的，而是说你要是希望打包成.exe文件，需要在Windows系统上运行PyInstaller进行打包工作；打包成mac<br>app，需要在Mac OS上使用。</p>
+<p>PyInstaller分析你的python程序，找到所有的依赖项。然后将依赖文件和python解释器放到一个文件夹下或者<br>一个可执行文件中。</p>
+<h4 id="打包成一个文件夹"><a href="#打包成一个文件夹" class="headerlink" title="打包成一个文件夹"></a>打包成一个文件夹</h4><p>当使用PyInstaller打包的时候，默认生成一个文件夹，文件夹中包含所有依赖项，以及可执行文件。打包成文<br>件夹的好处就是debug的时候可以清楚的看到依赖项有没有包含。另一个好处是更新的时候，只需要更新可执行<br>文件就可以了。当然缺点也很明显，不方便，不易管理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller script.py</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">pyinstaller -F -w --icon=<span class="string">"output.ico"</span>  script.py</span><br></pre></td></tr></table></figure></p>
+<p>参数解释：<br>-F<br>注意指令区分大小写。这里是大写。使用-F指令可以把应用打包成一个独立的exe文件，否则是一个带各种dll<br>和依赖文件的文件夹<br>-w  屏蔽带命令行的调试窗口(黑窗口)  使用窗口，无控制台<br>–icon 应用程序图标路径<br>-i    改变生成程序的icon图标<br>-D    –onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）<br>-c    –console, –nowindowed 使用控制台，无界面(默认)<br>-p    添加搜索路径，让其找到对应的库。</p>
+<p>执行完毕之后会发现多出来两个文件夹，其中单文件exe就存放在dist目录下</p>
+<p>那么它是如何工作的呢？PyInstaller的引导程序是一个二进制可执行程序。当用户启动你的程序的时候，PyIn<br>staller的引导程序开始运行，首先创建一个临时的Python环境，然后通过Python解释器导入程序的依赖，当然<br>他们都在同一个文件夹下。</p>
+<h4 id="打包成一个文件"><a href="#打包成一个文件" class="headerlink" title="打包成一个文件"></a>打包成一个文件</h4><p>我们可以用onefile参数将所有文件打包到一个可执行文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --onefile script.py</span><br></pre></td></tr></table></figure></p>
+<p>打包成一个文件相对于文件夹更容易管理。坏处运行相对比较慢。这个文件中包含了压缩的依赖文件拷贝（.so<br>文件）。</p>
+<p>当程序运行时，PyInstaller的引导程序会新建一个临时文件夹。然后解压程序的第三方依赖文件到临时文件夹<br>中。这也是为什么一个可执行文件比文件夹中执行的时间要长的原因。剩下的就和上面的一样了。</p>
 
       
     </div>
@@ -352,11 +237,11 @@
 
 
   
-    <article id="post-spark1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-数字操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/25/spark1/" class="article-date">
-  	<time datetime="2016-05-25T07:15:32.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/2017/01/15/java-数字操作/" class="article-date">
+  	<time datetime="2017-01-15T09:13:48.000Z" itemprop="datePublished">2017-01-15</time>
 </a>
     </div>
   
@@ -369,7 +254,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/spark1/">spark进阶之路——入门</a>
+      <a class="article-title" href="/2017/01/15/java-数字操作/">java-数字操作</a>
     </h1>
   
 
@@ -378,15 +263,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="spark是什么？"><a href="#spark是什么？" class="headerlink" title="spark是什么？"></a>spark是什么？</h2><p>Spark是基于内存的分布式计算框架，计算的中间结果无需利用 HDFS 进行保存，因此速度比较快。</p>
-<h2 id="spark有哪些优势？"><a href="#spark有哪些优势？" class="headerlink" title="spark有哪些优势？"></a>spark有哪些优势？</h2><p>1.计算速度快：基于内存，中间结果在内存存放，读写速度快。<br>2.方便使用：支持Scala, Java, Python ，还有交互式的 Python 和 Scala 的 shell。<br>3.功能强大：支持批处理、交互查询、流处理、机器学习、图计算。<br>4.兼容性好：可以使用各种现有的技术作为底层，也可以自己独立运行。</p>
-<h2 id="spark的架构"><a href="#spark的架构" class="headerlink" title="spark的架构"></a>spark的架构</h2><p><img src="/img/spark.jpg" alt=""></p>
-<p>Driver : 用户编写的程序，需要创建 SparkContext。<br>SparkContext : 用户和 Spark 集群交互的接口，它和 Cluster Manager 交互。<br>Cluster Manager : 负责资源管理调度。<br>Worker Node : 具体执行计算的节点。<br>Executer : 在 Worker Node 为某个应用启动的一个进程（Executer间相互独立）。<br>Task : 被送到 Executor 上的计算任务。</p>
-<h2 id="spark的工作流程"><a href="#spark的工作流程" class="headerlink" title="spark的工作流程"></a>spark的工作流程</h2><p>1.用户创建Driver ，在Driver中创建SparkContext ,连接到 Cluster Manager，Cluster Manager 分配计算资源并启动对应的 Executer。<br>2.Driver 将用户程序划分为不同的执行阶段，每个执行阶段由一组完全相同的 Task 组成，这些 Task 分别作用于待处理数据的不同分区。在阶段划分完成和 Task 创建后，Driver 会向 Executor 发送 Task。<br>3.Executor 接收到 Task 后，下载 Task 的运行依赖，在准备好 Task 的执行环境后，会开始执行Task，并  将Task 的运行状态汇报给 Driver。<br>4.Driver 根据收到的 Task 的运行状态来处理不同的状态更新。Task 分为两种：一种是 Shuffle Map Task，它实现数据的重新洗牌，洗牌的结果保存到 Executor 所在节点的文件系统中；另外一种是 Result Task，它负责生成结果数据。<br>5.Driver 会不断地调用 Task，将 Task发送到 Executor 执行，在所有的 Task 都正确执行或者超过执行   次数的限制仍然没有执行成功时停止。</p>
-<h2 id="spark系统的相关组件"><a href="#spark系统的相关组件" class="headerlink" title="spark系统的相关组件"></a>spark系统的相关组件</h2><p>Spark SQL: 类似 Hive，支持在不同 RDD 上进行类似 SQL 的操作。<br>Spark Streaming: 对于流数据进行处理。<br>MLlib: 机器学习库。<br>GraphX: 图并行框架。</p>
-<h2 id="数据抽象——RDD"><a href="#数据抽象——RDD" class="headerlink" title="数据抽象——RDD"></a>数据抽象——RDD</h2><p> RDD是Spark 框架中最重要的一类新的数据抽象，叫做 Resilient Distributed Dataset - RDD。RDD 是分布 式存储在集群中的内存对象，按照值的范围或者哈希结果进行划分。与此同时 RDD会记录关于数据进行<br>的各种操作（每次操作都会生成新的RDD），这样即使节点挂掉，也能够根据之前的操作日志重新得到损失的 RDD。</p>
-<h3 id="RDD-支持2种操作："><a href="#RDD-支持2种操作：" class="headerlink" title="RDD 支持2种操作："></a>RDD 支持2种操作：</h3><p>转换（transformation）：从现有的数据集创建一个新的数据集。<br>动作（actions）：在数据集上运行计算后，返回一个值给Driver。</p>
-<p>参考资料：<a href="http://wdxtub.com/" target="_blank" rel="external">http://wdxtub.com/</a></p>
+        <h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Math类中的所有方法都不需要实例变量值，因为这些方法是静态的，所以无须Math的实例，用类本身就好。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = Math.round(36.2)</span><br><span class="line">int y = Math.min(56,12)</span><br><span class="line">int z = Math.abs(-35)</span><br></pre></td></tr></table></figure></p>
+<p>以类的名称调用静态方法，以实例的名称调用非静态方法。</p>
+<h4 id="获取实例的方法"><a href="#获取实例的方法" class="headerlink" title="获取实例的方法"></a>获取实例的方法</h4><p>（1）new()<br>（2）序列化<br>（3）java reflection API</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>（1）静态方法不能调用非静态变量；因为静态方法是通过类的名称来调用的，无须实例，因此无法引用任何实<br>例变量。</p>
+<h3 id="Math类中常用的一些方法"><a href="#Math类中常用的一些方法" class="headerlink" title="Math类中常用的一些方法"></a>Math类中常用的一些方法</h3><h4 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h4><p>返回介于 0.0~1.0之间的双精度浮点数</p>
+<h3 id="Math-abs"><a href="#Math-abs" class="headerlink" title="Math.abs()"></a>Math.abs()</h3><p>返回双精度浮点数类型参数的绝对值，这个方法有覆盖的版本，传入整型会返回整型，传入双精度浮点会返回<br>双精度浮点。</p>
+<h3 id="Math-round"><a href="#Math-round" class="headerlink" title="Math.round()"></a>Math.round()</h3><p>根据参数是浮点数或双精度浮点数返回四舍五入后的整型或长整型。</p>
+<h3 id="Math-min"><a href="#Math-min" class="headerlink" title="Math.min()"></a>Math.min()</h3><p>返回两参数中较小的那个，有int、long、float、double的覆盖版本。</p>
+<h3 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h3><p>同上</p>
+<h3 id="主数据类型都有对应的包装类"><a href="#主数据类型都有对应的包装类" class="headerlink" title="主数据类型都有对应的包装类"></a>主数据类型都有对应的包装类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">boolean     Boolean</span><br><span class="line">char        Character</span><br><span class="line">byte        Byte</span><br><span class="line">short       Short</span><br><span class="line">int         Integer</span><br><span class="line">long        Long</span><br><span class="line"><span class="built_in">float</span>       Float</span><br><span class="line">double      Double</span><br></pre></td></tr></table></figure>
+<p>主数据类型和对应的包装类可以自动相互转换</p>
+<h3 id="字符串转主数据类型"><a href="#字符串转主数据类型" class="headerlink" title="字符串转主数据类型"></a>字符串转主数据类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s1=<span class="string">"4"</span></span><br><span class="line"></span><br><span class="line">String s2=<span class="string">"3.6"</span></span><br><span class="line"></span><br><span class="line">String s3=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line">Integer.parseInt(s1)</span><br><span class="line"></span><br><span class="line">Double.parseDouble(s2)</span><br><span class="line"></span><br><span class="line">boolean b=new Boolean(s3).booleanValue</span><br></pre></td></tr></table></figure>
+<h3 id="主数据类型转字符串"><a href="#主数据类型转字符串" class="headerlink" title="主数据类型转字符串"></a>主数据类型转字符串</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">double d=36.6</span><br><span class="line"></span><br><span class="line">String doublestring=<span class="string">""</span>+d</span><br><span class="line"></span><br><span class="line"><span class="string">"+"</span> 这个运算符是java中唯一重载过的</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">String doublestring=Double.toString(d)</span><br></pre></td></tr></table></figure>
+<h3 id="格式化输出时间"><a href="#格式化输出时间" class="headerlink" title="格式化输出时间"></a>格式化输出时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Date today = new Date();</span><br><span class="line"><span class="comment">#完整的日期与时间</span></span><br><span class="line">String.format(<span class="string">"%tc"</span>,today);</span><br><span class="line"><span class="comment">#只有时间</span></span><br><span class="line">String.format(<span class="string">"%tr"</span>,today);</span><br><span class="line"><span class="comment">#周  月  日</span></span><br><span class="line">String.format(<span class="string">"%tA,%tB,%td"</span>,today,today,today);</span><br><span class="line"><span class="comment"># "&lt;" 这个符号是个特殊的指示，用来告诉格式化程序重复利用之前用过的参数</span></span><br><span class="line">String.format(<span class="string">"%tA,%&lt;tB,%&lt;td"</span>,today);</span><br></pre></td></tr></table></figure>
+<h3 id="Calendar-常用API"><a href="#Calendar-常用API" class="headerlink" title="Calendar 常用API"></a>Calendar 常用API</h3><h4 id="重要的方法"><a href="#重要的方法" class="headerlink" title="重要的方法"></a>重要的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#加减时间值</span></span><br><span class="line">add(int field,int amount)   </span><br><span class="line"><span class="comment">#取出指定字段的值</span></span><br><span class="line">get(int field)</span><br><span class="line"><span class="comment">#返回 Calendar 子类实例，可指定地区</span></span><br><span class="line">getinstance()</span><br><span class="line"><span class="comment">#以毫秒返回时间</span></span><br><span class="line">get TimeInMillis()</span><br><span class="line"><span class="comment">#加减时间值 不进位</span></span><br><span class="line">roll(int field,boolean up)</span><br><span class="line"><span class="comment">#设定指定字段的值</span></span><br><span class="line"><span class="built_in">set</span>(int field,int value)</span><br><span class="line"><span class="comment">#设定完整的时间</span></span><br><span class="line"><span class="built_in">set</span>(year,month,day,hour,minute)</span><br><span class="line"><span class="comment">#以毫秒指定时间</span></span><br><span class="line"><span class="built_in">set</span>TimeInMillis(long millis)</span><br><span class="line">``` </span><br><span class="line"><span class="comment">#### 关键字段</span></span><br><span class="line">``` bash</span><br><span class="line">Date / DAY_OF_MONTH  <span class="comment">#每月的几号</span></span><br><span class="line">HOUR / HOUR_OF_DAY   <span class="comment">#小时</span></span><br><span class="line">MILLISECOND  <span class="comment">#毫秒</span></span><br><span class="line">MINUTE  <span class="comment">#分钟</span></span><br><span class="line">MONTH   <span class="comment">#月份</span></span><br><span class="line">YEAR    <span class="comment">#年份</span></span><br><span class="line">ZONE_OFFSET   <span class="comment">#时间位移</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -395,7 +286,202 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-netstat命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-netstat命令/" class="article-date">
+  	<time datetime="2017-01-15T01:05:08.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-netstat命令/">linux-netstat命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-a</span></span><br></pre></td></tr></table></figure>
+<p>上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要<br>查看某个协议或端口的具体连接情况。</p>
+<h3 id="列出-TCP-协议的连接"><a href="#列出-TCP-协议的连接" class="headerlink" title="列出 TCP 协议的连接"></a>列出 TCP 协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -at</span><br></pre></td></tr></table></figure>
+<h3 id="列出UDP协议的连接"><a href="#列出UDP协议的连接" class="headerlink" title="列出UDP协议的连接"></a>列出UDP协议的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -au</span><br></pre></td></tr></table></figure>
+<h3 id="禁用反向域名解析"><a href="#禁用反向域名解析" class="headerlink" title="禁用反向域名解析"></a>禁用反向域名解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
+<p>默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。<br>如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n选项禁用域名解析功能。</p>
+<h3 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnl</span><br><span class="line">``` </span><br><span class="line">不要使用 <span class="_">-a</span> 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。</span><br><span class="line"><span class="comment">### 获取进程名、进程号以及用户 ID</span></span><br><span class="line">``` bash</span><br><span class="line">netstat -nlpt</span><br></pre></td></tr></table></figure>
+<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root<br>权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。<br>相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ltpe</span><br></pre></td></tr></table></figure></p>
+<p>上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。<br>这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。<br>注意 - 假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。</p>
+<h3 id="打印统计数据"><a href="#打印统计数据" class="headerlink" title="打印统计数据"></a>打印统计数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="_">-s</span></span><br></pre></td></tr></table></figure>
+<p>netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。<br>如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（-t 和 -u）即可。</p>
+<h3 id="打印-active-状态的连接"><a href="#打印-active-状态的连接" class="headerlink" title="打印 active 状态的连接"></a>打印 active 状态的连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -atnp | grep ESTA</span><br></pre></td></tr></table></figure>
+<p>active 状态的套接字连接用 “ESTABLISHED” 字段表示，所以我们可以使用 grep 命令获得 active<br>状态的连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-防火墙开放指定端口" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/linux-防火墙开放指定端口/" class="article-date">
+  	<time datetime="2017-01-15T00:49:02.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/linux-防火墙开放指定端口/">linux-防火墙开放指定端口</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，使用firewalld代替了原来的iptables。<br>firewalld是centos7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火<br>墙的“zone”概念。</p>
+<h2 id="firewalld-常用命令"><a href="#firewalld-常用命令" class="headerlink" title="firewalld 常用命令"></a>firewalld 常用命令</h2><h3 id="永久开启端口"><a href="#永久开启端口" class="headerlink" title="永久开启端口"></a>永久开启端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h4 id="命令说明："><a href="#命令说明：" class="headerlink" title="命令说明："></a>命令说明：</h4><p>–zone #作用域</p>
+<p>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议</p>
+<p>–permanent   #永久生效，没有此参数重启后失效</p>
+<h3 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭一个端口"><a href="#永久关闭一个端口" class="headerlink" title="永久关闭一个端口"></a>永久关闭一个端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br></pre></td></tr></table></figure>
+<h3 id="永久打开某项服务："><a href="#永久打开某项服务：" class="headerlink" title="永久打开某项服务："></a>永久打开某项服务：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="永久关闭某项服务"><a href="#永久关闭某项服务" class="headerlink" title="永久关闭某项服务"></a>永久关闭某项服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-service=http</span><br></pre></td></tr></table></figure>
+<h3 id="进行端口转发"><a href="#进行端口转发" class="headerlink" title="进行端口转发"></a>进行端口转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080:toaddr=192.0.2.55</span><br></pre></td></tr></table></figure>
+<h3 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld 或者 firewall-cmd –state</span><br></pre></td></tr></table></figure>
+<h3 id="停止防火墙服务"><a href="#停止防火墙服务" class="headerlink" title="停止防火墙服务"></a>停止防火墙服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="关闭放火墙"><a href="#关闭放火墙" class="headerlink" title="关闭放火墙"></a>关闭放火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-leetcode-447-Number-of-Boomerangs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/06/leetcode-447-Number-of-Boomerangs/" class="article-date">
+  	<time datetime="2017-01-06T08:07:31.000Z" itemprop="datePublished">2017-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/leetcode-447-Number-of-Boomerangs/">leetcode-447-Number-of-Boomerangs</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -419,7 +505,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 </div>
